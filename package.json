@@ -9,19 +9,41 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^5.2.5",
+    "@headlessui/react": "^2.2.2",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@tanstack/query-core": "^5.74.4",
+    "@tanstack/react-query": "^5.74.4",
+    "@wagmi/core": "^2.16.7",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "coinbase-commerce-node": "^1.0.4",
+    "ethers": "^6.13.5",
+    "framer-motion": "^12.7.4",
+    "lucide-react": "^0.487.0",
+    "next": "15.3.0",
+    "raw-body": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.0"
+    "react-icons": "^5.5.0",
+    "react-qr-code": "^2.0.15",
+    "tailwind-merge": "^3.2.0",
+    "tw-animate-css": "^1.2.5",
+    "viem": "^2.27.2",
+    "wagmi": "^2.14.16",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/coinbase-commerce-node": "^1.0.9",
     "@types/node": "^20",
+    "@types/raw-body": "^2.1.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
