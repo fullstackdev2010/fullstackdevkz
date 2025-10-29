@@ -10,11 +10,8 @@ const NAV = [
   { href: "/services", label: "Services" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/releases", label: "Releases" },
-  { href: "/process", label: "Process" },
   { href: "/stack", label: "Stack" },
   { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -34,8 +31,8 @@ export default function Header() {
         scrolled ? "bg-[#1C1B33]/80 backdrop-blur border-b border-white/10" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify_between">
-        <Link href="/" className="font-semibold tracking-tight text-white hover:opacity-90">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <Link href="/" className="font-semibold tracking-tight text-white hover:opacity-90 mr-8">
           <span className="text-fuchsia-400">Fullstack</span> Dev KZ
         </Link>
 
