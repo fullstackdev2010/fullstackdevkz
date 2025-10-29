@@ -6,7 +6,7 @@ import AppShell from "@/components/AppShell"; // ← we’ll move the logic ther
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Verse & Music – Franz Schopenhauer",
+  title: "Fullstack Dev KZ",
   description: "Poetry and music visually and mentally reflected",
   icons: {
     icon: "/favicon.ico",

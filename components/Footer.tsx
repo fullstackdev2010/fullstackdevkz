@@ -13,9 +13,9 @@ export default function Footer() {
       viewport={{ once: true }}
     >
       <p className="mb-4">
-        &copy; {new Date().getFullYear()} Franz Schopenhauer — Verse & Music
+        &copy; {new Date().getFullYear()} Fullstack Dev KZ
         <br />
-        Crafted with poetry & rhythm.
+        Coded with inspiration
       </p>
 
       <div className="flex justify-center gap-6 text-lg text-white/60 hover:text-white">
