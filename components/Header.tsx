@@ -1,10 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
-import { ShopLink } from "@/components/ShopLink"; // ✅ import
+
+const NAV = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/process", label: "Process" },
+  { href: "/stack", label: "Stack" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,66 +28,53 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#1C1B33]/95 shadow-2xl backdrop-blur-sm" : "bg-[#1C1B33]"
-      } border-b border-fuchsia-700/20`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+        scrolled ? "bg-[#1C1B33]/80 backdrop-blur border-b border-white/10" : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo + Tagline */}
-        <Link href="/" className="flex items-center space-x-4">
-          <Image
-            src="/logo.png"
-            alt="FS Logo"
-            width={40}
-            height={40}
-            className="rounded-sm"
-          />
-          <div className="text-white leading-tight">
-            <div className="text-xl font-serif font-semibold tracking-wide">
-              Franz Schopenhauer
-            </div>
-          </div>
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <Link href="/" className="font-semibold tracking-tight text-white hover:opacity-90">
+          <span className="text-fuchsia-400">Fullstack</span> Dev KZ
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-sm text-white/80 items-center">
-          <Link href="/music" className="relative group hover:text-white transition">
-            Music
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-fuchsia-400 transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link href="/poems" className="relative group hover:text-white transition">
-            Poems
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-fuchsia-400 transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <ShopLink />
-          <Link href="/services" className="relative group hover:text-white transition">
-            Services
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-fuchsia-400 transition-all duration-300 group-hover:w-full"></span>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          {NAV.map((item) => (
+            <Link key={item.href} href={item.href} className="text-violet-200 hover:text-white">
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/contact" className="ml-2 inline-flex items-center rounded-xl px-4 py-2 bg-fuchsia-600/90 hover:bg-fuchsia-500 text-white">
+            Get a Quote
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden text-white text-2xl">
-          <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Menu">
-            {menuOpen ? <HiX /> : <HiOutlineMenu />}
-          </button>
-        </div>
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Menu"
+        >
+          {menuOpen ? <HiX size={28} /> : <HiOutlineMenu size={28} />}
+        </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#1C1B33] border-t border-fuchsia-700/20 px-6 pb-4 text-white/80 text-sm space-y-3">
-          <Link href="/music" onClick={() => setMenuOpen(false)} className="block hover:text-white">
-            Music
-          </Link>
-          <Link href="/poems" onClick={() => setMenuOpen(false)} className="block hover:text-white">
-            Poems
-          </Link>
-          <Link href="/shop" onClick={() => setMenuOpen(false)} className="block hover:text-white">
-            Shop
-          </Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)} className="block hover:text-white">
-            Services
+        <div className="md:hidden bg-[#1C1B33] border-t border-white/10 px-4 py-4 space-y-3">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="block text-violet-200 hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="block mt-2 rounded-xl px-4 py-2 bg-fuchsia-600/90 text-white text-center"
+          >
+            Get a Quote
           </Link>
         </div>
       )}
