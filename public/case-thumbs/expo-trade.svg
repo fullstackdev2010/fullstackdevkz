@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#0B0F19"/>
+  <g stroke="#A78BFA" fill="none" stroke-width="2">
+    <path d="M200 520 L1000 520"/>
+    <rect x="240" y="240" width="200" height="180" rx="16"/>
+    <rect x="480" y="200" width="200" height="220" rx="16"/>
+    <rect x="720" y="260" width="200" height="160" rx="16"/>
+  </g>
+  <text x="600" y="640" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="28">Expo Trade / Sales App</text>
+</svg>

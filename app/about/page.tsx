@@ -1,22 +1,29 @@
+import PageHeader from "@/components/sections/PageHeader";
 
-export const metadata = { title: "About – Fullstack Dev KZ" };
+const values = [
+  ["Outcome‑driven", "We define success in measurable user and business results."],
+  ["Ship safely", "Feature flags, PR discipline, release channels, robust telemetry."],
+  ["Own the craft", "Great DX, clean architecture, maintainable code and docs."],
+];
 
-export default function Page() {
+export default function Page(){
   return (
-    <main className="min-h-[70vh] bg-[#1C1B33] text-white">
-      <div className="max-w-4xl mx-auto px-4 py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold mb-4">About Fullstack Dev KZ</h1>
-        <p className="text-violet-200 mb-4">
-          We build performant, secure mobile software. Recent work spans secure on‑device scanning (UniScan) and a full
-          trading stack (Iskra) from mobile client to FastAPI backend.
-        </p>
-        <p className="text-violet-200 mb-4">
-          Our philosophy: ship small, integrate native capabilities responsibly, and measure UX quality under real‑world conditions.
-        </p>
-        <div className="mt-8">
-          <a className="underline" href="/case-studies">See our case studies</a>
+    <main className="bg-[#0B0F19]">
+      <PageHeader title="About" subtitle="Small, senior, and hands‑on. We partner to ship." image="/brainwave/about.svg"/>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {values.map(([t, d]) => (
+            <div key={t} className="rounded-3xl border border-slate-800/60 bg-slate-900/40 p-6">
+              <div className="text-white">{t}</div>
+              <p className="mt-2 text-slate-300/90 text-sm">{d}</p>
+            </div>
+          ))}
         </div>
-      </div>
+        <div className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div className="text-white font-medium">We’ve worked across fintech, health, marketplaces, and B2B.</div>
+          <p className="mt-2 text-slate-300/90 text-sm">Ask for references — we’re happy to connect you directly.</p>
+        </div>
+      </section>
     </main>
   );
 }

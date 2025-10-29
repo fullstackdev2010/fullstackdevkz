@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#0B0F19"/>
+  <g fill="none" stroke="#A78BFA" stroke-width="2">
+    <circle cx="300" cy="300" r="180"/>
+    <circle cx="600" cy="300" r="220"/>
+    <circle cx="900" cy="300" r="160"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif">About the Team</text>
+</svg>

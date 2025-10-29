@@ -1,64 +1,60 @@
-import fs from "node:fs";
-import path from "node:path";
+import PageHeader from "@/components/sections/PageHeader";
+import CaseCard from "@/components/sections/CaseCard";
 
-export const metadata = { title: "Case Studies – Fullstack Dev KZ" };
+const cases = [
+  {
+    title: "Secure Messaging App",
+    role: "Architecture & full‑stack delivery",
+    stack: "Next.js, Socket.IO, FastAPI, PostgreSQL, RSA E2EE, KeyManager",
+    body: "Built an E2EE chat: client‑side keygen, encrypted private key backup, passphrase restore, and modular KeyManager. Transitioned to user sessions and improved login flows.",
+    src: "/case-thumbs/secure-messaging.svg",
+  },
+  {
+    title: "Expo Trade / Sales App (SaaS)",
+    role: "Mobile + backend; productization",
+    stack: "Expo Router, Zustand→Context auth, Axios, FastAPI, Postgres",
+    body: "Full app with hierarchical catalog, cart, orders, auth & search. Migrated toward SDK 53, fixed safe‑area/tab issues, added protected routes and dashboard.",
+    src: "/case-thumbs/expo-trade.svg",
+  },
+  {
+    title: "Scan Logger – Mercury CL‑2200",
+    role: "Windows desktop app",
+    stack: "Python (Tkinter, pystray, PIL)",
+    body: "Multi‑scanner logging with live UI, row highlighting, tray control, ESC full‑screen toggle, focus management, daily CSV logs, EXE packaging & autostart.",
+    src: "/case-thumbs/scan-logger.svg",
+  },
+  {
+    title: "Verse‑n‑Music: Catalog & Crypto Shop",
+    role: "Web & payments",
+    stack: "Next.js, RainbowKit/Wagmi, Coinbase Pay, Firebase",
+    body: "Rebuilt site with music & poems catalogs, 30 track pages, crypto ‘Collect’ flow (ETH/ERC20, TRX/TRC20), explorer verification, receipts, and success banners.",
+    src: "/case-thumbs/verse-n-music.svg",
+  },
+  {
+    title: "Iskra Yug – Android App",
+    role: "Release engineering & compliance",
+    stack: "Expo, Play Console, R8/ProGuard",
+    body: "Prepared Play listing assets, privacy policy, internal testing, addressed obfuscation warnings, and aligned metadata with store requirements.",
+    src: "/case-thumbs/iskra-yug.svg",
+  },
+  {
+    title: "SecureMO – Auth & Users",
+    role: "Backend + frontend auth",
+    stack: "FastAPI, JWT, bcrypt, React UI",
+    body: "Phase 1: register/login/me with JWT; Phase 2: 1:1 chat groundwork; Option B: encrypted private key backup; passphrase flows and admin visibility for partial key checks.",
+    src: "/case-thumbs/securemo.svg",
+  },
+];
 
-type Item = { title: string; slug: string; date?: string };
-
-function parseFrontmatter(raw: string) {
-  const titleMatch = raw.match(/title:\s*["']?(.+?)["']?\s*$/m);
-  const dateMatch = raw.match(/date:\s*["']?(.+?)["']?\s*$/m);
-  return { title: titleMatch?.[1], date: dateMatch?.[1] };
-}
-
-function getItems(): Item[] {
-  const dir = path.join(process.cwd(), "app", "case-studies");
-  if (!fs.existsSync(dir)) return [];
-
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-  const directFiles = entries
-    .filter(e => e.isFile() && e.name.endsWith(".mdx"))
-    .map(e => {
-      const slug = e.name.replace(/\.mdx$/, "");
-      const full = fs.readFileSync(path.join(dir, e.name), "utf8");
-      const meta = parseFrontmatter(full);
-      return { title: meta.title || slug, date: meta.date, slug };
-    });
-
-  const folderPages = entries
-    .filter(e => e.isDirectory())
-    .map(e => {
-      const pageMdx = path.join(dir, e.name, "page.mdx");
-      if (!fs.existsSync(pageMdx)) return null;
-      const full = fs.readFileSync(pageMdx, "utf8");
-      const meta = parseFrontmatter(full);
-      return { title: meta.title || e.name, date: meta.date, slug: e.name };
-    })
-    .filter(Boolean) as Item[];
-
-  return [...directFiles, ...folderPages].sort((a, b) => {
-    if (a.date && b.date) return a.date > b.date ? -1 : 1;
-    return a.title.localeCompare(b.title);
-  });
-}
-
-export default function Page() {
-  const items = getItems();
+export default function Page(){
   return (
-    <main className="min-h-[70vh] bg-[#1C1B33] text-white">
-      <div className="max-w-6xl mx-auto px-4 py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold mb-6">Case Studies</h1>
-        {items.length === 0 && <p className="text-violet-200">No case studies yet.</p>}
-        <div className="grid sm:grid-cols-2 gap-5">
-          {items.map((cs) => (
-            <a key={cs.slug} href={`/case-studies/${cs.slug}`} className="border border-white/10 rounded-2xl p-5 bg-[#262448] hover:border-fuchsia-400/40">
-              <h2 className="text-xl">{cs.title}</h2>
-              {cs.date && <div className="text-sm text-violet-300">{cs.date}</div>}
-            </a>
-          ))}
+    <main className="bg-[#0B0F19]">
+      <PageHeader title="Case Studies" subtitle="Selected projects using our real stack and outcomes." image="/brainwave/case-studies.svg" />
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cases.map(c => <CaseCard key={c.title} {...c} />)}
         </div>
-      </div>
+      </section>
     </main>
   );
 }

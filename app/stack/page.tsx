@@ -1,49 +1,28 @@
+import PageHeader from "@/components/sections/PageHeader";
 
-export const metadata = { title: "Tech Stack – Fullstack Dev KZ" };
-
-const groups = [
-  {
-    title: "Mobile",
-    items: ["Expo 53", "React Native 0.79", "TypeScript", "React Navigation", "Expo Router", "Nativewind/Tailwind", "Paper UI"],
-  },
-  {
-    title: "Device & Native",
-    items: ["expo-camera", "image-manipulator", "file-system", "secure-store", "local-authentication", "NetInfo", "Skia"],
-  },
-  {
-    title: "OCR & ML",
-    items: ["Tesseract OCR", "ML Kit Text Recognition"],
-  },
-  {
-    title: "Data & State",
-    items: ["axios (+retry)", "TanStack Query", "Zustand"],
-  },
-  {
-    title: "Backend",
-    items: ["FastAPI", "SQLAlchemy", "Pydantic", "PostgreSQL"],
-  },
-  {
-    title: "DevOps",
-    items: ["EAS Build/Submit", "CI-ready scripts", "Rate limiting (slowapi)"],
-  },
+const stack = [
+  ["Mobile", "React Native / Expo, Swift, Kotlin"],
+  ["Backend", "FastAPI, Node.js, Postgres, Redis"],
+  ["Auth", "JWT, OAuth2, Passkeys, Biometrics"],
+  ["Realtime", "Socket.IO, WebRTC, MQTT"],
+  ["CI/CD", "GitHub Actions, EAS, Fastlane"],
+  ["Observability", "Sentry, Logtail, Grafana"],
 ];
 
-export default function Page() {
+export default function Page(){
   return (
-    <main className="min-h-[70vh] bg-[#1C1B33] text-white">
-      <div className="max-w-6xl mx-auto px-4 py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold mb-8">Tech Stack</h1>
-        <div className="grid md:grid-cols-3 gap-5">
-          {groups.map(g => (
-            <section key={g.title} className="rounded-2xl border border-white/10 bg-[#262448] p-5">
-              <h2 className="text-lg mb-2">{g.title}</h2>
-              <ul className="text-violet-200 space-y-1.5 list-disc list-inside">
-                {g.items.map(i => <li key={i}>{i}</li>)}
-              </ul>
-            </section>
+    <main className="bg-[#0B0F19]">
+      <PageHeader title="Stack" subtitle="The technology we rely on every day." image="/brainwave/stack.svg"/>
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {stack.map(([h,b]) => (
+            <div key={h} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <div className="text-white">{h}</div>
+              <p className="mt-2 text-slate-300/90 text-sm">{b}</p>
+            </div>
           ))}
         </div>
-      </div>
+      </section>
     </main>
   );
 }

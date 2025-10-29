@@ -1,236 +1,34 @@
-export const metadata = { title: "Releases – Fullstack Dev KZ" };
+import PageHeader from "@/components/sections/PageHeader";
 
-type ReleaseEntry = {
-  version: string;
-  status?: "stable" | "beta" | "rc";
-  highlights: string[];
-  perf?: string[];
-  security?: string[];
-  compatibility?: string[];
-  notes?: string[];
-};
-
-type Project = {
-  name: string;
-  codename?: string;
-  description: string;
-  caseStudyHref?: string;
-  repoHref?: string;
-  storeHref?: string;
-  releases: ReleaseEntry[];
-};
-
-const projects: Project[] = [
-  {
-    name: "UniScan",
-    codename: "secure-ocr-scanner",
-    description:
-      "Privacy-first mobile scanner built with Expo and React Native. Performs on-device OCR and secures data at rest with modern cryptography.",
-    caseStudyHref: "/case-studies/uniscan",
-    releases: [
-      {
-        version: "1.1.0",
-        status: "stable",
-        highlights: [
-          "On-device OCR pipeline refactor (faster pre-processing, improved accuracy on low-light images)",
-          "Encrypted export for PDF/ZIP (AES-GCM) with optional passphrase",
-          "Biometric gate for opening the local vault (FaceID / Biometrics)",
-        ],
-        perf: [
-          "OCR throughput +22% on mid‑range devices",
-          "Cold start reduced by ~300ms via lazy imports",
-        ],
-        security: [
-          "Secrets moved to Expo SecureStore",
-          "Key derivation hardened (argon2id)",
-        ],
-        compatibility: [
-          "Android 9+",
-          "iOS 14+",
-          "Expo SDK 53",
-        ],
-        notes: [
-          "Adds background sync toggle and low‑memory capture guard.",
-        ],
-      },
-      {
-        version: "1.0.0",
-        status: "stable",
-        highlights: [
-          "Initial public release with camera capture, document crops, and OCR",
-          "Local encrypted vault, quick share, and basic history",
-        ],
-        perf: [
-          "Edge detection tuned for business card and A4",
-        ],
-        security: [
-          "Vault encryption with AES‑GCM; keys stored in SecureStore",
-        ],
-        compatibility: [
-          "Android 9+",
-          "iOS 14+",
-        ],
-      },
-    ],
-  },
-  {
-    name: "Iskra UG (Mobile)",
-    codename: "iskraug",
-    description:
-      "Expo-based trading client: hierarchical catalog, cart & orders, resilient networking with offline‑aware UX.",
-    caseStudyHref: "/case-studies/iskra-mobile",
-    releases: [
-      {
-        version: "1.3.0",
-        status: "stable",
-        highlights: [
-          "Auth refresh flow aligned with backend tokens",
-          "Order history with incremental sync and skeleton UI",
-          "Deep links for product details and pending carts",
-        ],
-        perf: [
-          "Cold cache browse 1.8× faster with react-query prefetch",
-          "Bundle size trimmed by code‑splitting low‑traffic routes",
-        ],
-        security: [
-          "Secure session storage with SecureStore",
-          "CORS & rate‑limit parity with backend",
-        ],
-        compatibility: [
-          "Expo SDK 53",
-          "Android 8+, iOS 13+",
-        ],
-        notes: [
-          "Adds retry with backoff for unstable networks.",
-        ],
-      },
-      {
-        version: "1.2.0",
-        status: "stable",
-        highlights: [
-          "Offline catalog cache with background revalidation",
-          "Cart resilience (persisted; merges on login)",
-        ],
-        perf: [
-          "List virtualization for large categories",
-        ],
-        security: [
-          "Scoped tokens; logout clears sensitive caches",
-        ],
-        compatibility: [
-          "Android 8+, iOS 13+",
-        ],
-      },
-      {
-        version: "1.0.0",
-        status: "stable",
-        highlights: [
-          "MVP: catalog, search, cart, checkout and order confirmation",
-          "Zustand state + React Query for data fetching",
-        ],
-      },
-    ],
-  },
+const releases = [
+  ["2025-07-23", "Auth Refactor", "Login flow modularization; biometric/PIN encapsulated."],
+  ["2025-07-22", "PIN Keypad & UI", "Round keypad redesign aligned with sign‑in screen."],
+  ["2025-06-28", "Expo SDK 53 Migration", "Safe area + tab bar fixes; step‑by‑step migration plan."],
+  ["2025-06-15", "Frontend Auth Guards", "Session persistence via React Context; protected routes."],
+  ["2025-06-04", "Trade App Integration", "Complete Expo Router app + FastAPI backend linked."],
+  ["2025-05-06", "E2EE Chat Milestone", "Working end‑to‑end encryption; session transition."],
+  ["2025-04-21", "Crypto Checkout Modal", "ETH/ERC20 & TRX/TRC20, QR, explorer checks, receipts."],
+  ["2025-04-20", "Poetry PDF & Shop", "Minimalist PDFs, table of contents, shop integration."],
+  ["2025-04-16", "Scan Logger Core", "Multi‑scanner UI, daily logs, tray/ESC behaviors."],
+  ["2025-04-14", "Site & Catalog Buildout", "30 track pages, header polish, mobile menu."]
 ];
 
-function Pill({ children, tone = "default" }: { children: string; tone?: "default" | "accent" | "ok" | "warn" }) {
-  const tones: Record<string, string> = {
-    default: "bg-white/10 text-white",
-    accent: "bg-fuchsia-600/80 text-white",
-    ok: "bg-emerald-600/80 text-white",
-    warn: "bg-amber-600/80 text-white",
-  };
-  return <span className={`inline-block px-2 py-0.5 rounded-md text-xs ${tones[tone]} whitespace-nowrap`}>{children}</span>;
-}
-
-export default function Page() {
+export default function Page(){
   return (
-    <main className="min-h-[70vh] bg-[#1C1B33] text-white">
-      <div className="max-w-6xl mx-auto px-4 py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold mb-8">Releases</h1>
-        <p className="text-violet-200 mb-10">Production snapshots of our shipped apps with highlights, performance notes and compatibility.</p>
-        <div className="space-y-10">
-          {projects.map((p) => (
-            <section key={p.name} className="rounded-2xl border border-white/10 bg-[#262448]">
-              <div className="p-5 border-b border-white/10">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="text-2xl font-medium">{p.name}</h2>
-                  <Pill tone="accent">Expo</Pill>
-                  {p.codename && <Pill>{p.codename}</Pill>}
-                </div>
-                <p className="text-violet-200 mt-2">{p.description}</p>
-                <div className="mt-3 flex gap-3 text-sm">
-                  {p.caseStudyHref && (
-                    <a href={p.caseStudyHref} className="underline text-fuchsia-300">Case study →</a>
-                  )}
-                  {p.repoHref && (
-                    <a href={p.repoHref} className="underline text-violet-300">Repository →</a>
-                  )}
-                  {p.storeHref && (
-                    <a href={p.storeHref} className="underline text-violet-300">Store listing →</a>
-                  )}
-                </div>
-              </div>
-
-              <div className="divide-y divide-white/10">
-                {p.releases.map((r) => (
-                  <div key={r.version} className="p-5">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-lg font-semibold">v{r.version}</h3>
-                      <Pill tone="ok">{r.status ?? "stable"}</Pill>
-                    </div>
-
-                    {r.highlights?.length && (
-                      <div className="mt-3">
-                        <h4 className="text-sm uppercase tracking-wide text-violet-300">Highlights</h4>
-                        <ul className="list-disc list-inside text-violet-200 mt-1 space-y-1">
-                          {r.highlights.map((h) => <li key={h}>{h}</li>)}
-                        </ul>
-                      </div>
-                    )}
-
-                    {r.perf?.length && (
-                      <div className="mt-3">
-                        <h4 className="text-sm uppercase tracking-wide text-violet-300">Performance</h4>
-                        <ul className="list-disc list-inside text-violet-200 mt-1 space-y-1">
-                          {r.perf.map((h) => <li key={h}>{h}</li>)}
-                        </ul>
-                      </div>
-                    )}
-
-                    {r.security?.length && (
-                      <div className="mt-3">
-                        <h4 className="text-sm uppercase tracking-wide text-violet-300">Security</h4>
-                        <ul className="list-disc list-inside text-violet-200 mt-1 space-y-1">
-                          {r.security.map((h) => <li key={h}>{h}</li>)}
-                        </ul>
-                      </div>
-                    )}
-
-                    {r.compatibility?.length && (
-                      <div className="mt-3">
-                        <h4 className="text-sm uppercase tracking-wide text-violet-300">Compatibility</h4>
-                        <ul className="list-disc list-inside text-violet-200 mt-1 space-y-1">
-                          {r.compatibility.map((h) => <li key={h}>{h}</li>)}
-                        </ul>
-                      </div>
-                    )}
-
-                    {r.notes?.length && (
-                      <div className="mt-3">
-                        <h4 className="text-sm uppercase tracking-wide text-violet-300">Notes</h4>
-                        <ul className="list-disc list-inside text-violet-200 mt-1 space-y-1">
-                          {r.notes.map((h) => <li key={h}>{h}</li>)}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
+    <main className="bg-[#0B0F19]">
+      <PageHeader title="Releases" subtitle="Product and project milestones we've shipped." image="/brainwave/releases.svg"/>
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <ol className="relative before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white/10">
+          {releases.map(([date, title, desc]) => (
+            <li key={title} className="ml-6 py-6 relative">
+              <div className="absolute -left-1.5 mt-6 h-3 w-3 rounded-full bg-cyan-400" />
+              <div className="text-sm text-slate-400">{date}</div>
+              <div className="text-white font-medium">{title}</div>
+              <p className="text-slate-300/90 text-sm">{desc}</p>
+            </li>
           ))}
-        </div>
-      </div>
+        </ol>
+      </section>
     </main>
   );
 }

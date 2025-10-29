@@ -1,60 +1,44 @@
-
-export const metadata = { title: "Our Services – Fullstack Dev KZ" };
+import PageHeader from "@/components/sections/PageHeader";
+import { Wrench, Smartphone, Server, Lock, Rocket, Boxes } from "lucide-react";
 
 const services = [
-  {
-    title: "iOS & Android Apps",
-    bullets: [
-      "Swift/SwiftUI, Kotlin/Jetpack, React Native / Expo",
-      "Camera, OCR, biometrics, secure storage",
-      "App Store / Play Console delivery & compliance",
-    ],
-  },
-  {
-    title: "Cross‑platform Delivery",
-    bullets: [
-      "Expo + EAS pipelines with staging/production channels",
-      "Native modules integration (camera, ML, crypto)",
-      "Performance profiling and CI snapshots",
-    ],
-  },
-  {
-    title: "Backend & APIs",
-    bullets: [
-      "FastAPI / Node, PostgreSQL with SQLAlchemy/Prisma",
-      "Auth (JWT/refresh), rate limiting, observability",
-      "Automated tests & seed loaders",
-    ],
-  },
-  {
-    title: "Design & UX",
-    bullets: [
-      "Design systems, accessibility, haptics & motion",
-      "Offline-first flows & failure states",
-      "Analytics and in‑app experiments",
-    ],
-  },
+  { icon: Smartphone, title: "Mobile Apps (RN/Expo)", desc: "iOS/Android apps with secure auth, realtime, and polished UX."},
+  { icon: Server, title: "Backend APIs", desc: "FastAPI/Node, Postgres/Redis, JWT/OAuth, websockets, file/CDN."},
+  { icon: Lock, title: "Security & E2EE", desc: "Passkeys, biometrics, RSA/ECDH, encrypted key backup, audits."},
+  { icon: Rocket, title: "CI/CD & Releases", desc: "EAS, Fastlane, GitHub Actions, OTA release channels, telemetry."},
+  { icon: Boxes, title: "SaaS & Multi‑Tenant", desc: "Productizing backends, per‑tenant config, billing hooks."},
+  { icon: Wrench, title: "Desktop & Utilities", desc: "Windows barcode/QR tools, packaging, startup services."},
 ];
 
-export default function Page() {
+const modes = [
+  ["MVP Sprint", "2–4 weeks to a functional app (TestFlight/Play internal test)."],
+  ["Feature Team", "We embed and push hard on roadmap delivery with quality gates."],
+  ["Stabilize/Rescue", "Crash‑rate cuts, performance work, release automation."],
+];
+
+export default function Page(){
   return (
-    <main className="min-h-[70vh] bg-[#1C1B33] text-white">
-      <div className="max-w-6xl mx-auto px-4 py-24">
-        <h1 className="text-3xl md:text-4xl font-semibold mb-8">Our Services</h1>
-        <div className="grid md:grid-cols-2 gap-5">
-          {services.map(s => (
-            <section key={s.title} className="rounded-2xl border border-white/10 bg-[#262448] p-5">
-              <h2 className="text-xl mb-3">{s.title}</h2>
-              <ul className="text-violet-200 space-y-1.5 list-disc list-inside">
-                {s.bullets.map(b => <li key={b}>{b}</li>)}
-              </ul>
-            </section>
+    <main className="bg-[#0B0F19]">
+      <PageHeader title="Services" subtitle="Design. Build. Ship. Iterate." image="/brainwave/services.svg" />
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map(({icon:Icon, title, desc}) => (
+            <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <Icon className="h-6 w-6 text-cyan-300" />
+              <div className="mt-3 text-white font-medium">{title}</div>
+              <p className="mt-2 text-slate-300/90 text-sm">{desc}</p>
+            </div>
           ))}
         </div>
-        <div className="mt-10 text-violet-300">
-          See also: <a className="underline" href="/case-studies">Case Studies</a> and <a className="underline" href="/stack">Tech Stack</a>.
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {modes.map(([t,d]) => (
+            <div key={t} className="rounded-3xl border border-slate-800/60 bg-slate-900/40 p-6">
+              <div className="text-white">{t}</div>
+              <p className="mt-2 text-slate-300/90 text-sm">{d}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
     </main>
   );
 }

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#0B0F19"/>
+  <g stroke="#22D3EE" stroke-width="2" fill="none">
+    <path d="M200 140 C400 200 800 80 1000 160"/>
+    <path d="M180 420 C340 360 860 520 1020 460"/>
+  </g>
+  <g fill="#A78BFA">
+    <circle cx="320" cy="280" r="6"/><circle cx="860" cy="300" r="6"/>
+    <circle cx="700" cy="240" r="6"/><circle cx="500" cy="360" r="6"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif">Contact</text>
+</svg>
