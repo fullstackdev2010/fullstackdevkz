@@ -1,13 +1,20 @@
-import Hero from "@/components/Hero";
-import Featured from "@/components/Featured";
-import Footer from "@/components/Footer";
+// app/page.tsx
+import HeroWave from "@/components/sections/HeroWave";
+import Capabilities from "@/components/sections/Capabilities";
+import ShowcaseParallax from "@/components/sections/ShowcaseParallax";
+import ProcessRoadmap from "@/components/sections/ProcessRoadmap";
+import LogosMarquee from "@/components/sections/LogosMarquee";
+import CTASection from "@/components/sections/CTASection";
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <div className="bg-[#1C1B33] text-white font-serif">
-      <Hero />
-      <Featured />
-      <Footer />
-    </div>
+    <main className="bg-[#0B0F19]">
+      <HeroWave />
+      <LogosMarquee />
+      <Capabilities />
+      <ShowcaseParallax />
+      <ProcessRoadmap />
+      <CTASection />
+    </main>
   );
 }
