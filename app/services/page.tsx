@@ -1,4 +1,4 @@
-import PageHeader from "@/components/sections/PageHeader";
+import HeroServices from "@/components/sections/HeroServices";
 import { Wrench, Smartphone, Server, Lock, Rocket, Boxes } from "lucide-react";
 
 const services = [
@@ -19,7 +19,7 @@ const modes = [
 export default function Page(){
   return (
     <main className="bg-[#0B0F19]">
-      <PageHeader title="Services" subtitle="Design. Build. Ship. Iterate." image="/brainwave/services.svg" />
+      <HeroServices />
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map(({icon:Icon, title, desc}) => (

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#1C1B33"/>
+  <g transform="translate(130,140)">
+    <path d="M420,200a80,80 0 1 0-30-154a110,110 0 1 0-202,54a70,70 0 1 0-8,140z" fill="#0F1025" stroke="url(#g)" stroke-width="3"/>
+    <rect x="40" y="120" rx="12" width="120" height="70" fill="#15163A" stroke="#2e2c55"/>
+    <rect x="200" y="80" rx="12" width="120" height="70" fill="#15163A" stroke="#2e2c55"/>
+    <rect x="360" y="160" rx="12" width="120" height="70" fill="#15163A" stroke="#2e2c55"/>
+    <text x="70" y="163" fill="#C7D2FE" font-size="20" font-family="monospace">API</text>
+    <text x="225" y="122" fill="#C7D2FE" font-size="18" font-family="monospace">Auth</text>
+    <text x="382" y="202" fill="#C7D2FE" font-size="18" font-family="monospace">DB</text>
+    <path d="M160,155 C190,155 200,115 200,115" stroke="url(#g)" stroke-width="3" fill="none"/>
+    <path d="M320,115 C340,115 370,180 360,180" stroke="url(#g)" stroke-width="3" fill="none"/>
+    <path d="M160,155 C260,210 360,195 360,195" stroke="url(#g)" stroke-width="3" fill="none"/>
+  </g>
+  <text x="50" y="560" fill="#C4B5FD" font-family="Inter, ui-sans-serif" font-size="18">API + Cloud architecture</text>
+</svg>

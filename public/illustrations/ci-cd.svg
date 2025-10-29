@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#22C55E"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#1C1B33"/>
+  <g transform="translate(120,120)">
+    <rect x="0" y="0" width="560" height="320" rx="16" fill="#0F1025" stroke="url(#g)" stroke-width="3"/>
+    <g transform="translate(40,40)">
+      <rect x="0" y="0" width="160" height="80" rx="10" fill="#15163A"/>
+      <text x="20" y="48" fill="#A7F3D0" font-family="monospace" font-size="18">Git Push</text>
+      <rect x="200" y="0" width="160" height="80" rx="10" fill="#15163A"/>
+      <text x="220" y="48" fill="#A7F3D0" font-family="monospace" font-size="18">Build</text>
+      <rect x="400" y="0" width="160" height="80" rx="10" fill="#15163A"/>
+      <text x="420" y="48" fill="#A7F3D0" font-family="monospace" font-size="18">Test</text>
+      <rect x="200" y="120" width="160" height="80" rx="10" fill="#15163A"/>
+      <text x="220" y="168" fill="#A7F3D0" font-family="monospace" font-size="18">Deploy</text>
+      <path d="M160,40 H200 M360,40 H400 M280,80 V120" stroke="url(#g)" stroke-width="3" fill="none"/>
+    </g>
+  </g>
+  <text x="50" y="560" fill="#C4B5FD" font-family="Inter, ui-sans-serif" font-size="18">CI/CD pipeline</text>
+</svg>

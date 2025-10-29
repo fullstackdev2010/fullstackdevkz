@@ -3,31 +3,47 @@ title: "Iskra UG — Mobile Trading Suite"
 date: "2025-10-29"
 ---
 
-# Iskra UG – Mobile Trading Suite
+![Cover](/case-studies/iskraug/cover.svg)
 
-A modern **cross-platform trading application** with a **FastAPI backend** and Expo-based mobile client.  
-It provides real-time catalog browsing, cart management, and offline order processing.
+# Iskra UG — Mobile Trading Suite
 
-## Overview
-Iskra enables industrial clients and field agents to browse multi-level product catalogs, manage carts, and track orders seamlessly.  
-It is powered by a **FastAPI + PostgreSQL** backend and a **React Native / Expo** frontend, integrated via REST APIs.
+A cross‑platform **trading app** backed by **FastAPI + PostgreSQL** with a mobile client built on **Expo (React Native)**.
+It delivers real‑time catalog browsing, cart → order flows, offline resilience, and a clean UI for field agents.
+
+## Goals
+- Catalog → Cart → Order with reliable sync.
+- Simple stack: **Expo + API**, secure auth, predictable releases.
+- Room to scale: search, analytics, batching, permissions.
+
+## Scope
+- Mobile client: authenticated sessions, protected screens, saved state.
+- Server endpoints: catalog, cart, orders (pagination, filtering).
+- Release pipelines and store‑ready artifacts.
 
 ## Key Features
-- Hierarchical catalog and full-text search  
-- Cart persistence and merge on login  
-- Order creation, confirmation, and tracking  
-- Offline cache with background revalidation  
-- Secure JWT authentication with refresh tokens  
-- EAS build pipelines for deployment  
+- **Catalog & Search** — hierarchical browsing, quick search, filters.
+- **Cart & Orders** — persistent cart, order draft/submit, status tracking.
+- **Auth** — JWT sessions with `/register`, `/login`, `/me` and refresh.
+- **Offline** — cached catalog, queued actions with retry.
+- **Polish** — safe‑area fixes, stable tabs, accessible controls, haptics.
 
 ## Technical Highlights
-- **Frontend:** Expo 53 · React Native 0.79 · TypeScript  
-- **State:** Zustand + TanStack Query  
-- **Styling:** Tailwind (nativewind) + Paper UI  
-- **Backend:** FastAPI · SQLAlchemy · Pydantic · PostgreSQL  
-- **Middleware:** CORS, rate-limiting (slowapi), async routers  
-- **DevOps:** EAS pipelines · automated seeds · CI-ready scripts  
+- **Mobile** — Expo SDK 53, RN; Expo Router; Context for auth/session.
+- **Backend** — FastAPI, PostgreSQL, SQLAlchemy; JWT auth.
+- **Networking** — Axios interceptors; error boundaries; toasts.
+- **Build & Releases** — EAS builds/updates; Fastlane; GitHub Actions CI.
+- **Observability** — Sentry crashes; request logging; feature flags.
 
-## Result
-A production-grade mobile + backend ecosystem for secure trading.  
-Iskra UG ensures resilient offline access, fast synchronization, and complete data integrity for enterprise-level deployments.
+## Performance & QA
+- Fixed safe‑area + tab bar issues during SDK 53 migration.
+- Lazy imports on heavy screens; memoized lists; image caching for catalog.
+- Smoke tests for auth/cart/order flows; regression checklist per release.
+
+## Results
+- First internal build shipped in **2–4 weeks** with auth, catalog, orders.
+- Weekly releases after; lower crash rate; faster build pipeline.
+
+## Next
+- Add **analytics** (search, add‑to‑cart, order events).
+- Expand **offline** queue with conflict resolution.
+- Integrate **payments** and exportable order summaries.

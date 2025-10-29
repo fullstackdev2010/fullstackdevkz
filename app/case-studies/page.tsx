@@ -1,58 +1,73 @@
-import PageHeader from "@/components/sections/PageHeader";
-import CaseCard from "@/components/sections/CaseCard";
+// Full-width Case Studies index with Brainwave hover glows and no centered container.
+import fs from "node:fs";
+import path from "node:path";
 
-const cases = [
-  {
-    title: "Secure Messaging App",
-    role: "Architecture & full‑stack delivery",
-    stack: "Next.js, Socket.IO, FastAPI, PostgreSQL, RSA E2EE, KeyManager",
-    body: "Built an E2EE chat: client‑side keygen, encrypted private key backup, passphrase restore, and modular KeyManager. Transitioned to user sessions and improved login flows.",
-    src: "/case-thumbs/secure-messaging.svg",
-  },
-  {
-    title: "Expo Trade / Sales App (SaaS)",
-    role: "Mobile + backend; productization",
-    stack: "Expo Router, Zustand→Context auth, Axios, FastAPI, Postgres",
-    body: "Full app with hierarchical catalog, cart, orders, auth & search. Migrated toward SDK 53, fixed safe‑area/tab issues, added protected routes and dashboard.",
-    src: "/case-thumbs/expo-trade.svg",
-  },
-  {
-    title: "Scan Logger – Mercury CL‑2200",
-    role: "Windows desktop app",
-    stack: "Python (Tkinter, pystray, PIL)",
-    body: "Multi‑scanner logging with live UI, row highlighting, tray control, ESC full‑screen toggle, focus management, daily CSV logs, EXE packaging & autostart.",
-    src: "/case-thumbs/scan-logger.svg",
-  },
-  {
-    title: "Verse‑n‑Music: Catalog & Crypto Shop",
-    role: "Web & payments",
-    stack: "Next.js, RainbowKit/Wagmi, Coinbase Pay, Firebase",
-    body: "Rebuilt site with music & poems catalogs, 30 track pages, crypto ‘Collect’ flow (ETH/ERC20, TRX/TRC20), explorer verification, receipts, and success banners.",
-    src: "/case-thumbs/verse-n-music.svg",
-  },
-  {
-    title: "Iskra Yug – Android App",
-    role: "Release engineering & compliance",
-    stack: "Expo, Play Console, R8/ProGuard",
-    body: "Prepared Play listing assets, privacy policy, internal testing, addressed obfuscation warnings, and aligned metadata with store requirements.",
-    src: "/case-thumbs/iskra-yug.svg",
-  },
-  {
-    title: "SecureMO – Auth & Users",
-    role: "Backend + frontend auth",
-    stack: "FastAPI, JWT, bcrypt, React UI",
-    body: "Phase 1: register/login/me with JWT; Phase 2: 1:1 chat groundwork; Option B: encrypted private key backup; passphrase flows and admin visibility for partial key checks.",
-    src: "/case-thumbs/securemo.svg",
-  },
-];
+export const metadata = { title: "Case Studies – Fullstack Dev KZ" };
 
-export default function Page(){
+type Item = { title: string; slug: string; date?: string; excerpt?: string };
+
+function parseFrontmatter(raw: string) {
+  const body = raw.replace(/^---[\s\S]*?---\n?/, "");
+  const titleMatch = raw.match(/title:\s*["']?(.+?)["']?\s*$/m);
+  const dateMatch = raw.match(/date:\s*["']?(.+?)["']?\s*$/m);
+  // excerpt = first meaningful line
+  let excerpt = "";
+  for (const line of body.split(/\r?\n/)) {
+    const s = line.trim();
+    if (!s || s.startsWith("#") || s.startsWith("![")) continue;
+    excerpt = s.replace(/\*\*/g, "").replace(/`/g, "");
+    if (excerpt.length > 200) excerpt = excerpt.slice(0, 197) + "…";
+    break;
+  }
+  return { title: titleMatch?.[1], date: dateMatch?.[1], excerpt };
+}
+
+function getItems(): Item[] {
+  const dir = path.join(process.cwd(), "app", "case-studies");
+  const subdirs = fs.readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory());
+  const items: Item[] = [];
+  for (const d of subdirs) {
+    const p = path.join(dir, d.name, "page.mdx");
+    if (!fs.existsSync(p)) continue;
+    const raw = fs.readFileSync(p, "utf-8");
+    const { title, date, excerpt } = parseFrontmatter(raw);
+    items.push({ title: title ?? d.name, slug: d.name, date, excerpt });
+  }
+  return items.sort((a, b) => (b.date?.localeCompare(a.date ?? "") ?? 0));
+}
+
+export default function Page() {
+  const items = getItems();
   return (
-    <main className="bg-[#0B0F19]">
-      <PageHeader title="Case Studies" subtitle="Selected projects using our real stack and outcomes." image="/brainwave/case-studies.svg" />
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cases.map(c => <CaseCard key={c.title} {...c} />)}
+    <main>
+      {/* Full-bleed header with no max-width container */}
+      <section className="w-full px-6 py-16 sm:py-24">
+        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">Case Studies</h1>
+        <p className="mt-3 max-w-3xl text-slate-300/90">
+          Real projects, real outcomes. Explore goals, technical highlights, and results.
+        </p>
+      </section>
+
+      {/* Full-width grid; only side paddings via px-0/px-6 for gutters on small screens */}
+      <section className="w-full">
+        <div className="grid grid-cols-1 gap-6 px-0 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((cs, i) => (
+            <a
+              key={cs.slug}
+              href={`/case-studies/${cs.slug}`}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-fuchsia-400/40"
+            >
+              {/* Brainwave glow */}
+              <div className="pointer-events-none absolute -inset-12 -z-10 opacity-40 blur-3xl transition group-hover:opacity-70">
+                <div className={`h-full w-full ${i % 2 ? "bg-gradient-to-r from-cyan-500/40 to-violet-500/40" : "bg-gradient-to-r from-violet-500/40 to-cyan-500/40"}`} />
+              </div>
+
+              <div className="text-sm text-violet-300">{cs.date}</div>
+              <h2 className="mt-1 text-xl text-white">{cs.title}</h2>
+              {cs.excerpt && <p className="mt-2 text-slate-300/90 text-sm">{cs.excerpt}</p>}
+              <div className="mt-4 text-sm text-cyan-300">Read case →</div>
+            </a>
+          ))}
         </div>
       </section>
     </main>
