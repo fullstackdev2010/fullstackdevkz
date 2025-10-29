@@ -5,19 +5,42 @@ export const metadata = { title: "Case Studies – Fullstack Dev KZ" };
 
 type Item = { title: string; slug: string; date?: string };
 
+function parseFrontmatter(raw: string) {
+  const titleMatch = raw.match(/title:\s*["']?(.+?)["']?\s*$/m);
+  const dateMatch = raw.match(/date:\s*["']?(.+?)["']?\s*$/m);
+  return { title: titleMatch?.[1], date: dateMatch?.[1] };
+}
+
 function getItems(): Item[] {
   const dir = path.join(process.cwd(), "app", "case-studies");
   if (!fs.existsSync(dir)) return [];
-  const files = fs.readdirSync(dir).filter(f => f.endsWith(".mdx"));
-  return files
-    .map((file) => {
-      const slug = file.replace(/\.mdx$/, "");
-      const full = fs.readFileSync(path.join(dir, file), "utf8");
-      const titleMatch = full.match(/title:\s*["']?(.+?)["']?\s*$/m);
-      const dateMatch = full.match(/date:\s*["']?(.+?)["']?\s*$/m);
-      return { title: titleMatch?.[1] || slug, date: dateMatch?.[1], slug };
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  const directFiles = entries
+    .filter(e => e.isFile() && e.name.endsWith(".mdx"))
+    .map(e => {
+      const slug = e.name.replace(/\.mdx$/, "");
+      const full = fs.readFileSync(path.join(dir, e.name), "utf8");
+      const meta = parseFrontmatter(full);
+      return { title: meta.title || slug, date: meta.date, slug };
+    });
+
+  const folderPages = entries
+    .filter(e => e.isDirectory())
+    .map(e => {
+      const pageMdx = path.join(dir, e.name, "page.mdx");
+      if (!fs.existsSync(pageMdx)) return null;
+      const full = fs.readFileSync(pageMdx, "utf8");
+      const meta = parseFrontmatter(full);
+      return { title: meta.title || e.name, date: meta.date, slug: e.name };
     })
-    .sort((a, b) => (a.date && b.date ? (a.date > b.date ? -1 : 1) : 0));
+    .filter(Boolean) as Item[];
+
+  return [...directFiles, ...folderPages].sort((a, b) => {
+    if (a.date && b.date) return a.date > b.date ? -1 : 1;
+    return a.title.localeCompare(b.title);
+  });
 }
 
 export default function Page() {

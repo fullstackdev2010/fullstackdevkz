@@ -1,3 +1,4 @@
+// NOTE: Add 'Releases' to the NAV.
 "use client";
 
 import Link from "next/link";
@@ -8,6 +9,7 @@ const NAV = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/case-studies", label: "Case Studies" },
+  { href: "/releases", label: "Releases" },
   { href: "/process", label: "Process" },
   { href: "/stack", label: "Stack" },
   { href: "/about", label: "About" },
@@ -32,7 +34,7 @@ export default function Header() {
         scrolled ? "bg-[#1C1B33]/80 backdrop-blur border-b border-white/10" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify_between">
         <Link href="/" className="font-semibold tracking-tight text-white hover:opacity-90">
           <span className="text-fuchsia-400">Fullstack</span> Dev KZ
         </Link>
@@ -72,7 +74,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="block mt-2 rounded-xl px-4 py-2 bg-fuchsia-600/90 text-white text-center"
+            className="block mt-2 rounded-xl px-4 py-2 bg-fuchsia-600/90 text-white text_center"
           >
             Get a Quote
           </Link>

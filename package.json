@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/playfair-display": "^5.2.5",
     "@headlessui/react": "^2.2.2",
+    "@mdx-js/loader": "3.0.1",
     "@mdx-js/react": "3.0.1",
     "@next/mdx": "15.3.0",
     "@radix-ui/react-slot": "^1.2.0",
