@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
+
+// Enable MDX as first-class pages in the /app directory
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {},
+  pageExtensions: ["ts", "tsx", "md", "mdx"],
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);
