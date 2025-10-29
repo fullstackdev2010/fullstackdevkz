@@ -1,0 +1,32 @@
+
+---
+title: "UniScan — Secure OCR Scanner"
+date: "2025-10-29"
+---
+
+# UniScan (Expo)
+
+A privacy‑first mobile scanner built with **Expo** and **React Native** that performs **on‑device OCR** and secures data with **modern cryptography**.
+
+## Highlights
+- **On-device OCR** via Tesseract / ML Kit (no server round‑trip)
+- **End‑to‑end security**: encryption (Ed25519/modern hashes), **Expo SecureStore**, optional **biometric unlock**
+- **Offline-first** with background sync
+- **Smooth UI** with React Navigation, Paper UI and Skia accents
+
+## Stack
+- **Expo 53**, **React Native 0.79**, TypeScript, Expo Router
+- Camera, Image Manipulator, File System, Document Picker
+- OCR: `@devinikhiya/react-native-tesseractocr`, `@react-native-ml-kit/text-recognition`
+- Security: `@noble/ed25519`, `@noble/hashes`, **expo-secure-store**, **expo-local-authentication**
+- UI/UX: **react-native-paper**, **react-navigation**, haptics
+
+## Notable Modules
+- `expo-camera`, `expo-image-manipulator`, `expo-file-system`
+- `expo-secure-store`, `expo-local-authentication`, `expo-crypto`
+- `@react-native-async-storage/async-storage`, `react-native-toast-message`
+
+## What we delivered
+- Instant scans with crisp text extraction
+- Encrypted export (PDF/DOCX) and secure local vault
+- Role‑based sharing with device biometrics gate
