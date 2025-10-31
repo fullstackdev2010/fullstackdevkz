@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="relative min-h-screen bg-[#0B0F19]">
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       <Image
-        src="/brainwave/cs-mesh.svg"
+        src="/brainwave/unified-mesh.svg"
         alt=""
         width={1600}
         height={900}

@@ -4,7 +4,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen bg-[#0B0F19]">
       <Image
-        src="/brainwave/contact-mesh.svg"
+        src="/brainwave/unified-mesh.svg"
         alt=""
         width={1600}
         height={900}

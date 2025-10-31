@@ -1,4 +1,5 @@
 import "./globals.css";
+import UnifiedMesh from "@/components/visuals/UnifiedMesh";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AppShell from "@/components/AppShell"; // ← we’ll move the logic there
