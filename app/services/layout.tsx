@@ -1,14 +1,13 @@
-import Image from "next/image";
-export default function Layout({ children }: { children: React.ReactNode }) {
+import type { ReactNode } from "react";
+import UnifiedMesh from "@/components/visuals/UnifiedMesh";
+
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen bg-[#0B0F19]">
-      <Image
-        src="/brainwave/unified-mesh.svg"
-        alt=""
-        width={1600}
-        height={900}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60"
-        priority
+      <UnifiedMesh
+        className="pointer-events-auto absolute inset-0 h-full w-full opacity-60"
+        variant="cyan"
+        bobbles={[{"x": 210, "y": 160, "w": 240, "h": 460, "rx": 36, "rotate": -4}, {"x": 760, "y": 260, "w": 230, "h": 440, "rx": 36, "rotate": 3}, {"x": 1220, "y": 180, "w": 240, "h": 460, "rx": 36, "rotate": -2}]}
       />
       <div className="pointer-events-none absolute inset-0 bg-[#0B0F19]/30" />
       <div className="relative">{children}</div>
