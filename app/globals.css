@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "@fontsource/playfair-display";
+@import "../styles/tokens.css";
 
 @tailwind utilities;
 

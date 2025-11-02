@@ -1,20 +1,44 @@
-// app/page.tsx
-import HeroWave from "@/components/sections/HeroWave";
-import Capabilities from "@/components/sections/Capabilities";
-import ShowcaseParallax from "@/components/sections/ShowcaseParallax";
-import ProcessRoadmap from "@/components/sections/ProcessRoadmap";
-import LogosMarquee from "@/components/sections/LogosMarquee";
-import CTASection from "@/components/sections/CTASection";
+import MeshBackground from "@/components/mesh/MeshBackground";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { DeviceFrame } from "@/components/ui/DeviceFrame";
+import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 
-export default function Page() {
+export default function Home() {
   return (
-    <main className="bg-[#0B0F19]">
-      <HeroWave />
-      <LogosMarquee />
-      <Capabilities />
-      <ShowcaseParallax />
-      <ProcessRoadmap />
-      <CTASection />
+    <main className="relative isolate">
+      <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
+          <div className="absolute inset-0">
+            <MeshBackground />
+          </div>
+          <div className="relative z-10 grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship, poetic precision.</h1>
+              <p className="mt-5 max-w-prose text-lg text-[var(--muted)]">
+                Expo + FastAPI + Next.js — robust trading apps, secure messaging, crypto checkout, and elegant meshes that feel alive.
+              </p>
+              <div className="mt-8 flex gap-4">
+                <a className="glow-outline inline-flex items-center rounded-xl bg-white/10 px-5 py-3 text-sm" href="/work">See our builds</a>
+                <a className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm" href="/contact">Start a project</a>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <DeviceFrame platform="android" src="/demos/iskra/home.png" width={360} height={720} />
+            </div>
+          </div>
+        </div>
+
+        <section className="mt-20 grid gap-6 md:grid-cols-3">
+          {["Trading Catalog", "Secure Messaging", "Crypto Checkout"].map((title, i) => (
+            <RevealOnScroll key={title} delay={i * 0.06}>
+              <GlassCard>
+                <h3 className="text-xl font-medium">{title}</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">A focused card describing what we build with a mesh accent and measurable outcomes.</p>
+              </GlassCard>
+            </RevealOnScroll>
+          ))}
+        </section>
+      </div>
     </main>
   );
 }

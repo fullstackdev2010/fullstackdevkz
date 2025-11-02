@@ -1,0 +1,48 @@
+:root {
+  /* Base palette */
+  --bg: #0B0F19;
+  --surface: #0F1423;
+  --fg: #E6E7EC;
+  --muted: #B9BDCB;
+
+  /* Mesh spectral ramp (brand) */
+  --brand-1: #7AA2FF;
+  --brand-2: #8DF2D6;
+  --brand-3: #FFB3EC;
+  --brand-4: #C2FF7A;
+  --brand-5: #FFD07A;
+
+  /* Glass & borders */
+  --glass: rgba(255,255,255,.06);
+  --glass-strong: rgba(255,255,255,.12);
+  --glass-border: rgba(255,255,255,.14);
+
+  /* Radii & shadows */
+  --radius: 1.25rem;
+  --radius-xl: 1.75rem;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.15);
+  --shadow-md: 0 6px 24px rgba(0,0,0,.25);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.35);
+
+  /* Motion */
+  --dur-quick: 180ms;
+  --dur-slow: 420ms;
+  --ease-spring: cubic-bezier(.2,.8,.2,1);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/***** Glass helpers *****/
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glow-outline {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 24px rgba(124, 164, 255, 0.25);
+}
