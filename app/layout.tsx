@@ -1,24 +1,23 @@
-import "./globals.css";
-import UnifiedMesh from "@/components/visuals/UnifiedMesh";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import AppShell from "@/components/AppShell"; // ← we’ll move the logic there
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import './globals.css';
+import { Navbar } from '@/components/ui/Navbar';
+import { Footer } from '@/components/ui/Footer';
+import { RouteTransition } from '@/components/motion/RouteTransition';
 
 export const metadata: Metadata = {
-  title: "Fullstack Dev KZ",
-  description: "Poetry and music visually and mentally reflected",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: 'Fullstack Dev KZ — Mesh Mobile Craft',
+  description: 'Expo + FastAPI + Next.js — mobile craftsmanship, poetic precision.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <AppShell>{children}</AppShell>
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <Navbar />
+        <RouteTransition>
+          {children}
+        </RouteTransition>
+        <Footer />
       </body>
     </html>
   );
