@@ -1,10 +1,35 @@
 import MeshBackground from '@/components/mesh/MeshBackground';
-import { GlassCard } from '@/components/ui/GlassCard';
+import CaseCard from '@/components/work/CaseCard';
 
-const projects = [
-  { title: 'Iskra Trading App', summary: 'Expo + FastAPI trading suite with offline cart, secure auth, and ERP bridges.', palette: ['var(--brand-1)','var(--brand-2)','var(--brand-3)'] },
-  { title: 'Secure Messaging', summary: 'E2EE chat with passphrase-based private key restore and Socket.io transport.', palette: ['#7AA2FF','#FFB3EC','#8DF2D6'] },
-  { title: 'Crypto Checkout', summary: 'ETH/TRX payments with QR, testnets, auto-confirmation, receipts.', palette: ['#8DF2D6','#FFD07A','#7AA2FF'] },
+const cases = [
+  {
+    href: '/work/ubiscan',
+    title: 'UbiScan — On-device OCR Scanner',
+    summary: 'High-speed scanning with on-device OCR, native modules, and encrypted results.',
+    tags: ['Expo', 'OCR', 'Encryption'],
+    thumb: '/demos/ubiscan/home.png',
+  },
+  {
+    href: '/work/ubiscan-deep-dive',
+    title: 'UbiScan — Deep Dive',
+    summary: 'Performance levers: ROI, debounce, ring buffers. Security and offline design.',
+    tags: ['Perf', 'Security', 'Offline'],
+    thumb: '/demos/ubiscan/preview.png',
+  },
+  {
+    href: '/work/iskra',
+    title: 'Iskra Trading — Mobile Catalog & Orders',
+    summary: 'Expo app + FastAPI backend with offline cart and ERP bridges.',
+    tags: ['Expo', 'FastAPI', 'ERP'],
+    thumb: '/demos/iskra/home.png',
+  },
+  {
+    href: '/work/secure-messaging',
+    title: 'Secure Messaging — E2EE',
+    summary: 'End‑to‑end encryption with passphrase restore and resilient UX.',
+    tags: ['E2EE', 'RSA', 'Socket.io'],
+    thumb: '/demos/secure-messaging/chat.png',
+  },
 ];
 
 export default function Page() {
@@ -13,16 +38,11 @@ export default function Page() {
       <div className="absolute inset-0"><MeshBackground /></div>
       <section className="relative mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-semibold">Work</h1>
-        <p className="mt-4 max-w-2xl text-[var(--muted)]">Selected projects tinted with their own mesh palettes. Each entry: challenge → approach → metrics.</p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {projects.map((p) => (
-            <GlassCard key={p.title}>
-              <div className="h-24 w-full rounded-xl mb-4 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-70" style={{ background: `radial-gradient(600px 400px at 20% 20%, ${p.palette[0]}, transparent), radial-gradient(600px 400px at 80% 50%, ${p.palette[1]}, transparent), radial-gradient(600px 400px at 50% 80%, ${p.palette[2]}, transparent)` }} />
-              </div>
-              <h3 className="text-lg font-medium">{p.title}</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">{p.summary}</p>
-            </GlassCard>
+        <p className="mt-4 max-w-2xl text-[var(--muted)]">Selected case studies across mobile, backend, and crypto flows — all tinted with mesh palettes.</p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {cases.map(c => (
+            <CaseCard key={c.href} {...c} />
           ))}
         </div>
       </section>
