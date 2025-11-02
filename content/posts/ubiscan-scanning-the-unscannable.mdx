@@ -1,0 +1,34 @@
+---
+title: UbiScan — Scanning the Unscannable
+date: "2025-10-28"
+excerpt: On-device OCR, native camera modules, and encrypted results in a practical Expo app.
+tags: [expo, ocr, encryption, native-modules]
+---
+
+UbiScan is a scanner app built with Expo and native camera/OCR modules. It performs **on-device OCR** with a throttled frames pipeline and encrypts extracted text before syncing.
+
+## Highlights
+
+- **Fast:** sub-second OCR on mainstream Android hardware
+- **Private:** AES-GCM encryption on device; optional sync with idempotent endpoints
+- **Resilient:** offline queue with retry and backoff
+
+## Tech stack
+
+- Expo Router, React Native Reanimated, native camera module
+- Lightweight OCR lib bound to a typed hook
+- FastAPI backend with signed URLs, audit logging
+
+## Lessons learned
+
+- Region-of-interest and zoom hints reduce OCR cost dramatically
+- Debouncing frames + a ring-buffer keeps UI smooth
+- Encrypt early; resist temporary plaintext storage
+
+```tsx
+// pseudo: useOCR hook
+const { start, stop, result } = useOCR({ region, debounce: 80, zoomHint: 1.2 });
+useEffect(() => { start(); return stop; }, [start, stop]);
+```
+
+That’s the gist — check the case study for metrics and implementation structure.
