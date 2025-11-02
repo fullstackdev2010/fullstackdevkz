@@ -3,7 +3,7 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-white/10 bg-[color:var(--surface)]/40">
-      <div className="mx-auto max-w-7xl px-6 py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
+      <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
         <div>
           <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
           <p className="mt-2">Mobile craftsmanship, poetic precision. Expo • FastAPI • Next.js.</p>
