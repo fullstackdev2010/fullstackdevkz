@@ -125,7 +125,7 @@ html {
     font-family: 'Playfair Display', serif;
     letter-spacing: 0.02em;
     line-height: 1.75;
-    background-color: #5a56aa;
+    background-color: var(--surface-alt-4);
   }
 
   h1, h2, h3 {
@@ -150,7 +150,7 @@ html {
 }
 
 .animate-gradientBlur {
-  background: linear-gradient(270deg, #9D4EDD, #F72585, #4CC9F0);
+  background: linear-gradient(270deg, var(--accent-30), var(--accent-32), var(--accent-19));
   background-size: 600% 600%;
   animation: gradientBlur 30s ease infinite;
 }

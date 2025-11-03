@@ -5,7 +5,7 @@ export default function Page() {
     <CaseStudyTemplate
       title="UNIScan — On‑device OCR Scanner"
       tagline="High‑speed scanning with on‑device OCR, native modules, and end‑to‑end encrypted results for privacy‑sensitive workflows."
-      palette={['#7AA2FF','#8DF2D6','#FFB3EC']}
+      palette={['var(--brand-1)','var(--brand-2)','var(--brand-3)']}
       heroImage="/demos/ubiscan/home.png"
       kpis={[
         { label: 'Scans / min', value: '45–60', note: 'mid‑range Android' },

@@ -3,7 +3,7 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen bg-[#0B0F19]">
+    <div className="relative min-h-screen bg-[var(--bg)]">
       <MeshWithPhotoInsets
         className="pointer-events-auto absolute inset-0 h-full w-full"
         backgroundSrc="/brand/unified-mesh.svg"
@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           // { href: "/demos/ubiscan/home.png",  x: 220,  y: 160, w: 260, h: 390, rx: 28, overlay: "soft",   mixBlendMode: "overlay" },
         ]}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[#0B0F19]/30" />
+      <div className="pointer-events-none absolute inset-0 bg-[var(--bg)]/30" />
       <div className="relative">{children}</div>
     </div>
   );

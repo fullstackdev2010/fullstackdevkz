@@ -8,7 +8,7 @@ export default function Page() {
       <CaseStudyTemplate
         title="Secure Messaging — E2EE with Passphrase Restore"
         tagline="End-to-end encryption, passphrase-protected private keys, and a clean UX for restore and error recovery."
-        palette={['#7AA2FF','#FFB3EC','#8DF2D6']}
+        palette={['var(--brand-1)','var(--brand-3)','var(--brand-2)']}
         heroImage="/demos/secure-messaging/chat.png"
         kpis={[
           { label: 'p50 message send', value: '≤ 180 ms' },

@@ -12,13 +12,13 @@ const items = [
 
 export default function Featured() {
   return (
-    <section className="py-16 bg-[#201E3A]">
+    <section className="py-16 bg-[var(--accent-28)]">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl text-white mb-6">Featured Services</h2>
         <p className="text-violet-200 mb-10 max-w-3xl">From discovery to launch, we build mobile apps that feel effortless and perform beautifully.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map(({ icon: Icon, title, points, href }) => (
-            <Link key={title} href={href} className="group block rounded-2xl border border-white/10 bg-[#262448] p-5 hover:border-fuchsia-400/40 transition">
+            <Link key={title} href={href} className="group block rounded-2xl border border-white/10 bg-[var(--bg-alt-12)] p-5 hover:border-fuchsia-400/40 transition">
               <div className="flex items-center gap-3">
                 <Icon className="w-6 h-6 text-fuchsia-300" />
                 <h3 className="text-white text-lg font-medium">{title}</h3>

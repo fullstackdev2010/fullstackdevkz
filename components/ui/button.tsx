@@ -13,7 +13,7 @@ export function Button({ as: Tag = 'a' as any, href, onClick, children, variant=
   }[size];
   const variants = {
     glass: 'glass border-white/20 hover:bg-white/10',
-    glow: 'bg-white/10 border border-white/20 shadow-[0_0_0_1px_rgba(255,255,255,.1),0_10px_40px_rgba(124,164,255,.35)] hover:shadow-[0_0_0_1px_rgba(255,255,255,.15),0_16px_60px_rgba(124,164,255,.5)]',
+    glow: 'bg-white/10 border border-white/20 shadow-[0_0_0_1px_var(--accent-8),0_10px_40px_var(--accent-15)] hover:shadow-[0_0_0_1px_var(--accent-12),0_16px_60px_var(--accent-2)]',
     outline: 'border border-white/25 hover:bg-white/5',
     soft: 'bg-white/[.07] hover:bg-white/[.12]',
   }[variant];

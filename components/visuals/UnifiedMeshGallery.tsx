@@ -54,45 +54,45 @@ export default function UnifiedMeshGallery({
       <defs>
         {/* Mesh gradients */}
         <radialGradient id="ballA" cx="50%" cy="50%" r="60%">
-          <stop offset="0%"  stopColor={variant === "cyan"   ? "#67E8F9" : "#22D3EE"} stopOpacity="0.85"/>
-          <stop offset="60%" stopColor={variant === "violet" ? "#C4B5FD" : "#A78BFA"} stopOpacity="0.45"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0"/>
+          <stop offset="0%"  stopColor={variant === "cyan"   ? "var(--accent-34)" : "var(--accent-37)"} stopOpacity="0.85"/>
+          <stop offset="60%" stopColor={variant === "violet" ? "var(--accent-36)" : "var(--accent-21)"} stopOpacity="0.45"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0"/>
         </radialGradient>
         <radialGradient id="ballB" cx="50%" cy="50%" r="60%">
-          <stop offset="0%"  stopColor="#A78BFA" stopOpacity="0.85"/>
-          <stop offset="60%" stopColor="#22D3EE" stopOpacity="0.45"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0"/>
+          <stop offset="0%"  stopColor="var(--accent-21)" stopOpacity="0.85"/>
+          <stop offset="60%" stopColor="var(--accent-37)" stopOpacity="0.45"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0"/>
         </radialGradient>
         <radialGradient id="ballC" cx="50%" cy="50%" r="60%">
-          <stop offset="0%"  stopColor="#67E8F9" stopOpacity="0.85"/>
-          <stop offset="60%" stopColor="#C4B5FD" stopOpacity="0.45"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0"/>
+          <stop offset="0%"  stopColor="var(--accent-34)" stopOpacity="0.85"/>
+          <stop offset="60%" stopColor="var(--accent-36)" stopOpacity="0.45"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0"/>
         </radialGradient>
 
         {/* Subtle dot texture */}
         <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="1" fill="#334155" />
+          <circle cx="1" cy="1" r="1" fill="var(--surface-alt-1)" />
         </pattern>
 
         {/* Overlays for photos */}
         <linearGradient id={overlayId("soft")} x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.00"/>
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.06"/>
+          <stop offset="0%"   stopColor="var(--accent-23)" stopOpacity="0.00"/>
+          <stop offset="100%" stopColor="var(--accent-23)" stopOpacity="0.06"/>
         </linearGradient>
         <linearGradient id={overlayId("cyan")} x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#22D3EE" stopOpacity="0.25"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0.0"/>
+          <stop offset="0%"   stopColor="var(--accent-37)" stopOpacity="0.25"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0.0"/>
         </linearGradient>
         <linearGradient id={overlayId("violet")} x1="1" x2="0" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#A78BFA" stopOpacity="0.25"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0.0"/>
+          <stop offset="0%"   stopColor="var(--accent-21)" stopOpacity="0.25"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0.0"/>
         </linearGradient>
 
         {/* Filters */}
         <filter id="blurA"><feGaussianBlur stdDeviation="55" /></filter>
         <filter id="blurB"><feGaussianBlur stdDeviation="45" /></filter>
         <filter id="blurC"><feGaussianBlur stdDeviation="35" /></filter>
-        <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#67E8F9" floodOpacity="0.8"/></filter>
+        <filter id="glow"><feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="var(--accent-34)" floodOpacity="0.8"/></filter>
 
         {/* Film grain (optional) */}
         <filter id="grain">
@@ -115,7 +115,7 @@ export default function UnifiedMeshGallery({
       </defs>
 
       {/* Base */}
-      <rect width="100%" height="100%" fill="#0B0F19"/>
+      <rect width="100%" height="100%" fill="var(--bg)"/>
       {showDots && <rect width="100%" height="100%" fill="url(#dots)" opacity="0.25"/>}
 
       {/* Mesh blobs */}
@@ -153,7 +153,7 @@ export default function UnifiedMeshGallery({
       })}
 
       {/* Wireframe bobbles on top */}
-      <g fill="none" stroke="#7dd3fc" strokeOpacity="0.22" strokeWidth="2" style={{ cursor: "pointer" }}>
+      <g fill="none" stroke="var(--muted-alt-10)" strokeOpacity="0.22" strokeWidth="2" style={{ cursor: "pointer" }}>
         {bobbles.map((b, i) => (
           <rect
             key={i}
@@ -168,8 +168,8 @@ export default function UnifiedMeshGallery({
       {showVignette && (
         <g pointerEvents="none">
           <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
-            <stop offset="60%" stopColor="#000" stopOpacity="0"/>
-            <stop offset="100%" stopColor="#000" stopOpacity="0.35"/>
+            <stop offset="60%" stopColor="var(--accent-24)" stopOpacity="0"/>
+            <stop offset="100%" stopColor="var(--accent-24)" stopOpacity="0.35"/>
           </radialGradient>
           <rect width="100%" height="100%" fill="url(#vignette)"/>
         </g>

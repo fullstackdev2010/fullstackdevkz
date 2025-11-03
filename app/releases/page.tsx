@@ -39,7 +39,7 @@ export default function Page() {
                   <div className={`h-full w-full ${idx % 2 ? "bg-gradient-to-r from-cyan-500/40 to-violet-500/40" : "bg-gradient-to-r from-violet-500/40 to-cyan-500/40"}`} />
                 </div>
                 {/* node */}
-                <div className="absolute -top-8 left-6 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-[#0B0F19]" />
+                <div className="absolute -top-8 left-6 h-4 w-4 rounded-full bg-cyan-400 ring-4 ring-[var(--bg)]" />
                 <div className="text-sm text-violet-300">{date}</div>
                 <div className="mt-1 text-white font-medium">{title}</div>
                 <p className="mt-1 text-slate-300/90 text-sm">{desc}</p>

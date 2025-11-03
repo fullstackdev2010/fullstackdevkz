@@ -42,16 +42,16 @@ export default function MeshWithPhotoInsets({
       <defs>
         {/* Gentle overlays you can glaze over photos */}
         <linearGradient id="overlay_soft" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.00"/>
-          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.06"/>
+          <stop offset="0%"   stopColor="var(--accent-23)" stopOpacity="0.00"/>
+          <stop offset="100%" stopColor="var(--accent-23)" stopOpacity="0.06"/>
         </linearGradient>
         <linearGradient id="overlay_cyan" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#22D3EE" stopOpacity="0.25"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0.00"/>
+          <stop offset="0%"   stopColor="var(--accent-37)" stopOpacity="0.25"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0.00"/>
         </linearGradient>
         <linearGradient id="overlay_violet" x1="1" x2="0" y1="0" y2="1">
-          <stop offset="0%"   stopColor="#A78BFA" stopOpacity="0.25"/>
-          <stop offset="100%" stopColor="#0B0F19" stopOpacity="0.00"/>
+          <stop offset="0%"   stopColor="var(--accent-21)" stopOpacity="0.25"/>
+          <stop offset="100%" stopColor="var(--bg)" stopOpacity="0.00"/>
         </linearGradient>
 
         {/* Film grain (optional) */}
@@ -66,8 +66,8 @@ export default function MeshWithPhotoInsets({
 
         {/* Vignette (optional) */}
         <radialGradient id="vgn" cx="50%" cy="50%" r="70%">
-          <stop offset="60%" stopColor="#000" stopOpacity="0"/>
-          <stop offset="100%" stopColor="#000" stopOpacity="0.35"/>
+          <stop offset="60%" stopColor="var(--accent-24)" stopOpacity="0"/>
+          <stop offset="100%" stopColor="var(--accent-24)" stopOpacity="0.35"/>
         </radialGradient>
 
         {/* Build rounded-rect clip paths for each photo */}

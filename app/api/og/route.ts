@@ -13,7 +13,7 @@ export async function GET(req: Request) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #0B0F19, #0F1423)',
+          background: 'linear-gradient(135deg, var(--bg), var(--surface))',
           color: 'white',
           fontSize: 64,
           fontWeight: 700,
@@ -26,7 +26,7 @@ export async function GET(req: Request) {
             position: 'absolute',
             inset: 0,
             opacity: .5,
-            background: 'radial-gradient(800px 500px at 20% 20%, rgba(122,162,255,.35), transparent), radial-gradient(800px 500px at 70% 70%, rgba(141,242,214,.35), transparent)'
+            background: 'radial-gradient(800px 500px at 20% 20%, var(--accent-11), transparent), radial-gradient(800px 500px at 70% 70%, var(--accent-6), transparent)'
           }}
         />
         <div style={{ position: 'relative', maxWidth: 1000, textAlign: 'center' }}>{title}</div>

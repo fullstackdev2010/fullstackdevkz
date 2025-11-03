@@ -71,7 +71,17 @@ export default function MeshBackground({
 
   return (
     <div className={clsx("pointer-events-none absolute inset-0 overflow-hidden", className)}>
-      <div className="absolute inset-0" style={{ background: "radial-gradient(1200px 800px at 20% 10%, rgba(255,255,255,0.04), transparent), radial-gradient(1200px 800px at 80% 90%, rgba(255,255,255,0.035), transparent)" }} />
+      <div className="absolute inset-0"
+        style={{ background: "radial-gradient(1200px 800px at 80% 90%, var(--accent-1), transparent)" }}
+      />
+      {/* bright hotspot in the upper-left corner (restored) */}
+      <div className="absolute inset-0"
+        style={{ background: "radial-gradient(260px 220px at 8% 8%, var(--mesh-hotspot-strong), transparent 70%)" }}
+      />
+      <div className="absolute inset-0"
+        style={{ background: "radial-gradient(680px 560px at 10% 10%, var(--mesh-hotspot), transparent 70%)" }}
+      />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(1200px 800px at 20% 10%, var(--accent-9), transparent), radial-gradient(1200px 800px at 80% 90%, var(--accent-1), transparent)" }} />
       {layer(r1, palette[0])}
       {layer(r2, palette[1], 560)}
       {layer(r3, palette[2], 600)}

@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[82vh] w-full flex items-center justify-center text-center overflow-hidden bg-[#1C1B33]">
-      <div className="absolute inset-0 pointer-events-none [background:radial-gradient(90%_60%_at_50%_10%,rgba(139,92,246,0.15),transparent_70%)]" />
+    <section className="relative min-h-[82vh] w-full flex items-center justify-center text-center overflow-hidden bg-[var(--accent-29)]">
+      <div className="absolute inset-0 pointer-events-none [background:radial-gradient(90%_60%_at_50%_10%,var(--accent-10),transparent_70%)]" />
       <div className="relative z-10 max-w-3xl mx-auto px-4 py-28 text-white">
         <motion.h1
           initial={{ opacity: 0, y: 14 }}

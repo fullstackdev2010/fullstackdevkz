@@ -5,7 +5,7 @@ export default function Page() {
     <CaseStudyTemplate
       title="Iskra Trading — Mobile Catalog & Orders"
       tagline="Expo trading app with FastAPI backend, offline cart, ERP bridges, and a mesh-forward UX tuned for field performance."
-      palette={['#8DF2D6','#7AA2FF','#FFD07A']}
+      palette={['var(--brand-2)','var(--brand-1)','var(--brand-5)']}
       heroImage="/demos/iskra/home.png"
       kpis={[
         { label: 'Crash‑free sessions', value: '99.2%' },

@@ -13,7 +13,7 @@ export function GlassCard({ className, children, as: Tag = "div" as any }: {
         className
       )}
     >
-      <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,.06)" }} />
+      <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: "inset 0 1px 0 var(--glass)" }} />
       {children}
     </Tag>
   );

@@ -6,7 +6,7 @@ import { FaTwitter, FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-[#1C1B33] text-center text-sm text-white/70 py-8 border-t border-fuchsia-700/20 mt-20"
+      className="bg-[var(--accent-29)] text-center text-sm text-white/70 py-8 border-t border-fuchsia-700/20 mt-20"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
