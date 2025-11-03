@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <div className="relative">
       <section className="relative mx-auto max-w-7xl px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-semibold">Case-study</h1>
+        <h1 className="text-4xl md:text-5xl font-semibold">Privacy</h1>
         <p className="mt-3 text-[var(--muted)] max-w-prose">Short, visual posts pairing UI meshes with the engineering behind them.</p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {posts.map((p) => (

@@ -6,7 +6,7 @@ import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 export default function Home() {
   return (
     <main className="relative isolate">
-      <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+      <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
         <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
           <div className="absolute inset-0">
             <MeshBackground />
