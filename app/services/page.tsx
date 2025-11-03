@@ -1,4 +1,4 @@
-import MeshBackground from '@/components/mesh/MeshBackground';
+//import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import CheckoutDemo from '@/components/checkout/CheckoutDemo';
 
@@ -26,7 +26,7 @@ const tiers = [
 export default function Page() {
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground /></div>
+      {/* <div className="absolute inset-0"><MeshBackground /></div> */}
       <section className="relative mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-semibold">Services</h1>
         <p className="mt-4 max-w-2xl text-[var(--muted)]">Productized services with timelines, scope, and handover checklists. All include mesh styling and performance budgets.</p>

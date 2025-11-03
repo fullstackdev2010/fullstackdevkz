@@ -35,7 +35,6 @@ const cases = [
 export default function Page() {
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground /></div>
       <section className="relative mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-semibold">Work</h1>
         <p className="mt-4 max-w-2xl text-[var(--muted)]">Selected case studies across mobile, backend, and crypto flows — all tinted with mesh palettes.</p>

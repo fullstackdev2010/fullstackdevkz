@@ -54,7 +54,7 @@ html {
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(33.072% 0.01292 17.665);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -125,7 +125,7 @@ html {
     font-family: 'Playfair Display', serif;
     letter-spacing: 0.02em;
     line-height: 1.75;
-    background-color: #1C1B33;
+    background-color: #5a56aa;
   }
 
   h1, h2, h3 {

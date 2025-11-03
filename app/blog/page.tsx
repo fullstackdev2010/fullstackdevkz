@@ -1,4 +1,3 @@
-import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/mdx';
@@ -9,7 +8,6 @@ export default async function Page() {
   const posts = await getAllPosts();
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground /></div>
       <section className="relative mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-semibold">Pow‑Wow</h1>
         <p className="mt-3 text-[var(--muted)] max-w-prose">Short, visual posts pairing UI meshes with the engineering behind them.</p>

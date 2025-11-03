@@ -1,10 +1,8 @@
-import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 
 export default function Page() {
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground /></div>
       <section className="relative mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl md:text-5xl font-semibold">About</h1>
         <p className="mt-4 max-w-2xl text-[var(--muted)]">Reliable engineering, clear UX, performance and privacy by default. Built on Expo, Next.js, FastAPI, and a practical mesh aesthetic.</p>
