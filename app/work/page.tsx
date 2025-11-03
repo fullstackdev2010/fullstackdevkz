@@ -1,20 +1,12 @@
-import MeshBackground from '@/components/mesh/MeshBackground';
 import CaseCard from '@/components/work/CaseCard';
 
 const cases = [
   {
     href: '/work/ubiscan',
-    title: 'UbiScan — On-device OCR Scanner',
+    title: 'UNIScan — On-device OCR Scanner',
     summary: 'High-speed scanning with on-device OCR, native modules, and encrypted results.',
     tags: ['Expo', 'OCR', 'Encryption'],
-    thumb: '/demos/ubiscan/home.png',
-  },
-  {
-    href: '/work/ubiscan-deep-dive',
-    title: 'UbiScan — Deep Dive',
-    summary: 'Performance levers: ROI, debounce, ring buffers. Security and offline design.',
-    tags: ['Perf', 'Security', 'Offline'],
-    thumb: '/demos/ubiscan/preview.png',
+    thumb: '/demos/uniscan/home.png',
   },
   {
     href: '/work/iskra',

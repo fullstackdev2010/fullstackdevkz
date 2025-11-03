@@ -25,17 +25,17 @@ export function Navbar() {
     { href: '/work', label: 'Work' },
     { href: '/services', label: 'Services' },
     { href: '/stack', label: 'Stack' },
-    { href: '/blog', label: 'Pow-Wow' },
+    { href: '/blog', label: 'Case-study' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
-  const workLinks = [
-    { href: '/work/ubiscan', label: 'UbiScan — Case Study' },
-    { href: '/work/ubiscan-deep-dive', label: 'UbiScan — Deep Dive' },
-    { href: '/work/iskra', label: 'Iskra Trading' },
-    { href: '/work/secure-messaging', label: 'Secure Messaging (E2EE)' },
-  ];
+  // const workLinks = [
+  //   { href: '/work/ubiscan', label: 'UNIScan — Case Study' },
+  //   { href: '/work/ubiscan-deep-dive', label: 'UNIScan — Deep Dive' },
+  //   { href: '/work/iskra', label: 'Iskra Trading' },
+  //   { href: '/work/secure-messaging', label: 'Secure Messaging (E2EE)' },
+  // ];
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
@@ -60,7 +60,7 @@ export function Navbar() {
             <Link href="/work" className={isActive('/work') ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>
               Work
             </Link>
-            {workOpen && (
+            {/* {workOpen && (
               <div className="absolute left-0 top-full mt-2 w-72 rounded-xl border border-white/15 bg-[color:var(--surface)]/90 backdrop-blur-md p-2 shadow-[var(--shadow-lg)]">
                 {workLinks.map(w => (
                   <Link key={w.href} href={w.href} className="block rounded-md px-3 py-2 text-sm hover:bg-white/5">
@@ -68,7 +68,7 @@ export function Navbar() {
                   </Link>
                 ))}
               </div>
-            )}
+            )} */}
           </li>
 
           {links.filter(x => x.href !== '/work').map(l => (

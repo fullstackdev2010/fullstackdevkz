@@ -7,7 +7,7 @@ import { RoutePaletteProvider } from '@/components/mesh/RoutePaletteProvider';
 
 export const metadata: Metadata = {
   title: 'Fullstack Dev KZ — Mesh Mobile Craft',
-  description: 'Expo + FastAPI + Next.js — mobile craftsmanship, poetic precision.',
+  description: 'Expo + FastAPI + Next.js — mobile craftsmanship with true precision.',
   metadataBase: new URL('https://example.com'),
   openGraph: {
     title: 'Fullstack Dev KZ',

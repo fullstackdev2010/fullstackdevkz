@@ -7,7 +7,7 @@ export default function Page() {
     <div className="relative">
       <div className="absolute inset-0"><MeshBackground palette={['#7AA2FF','#8DF2D6','#FFB3EC']} /></div>
       <section className="relative mx-auto max-w-7xl px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-semibold">UbiScan — Deep Dive</h1>
+        <h1 className="text-4xl md:text-5xl font-semibold">UNIScan — Deep Dive</h1>
         <p className="mt-3 max-w-prose text-[var(--muted)]">On-device OCR with a throttled frames pipeline, region-of-interest targeting, and encrypted results. This page details performance levers and UX tradeoffs.</p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">

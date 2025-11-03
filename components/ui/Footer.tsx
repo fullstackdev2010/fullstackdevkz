@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
         <div>
           <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
-          <p className="mt-2">Mobile craftsmanship, poetic precision. Expo • FastAPI • Next.js.</p>
+          <p className="mt-2">Mobile craftsmanship with true precision. Expo • FastAPI • Next.js.</p>
         </div>
         <div>
           <div className="font-medium text-[var(--fg)]">Navigation</div>
@@ -14,7 +14,7 @@ export function Footer() {
             <li><Link href="/work">Work</Link></li>
             <li><Link href="/services">Services</Link></li>
             <li><Link href="/stack">Stack</Link></li>
-            <li><Link href="/blog">Pow-Wow</Link></li>
+            <li><Link href="/blog">Case-study</Link></li>
           </ul>
         </div>
         <div>
