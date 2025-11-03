@@ -1,8 +1,0 @@
-<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="700" fill="#0B0F19"/>
-  <g stroke="#A78BFA" stroke-width="2" fill="none">
-    <rect x="240" y="220" width="720" height="260" rx="16"/>
-    <path d="M280 280 L920 280 M280 340 L920 340 M280 400 L680 400" />
-  </g>
-  <text x="600" y="640" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="28">SecureMO – Auth & Users</text>
-</svg>

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import UnifiedMesh from "@/components/visuals/UnifiedMesh";
+import UnifiedMesh from "@/components/visuals/UnifiedMeshGallery";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

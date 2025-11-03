@@ -1,8 +1,0 @@
-<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="700" fill="#0B0F19"/>
-  <g stroke="#22D3EE" stroke-width="2" fill="none">
-    <rect x="180" y="200" width="840" height="320" rx="12"/>
-    <path d="M220 260 L980 260 M220 320 L980 320 M220 380 L980 380" />
-  </g>
-  <text x="600" y="640" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="28">Scan Logger – Mercury CL‑2200</text>
-</svg>
