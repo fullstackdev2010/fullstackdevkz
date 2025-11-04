@@ -1,10 +1,25 @@
 // app/page.tsx
+import fs from "fs";
+import path from "path";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { DeviceFrame } from "@/components/ui/DeviceFrame";
+import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 
+function getIskraImages(): string[] {
+  const dir = path.join(process.cwd(), "public", "demos", "iskra");
+  try {
+    const files = fs.readdirSync(dir);
+    const jpgs = files.filter((f) => /\.(jpe?g)$/i.test(f)).sort();
+    return jpgs.map((f) => `/demos/iskra/${f}`);
+  } catch {
+    return ["/demos/iskra/home.jpg"];
+  }
+}
+
 export default function Home() {
+  const images = getIskraImages();
+
   return (
     <main className="relative isolate">
       <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
@@ -24,7 +39,15 @@ export default function Home() {
               </div>
             </div>
             <div className="flex justify-center">
-              <DeviceFrame platform="android" src="/demos/iskra/home.jpg" width={360} height={720} />
+              <DeviceSlideshow
+                platform="android"
+                width={340}
+                height={700}
+                intervalMs={3000}
+                scale={0.95}      // outer scale (bezel + content)
+                innerScale={0.95} // NEW: inner image only (helps avoid clipping)
+                images={images}
+              />
             </div>
           </div>
         </div>

@@ -1,39 +1,57 @@
+"use client";
 import Image from "next/image";
 import clsx from "clsx";
 
-export type DeviceFrameProps = {
-  platform?: "ios" | "android";
-  src: string;            // image or poster
-  alt?: string;
-  videoSrc?: string;      // optional mp4/webm for short demo
-  className?: string;
+type DeviceFrameProps = {
+  platform?: "android" | "ios";
+  src: string;
   width?: number;
   height?: number;
+  alt?: string;
+  className?: string;
+  contentScale?: number; // NEW: scales the inner picture without scaling the bezel
 };
 
-export function DeviceFrame({ platform = "ios", src, alt = "App demo", videoSrc, className, width = 360, height = 720 }: DeviceFrameProps) {
+export function DeviceFrame({
+  platform = "android",
+  src,
+  width = 360,
+  height = 720,
+  alt = "Demo",
+  className,
+  contentScale = 1,
+}: DeviceFrameProps) {
+  // Simple bezel styling to match typical mock frames
+  const bezel = clsx(
+    "relative overflow-hidden rounded-[2.25rem] border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.4)]",
+    platform === "ios" ? "p-5" : "p-4",
+    className
+  );
+
+  // Inner safe area where the screen content lives
   return (
-    <div className={clsx("relative", className)} style={{ width, height }}>
-      {/* Body */}
-      <div className="absolute inset-0 rounded-[36px] bg-black/85 border border-white/10 shadow-[var(--shadow-lg)]" />
+    <div className={bezel} style={{ width, height }}>
+      {/* Screen background for contrast */}
+      <div className="absolute inset-0 bg-black/60" />
 
-      {/* Notch (iOS) or Camera punch (Android) */}
-      {platform === "ios" ? (
-        <div className="absolute left-1/2 top-2 z-10 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-black/80 border border-white/10" />
-      ) : (
-        <div className="absolute right-5 top-3 z-10 h-2 w-2 rounded-full bg-white/30" />
-      )}
-
-      {/* Screen */}
-      <div className="absolute inset-1.5 overflow-hidden rounded-[28px] bg-black">
-        {videoSrc ? (
-          <video autoPlay muted loop playsInline className="h-full w-full object-cover">
-            <source src={videoSrc} />
-          </video>
-        ) : (
-          <Image src={src} alt={alt} fill priority className="object-cover" />
-        )}
+      {/* Scaled content wrapper (does NOT change bezel size) */}
+      <div
+        className="absolute inset-0 grid place-items-center"
+        style={{ transform: `scale(${Math.max(0.6, Math.min(1.2, contentScale))})` }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className="h-full w-full object-contain"
+          priority
+        />
       </div>
+
+      {/* Optional platform details (camera notch, etc.) could go here if desired */}
     </div>
   );
 }
+
+export default DeviceFrame;
