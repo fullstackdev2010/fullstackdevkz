@@ -1,3 +1,4 @@
+// app/page.tsx
 import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
