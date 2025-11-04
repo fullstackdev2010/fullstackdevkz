@@ -48,6 +48,7 @@ export default function CaseStudyTemplate({
   heroImage = '/demos/ubiscan/home.png',
   kpis = [],
   gallery = [],
+  overview,
   challenge,
   approach,
   result,
@@ -58,6 +59,7 @@ export default function CaseStudyTemplate({
   heroImage?: string;
   kpis?: KPI[];
   gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  overview: React.ReactNode;
   challenge: React.ReactNode;
   approach: React.ReactNode;
   result: React.ReactNode;
@@ -81,29 +83,77 @@ export default function CaseStudyTemplate({
 
         {gallery.length > 0 && <DeviceGallery items={gallery} />}
 
-        <Section title="Challenge">
-          <GlassCard><p className="text-[var(--muted)]">{challenge}</p></GlassCard>
-          <GlassCard><p className="text-[var(--muted)]">KPIs clarified with stakeholders; constraints: on-device OCR, intermittent connectivity, battery usage & privacy.</p></GlassCard>
-        </Section>
-
-        <Section title="Approach">
-          <GlassCard><div className="text-sm leading-relaxed text-[var(--muted)]">{approach}</div></GlassCard>
-          <GlassCard><ul className="list-disc pl-5 text-sm text-[var(--muted)] space-y-1">
-            <li>Expo Router + native modules (camera, OCR) bridged via modular hook</li>
-            <li>Optimized frames pipeline; debounce + region-of-interest to reduce CPU</li>
-            <li>On-device encryption (AES) for results; secure transfer to backend</li>
-            <li>Offline queue with retry + idempotent backend endpoints</li>
+        <Section title="">
+          <GlassCard>
+            <p className="text-2xl">Overview</p><br></br>         
+            <p className="text-[var(--muted)]">Iskra Trade is a modern mobile app for sales reps and buyers. Built with Expo (React Native) and a lightweight FastAPI backend, it brings your full product catalog to the phone, makes ordering painless, and keeps everything snappy even on shaky networks. Users sign in, browse a structured catalog (Electro / Hand Tools / Parts), search instantly, add items to a cart with quantity rules, place orders, and review order history — all tied to secure user identities and token-based sessions.</p>
+          </GlassCard>
+          <GlassCard>
+            <p className="text-2xl">Who it’s for</p><br></br>                
+            <ul className="list-disc pl-5 text-[var(--muted)]">
+              <li>Field sales teams who need fast product lookup, stock/price visibility, and one-tap ordering on the go.</li>
+            <li>Dealers & partners who reorder frequently and want a streamlined mobile experience.</li>
+            <li>Operations that already maintain a price list / catalog and want a clean pipeline from phone → backend → accounting/export.</li>
           </ul></GlassCard>
         </Section>
 
-        <Section title="Result">
-          <GlassCard><div className="text-sm text-[var(--muted)]">{result}</div></GlassCard>
-          <GlassCard><ul className="list-disc pl-5 text-sm text-[var(--muted)] space-y-1">
-            <li>Crash-free sessions 99.4% in production</li>
-            <li>Median scan-to-result latency &lt; 350ms on mid-range Android</li>
-            <li>Battery-friendly: motion & OCR throttled under load</li>
-          </ul></GlassCard>
+        <Section title="">
+        <GlassCard>
+          <p className="text-2xl">The challenge</p><br></br>             
+          <p className="text-[var(--muted)]">Traditional mobile ordering tools are slow, fragile, or over-engineered. We needed:</p>
+          <ul className="list-disc pl-5 text-[var(--muted)]">
+            <li>A frictionless catalog UI with deep hierarchy (Electro / HandTools / Parts) and quick search.</li>
+            <li>A rock-solid ordering flow that snapshots prices and quantities exactly as seen at the moment of purchase.</li>
+            <li>Strong but simple auth that’s friendly on mobile (PIN/biometrics) yet secure (JWT + refresh).</li>
+            <li>A lightweight backend that’s easy to deploy, integrates with existing databases, rate-limited, and CORS-safe.</li>
+            <li>Operational hooks (scripts) to load catalogs, export orders, and keep data fresh without manual fiddling.</li>
+        </ul></GlassCard>
+        <GlassCard>
+          <p className="text-2xl">Our approach</p><br></br>
+          <p className="text-[var(--muted)]">Mobile (Expo Router)</p>             
+          <ul className="list-disc pl-5 text-[var(--muted)]">
+            <li>Clean navigation: Tabbed app (home, elements, orders, profile) with dedicated auth flow (sign-in, sign-up, PIN setup/reset, PIN login).</li>
+            <li>Catalog built for speed: Preloaded hierarchy per category via /trade endpoints; list → details with pictures and stock; instant search that queries article + description.</li>
+            <li>Cart you can trust: One line per SKU (merged by code), stock-aware quantity limits, accurate totals.</li>
+            <li>Orders without surprises: The app sends your current cart snapshot; the server re-computes the authoritative total server-side and persists a per-line snapshot (unit_final_price, line_total) so history is auditable.</li>
+            <li>Offline-aware polish: Network status banner, resilient state, and UX that doesn’t break when a connection blips.</li>
+            <li>Secure sessions that feel native: Tokens stored in SecureStore when available, fallback to AsyncStorage as needed, biometric-gated access (via expo-local-authentication) with a “skip once” escape hatch for edge cases.</li>
+        </ul></GlassCard>
         </Section>
+
+        <Section title="">
+         <GlassCard>
+            <p className="text-2xl">Backend (FastAPI)</p><br></br>             
+            <p className="text-[var(--muted)]">Tight, purposeful API:</p>
+            <ul className="list-disc pl-5 text-[var(--muted)]">
+              <li>/auth — login, refresh token rotation (hashed refresh tokens in DB), token invalidation.</li>
+              <li>/trade — hierarchical catalog endpoints for Items/Tools/Parts, combined parts, full-text search.</li>
+              <li>/orders — create/list/get with price snapshotting and authoritative totals.</li>
+              <li>/categories — category codes (code/title/description).</li>
+              <li>/pictures/file — serves product and manager images with fallbacks.</li>
+            </ul>
+            <p className="text-[var(--muted)]">Built-in correctness & safety:</p>
+            <ul className="list-disc pl-5 text-[var(--muted)]">
+              <li>SlowAPI rate limiting on hot routes (e.g., 30/min)</li>
+              <li>Strict CORS, structured validation errors</li>
+              <li>SQLAlchemy models for items, tools, parts, orders, users, refresh_tokens</li>
+            </ul>
+            <p className="text-[var(--muted)]">Ops ready scripts:</p>
+            <ul className="list-disc pl-5 text-[var(--muted)]">
+              <li>Loaders for items/tools/parts/users from your sources</li>
+              <li>Order export to JSON for accounting/BI (scripts/loaders/export_orders.py) with idempotency (skips if the export already exists)</li>
+            </ul>
+          </GlassCard>
+
+          <GlassCard>
+            <p className="text-2xl">Results</p><br></br>             
+            <ul className="list-disc pl-5 text-[var(--muted)]">
+              <li>Fast adoption by field teams: simple sign-in, PIN/biometric unlock, quick browse/search.</li>
+              <li>Reduced ordering errors: server-side authoritative totals with per-line snapshots keep history consistent and auditable.</li>
+              <li>Operational visibility: JSON exports of orders slot neatly into existing accounting and analytics flows.</li>
+              <li>Low-friction maintenance: clear models, small FastAPI surface, and Expo tooling keep updates reliable.</li>
+          </ul></GlassCard>
+          </Section>
 
         <div className="mt-16">
           <a href="/work" className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm">← Back to Work</a>
