@@ -75,10 +75,10 @@ export default function MeshBackground({
         style={{ background: "radial-gradient(1200px 800px at 80% 90%, var(--accent-1), transparent)" }}
       />
       {/* bright hotspot in the upper-left corner (restored) */}
-      <div className="absolute inset-0"
+      <div className="absolute inset-0 mesh--cool"
         style={{ background: "radial-gradient(260px 220px at 8% 8%, var(--mesh-hotspot-strong), transparent 70%)" }}
       />
-      <div className="absolute inset-0"
+      <div className="absolute inset-0 mesh--cool"
         style={{ background: "radial-gradient(680px 560px at 10% 10%, var(--mesh-hotspot), transparent 70%)" }}
       />
       <div className="absolute inset-0" style={{ background: "radial-gradient(1200px 800px at 20% 10%, var(--accent-9), transparent), radial-gradient(1200px 800px at 80% 90%, var(--accent-1), transparent)" }} />

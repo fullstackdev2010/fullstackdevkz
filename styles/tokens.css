@@ -138,3 +138,14 @@ html, body {
 .glow-outline {
   box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 24px rgba(124, 164, 255, 0.25);
 }
+
+
+/* Scoped cool hotspot for mesh backgrounds.
+   Apply on an element via class="mesh--cool" or data-mesh="cool".
+   This keeps pages warm while the mesh hotspot reads colder & brighter tokens. */
+.mesh--cool, [data-mesh="cool"] {
+  --mesh-hotspot-strong: rgba(186, 233, 255, 0.95); /* icy core */
+  --mesh-hotspot: rgba(122, 203, 255, 0.82);        /* cold halo */
+  --mesh-hotspot-soft: rgba(124, 164, 255, 0.45);   /* soft periphery */
+}
+
