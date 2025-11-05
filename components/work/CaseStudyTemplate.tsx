@@ -44,14 +44,9 @@ export function Section({ title, children }: { title: string; children: React.Re
 export default function CaseStudyTemplate({
   title,
   tagline,
-  palette = ['var(--brand-1)', 'var(--brand-2)', 'var(--brand-3)'],
-  heroImage = '/demos/ubiscan/home.png',
+  heroImage = '/demos/uniscan/home.png',
   kpis = [],
   gallery = [],
-  overview,
-  challenge,
-  approach,
-  result,
 }: {
   title: string;
   tagline: string;
@@ -59,14 +54,10 @@ export default function CaseStudyTemplate({
   heroImage?: string;
   kpis?: KPI[];
   gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
-  overview: React.ReactNode;
-  challenge: React.ReactNode;
-  approach: React.ReactNode;
-  result: React.ReactNode;
 }) {
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground palette={palette} /></div>
+      <div className="absolute inset-0"><MeshBackground /></div>
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
           <div className="grid gap-10 md:grid-cols-2 items-center">
@@ -92,9 +83,10 @@ export default function CaseStudyTemplate({
             <p className="text-2xl">Who it’s for</p><br></br>                
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Field sales teams who need fast product lookup, stock/price visibility, and one-tap ordering on the go.</li>
-            <li>Dealers & partners who reorder frequently and want a streamlined mobile experience.</li>
-            <li>Operations that already maintain a price list / catalog and want a clean pipeline from phone → backend → accounting/export.</li>
-          </ul></GlassCard>
+              <li>Dealers & partners who reorder frequently and want a streamlined mobile experience.</li>
+              <li>Operations that already maintain a price list / catalog and want a clean pipeline from phone → backend → accounting/export.</li>
+            </ul>
+          </GlassCard>
         </Section>
 
         <Section title="">
@@ -107,7 +99,8 @@ export default function CaseStudyTemplate({
             <li>Strong but simple auth that’s friendly on mobile (PIN/biometrics) yet secure (JWT + refresh).</li>
             <li>A lightweight backend that’s easy to deploy, integrates with existing databases, rate-limited, and CORS-safe.</li>
             <li>Operational hooks (scripts) to load catalogs, export orders, and keep data fresh without manual fiddling.</li>
-        </ul></GlassCard>
+          </ul>
+        </GlassCard>
         <GlassCard>
           <p className="text-2xl">Our approach</p><br></br>
           <p className="text-[var(--muted)]">Mobile (Expo Router)</p>             
@@ -118,7 +111,8 @@ export default function CaseStudyTemplate({
             <li>Orders without surprises: The app sends your current cart snapshot; the server re-computes the authoritative total server-side and persists a per-line snapshot (unit_final_price, line_total) so history is auditable.</li>
             <li>Offline-aware polish: Network status banner, resilient state, and UX that doesn’t break when a connection blips.</li>
             <li>Secure sessions that feel native: Tokens stored in SecureStore when available, fallback to AsyncStorage as needed, biometric-gated access (via expo-local-authentication) with a “skip once” escape hatch for edge cases.</li>
-        </ul></GlassCard>
+          </ul>
+        </GlassCard>
         </Section>
 
         <Section title="">
@@ -152,8 +146,9 @@ export default function CaseStudyTemplate({
               <li>Reduced ordering errors: server-side authoritative totals with per-line snapshots keep history consistent and auditable.</li>
               <li>Operational visibility: JSON exports of orders slot neatly into existing accounting and analytics flows.</li>
               <li>Low-friction maintenance: clear models, small FastAPI surface, and Expo tooling keep updates reliable.</li>
-          </ul></GlassCard>
-          </Section>
+            </ul>
+          </GlassCard>
+        </Section>
 
         <div className="mt-16">
           <a href="/work" className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm">← Back to Work</a>

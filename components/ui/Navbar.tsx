@@ -31,8 +31,8 @@ export function Navbar() {
   ];
 
   // const workLinks = [
-  //   { href: '/work/ubiscan', label: 'UNIScan — Case Study' },
-  //   { href: '/work/ubiscan-deep-dive', label: 'UNIScan — Deep Dive' },
+  //   { href: '/work/uniscan', label: 'UNIScan — Case Study' },
+  //   { href: '/work/uniscan-deep-dive', label: 'UNIScan — Deep Dive' },
   //   { href: '/work/iskra', label: 'Iskra Trading' },
   //   { href: '/work/secure-messaging', label: 'Secure Messaging (E2EE)' },
   // ];

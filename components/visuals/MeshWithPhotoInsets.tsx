@@ -2,7 +2,7 @@
 import * as React from "react";
 
 type Photo = {
-  href: string;            // e.g. /demos/ubiscan/home.png  (serve from /public or same-origin URL)
+  href: string;            // e.g. /demos/uniscan/home.png  (serve from /public or same-origin URL)
   x: number; y: number;    // top-left in SVG coords
   w: number; h: number;    // width/height in SVG coords
   rx?: number;             // rounded corners for clip

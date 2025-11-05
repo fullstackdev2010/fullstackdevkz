@@ -3,7 +3,7 @@ import * as React from "react";
 
 type Bobble = { x: number; y: number; w: number; h: number; rx?: number; rotate?: number };
 type Photo = {
-  href: string;            // image url (e.g. /demos/ubiscan/home.png)
+  href: string;            // image url (e.g. /demos/uniscan/home.png)
   x: number; y: number;    // top-left in SVG coords
   w: number; h: number;    // size in SVG coords
   rx?: number;             // corner radius for rounded-rect clip

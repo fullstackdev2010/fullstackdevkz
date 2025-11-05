@@ -25,9 +25,9 @@ export default function Page() {
 
         <div className="mt-10">
           <DeviceCarousel shots={[
-            { src: '/demos/ubiscan/home.png', platform: 'android', alt: 'Home' },
-            { src: '/demos/ubiscan/preview.png', platform: 'android', alt: 'Preview' },
-            { src: '/demos/ubiscan/result.png', platform: 'android', alt: 'Result' },
+            { src: '/demos/uniscan/home.png', platform: 'android', alt: 'Home' },
+            { src: '/demos/uniscan/preview.png', platform: 'android', alt: 'Preview' },
+            { src: '/demos/uniscan/result.png', platform: 'android', alt: 'Result' },
           ]} />
         </div>
 
