@@ -6,8 +6,8 @@ export default function Page() {
       title="Iskra Trading — Mobile Catalog & Orders"
       tagline="Iskra Trade — mobile sales app with a fast, clean backend."
       palette={['var(--brand-2)','var(--brand-1)','var(--brand-5)']}
-      heroImage="/demos/iskra/home.jpg"
-      kpis={[
+      heroImage="/demos/iskra/01.jpg"
+      kpis={[ 
         { label: 'Crash‑free sessions', value: '99.2%' },
         { label: 'LCP (mobile)', value: '≤ 2.3 s' },
         { label: 'Order throughput', value: '+28%', note: 'post‑launch' },

@@ -1,6 +1,7 @@
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
+import Link from "next/link";
 
 export type KPI = { label: string; value: string; note?: string };
 

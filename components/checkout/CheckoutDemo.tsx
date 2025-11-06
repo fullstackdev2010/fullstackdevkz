@@ -60,14 +60,6 @@ export default function CheckoutDemo() {
   return (
     <div className="glass rounded-2xl border p-5">
       <div className="flex items-center justify-between gap-4">
-        <div>
-          <div className="text-lg font-medium">Crypto Checkout Demo</div>
-          <p className="text-sm text-[var(--muted)]">Creates a mock payment intent and auto-confirms in ~6 seconds.</p>
-        </div>
-        <div className="flex gap-2">
-          <Button variant="glow" size="sm" onClick={() => start('eth')} className="whitespace-nowrap" >Try ETH</Button>
-          <Button variant="outline" size="sm" onClick={() => start('tron')} className="whitespace-nowrap">Try TRX</Button>
-        </div>
       </div>
 
       <Modal open={open} onClose={() => { setOpen(false); reset(); }} title="Pay with crypto (demo)"

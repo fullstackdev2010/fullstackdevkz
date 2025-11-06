@@ -13,7 +13,7 @@ function getIskraImages(): string[] {
     const jpgs = files.filter((f) => /\.(jpe?g)$/i.test(f)).sort();
     return jpgs.map((f) => `/demos/iskra/${f}`);
   } catch {
-    return ["/demos/iskra/home.jpg"];
+    return ["/demos/iskra/01.jpg"];
   }
 }
 
