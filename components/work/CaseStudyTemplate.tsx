@@ -1,3 +1,4 @@
+// components/work/CaseStudyTemplate.tsx
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
@@ -45,7 +46,8 @@ export function Section({ title, children }: { title: string; children: React.Re
 export default function CaseStudyTemplate({
   title,
   tagline,
-  heroImage = '/demos/uniscan/home.png',
+  palette,
+  heroImage = '/demos/iskra/01.png',
   kpis = [],
   gallery = [],
 }: {
@@ -58,10 +60,19 @@ export default function CaseStudyTemplate({
 }) {
   return (
     <div className="relative">
-      <div className="absolute inset-0"><MeshBackground /></div>
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
-          <div className="grid gap-10 md:grid-cols-2 items-center">
+          {/* Mesh background scoped to the hero card, like on app/page.tsx */}
+            <div className="absolute inset-0">
+              <MeshBackground
+                brightness={0.9} 
+                opacity={0.95}
+                seed={title}          
+                palette={palette}    
+                static               
+              />
+            </div>
+          <div className="relative z-10 grid gap-10 md:grid-cols-2 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-semibold">{title}</h1>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>

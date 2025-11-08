@@ -25,7 +25,7 @@ export default function Home() {
       <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
         <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
           <div className="absolute inset-0">
-            <MeshBackground />
+            <MeshBackground brightness={0.9} opacity={0.95} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
           </div>
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-2">
             <div>

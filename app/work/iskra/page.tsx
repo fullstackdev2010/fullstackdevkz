@@ -1,3 +1,4 @@
+// app/work/iskra/page.tsx
 import CaseStudyTemplate from '@/components/work/CaseStudyTemplate';
 
 export default function Page() {
@@ -5,7 +6,7 @@ export default function Page() {
     <CaseStudyTemplate
       title="Iskra Trading — Mobile Catalog & Orders"
       tagline="Iskra Trade — mobile sales app with a fast, clean backend."
-      palette={['var(--brand-2)','var(--brand-1)','var(--brand-5)']}
+      palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
       heroImage="/demos/iskra/01.jpg"
       kpis={[ 
         { label: 'Crash‑free sessions', value: '99.2%' },
