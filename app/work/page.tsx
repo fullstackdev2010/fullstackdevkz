@@ -1,4 +1,6 @@
+// app/work/page.tsx
 import CaseCard from '@/components/work/CaseCard';
+import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 
 const cases = [
   {
@@ -27,16 +29,39 @@ const cases = [
 export default function Page() {
   return (
     <div className="relative">
-      <section className="relative mx-auto max-w-7xl px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-semibold">Work</h1>
-        <p className="mt-4 max-w-2xl text-[var(--muted)]">Selected case studies across mobile, backend, and crypto flows — all tinted with mesh palettes.</p>
+      {/* Section-scoped background so the global footer remains visible */}
+      <section className="relative min-h-screen">
+        {/* Mesh background confined to this section */}
+        <MeshWithPhotoInsets
+          className="pointer-events-none absolute inset-0 z-0"
+          backgroundSrc="/brand/unified-mesh.svg"
+          viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
+          photos={[
+            // { href: "/demos/uniscan/home.png", x: 280, y: 180, w: 320, h: 520, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
+          ]}
+        />
+        {/* Subtle gradient tint for readability; avoids a hard edge before the footer */}
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[var(--bg)]/20 via-transparent to-transparent" />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {cases.map(c => (
-            <CaseCard key={c.href} {...c} />
-          ))}
+        {/* Content sits above mesh + tint */}
+        <div className="relative z-20 mx-auto max-w-7xl px-6 py-16">
+          <h1 className="text-4xl md:text-5xl font-semibold">Work</h1>
+          <p className="mt-4 max-w-2xl text-[var(--muted)]">
+            Selected case studies across mobile and backend — all tinted with mesh palettes.
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {cases.map(c => (
+              <CaseCard key={c.href} {...c} />
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+       {/* --- visual separator between mesh section and footer --- */}
+      <div
+        aria-hidden
+        className="h-14 -mt-14 bg-gradient-to-b from-transparent to-[color:var(--surface)]/70"
+      />
+      </div>
   );
 }

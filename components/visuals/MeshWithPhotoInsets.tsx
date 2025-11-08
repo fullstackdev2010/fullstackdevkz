@@ -1,3 +1,4 @@
+// components/visuals/MeshWithPhotoInsets.tsx
 "use client";
 import * as React from "react";
 
