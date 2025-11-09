@@ -50,6 +50,7 @@ export default function CaseStudyTemplate({
   heroImage = '/demos/iskra/01.png',
   kpis = [],
   gallery = [],
+  background = 'card', // 'card' | 'section'
 }: {
   title: string;
   tagline: string;
@@ -57,9 +58,24 @@ export default function CaseStudyTemplate({
   heroImage?: string;
   kpis?: KPI[];
   gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  background?: 'card' | 'section';
 }) {
   return (
     <div className="relative">
+      {/* Optional full-bleed mesh */}
+      {background === 'section' && (
+        <>
+          <MeshBackground
+            className="pointer-events-none absolute inset-0 -z-10"
+            seed={title}
+            palette={palette}
+            brightness={0.95}
+            opacity={0.85}
+          />
+          {/* Gentle tint so content stays readable */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[var(--bg)]/20 via-transparent to-transparent" />
+        </>
+      )}
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
           {/* Mesh background scoped to the hero card, like on app/page.tsx */}
