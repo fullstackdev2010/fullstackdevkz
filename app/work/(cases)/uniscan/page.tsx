@@ -7,6 +7,8 @@ export default function Page() {
       tagline="High‑speed scanning with on‑device OCR, native modules, and end‑to‑end encrypted results for privacy‑sensitive workflows."
       palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
       heroImage="/demos/uniscan/01.jpg"
+      privacyHref="/work/uniscan/privacy"
+      privacyLabel="Privacy & Data Handling"
       kpis={[
         { label: 'Scans / min', value: '45–60', note: 'mid‑range Android' },
         { label: 'Latency (p50)', value: '≤ 350 ms' },

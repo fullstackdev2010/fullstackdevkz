@@ -4,10 +4,12 @@ import CaseStudyTemplate from '@/components/work/CaseStudyTemplate';
 export default function Page() {
   return (     
     <CaseStudyTemplate
-      title="Iskra Trading — Mobile Catalog & Orders"
+      title="Iskra Trade — Mobile Catalog & Orders"
       tagline="Iskra Trade — mobile sales app with a fast, clean backend."
       palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
       heroImage="/demos/iskra/01.jpg"
+      privacyHref="/work/iskra/privacy"
+      privacyLabel="Privacy & Data Handling"
       kpis={[ 
         { label: 'Crash‑free sessions', value: '99.2%' },
         { label: 'LCP (mobile)', value: '≤ 2.3 s' },

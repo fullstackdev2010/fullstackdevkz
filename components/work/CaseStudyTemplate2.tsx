@@ -1,8 +1,25 @@
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
+import Link from "next/link";
 
 export type KPI = { label: string; value: string; note?: string };
+
+// NEW: explicit props type so we can add a design-appropriate Privacy link
+type CaseStudyTemplateProps = {
+  title: string;
+  tagline: string;
+  palette?: string[];
+  heroImage?: string;
+  kpis?: KPI[];
+  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  /**
+   * Optional privacy link. If provided, a subtle CTA button will be shown
+   * in the hero. Point this at /work/(cases)/iskra/privacy for Iskra.
+   */
+  privacyHref?: string;
+  privacyLabel?: string;
+};
 
 export function KPIStrip({ kpis }: { kpis: KPI[] }) {
   return (
@@ -30,6 +47,18 @@ export function DeviceGallery({ items }: { items: { src: string; alt?: string; p
   );
 }
 
+
+function DescriptionCard({ children }: { seed: string; palette?: string[]; children: React.ReactNode }) {
+  return (
+    <GlassCard className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <MeshBackground brightness={0.3} opacity={0.5} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
+      </div>
+      {children}
+    </GlassCard>
+  );
+}
+
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-14">
@@ -48,14 +77,10 @@ export default function CaseStudyTemplate({
   heroImage = '/demos/uniscan/01.png',
   kpis = [],
   gallery = [],
-}: {
-  title: string;
-  tagline: string;
-  palette?: string[];
-  heroImage?: string;
-  kpis?: KPI[];
-  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
-}) {
+  // NEW: privacy link (optional)
+  privacyHref,
+  privacyLabel = 'Privacy Policy',
+  }: CaseStudyTemplateProps) {
   return (
     <div className="relative">
       <div className="relative mx-auto max-w-7xl px-6 py-16">
@@ -75,6 +100,17 @@ export default function CaseStudyTemplate({
               <h1 className="text-4xl md:text-5xl font-semibold">{title}</h1>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
+              {/* NEW: subtle hero CTA for privacy */}
+              {privacyHref && (
+                <div className="mt-4">
+                  <Link
+                    href={privacyHref}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 transition"
+                  >
+                    <span>{privacyLabel}</span>
+                  </Link>
+                </div>
+              )}
             </div>
             <div className="flex justify-center">
               <DeviceFrame platform="android" src={heroImage} width={360} height={720} />
@@ -85,7 +121,7 @@ export default function CaseStudyTemplate({
         {gallery.length > 0 && <DeviceGallery items={gallery} />}
 
         <Section title="">
-          <GlassCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Overview</p><br></br>         
             <p className="text-[var(--muted)]">Uniscan is a privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share. It ships with two OCR engines: Google ML Kit (unbundled, no Play Services) for Latin/Chinese/Devanagari/Japanese/Korean and Tesseract for Arabic/Cyrillic — both running on the device. A built-in encryption vault (AES-256-GCM) and optional biometric unlock keep clear files short-lived and encrypted by default.</p>
             <br></br>
@@ -96,8 +132,8 @@ export default function CaseStudyTemplate({
               <li>Bring files into Uniscan from other apps via Android’s Share sheet (custom native bridge).</li>
               <li>Automatic wipe of decrypted previews, session auto-lock, and screenshot/recording prevention while sensitive screens are open.</li>
             </ul>
-          </GlassCard>
-          <GlassCard>
+          </DescriptionCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Targeted audience</p><br></br>                
             <ul className="list-disc pl-5 text-[var(--muted)]">
             <li>Field teams & SMBs that need fast capture + OCR with no cloud dependency.</li>
@@ -105,14 +141,14 @@ export default function CaseStudyTemplate({
             <li>Privacy-conscious individuals who want local-only scanning and encryption.</li>
             <li>Developers/IT needing a secure scanning tool that still plays well with MDM and enterprise sharing.</li>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
         </Section>
         <Section title="">
-          <GlassCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">The challenge</p><br></br>             
             <p className="text-[var(--muted)]">Most mobile scanners either upload to a cloud for OCR or bundle SDKs that phone home. That fails strict compliance and breaks in low-connectivity environments. Teams needed reliable OCR for multiple scripts, strong encryption, and hardened UX (no accidental screenshots or lingering decrypted files) — all without sending data off the device.</p>
-          </GlassCard>
-          <GlassCard>
+          </DescriptionCard>
+          <DescriptionCard seed={title} palette={palette}>
           <p className="text-2xl">Our approach</p><br></br>
           <p className="text-[var(--muted)]">100% on-device pipeline with native glue where it matters:</p>             
           <ul className="list-disc pl-5 text-[var(--muted)]">
@@ -128,10 +164,10 @@ export default function CaseStudyTemplate({
             <li>Predictable file layout (no surprises):</li>
               <p className="text-[var(--muted)]">Private app directories such as uni-scans/ (captured images), uni-docs/ (imports/exports), and dedicated vault paths keep clear vs. encrypted data separated and manageable.</p>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
         </Section>
         <Section title="">
-         <GlassCard>
+         <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">The stack</p><br></br>             
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Framework & runtime: Expo 53, React Native 0.79, React 19, Expo Router.</li>
@@ -154,8 +190,8 @@ export default function CaseStudyTemplate({
               <li>UI: Expo vector icons, Safe Area Context, bottom tabs; Skia available for image effects.</li>
               <li>Android config: minSdk 26 / targetSdk 35, ProGuard rules included; ML Kit + Tesseract plugins configure native dependencies at build time.</li>
             </ul>
-          </GlassCard>
-          <GlassCard>
+          </DescriptionCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Results</p><br></br>             
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Reliable OCR without network for Latin, CJK, Devanagari, Arabic, Cyrillic (and extensible via tessdata).</li>
@@ -163,7 +199,7 @@ export default function CaseStudyTemplate({
               <li>Safer sharing with one-tap encryption, short-lived clear previews, and screenshot blocking.</li>
               <li>Smooth UX: tabbed navigation for Scanner, Documents, Editor, Sign & Encrypt, Export, Settings, Vault; device haptics; polished camera flow.</li>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
         </Section>
         <div className="mt-16">
           <a href="/work" className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm">← Back to Work</a>

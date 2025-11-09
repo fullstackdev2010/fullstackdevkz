@@ -6,6 +6,22 @@ import Link from "next/link";
 
 export type KPI = { label: string; value: string; note?: string };
 
+// NEW: explicit props type so we can add a design-appropriate Privacy link
+type CaseStudyTemplateProps = {
+  title: string;
+  tagline: string;
+  palette?: string[];
+  heroImage?: string;
+  kpis?: KPI[];
+  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  /**
+   * Optional privacy link. If provided, a subtle CTA button will be shown
+   * in the hero. Point this at /work/(cases)/iskra/privacy for Iskra.
+   */
+  privacyHref?: string;
+  privacyLabel?: string;
+};
+
 export function KPIStrip({ kpis }: { kpis: KPI[] }) {
   return (
     <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -32,6 +48,18 @@ export function DeviceGallery({ items }: { items: { src: string; alt?: string; p
   );
 }
 
+
+function DescriptionCard({ children }: { seed: string; palette?: string[]; children: React.ReactNode }) {
+  return (
+    <GlassCard className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <MeshBackground brightness={0.3} opacity={0.5} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
+      </div>
+      {children}
+    </GlassCard>
+  );
+}
+
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-14">
@@ -50,32 +78,12 @@ export default function CaseStudyTemplate({
   heroImage = '/demos/iskra/01.png',
   kpis = [],
   gallery = [],
-  background = 'card', // 'card' | 'section'
-}: {
-  title: string;
-  tagline: string;
-  palette?: string[];
-  heroImage?: string;
-  kpis?: KPI[];
-  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
-  background?: 'card' | 'section';
-}) {
+  // NEW: privacy link (optional)
+    privacyHref,
+    privacyLabel = 'Privacy Policy',
+  }: CaseStudyTemplateProps) {
   return (
     <div className="relative">
-      {/* Optional full-bleed mesh */}
-      {background === 'section' && (
-        <>
-          <MeshBackground
-            className="pointer-events-none absolute inset-0 -z-10"
-            seed={title}
-            palette={palette}
-            brightness={0.95}
-            opacity={0.85}
-          />
-          {/* Gentle tint so content stays readable */}
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[var(--bg)]/20 via-transparent to-transparent" />
-        </>
-      )}
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
           {/* Mesh background scoped to the hero card, like on app/page.tsx */}
@@ -93,6 +101,17 @@ export default function CaseStudyTemplate({
               <h1 className="text-4xl md:text-5xl font-semibold">{title}</h1>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
+              {/* NEW: subtle hero CTA for privacy */}
+              {privacyHref && (
+                <div className="mt-4">
+                  <Link
+                    href={privacyHref}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 transition"
+                  >
+                    <span>{privacyLabel}</span>
+                  </Link>
+                </div>
+              )}
             </div>
             <div className="flex justify-center">
               <DeviceFrame platform="android" src={heroImage} width={360} height={720} />
@@ -103,22 +122,22 @@ export default function CaseStudyTemplate({
         {gallery.length > 0 && <DeviceGallery items={gallery} />}
 
         <Section title="">
-          <GlassCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Overview</p><br></br>         
             <p className="text-[var(--muted)]">Iskra Trade is a modern mobile app for sales reps and buyers. Built with Expo (React Native) and a lightweight FastAPI backend, it brings your full product catalog to the phone, makes ordering painless, and keeps everything snappy even on shaky networks. Users sign in, browse a structured catalog (Electro / Hand Tools / Parts), search instantly, add items to a cart with quantity rules, place orders, and review order history — all tied to secure user identities and token-based sessions.</p>
-          </GlassCard>
-          <GlassCard>
+          </DescriptionCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Who it’s for</p><br></br>                
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Field sales teams who need fast product lookup, stock/price visibility, and one-tap ordering on the go.</li>
               <li>Dealers & partners who reorder frequently and want a streamlined mobile experience.</li>
               <li>Operations that already maintain a price list / catalog and want a clean pipeline from phone → backend → accounting/export.</li>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
         </Section>
 
         <Section title="">
-        <GlassCard>
+        <DescriptionCard seed={title} palette={palette}>
           <p className="text-2xl">The challenge</p><br></br>             
           <p className="text-[var(--muted)]">Traditional mobile ordering tools are slow, fragile, or over-engineered. We needed:</p>
           <ul className="list-disc pl-5 text-[var(--muted)]">
@@ -128,8 +147,8 @@ export default function CaseStudyTemplate({
             <li>A lightweight backend that’s easy to deploy, integrates with existing databases, rate-limited, and CORS-safe.</li>
             <li>Operational hooks (scripts) to load catalogs, export orders, and keep data fresh without manual fiddling.</li>
           </ul>
-        </GlassCard>
-        <GlassCard>
+        </DescriptionCard>
+        <DescriptionCard seed={title} palette={palette}>
           <p className="text-2xl">Our approach</p><br></br>
           <p className="text-[var(--muted)]">Mobile (Expo Router)</p>             
           <ul className="list-disc pl-5 text-[var(--muted)]">
@@ -140,11 +159,11 @@ export default function CaseStudyTemplate({
             <li>Offline-aware polish: Network status banner, resilient state, and UX that doesn’t break when a connection blips.</li>
             <li>Secure sessions that feel native: Tokens stored in SecureStore when available, fallback to AsyncStorage as needed, biometric-gated access (via expo-local-authentication) with a “skip once” escape hatch for edge cases.</li>
           </ul>
-        </GlassCard>
+        </DescriptionCard>
         </Section>
 
         <Section title="">
-         <GlassCard>
+         <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Backend (FastAPI)</p><br></br>             
             <p className="text-[var(--muted)]">Tight, purposeful API:</p>
             <ul className="list-disc pl-5 text-[var(--muted)]">
@@ -165,9 +184,9 @@ export default function CaseStudyTemplate({
               <li>Loaders for items/tools/parts/users from your sources</li>
               <li>Order export to JSON for accounting/BI (scripts/loaders/export_orders.py) with idempotency (skips if the export already exists)</li>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
 
-          <GlassCard>
+          <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Results</p><br></br>             
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Fast adoption by field teams: simple sign-in, PIN/biometric unlock, quick browse/search.</li>
@@ -175,7 +194,7 @@ export default function CaseStudyTemplate({
               <li>Operational visibility: JSON exports of orders slot neatly into existing accounting and analytics flows.</li>
               <li>Low-friction maintenance: clear models, small FastAPI surface, and Expo tooling keep updates reliable.</li>
             </ul>
-          </GlassCard>
+          </DescriptionCard>
         </Section>
 
         <div className="mt-16">
