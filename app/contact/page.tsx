@@ -133,7 +133,7 @@ export default function Page() {
       {/* Section-scoped mesh so it won’t cover the global footer */}
       <MeshWithPhotoInsets
         className="pointer-events-none absolute inset-0 z-0"
-        backgroundSrc="/brand/unified-mesh.svg"
+        backgroundSrc="/brand/contact.svg"
         viewBox="0 0 1600 900"
         photos={[]}
       />

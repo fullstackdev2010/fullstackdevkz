@@ -32,7 +32,7 @@ export default function Page() {
         {/* Mesh background confined to this section */}
         <MeshWithPhotoInsets
           className="pointer-events-none absolute inset-0 z-0"
-          backgroundSrc="/brand/unified-mesh.svg"
+          backgroundSrc="/brand/services.svg"
           viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
           photos={[
             // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
