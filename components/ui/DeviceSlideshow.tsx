@@ -37,7 +37,7 @@ export default function DeviceSlideshow({
   platform = "android",
   width = 360,
   height = 720,
-  intervalMs = 3000,
+  intervalMs = 2000,
   images,
   scale = 0.92,
   innerScale = 0.9,

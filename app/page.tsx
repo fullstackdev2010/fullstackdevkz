@@ -53,11 +53,11 @@ export default function Home() {
             <div className="flex justify-center">
               <DeviceSlideshow
                 platform="android"
-                width={340}
-                height={700}
-                intervalMs={3000}
-                scale={0.95}      // outer scale (bezel + content)
-                innerScale={0.95} // NEW: inner image only (helps avoid clipping)
+                width={360}
+                height={720}
+                intervalMs={2000}
+                scale={1}      // outer scale (bezel + content)
+                innerScale={1} // NEW: inner image only (helps avoid clipping)
                 images={images}
               />
             </div>

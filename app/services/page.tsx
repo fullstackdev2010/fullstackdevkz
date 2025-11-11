@@ -1,6 +1,7 @@
 // app/services/page.tsx
 import { GlassCard } from '@/components/ui/GlassCard';
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
+import Link from "next/link";
 
 const tiers = [
   {
@@ -45,17 +46,28 @@ export default function Page() {
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {tiers.map((t) => (
-              <GlassCard key={t.name}>
-                <div className="flex items-baseline justify-between">
-                  <h3 className="text-xl font-medium">{t.name}</h3>
-                  <div className="text-sm text-[var(--muted)]">{t.timeline}</div>
-                </div>
-                <div className="mt-1 text-sm">{t.price}</div>
-                <ul className="mt-4 list-disc pl-5 space-y-1 text-sm text-[var(--muted)]">
-                  {t.bullets.map(b => <li key={b}>{b}</li>)}
-                </ul>
-                <a href="/contact" className="mt-6 inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm">Start</a>
-              </GlassCard>
+              <Link
+                key={t.name}
+                href="/contact"
+                aria-label={`Start ${t.name} service — go to Contact`}
+                className="group block focus:outline-none rounded-2xl"
+              >
+                <GlassCard className="h-full transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl focus-within:ring-2 focus-within:ring-white/40">
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="text-xl font-medium">{t.name}</h3>
+                    <div className="text-sm text-[var(--muted)]">{t.timeline}</div>
+                  </div>
+                  <div className="mt-1 text-sm">{t.price}</div>
+                  <ul className="mt-4 list-disc pl-5 space-y-1 text-sm text-[var(--muted)]">
+                    {t.bullets.map((b) => <li key={b}>{b}</li>)}
+                  </ul>
+                  {/* CTA row (not a nested link) */}
+                  <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition-colors group-hover:bg-white/10">
+                    <span>Start</span>
+                    <span aria-hidden>→</span>
+                  </div>
+                </GlassCard>
+              </Link>
             ))}
           </div>
         </div>
