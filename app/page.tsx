@@ -5,6 +5,8 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
 import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
+import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
+import Link from "next/link";
 
 function getIskraImages(): string[] {
   const dir = path.join(process.cwd(), "public", "demos", "iskra");
@@ -24,9 +26,18 @@ export default function Home() {
     <main className="relative isolate">
       <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
         <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
+          {/* Mesh background confined to this section */}
+          <MeshWithPhotoInsets
+            className="pointer-events-none absolute inset-0 z-0"
+            backgroundSrc="/brand/services.svg"
+            viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
+            photos={[
+              // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
+            ]}
+          />
           <div className="absolute inset-0">
             <MeshBackground brightness={0.9} opacity={0.95} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
-          </div>
+          </div>         
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-2">
             <div>
               <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship with true precision.</h1>
@@ -53,14 +64,28 @@ export default function Home() {
         </div>
 
         <section className="mt-20 grid gap-6 md:grid-cols-3">
-          {["Trading Catalog", "Secure Messaging", "Crypto Checkout"].map((title, i) => (
-            <RevealOnScroll key={title} delay={i * 0.06}>
-              <GlassCard>
-                <h3 className="text-xl font-medium">{title}</h3>
-                <p className="mt-2 text-sm text-[var(--muted)]">A focused card describing what we build with a mesh accent and measurable outcomes.</p>
-              </GlassCard>
-            </RevealOnScroll>
-          ))}
+          
+          <RevealOnScroll delay={0.1}>
+            <GlassCard>
+              <h3 className="text-xl font-medium">Document scanning with OCR & encryption</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">A privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share.</p>
+            </GlassCard>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <GlassCard>
+              <h3 className="text-xl font-medium">Mobile sales with a fast, clean backend</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">A modern mobile app for sales reps and buyers. Built with Expo (React Native) and a lightweight FastAPI backend, it brings your full product catalog to the phone.</p>
+            </GlassCard>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.1}>
+            <GlassCard>
+              <h3 className="text-xl font-medium">Being developed now</h3>
+              <p className="mt-2 text-sm text-[var(--muted)]">We have a few projects being developed now: Secure Messaging — E2EE with backend, Habit Tracker mobile first app and QR Code / Barcode Scanner.</p>
+            </GlassCard>
+          </RevealOnScroll>
+          
         </section>
       </div>
     </main>
