@@ -1,6 +1,5 @@
 // app/services/page.tsx
 import { GlassCard } from '@/components/ui/GlassCard';
-import CheckoutDemo from '@/components/checkout/CheckoutDemo';
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 
 const tiers = [
@@ -44,11 +43,6 @@ export default function Page() {
           <p className="mt-4 max-w-2xl text-[var(--muted)]">
             Productized services with timelines, scope, and handover checklists. All include mesh styling and performance budgets.
           </p>
-
-          <div className="mt-8">
-            <CheckoutDemo />
-          </div>
-
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {tiers.map((t) => (
               <GlassCard key={t.name}>

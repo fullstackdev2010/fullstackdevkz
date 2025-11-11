@@ -13,7 +13,7 @@ type DeviceSlideshowProps = {
 };
 
 const DEFAULT_CANDIDATES = [
-  "home.jpg",
+  "01.jpg",
   "catalog.jpg",
   "product.jpg",
   "cart.jpg",
@@ -64,7 +64,7 @@ export default function DeviceSlideshow({
     Promise.all(candidates.map(preload)).then((loaded) => {
       if (!mounted) return;
       const ok = loaded.filter((s): s is string => !!s);
-      setSlides(ok.length ? ok : [base + "home.jpg"]);
+      setSlides(ok.length ? ok : [base + "01.jpg"]);
     });
     return () => { mounted = false; };
   }, [candidates, images]);
@@ -78,7 +78,7 @@ export default function DeviceSlideshow({
     return () => { if (timerRef.current) window.clearInterval(timerRef.current); };
   }, [slides, intervalMs]);
 
-  const src = slides[idx] ?? (base + "home.jpg");
+  const src = slides[idx] ?? (base + "01.jpg");
 
   // Outer scale (bezel + content)
   const s = Math.max(0.75, Math.min(1.0, scale));

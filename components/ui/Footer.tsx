@@ -6,7 +6,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
         <div>
           <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
-          <p className="mt-2">Mobile craftsmanship with true precision. Expo • FastAPI • Next.js.</p>
+          <ul className="mt-2 space-y-1">
+            <li>Mobile craftsmanship with true precision.</li>
+            <li>Expo • FastAPI • Next.js.</li>
+          </ul>
         </div>
         <div>
           <div className="font-medium text-[var(--fg)]">Navigation</div>
