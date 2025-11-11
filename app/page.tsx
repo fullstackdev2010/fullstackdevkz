@@ -7,6 +7,7 @@ import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
+import ClientActiveNav from "@/components/ClientActiveNav";
 
 function getIskraImages(): string[] {
   const dir = path.join(process.cwd(), "public", "demos", "iskra");
@@ -111,6 +112,8 @@ export default function Home() {
           </RevealOnScroll>   
         </section>
       </div>
+      {/* Applies underline to active links in header & footer after mount */}
+      <ClientActiveNav />
     </main>
   );
 }
