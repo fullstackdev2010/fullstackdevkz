@@ -129,7 +129,7 @@ export default function Page() {
   );
 
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
       {/* Section-scoped mesh so it won’t cover the global footer */}
       <MeshWithPhotoInsets
         className="pointer-events-none absolute inset-0 z-0"

@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="relative">
       {/* Section-scoped background so the global footer remains visible */}
-      <section className="relative min-h-screen">
+      <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
         {/* Mesh background confined to this section */}
         <MeshWithPhotoInsets
           className="pointer-events-none absolute inset-0 z-0"

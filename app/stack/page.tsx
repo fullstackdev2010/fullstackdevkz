@@ -100,7 +100,7 @@ function StackGroup({ title, items }: Group) {
 
 export default function Page() {
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
       {/* Background confined to this section so it won't cover the global footer */}
       <MeshWithPhotoInsets
         className="pointer-events-none absolute inset-0 z-0"
@@ -108,8 +108,9 @@ export default function Page() {
         viewBox="0 0 1600 900"
         photos={[]}
       />
-      {/* Soft readability veil */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+      {/* Soft readability veil (no dark edge at bottom) */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-transparent" />
+
 
       {/* Content sits above mesh + tint */}
       <main className="relative z-20 mx-auto max-w-7xl px-6 py-24">
