@@ -18,8 +18,8 @@ const cases = [
     thumb: '/demos/iskra/home.png',
   },
   {
-    href: '/work/secure-messaging',
-    title: 'Secure Messaging — E2EE',
+    href: '/work',
+    title: 'Secure Messaging — E2EE - Developed now',
     summary: 'End‑to‑end encryption with passphrase restore and resilient UX.',
     tags: ['E2EE', 'RSA', 'Socket.io'],
     thumb: '/demos/secure-messaging/chat.png',
@@ -28,9 +28,9 @@ const cases = [
 
 export default function Page() {
   return (
-    <div className="relative">
-      {/* Section-scoped background so the global footer remains visible */}
-      <section className="relative min-h-screen">
+     <div className="relative">
+      {/* Section-scoped background; pull into footer spacing to remove the visible gap */}
+      <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-5">
         {/* Mesh background confined to this section */}
         <MeshWithPhotoInsets
           className="pointer-events-none absolute inset-0 z-0"
@@ -40,8 +40,6 @@ export default function Page() {
             // { href: "/demos/uniscan/home.png", x: 280, y: 180, w: 320, h: 520, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
           ]}
         />
-        {/* Subtle gradient tint for readability; avoids a hard edge before the footer */}
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[var(--bg)]/20 via-transparent to-transparent" />
 
         {/* Content sits above mesh + tint */}
         <div className="relative z-20 mx-auto max-w-7xl px-6 py-16">
@@ -56,12 +54,7 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
-       {/* --- visual separator between mesh section and footer --- */}
-      <div
-        aria-hidden
-        className="h-14 -mt-14 bg-gradient-to-b from-transparent to-[color:var(--surface)]/70"
-      />
-      </div>
+      </section>     
+    </div>
   );
 }
