@@ -8,21 +8,21 @@ const cases = [
     title: 'UNIScan — On-device OCR Scanner',
     summary: 'High-speed scanning with on-device OCR, native modules, and encrypted results.',
     tags: ['Expo', 'OCR', 'Encryption'],
-    thumb: '/demos/uniscan/home.png',
+    thumb: '/demos/preview/uniscan.jpg',
   },
   {
     href: '/work/iskra',
     title: 'Iskra Trading — Mobile Catalog & Orders',
     summary: 'Expo app + FastAPI backend with offline cart and ERP bridges.',
     tags: ['Expo', 'FastAPI', 'ERP'],
-    thumb: '/demos/iskra/home.png',
+    thumb: '/demos/preview/iskra.jpg',
   },
   {
     href: '/work',
     title: 'Secure Messaging — E2EE - Developed now',
     summary: 'End‑to‑end encryption with passphrase restore and resilient UX.',
     tags: ['E2EE', 'RSA', 'Socket.io'],
-    thumb: '/demos/secure-messaging/chat.png',
+    thumb: '/demos/iskra/01.jpg',
   },
 ];
 
