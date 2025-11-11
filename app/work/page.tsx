@@ -22,7 +22,7 @@ const cases = [
     title: 'Secure Messaging — E2EE - Developed now',
     summary: 'End‑to‑end encryption with passphrase restore and resilient UX.',
     tags: ['E2EE', 'RSA', 'Socket.io'],
-    thumb: '/demos/iskra/01.jpg',
+    thumb: '/demos/preview/e2ee.jpg',
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Page() {
   return (
      <div className="relative">
       {/* Section-scoped background; pull into footer spacing to remove the visible gap */}
-      <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-5">
+      <section className="relative min-h-screen -mb-16 pb-16 md:-mb-30 md:pb-5">
         {/* Mesh background confined to this section */}
         <MeshWithPhotoInsets
           className="pointer-events-none absolute inset-0 z-0"
