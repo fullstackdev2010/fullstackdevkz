@@ -66,26 +66,49 @@ export default function Home() {
         <section className="mt-20 grid gap-6 md:grid-cols-3">
           
           <RevealOnScroll delay={0.1}>
-            <GlassCard>
-              <h3 className="text-xl font-medium">Document scanning with OCR & encryption</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">A privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share.</p>
-            </GlassCard>
+            <Link
+              href="/work/uniscan"
+              aria-label="Open our work: Document scanning with OCR & encryption"
+              className="block rounded-2xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <GlassCard>
+                <h3 className="text-xl font-medium">Document scanning with OCR &amp; encryption</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  A privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign &amp; encrypt files before you share.
+                </p>
+              </GlassCard>
+            </Link>
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.1}>
-            <GlassCard>
-              <h3 className="text-xl font-medium">Mobile sales with a fast, clean backend</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">A modern mobile app for sales reps and buyers. Built with Expo (React Native) and a lightweight FastAPI backend, it brings your full product catalog to the phone.</p>
-            </GlassCard>
+            <Link
+              href="/work/iskra"
+              aria-label="Open our work: Mobile sales with a fast, clean backend"
+              className="block rounded-2xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <GlassCard>
+                <h3 className="text-xl font-medium">Mobile sales with a fast, clean backend</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  A modern mobile app for sales reps and buyers. Built with Expo (React Native) and a lightweight FastAPI backend, it brings your full product catalog to the phone.
+                </p>
+              </GlassCard>
+            </Link>
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.1}>
-            <GlassCard>
-              <h3 className="text-xl font-medium">Being developed now</h3>
-              <p className="mt-2 text-sm text-[var(--muted)]">We have a few projects being developed now: Secure Messaging — E2EE with backend, Habit Tracker mobile first app and QR Code / Barcode Scanner.</p>
-            </GlassCard>
-          </RevealOnScroll>
-          
+            <Link
+              href="/work"
+              aria-label="Open our work: In development"
+              className="block rounded-2xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            >
+              <GlassCard>
+                <h3 className="text-xl font-medium">Being developed now</h3>
+                <p className="mt-2 text-sm text-[var(--muted)]">
+                  We have a few projects being developed now: Secure Messaging — E2EE with backend, Habit Tracker mobile first app and QR Code / Barcode Scanner.
+                </p>
+              </GlassCard>
+            </Link>
+          </RevealOnScroll>   
         </section>
       </div>
     </main>
