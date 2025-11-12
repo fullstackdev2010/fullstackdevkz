@@ -2,9 +2,9 @@
 "use client";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useScrollDirection } from '../../hooks/useScrollDirection';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { usePathname } from 'next/navigation';
-import { Button } from './Button';
+import { Button } from '@/components/ui/button';
 
 export function Navbar() {
   const dir = useScrollDirection();

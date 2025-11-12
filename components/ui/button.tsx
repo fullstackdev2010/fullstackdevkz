@@ -1,4 +1,4 @@
-// components/ui/Button.tsx
+// components/ui/button.tsx
 import clsx from 'clsx';
 import type React from 'react';
 
