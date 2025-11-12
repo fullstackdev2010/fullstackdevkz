@@ -1,20 +1,20 @@
+// components/ui/GlassCard.tsx
 import clsx from "clsx";
+import React from "react";
 
-export function GlassCard({ className, children, as: Tag = "div" as any }: {
-  className?: string;
-  children?: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-}) {
+type Props = React.HTMLAttributes<HTMLDivElement>;
+
+export function GlassCard({ className, children, ...rest }: Props) {
   return (
-    <Tag
-      className={clsx(
-        "glass relative rounded-2xl border p-6 md:p-8",
-        "shadow-[var(--shadow-md)]",
-        className
-      )}
-    >
-      <div className="absolute inset-0 rounded-2xl" style={{ boxShadow: "inset 0 1px 0 var(--glass)" }} />
-      {children}
-    </Tag>
+    <div className={clsx("glass relative rounded-2xl border p-6 md:p-8 shadow-[var(--shadow-md)]", className)} {...rest}>
+      {/* Decorative inset highlight — must not intercept clicks */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-2xl z-0"
+        style={{ boxShadow: "inset 0 1px 0 var(--glass)" }}
+        aria-hidden
+      />
+      {/* Real content sits above */}
+      <div className="relative z-10">{children}</div>
+    </div>
   );
 }
