@@ -1,6 +1,7 @@
 // app/work/page.tsx
-import CaseCard from '@/components/work/CaseCard';
+import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
+import CaseCard from "@/components/work/CaseCard";
 
 const cases = [
   {
@@ -14,47 +15,62 @@ const cases = [
     href: '/work/iskra',
     title: 'Iskra Trading — Mobile Catalog & Orders',
     summary: 'Expo app + FastAPI backend with offline cart and ERP bridges.',
-    tags: ['Expo', 'FastAPI', 'ERP'],
+    tags: ['Expo', 'FastAPI', 'SQLite/Postgres'],
     thumb: '/demos/preview/iskra.jpg',
   },
   {
-    href: '/work',
-    title: 'Secure Messaging — E2EE - Developed now',
-    summary: 'End‑to‑end encryption with passphrase restore and resilient UX.',
-    tags: ['E2EE', 'RSA', 'Socket.io'],
+    href: '/work/securemo',
+    title: 'SecureMO — E2EE Messenger',
+    summary: 'Next.js + Socket.io chat with client-side RSA and encrypted backups.',
+    tags: ['Next.js', 'Socket.io', 'RSA'],
     thumb: '/demos/preview/e2ee.jpg',
   },
 ];
 
-export default function Page() {
+export default function Work() {
   return (
-     <div className="relative">
-      {/* Section-scoped background; pull into footer spacing to remove the visible gap */}
-      <section className="relative min-h-screen -mb-16 pb-16 md:-mb-30 md:pb-5">
-        {/* Mesh background confined to this section */}
-        <MeshWithPhotoInsets
-          className="pointer-events-none absolute inset-0 z-0"
-          backgroundSrc="/brand/work.svg"
-          viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
-          photos={[
-            // { href: "/demos/uniscan/home.png", x: 280, y: 180, w: 320, h: 520, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
-          ]}
-        />
+    <main className="relative isolate">
+      <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
+        {/* Rounded glass container with mesh (same layout as home) */}
+        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
+          {/* Mesh background confined to this section */}
+          <MeshWithPhotoInsets
+            className="pointer-events-none absolute inset-0 z-0"
+            backgroundSrc="/brand/main.svg"
+            viewBox="0 0 1600 900"
+            photos={[]}
+          />
+          <div className="absolute inset-0">
+            <MeshBackground
+              brightness={0.5}
+              opacity={0.95}
+              palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
+            />
+          </div>
 
-        {/* Content sits above mesh + tint */}
-        <div className="relative z-20 mx-auto max-w-7xl px-6 py-16">
-          <h1 className="text-4xl md:text-5xl font-semibold">Work</h1>
-          <p className="mt-4 max-w-2xl text-[var(--muted)]">
-            Selected case studies across mobile and backend — all tinted with mesh palettes.
-          </p>
+          {/* Foreground content + cards INSIDE the glass container */}
+          <div className="relative z-10">
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+              Selected work & case studies
+            </h1>
+            <p className="mt-4 max-w-2xl text-[var(--muted)]">
+              Mobile apps, secure backends, and delightful UI systems — all crafted with our signature mesh aesthetic.
+            </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {cases.map(c => (
-              <CaseCard key={c.href} {...c} />
-            ))}
+            {/* optional divider for structure (matches home’s feel) */}
+            <div className="mt-8 h-px w-full bg-white/10" />
+
+            <section className="mt-8 md:mt-10">
+              <h2 className="sr-only">Case studies</h2>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {cases.map((c) => (
+                  <CaseCard key={c.href} {...c} />
+                ))}
+              </div>
+            </section>
           </div>
         </div>
-      </section>     
-    </div>
+      </div>
+    </main>
   );
 }
