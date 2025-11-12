@@ -135,197 +135,200 @@ export default function Page() {
     "px-3 py-2 outline-none focus:border-white/60 focus:ring-0 transition-colors";
 
   return (
-    <section className="relative isolate min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
-      {/* Section-scoped mesh (decorative, inert) */}
-      <MeshWithPhotoInsets
-        className="pointer-events-none absolute inset-0 z-0"
-        backgroundSrc="/brand/contact.svg"
-        viewBox="0 0 1600 900"
-        photos={[]}
-      />
-      {/* Readability veil (decorative, inert) */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+    <main className="relative isolate">
+      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
+        {/* Rounded glass container with mesh (same layout as home/work/services/stack) */}
+        <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16 border glass">
+          {/* Mesh background confined to this container */}
+          <MeshWithPhotoInsets
+            className="pointer-events-none absolute inset-0 z-0"
+            backgroundSrc="/brand/contact.svg"
+            viewBox="0 0 1600 900"
+            photos={[]}
+          />
 
-      {/* Content above veils; interactive */}
-      <main className="relative z-20 mx-auto max-w-7xl px-6 py-24 pointer-events-auto">
-        <header className="max-w-3xl">
-          <h1 className="text-4xl font-semibold">Contact</h1>
-          <p className="mt-3 text-[var(--muted)]">
-            Tell us a bit about your project and how to reach you. We’ll reply by email.
-          </p>
-        </header>
+          {/* Foreground content INSIDE glass */}
+          <div className="relative z-10 pointer-events-auto">
+            <header className="max-w-3xl">
+              <h1 className="text-4xl font-semibold">Contact</h1>
+              <p className="mt-3 text-[var(--muted)]">
+                Tell us a bit about your project and how to reach you. We’ll reply by email.
+              </p>
+            </header>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-5">
-          {/* Form */}
-          <GlassCard className="md:col-span-3">
-            <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4">
-              {/* Honeypot (hidden) */}
-              <input
-                type="text"
-                name="website"
-                value={form.website}
-                onChange={onChange}
-                className="hidden"
-                aria-hidden="true"
-                tabIndex={-1}
-                autoComplete="off"
-              />
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label htmlFor="name" className="block text-sm text-[var(--muted)]">
-                    Name *
-                  </label>
+            <div className="mt-10 grid gap-4 md:grid-cols-5">
+              {/* Form */}
+              <GlassCard className="md:col-span-3">
+                <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4">
+                  {/* Honeypot (hidden) */}
                   <input
-                    id="name"
-                    name="name"
-                    value={form.name}
+                    type="text"
+                    name="website"
+                    value={form.website}
                     onChange={onChange}
-                    required
-                    className={inputBase}
-                    placeholder="Your name"
+                    className="hidden"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    autoComplete="off"
                   />
-                </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm text-[var(--muted)]">
-                    Email *
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={onChange}
-                    required
-                    className={inputBase}
-                    placeholder="you@example.com"
-                  />
-                </div>
-              </div>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="name" className="block text-sm text-[var(--muted)]">
+                        Name *
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        value={form.name}
+                        onChange={onChange}
+                        required
+                        className={inputBase}
+                        placeholder="Your name"
+                      />
+                    </div>
 
-              <div>
-                <label htmlFor="company" className="block text-sm text-[var(--muted)]">
-                  Company
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  value={form.company}
-                  onChange={onChange}
-                  className={inputBase}
-                  placeholder="Company or team (optional)"
-                />
-              </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm text-[var(--muted)]">
+                        Email *
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={form.email}
+                        onChange={onChange}
+                        required
+                        className={inputBase}
+                        placeholder="you@example.com"
+                      />
+                    </div>
+                  </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
-                {/* Project type */}
-                <div>
-                  <label htmlFor="projectType" className="block text-sm text-[var(--muted)]">
-                    Project type
-                  </label>
-                  <Select
-                    id="projectType"
-                    name="projectType"
-                    value={form.projectType}
-                    onChange={(v) => setForm((f) => ({ ...f, projectType: v }))}
-                    placeholder="Select…"
-                    options={[
-                      { label: "Mobile App (Expo)", value: "Mobile App (Expo)" },
-                      { label: "Backend API (FastAPI)", value: "Backend API (FastAPI)" },
-                      { label: "On-device OCR / UNIScan", value: "On-device OCR / UNIScan" },
-                      { label: "Web / Next.js", value: "Web / Next.js" },
-                      { label: "Other", value: "Other" },
-                    ]}
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm text-[var(--muted)]">
+                      Company
+                    </label>
+                    <input
+                      id="company"
+                      name="company"
+                      value={form.company}
+                      onChange={onChange}
+                      className={inputBase}
+                      placeholder="Company or team (optional)"
+                    />
+                  </div>
 
-                {/* Budget */}
-                <div>
-                  <label htmlFor="budget" className="block text-sm text-[var(--muted)]">
-                    Budget
-                  </label>
-                  <Select
-                    id="budget"
-                    name="budget"
-                    value={form.budget}
-                    onChange={(v) => setForm((f) => ({ ...f, budget: v }))}
-                    placeholder="Select…"
-                    options={["Under $5k", "$5k–$15k", "$15k–$50k", "$50k+"]}
-                  />
-                </div>
+                  <div className="grid gap-4 md:grid-cols-3">
+                    {/* Project type */}
+                    <div>
+                      <label htmlFor="projectType" className="block text-sm text-[var(--muted)]">
+                        Project type
+                      </label>
+                      <Select
+                        id="projectType"
+                        name="projectType"
+                        value={form.projectType}
+                        onChange={(v) => setForm((f) => ({ ...f, projectType: v }))}
+                        placeholder="Select…"
+                        options={[
+                          { label: "Mobile App (Expo)", value: "Mobile App (Expo)" },
+                          { label: "Backend API (FastAPI)", value: "Backend API (FastAPI)" },
+                          { label: "On-device OCR / UNIScan", value: "On-device OCR / UNIScan" },
+                          { label: "Web / Next.js", value: "Web / Next.js" },
+                          { label: "Other", value: "Other" },
+                        ]}
+                      />
+                    </div>
 
-                {/* Timeline */}
-                <div>
-                  <label htmlFor="timeline" className="block text-sm text-[var(--muted)]">
-                    Timeline
-                  </label>
-                  <Select
-                    id="timeline"
-                    name="timeline"
-                    value={form.timeline}
-                    onChange={(v) => setForm((f) => ({ ...f, timeline: v }))}
-                    placeholder="Select…"
-                    options={["ASAP", "1–2 months", "Quarter", "Flexible"]}
-                  />
-                </div>
-              </div>
+                    {/* Budget */}
+                    <div>
+                      <label htmlFor="budget" className="block text-sm text-[var(--muted)]">
+                        Budget
+                      </label>
+                      <Select
+                        id="budget"
+                        name="budget"
+                        value={form.budget}
+                        onChange={(v) => setForm((f) => ({ ...f, budget: v }))}
+                        placeholder="Select…"
+                        options={["Under $5k", "$5k–$15k", "$15k–$50k", "$50k+"]}
+                      />
+                    </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm text-[var(--muted)]">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={form.message}
-                  onChange={onChange}
-                  required
-                  rows={6}
-                  className={inputBase}
-                  placeholder="Tell us what you’re building…"
-                />
-              </div>
+                    {/* Timeline */}
+                    <div>
+                      <label htmlFor="timeline" className="block text-sm text-[var(--muted)]">
+                        Timeline
+                      </label>
+                      <Select
+                        id="timeline"
+                        name="timeline"
+                        value={form.timeline}
+                        onChange={(v) => setForm((f) => ({ ...f, timeline: v }))}
+                        placeholder="Select…"
+                        options={["ASAP", "1–2 months", "Quarter", "Flexible"]}
+                      />
+                    </div>
+                  </div>
 
-              <div className="flex items-center justify-between gap-3 pt-2">
-                <button
-                  type="submit"
-                  disabled={submitting || disabled}
-                  className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 disabled:opacity-50"
-                >
-                  {submitting ? "Sending…" : "Send request"}
-                </button>
+                  <div>
+                    <label htmlFor="message" className="block text-sm text-[var(--muted)]">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={form.message}
+                      onChange={onChange}
+                      required
+                      rows={6}
+                      className={inputBase}
+                      placeholder="Tell us what you’re building…"
+                    />
+                  </div>
 
-                {result && (
-                  <p
-                    className={`text-sm ${result.ok ? "text-emerald-300" : "text-red-300"}`}
-                    role="status"
-                  >
-                    {result.msg}
+                  <div className="flex items-center justify-between gap-3 pt-2">
+                    <button
+                      type="submit"
+                      disabled={submitting || disabled}
+                      className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 disabled:opacity-50"
+                    >
+                      {submitting ? "Sending…" : "Send request"}
+                    </button>
+
+                    {result && (
+                      <p
+                        className={`text-sm ${result.ok ? "text-emerald-300" : "text-red-300"}`}
+                        role="status"
+                      >
+                        {result.msg}
+                      </p>
+                    )}
+                  </div>
+                </form>
+              </GlassCard>
+
+              {/* Contact info */}
+              <GlassCard className="md:col-span-2">
+                <h2 className="text-xl md:text-2xl font-semibold">Direct contact</h2>
+                <div className="mt-4 space-y-3 text-[var(--muted)]">
+                  <p>
+                    Email:{" "}
+                    <a className="underline" href={`mailto:${EMAIL}`}>
+                      {EMAIL}
+                    </a>
                   </p>
-                )}
-              </div>
-            </form>
-          </GlassCard>
-
-          {/* Contact info */}
-          <GlassCard className="md:col-span-2">
-            <h2 className="text-xl md:text-2xl font-semibold">Direct contact</h2>
-            <div className="mt-4 space-y-3 text-[var(--muted)]">
-              <p>
-                Email:{" "}
-                <a className="underline" href={`mailto:${EMAIL}`}>
-                  {EMAIL}
-                </a>
-              </p>
-              <p>Address: {ADDRESS}</p>
-              <p className="text-sm">
-                Prefer email? Send details about your project, scope, and timeline. You’ll hear back soon.
-              </p>
+                  <p>Address: {ADDRESS}</p>
+                  <p className="text-sm">
+                    Prefer email? Send details about your project, scope, and timeline. You’ll hear back soon.
+                  </p>
+                </div>
+              </GlassCard>
             </div>
-          </GlassCard>
+          </div>
         </div>
-      </main>
-    </section>
+      </div>
+    </main>
   );
 }

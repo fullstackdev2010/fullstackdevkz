@@ -100,34 +100,37 @@ function StackGroup({ title, items }: Group) {
 
 export default function Page() {
   return (
-    <section className="relative min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
-      {/* Background confined to this section so it won't cover the global footer */}
-      <MeshWithPhotoInsets
-        className="pointer-events-none absolute inset-0 z-0"
-        backgroundSrc="/brand/stack.svg"
-        viewBox="0 0 1600 900"
-        photos={[]}
-      />
-      {/* Soft readability veil (no dark edge at bottom) */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-transparent to-transparent" />
-
-
-      {/* Content sits above mesh + tint */}
-      <main className="relative z-20 mx-auto max-w-7xl px-6 py-24">
-        <header className="max-w-3xl">
-          <h1 className="text-4xl font-semibold">Our Stack</h1>
-          <p className="mt-3 text-[var(--muted)]">
-            A pragmatic toolkit: fast mobile with Expo, a tight FastAPI backend, and on-device OCR for
-            privacy-sensitive flows. Typed end-to-end and tuned for reliability.
-          </p>
-        </header>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {STACK.map((g) => (
-            <StackGroup key={g.title} title={g.title} items={g.items} />
-          ))}
+    <main className="relative isolate">
+      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
+        {/* Rounded glass container with mesh (same layout as home/work/services) */}
+        <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16 border glass">
+          {/* Mesh background confined to this container */}
+          <MeshWithPhotoInsets
+            className="pointer-events-none absolute inset-0 z-0"
+            backgroundSrc="/brand/stack.svg"
+            viewBox="0 0 1600 900"
+            photos={[]}
+          />
+          {/* Foreground content INSIDE glass */}
+          <div className="relative z-10">
+            <header className="max-w-3xl">
+              <h1 className="text-4xl font-semibold">Our Stack</h1>
+              <p className="mt-3 text-[var(--muted)]">
+                A pragmatic toolkit: fast mobile with Expo, a tight FastAPI backend, and on-device OCR for
+                privacy-sensitive flows. Typed end-to-end and tuned for reliability.
+              </p>
+            </header>
+            {/* divider */}
+            <div className="mt-8 h-px w-full bg-white/10" />
+            {/* groups grid */}
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {STACK.map((g) => (
+                <StackGroup key={g.title} title={g.title} items={g.items} />
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-    </section>
+      </div>
+    </main>
   );
 }
