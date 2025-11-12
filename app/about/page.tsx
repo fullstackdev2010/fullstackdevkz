@@ -1,4 +1,4 @@
-// app/about/page.tsx
+// app/about/page.tsx new
 import { GlassCard } from '@/components/ui/GlassCard';
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 
