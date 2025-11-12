@@ -2,6 +2,7 @@
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
+import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
 
 export type KPI = { label: string; value: string; note?: string };
@@ -86,6 +87,15 @@ export default function CaseStudyTemplate({
     <div className="relative">
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
+          {/* Mesh background confined to this section */}
+            <MeshWithPhotoInsets
+              className="pointer-events-none absolute inset-0 z-0"
+              backgroundSrc="/brand/main.svg"
+              viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
+              photos={[
+                // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
+              ]}
+            />
           {/* Mesh background scoped to the hero card, like on app/page.tsx */}
             <div className="absolute inset-0">
               <MeshBackground
