@@ -135,7 +135,7 @@ export default function Page() {
     "px-3 py-2 outline-none focus:border-white/60 focus:ring-0 transition-colors";
 
   return (
-    <section className="relative isolate min-h-screen -mb-16 pb-16 md:-mb-20 md:pb-20">
+    <section className="relative isolate min-h-screen -mb-16 pb-16 md:-mb-25 md:pb-20">
       {/* Section-scoped mesh (decorative, inert) */}
       <MeshWithPhotoInsets
         className="pointer-events-none absolute inset-0 z-0"
