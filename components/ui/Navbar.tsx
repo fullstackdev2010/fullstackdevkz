@@ -1,15 +1,15 @@
+// components/ui/Navbar.tsx
 "use client";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useScrollDirection } from '@/hooks/useScrollDirection';
+import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/Button';
+import { Button } from '../../components/ui/Button';
 
 export function Navbar() {
   const dir = useScrollDirection();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
-  const [workOpen, setWorkOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); setWorkOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   const links = [
     { href: '/work', label: 'Work' },
@@ -27,6 +27,13 @@ export function Navbar() {
     { href: '/stack', label: 'Stack' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
+  ];
+
+  // Used by the mobile sheet
+  const workLinks = [
+    { href: '/work/uniscan', label: 'UNIScan — OCR Scanner' },
+    { href: '/work/iskra', label: 'Iskra Trading' },
+    { href: '/work', label: 'All work' },
   ];
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
@@ -44,11 +51,7 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-5 text-sm relative">
-          <li
-            className="relative"
-            onMouseEnter={() => setWorkOpen(true)}
-            onMouseLeave={() => setWorkOpen(false)}
-          >
+          <li className="relative">
             <Link href="/work" className={isActive('/work') ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>
               Work
             </Link>
@@ -62,7 +65,7 @@ export function Navbar() {
             </li>
           ))}
           <li>
-            <Button href="/contact" variant="glow" size="sm">Start a project</Button>
+            <Button as={Link} href="/contact" variant="glow" size="sm">Start a project</Button>
           </li>
         </ul>
 
@@ -94,7 +97,7 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-2">
-              <Button href="/contact" variant="glow" size="md" className="w-full justify-center">Start a project</Button>
+              <Button as={Link} href="/contact" variant="glow" size="md" className="w-full justify-center">Start a project</Button>
             </div>
           </div>
         </div>

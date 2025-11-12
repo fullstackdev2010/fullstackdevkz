@@ -122,7 +122,7 @@ export default function MeshWithPhotoInsets({
                 x={p.x} y={p.y} width={p.w} height={p.h}
                 preserveAspectRatio={par}
                 opacity={op}
-                style={{ mixBlendMode: blend as any }}
+                style={{ mixBlendMode: (blend as React.CSSProperties["mixBlendMode"]) }}
               />
               {overlayFill && (
                 <rect x={p.x} y={p.y} width={p.w} height={p.h} fill={overlayFill} />

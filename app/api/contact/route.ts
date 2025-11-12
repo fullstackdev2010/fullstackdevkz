@@ -107,7 +107,7 @@ export async function POST(req: Request) {
       subject,
       text: lines,
       html,
-      reply_to: body.email, // so you can reply directly from your inbox
+      replyTo: body.email, // so you can reply directly from your inbox
     });
 
     if (error) {

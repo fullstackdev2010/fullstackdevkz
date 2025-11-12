@@ -2,6 +2,7 @@
 "use client";
 import { useEffect, useMemo, useRef } from "react";
 import clsx from "clsx";
+import type React from "react";
 
 /**
  * Gradient mesh with fixed colors (no RNG).
@@ -92,7 +93,12 @@ export default function MeshBackground({
     };
   }, [motion.base, amplitudes, isStatic, prefersReducedMotion]);
 
-  const layer = (ref: any, color: string, size = 520) => (
+ // Accept refs whose current can be null (useRef<HTMLDivElement>(null))
+  const layer = (
+    ref: React.RefObject<HTMLDivElement | null>,
+    color: string,
+    size = 520
+  ) => (
     <div
       ref={ref}
       aria-hidden
