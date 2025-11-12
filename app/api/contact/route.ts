@@ -1,11 +1,9 @@
+// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-export const runtime = "nodejs"; // ensure Node runtime (Resend requires Node, not Edge)
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const CONTACT_TO = process.env.CONTACT_TO!;
-const CONTACT_FROM = process.env.CONTACT_FROM || "onboarding@resend.dev";
+export const runtime = "nodejs";            // Resend requires Node (not Edge)
+export const dynamic = "force-dynamic";     // don’t pre-render; read env at runtime
 
 type Body = {
   name: string;
@@ -19,9 +17,28 @@ type Body = {
   source?: string;
 };
 
-// very small guard
+// Lazy + safe: do not throw at module load if API key is absent
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  try {
+    return new Resend(key);
+  } catch {
+    return null;
+  }
+}
+
 function isEmail(s: string) {
   return /^\S+@\S+\.\S+$/.test(s);
+}
+
+// simple HTML escaper
+function escapeHtml(s: string) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 export async function POST(req: Request) {
@@ -51,9 +68,21 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    // Read env at runtime (after build)
+    const CONTACT_TO = process.env.CONTACT_TO;
+    const CONTACT_FROM = process.env.CONTACT_FROM || "onboarding@resend.dev";
+    const resend = getResend();
+
     if (!CONTACT_TO) {
       return NextResponse.json(
         { ok: false, error: "CONTACT_TO env is missing on the server." },
+        { status: 500 }
+      );
+    }
+    if (!resend) {
+      return NextResponse.json(
+        { ok: false, error: "Email service not configured." },
         { status: 500 }
       );
     }
@@ -107,7 +136,7 @@ export async function POST(req: Request) {
       subject,
       text: lines,
       html,
-      replyTo: body.email, // so you can reply directly from your inbox
+      replyTo: body.email, // reply directly from the inbox
     });
 
     if (error) {
@@ -126,13 +155,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-}
-
-// simple HTML escaper
-function escapeHtml(s: string) {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
