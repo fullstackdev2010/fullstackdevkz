@@ -19,8 +19,8 @@ const cases = [
     thumb: '/demos/preview/iskra.jpg',
   },
   {
-    href: '/work/securemo',
-    title: 'SecureMO — E2EE Messenger',
+    href: '/work',
+    title: 'SecureMO — E2EE Messenger - soon to come',
     summary: 'Next.js + Socket.io chat with client-side RSA and encrypted backups.',
     tags: ['Next.js', 'Socket.io', 'RSA'],
     thumb: '/demos/preview/e2ee.jpg',
@@ -42,19 +42,18 @@ export default function Work() {
           />
           <div className="absolute inset-0">
             <MeshBackground
-              brightness={0.5}
+              brightness={0.7}
               opacity={0.95}
               palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
             />
           </div>
-
           {/* Foreground content + cards INSIDE the glass container */}
           <div className="relative z-10">
             <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
               Selected work & case studies
             </h1>
             <p className="mt-4 max-w-2xl text-[var(--muted)]">
-              Mobile apps, secure backends, and delightful UI systems — all crafted with our signature mesh aesthetic.
+              Mobile apps, secure backends, and delightful UI systems — all crafted with coding precision.
             </p>
 
             {/* optional divider for structure (matches home’s feel) */}

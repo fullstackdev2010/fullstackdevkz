@@ -11,7 +11,7 @@ export default function Page() {
       privacyHref="/work/iskra/privacy"
       privacyLabel="Privacy & Data Handling"
       kpis={[ 
-        { label: 'Crash‑free sessions', value: '99.2%' },
+        { label: 'Customer satisfaction', value: '100%' },
         { label: 'LCP (mobile)', value: '≤ 2.3 s' },
         { label: 'Order throughput', value: '+28%', note: 'post‑launch' },
       ]}

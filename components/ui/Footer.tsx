@@ -7,7 +7,7 @@ export function Footer() {
         <div>
           <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
           <ul className="mt-2 space-y-1">
-            <li>Mobile craftsmanship with true precision.</li>
+            <li>Mobile craftsmanship with true coding precision.</li>
             <li>Expo • FastAPI • Next.js.</li>
           </ul>
         </div>

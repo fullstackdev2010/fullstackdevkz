@@ -1,5 +1,6 @@
 // app/services/page.tsx
 import { GlassCard } from '@/components/ui/GlassCard';
+import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
 
@@ -30,21 +31,26 @@ export default function Page() {
       <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
         {/* Rounded glass container with mesh (same layout as home/work) */}
         <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16 border glass">
-          {/* Mesh background confined to this container */}
-          <MeshWithPhotoInsets
-            className="pointer-events-none absolute inset-0 z-0"
-            backgroundSrc="/brand/services.svg"
-            viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
-            photos={[
-              // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
-            ]}
-          />
+          {/* Mesh background confined to this section */}
+            <MeshWithPhotoInsets
+              className="pointer-events-none absolute inset-0 z-0"
+              backgroundSrc="/brand/about.svg"
+              viewBox="0 0 1600 900"
+              photos={[]}
+            />
+            <div className="absolute inset-0">
+              <MeshBackground
+                brightness={0.7}
+                opacity={0.95}
+                palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
+              />
+            </div>
 
           {/* Foreground content INSIDE glass */}
           <div className="relative z-10">
             <h1 className="text-4xl md:text-5xl font-semibold">Services</h1>
             <p className="mt-4 max-w-2xl text-[var(--muted)]">
-              Productized services with timelines, scope, and handover checklists. All include mesh styling and performance budgets.
+              Productized services with timelines, scope, and handover checklists. All include styling and performance budgets.
             </p>
 
             {/* subtle divider */}

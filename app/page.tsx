@@ -37,11 +37,14 @@ export default function Home() {
             ]}
           />
           <div className="absolute inset-0">
-            <MeshBackground brightness={0.9} opacity={0.95} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
+            <MeshBackground 
+             brightness={0.9} 
+             opacity={0.95} 
+             palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
           </div>         
           <div className="relative z-10 grid items-center gap-10 md:grid-cols-2">
             <div>
-              <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship with true precision.</h1>
+              <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
               <p className="mt-5 max-w-prose text-lg text-[var(--muted)]">
                 Expo + FastAPI + Next.js — robust trading apps, secure messaging, crypto checkout, and elegant meshes that feel alive.
               </p>

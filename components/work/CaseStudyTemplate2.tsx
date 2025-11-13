@@ -49,14 +49,31 @@ export function DeviceGallery({ items }: { items: { src: string; alt?: string; p
 }
 
 
-function DescriptionCard({ children }: { seed: string; palette?: string[]; children: React.ReactNode }) {
+function DescriptionCard({
+  children,
+}: {
+  seed: string;
+  palette?: string[];
+  children: React.ReactNode;
+}) {
   return (
-    <GlassCard className="relative overflow-hidden">
+    <div className="relative overflow-hidden rounded-3xl border glass p-6 md:p-8">
+      {/* Full-bleed mesh background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <MeshBackground brightness={0.3} opacity={0.5} palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
+        <MeshBackground
+          brightness={0.5}
+          opacity={0.95}
+          seed={String(children)} // or seed if you want per-card variation
+          palette={['#7AA2FF', '#8DF2D6', '#96ABFF']}
+          static
+        />
       </div>
-      {children}
-    </GlassCard>
+
+      {/* Content above mesh */}
+      <div className="relative">
+        {children}
+      </div>
+    </div>
   );
 }
 

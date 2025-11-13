@@ -1,4 +1,5 @@
 // app/stack/page.tsx
+import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 
@@ -104,13 +105,20 @@ export default function Page() {
       <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
         {/* Rounded glass container with mesh (same layout as home/work/services) */}
         <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16 border glass">
-          {/* Mesh background confined to this container */}
+          {/* Mesh background confined to this section */}
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0"
             backgroundSrc="/brand/stack.svg"
             viewBox="0 0 1600 900"
             photos={[]}
           />
+          <div className="absolute inset-0">
+            <MeshBackground
+              brightness={0.7}
+              opacity={0.95}
+              palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
+            />
+          </div>
           {/* Foreground content INSIDE glass */}
           <div className="relative z-10">
             <header className="max-w-3xl">
