@@ -63,7 +63,7 @@ function DescriptionCard({
         <MeshBackground
           brightness={0.6}
           opacity={0.95}
-          seed={String(children)} // or seed if you want per-card variation
+          seed="Iskra Trade — Mobile Catalog & Orders"
           palette={['#7AA2FF', '#8DF2D6', '#96ABFF']}
           static
         />
@@ -115,7 +115,7 @@ export default function CaseStudyTemplate({
           {/* Mesh background scoped to the hero card, like on app/page.tsx */}
             <div className="absolute inset-0">
               <MeshBackground
-                brightness={0.9} 
+                brightness={0.8} 
                 opacity={0.95}
                 seed={title}          
                 palette={palette}    

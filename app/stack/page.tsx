@@ -114,7 +114,7 @@ export default function Page() {
           />
           <div className="absolute inset-0">
             <MeshBackground
-              brightness={0.8}
+              brightness={0.7}
               opacity={0.95}
               palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
             />
