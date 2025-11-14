@@ -61,7 +61,7 @@ function DescriptionCard({
       {/* Full-bleed mesh background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <MeshBackground
-          brightness={0.5}
+          brightness={0.6}
           opacity={0.95}
           seed={String(children)} // or seed if you want per-card variation
           palette={['#7AA2FF', '#8DF2D6', '#96ABFF']}
@@ -106,7 +106,7 @@ export default function CaseStudyTemplate({
           {/* Mesh background confined to this section */}
             <MeshWithPhotoInsets
               className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
-              backgroundSrc="/brand/main.svg"
+              backgroundSrc="/brand/main.webp"
               viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
               photos={[
                 // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },
