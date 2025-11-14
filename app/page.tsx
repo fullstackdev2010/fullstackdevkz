@@ -29,8 +29,8 @@ export default function Home() {
         <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
           {/* Mesh background confined to this section */}
           <MeshWithPhotoInsets
-            className="pointer-events-none absolute inset-0 z-0"
-            backgroundSrc="/brand/main.svg"
+            className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
+            backgroundSrc="/brand/main.webp"
             viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
             photos={[
               // { href: "/demos/uniscan/01.jpg", x: 220, y: 160, w: 260, h: 390, rx: 28, overlay: "soft", mixBlendMode: "overlay" },

@@ -105,7 +105,7 @@ export default function CaseStudyTemplate({
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
           {/* Mesh background confined to this section */}
             <MeshWithPhotoInsets
-              className="pointer-events-none absolute inset-0 z-0"
+              className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
               backgroundSrc="/brand/main.svg"
               viewBox="0 0 1600 900"  // must match your mesh.svg viewBox
               photos={[

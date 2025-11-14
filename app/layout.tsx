@@ -6,13 +6,13 @@ import { RouteTransition } from '@/components/motion/RouteTransition';
 import { RoutePaletteProvider } from '@/components/mesh/RoutePaletteProvider';
 
 export const metadata: Metadata = {
-  title: 'Fullstack Dev KZ — Mesh Mobile Craft',
-  description: 'Expo + FastAPI + Next.js — mobile craftsmanship with true precision.',
-  metadataBase: new URL('https://example.com'),
+  title: 'FDKZ — Mobile Precision Craft',
+  description: 'Expo + FastAPI + Next.js — mobile craftsmanship with true coding precision.',
+  metadataBase: new URL('https://www.fullstackdev.kz'),
   openGraph: {
     title: 'Fullstack Dev KZ',
-    description: 'Mesh aesthetics, robust engineering.',
-    url: 'https://example.com',
+    description: 'Mobile craftsmanship, robust engineering.',
+    url: 'https://www.fullstackdev.kz',
     siteName: 'Fullstack Dev KZ',
     images: [{ url: '/api/og?title=Fullstack%20Dev%20KZ', width: 1200, height: 630 }],
     locale: 'en_US',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Fullstack Dev KZ',
-    description: 'Mesh aesthetics, robust engineering.',
+    description: 'Mobile craftsmanship, robust engineering.',
     images: ['/api/og?title=Fullstack%20Dev%20KZ'],
     creator: '@fullstackdevkz'
   }
