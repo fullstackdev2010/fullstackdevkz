@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@fontsource/playfair-display": "^5.2.5",
     "@headlessui/react": "^2.2.2",
     "@mdx-js/loader": "3.0.1",
@@ -19,6 +20,7 @@
     "@tanstack/react-query": "^5.74.4",
     "@vercel/og": "^0.8.5",
     "@wagmi/core": "^2.16.7",
+    "baseline-browser-mapping": "^2.9.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "coinbase-commerce-node": "^1.0.4",

@@ -1,3 +1,4 @@
+// components/work/CaseStudyTemplate2.tsx
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
@@ -101,7 +102,7 @@ export default function CaseStudyTemplate({
   }: CaseStudyTemplateProps) {
   return (
     <div className="relative">
-      <div className="relative mx-auto max-w-7xl px-6 py-16">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
           {/* Mesh background confined to this section */}
             <MeshWithPhotoInsets
@@ -122,7 +123,7 @@ export default function CaseStudyTemplate({
                 static               
               />
             </div>
-          <div className="relative z-10 grid gap-10 md:grid-cols-2 items-center">
+          <div className="relative z-10 grid min-w-0 gap-10 md:grid-cols-2 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-semibold">{title}</h1>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
@@ -139,8 +140,13 @@ export default function CaseStudyTemplate({
                 </div>
               )}
             </div>
-            <div className="flex justify-center">
-              <DeviceFrame platform="android" src={heroImage} width={360} height={720} />
+            <div className="flex justify-center min-w-0">
+              <DeviceFrame
+                platform="android"
+                src={heroImage}
+                width={320}
+                height={640}
+              />
             </div>
           </div>
         </div>

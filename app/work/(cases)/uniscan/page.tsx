@@ -1,3 +1,4 @@
+// app/work/(cases)/uniscan/page.tsx
 import CaseStudyTemplate2 from '@/components/work/CaseStudyTemplate2';
 
 export default function Page() {

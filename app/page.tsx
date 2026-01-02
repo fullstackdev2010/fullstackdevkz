@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <main className="relative isolate">
-      <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-18">
-        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border glass">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-10 md:py-18">
+        <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 md:p-16 border glass">
           {/* Mesh background confined to this section */}
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
@@ -42,7 +42,7 @@ export default function Home() {
              opacity={0.95} 
              palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
           </div>         
-          <div className="relative z-10 grid items-center gap-10 md:grid-cols-2">
+          <div className="relative z-10 grid min-w-0 items-center gap-10 md:grid-cols-2">
             <div>
               <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
               <p className="mt-5 max-w-prose text-lg text-[var(--muted)]">
@@ -53,14 +53,14 @@ export default function Home() {
                 <a className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm" href="/contact">Start a project</a>
               </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center min-w-0">
               <DeviceSlideshow
                 platform="android"
-                width={360}
-                height={720}
+                width={320}
+                height={640}
                 intervalMs={2000}
-                scale={1}      // outer scale (bezel + content)
-                innerScale={1} // NEW: inner image only (helps avoid clipping)
+                scale={0.95}      // slightly reduced on mobile
+                innerScale={0.95}
                 images={images}
               />
             </div>
