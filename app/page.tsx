@@ -14,9 +14,9 @@ function getIskraImages(): string[] {
   try {
     const files = fs.readdirSync(dir);
     const jpgs = files.filter((f) => /\.(jpe?g)$/i.test(f)).sort();
-    return jpgs.map((f) => `/demos/iskra/${f}`);
+    return jpgs.map((f) => `/demos/uniscan/${f}`);
   } catch {
-    return ["/demos/iskra/01.jpg"];
+    return ["/demos/uniscan/01.jpg"];
   }
 }
 

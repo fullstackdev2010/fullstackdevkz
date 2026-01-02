@@ -14,12 +14,13 @@ type DeviceSlideshowProps = {
 
 const DEFAULT_CANDIDATES = [
   "01.jpg",
-  "catalog.jpg",
-  "product.jpg",
-  "cart.jpg",
-  "order.jpg",
-  "checkout.jpg",
-  "messaging.jpg",
+  "02.jpg",
+  "03.jpg",
+  "04.jpg",
+  "05.jpg",
+  "06.jpg",
+  "07.jpg",
+  "08.jpg",
   // numeric fallbacks 1..12
   ...Array.from({ length: 12 }, (_, i) => `${i + 1}.jpg`),
 ];
@@ -42,7 +43,7 @@ export default function DeviceSlideshow({
   scale = 0.92,
   innerScale = 0.9,
 }: DeviceSlideshowProps) {
-  const base = "/demos/iskra/";
+  const base = "/demos/uniscan/";
   const candidates = useMemo(() => {
     if (images && images.length) {
       return images.map((n) => (n.startsWith("/") ? n : base + n));
