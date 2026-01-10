@@ -12,7 +12,6 @@ const withMDX = createMDX({
 });
 
 const nextConfig: NextConfig = {
-  experimental: {},
   pageExtensions: ["ts", "tsx", "md", "mdx"],
 };
 
