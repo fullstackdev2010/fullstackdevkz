@@ -3,6 +3,12 @@ import { GlassCard } from '@/components/ui/GlassCard';
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 
+export const metadata = {
+   title: "About",
+   description:
+     "Learn about Fullstack Dev KZ: our engineering principles, development process, and technology stack focused on reliability, clarity, and performance.",
+ };
+
 export default function Page() {
   return (
     <main className="relative isolate">

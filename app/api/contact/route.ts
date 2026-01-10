@@ -41,6 +41,13 @@ function escapeHtml(s: string) {
     .replace(/"/g, "&quot;");
 }
 
+// Helper to return JSON with noindex header
+function jsonNoIndex(data: unknown, status = 200) {
+  const res = NextResponse.json(data, { status });
+  res.headers.set("X-Robots-Tag", "noindex");
+  return res;
+}
+
 export async function POST(req: Request) {
   try {
     const ip =
@@ -52,20 +59,20 @@ export async function POST(req: Request) {
 
     // Honeypot: if filled, accept silently
     if (body.website && body.website.trim().length > 0) {
-      return NextResponse.json({ ok: true }, { status: 200 });
+      return jsonNoIndex({ ok: true }, 200);
     }
 
     // Basic validation
     if (!body?.name || !body?.email || !body?.message) {
-      return NextResponse.json(
+      return jsonNoIndex(
         { ok: false, error: "Missing required fields." },
-        { status: 400 }
+        400
       );
     }
     if (!isEmail(body.email)) {
-      return NextResponse.json(
+      return jsonNoIndex(
         { ok: false, error: "Invalid email." },
-        { status: 400 }
+        400
       );
     }
 
@@ -75,15 +82,15 @@ export async function POST(req: Request) {
     const resend = getResend();
 
     if (!CONTACT_TO) {
-      return NextResponse.json(
+      return jsonNoIndex(
         { ok: false, error: "CONTACT_TO env is missing on the server." },
-        { status: 500 }
+        500
       );
     }
     if (!resend) {
-      return NextResponse.json(
+      return jsonNoIndex(
         { ok: false, error: "Email service not configured." },
-        { status: 500 }
+        500
       );
     }
 
@@ -141,18 +148,18 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json(
+      return jsonNoIndex(
         { ok: false, error: "Failed to send email." },
-        { status: 500 }
+        500
       );
     }
 
-    return NextResponse.json({ ok: true }, { status: 200 });
+    return jsonNoIndex({ ok: true }, 200);
   } catch (err) {
     console.error("Contact route error:", err);
-    return NextResponse.json(
+    return jsonNoIndex(
       { ok: false, error: "Unexpected server error." },
-      { status: 500 }
+      500
     );
   }
 }

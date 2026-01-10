@@ -22,6 +22,12 @@ type FormState = {
 const EMAIL = "fsdkzdep2010@gmail.com";
 const ADDRESS = "Almaty, Kazakhstan";
 
+export const metadata = {
+   title: "Contact",
+   description:
+     "Contact Fullstack Dev KZ to discuss your project, timeline, and budget. Based in Almaty, Kazakhstan.",
+};
+
 export default function Page() {
   const [form, setForm] = useState<FormState>({
     name: "",

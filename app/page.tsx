@@ -20,6 +20,12 @@ function getIskraImages(): string[] {
   }
 }
 
+export const metadata = {
+   title: "Fullstack Development",
+   description:
+     "Fullstack Dev KZ builds modern web and mobile applications with Next.js, Expo, and FastAPI. Performance, security, and clean UX by default.",
+ };
+
 export default function Home() {
   const images = getIskraImages();
 

@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
@@ -6,25 +7,54 @@ import { RouteTransition } from '@/components/motion/RouteTransition';
 import { RoutePaletteProvider } from '@/components/mesh/RoutePaletteProvider';
 
 export const metadata: Metadata = {
-  title: 'FDKZ — Mobile Precision Craft',
-  description: 'Expo + FastAPI + Next.js — mobile craftsmanship with true coding precision.',
+  title: {
+    default: 'FDKZ — Mobile Precision Craft',
+    template: '%s | Fullstack Dev KZ',
+  },
+  description:
+    'Expo + FastAPI + Next.js — mobile craftsmanship with true coding precision.',
   metadataBase: new URL('https://www.fullstackdev.kz'),
+
+  alternates: {
+    canonical: '/',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+
   openGraph: {
     title: 'Fullstack Dev KZ',
     description: 'Mobile craftsmanship, robust engineering.',
     url: 'https://www.fullstackdev.kz',
     siteName: 'Fullstack Dev KZ',
-    images: [{ url: '/api/og?title=Fullstack%20Dev%20KZ', width: 1200, height: 630 }],
+    images: [
+      {
+        url: '/api/og?title=Fullstack%20Dev%20KZ',
+        width: 1200,
+        height: 630,
+        alt: 'Fullstack Dev KZ',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
+
   twitter: {
     card: 'summary_large_image',
     title: 'Fullstack Dev KZ',
     description: 'Mobile craftsmanship, robust engineering.',
     images: ['/api/og?title=Fullstack%20Dev%20KZ'],
-    creator: '@fullstackdevkz'
-  }
+    creator: '@fullstackdevkz',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -33,9 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-[var(--bg)] text-[var(--fg)] antialiased">
         <RoutePaletteProvider />
         <Navbar />
-        <RouteTransition>
-          {children}
-        </RouteTransition>
+        <RouteTransition>{children}</RouteTransition>
         <Footer />
       </body>
     </html>

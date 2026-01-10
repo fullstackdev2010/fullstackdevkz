@@ -27,6 +27,12 @@ const cases = [
   },
 ];
 
+export const metadata = {
+   title: "Work",
+   description:
+     "Selected projects and case studies from Fullstack Dev KZ showcasing modern fullstack engineering and product design.",
+ };
+
 export default function Work() {
   return (
     <main className="relative isolate">

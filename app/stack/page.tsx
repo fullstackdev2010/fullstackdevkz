@@ -99,6 +99,12 @@ function StackGroup({ title, items }: Group) {
   );
 }
 
+export const metadata = {
+   title: "Technology Stack",
+   description:
+     "Our technology stack: Next.js, Expo, FastAPI, SQL databases, CI/CD, and modern cloud infrastructure for scalable applications.",
+ };
+
 export default function Page() {
   return (
     <main className="relative isolate">
