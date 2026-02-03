@@ -28,7 +28,7 @@ function Section({
 }
 
 export default async function Page() {
-  const updated = "January 3, 2026";
+  const updated = "February 3, 2026";
 
   return (
     // Document-style: simple site bg, lighter "paper" panel for content
