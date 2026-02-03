@@ -242,7 +242,7 @@ export default function Page() {
                         options={[
                           { label: "Mobile App (Expo)", value: "Mobile App (Expo)" },
                           { label: "Backend API (FastAPI)", value: "Backend API (FastAPI)" },
-                          { label: "On-device OCR / UNIScan", value: "On-device OCR / UNIScan" },
+                          { label: "On-device OCR / OCRScan", value: "On-device OCR / OCRScan" },
                           { label: "Web / Next.js", value: "Web / Next.js" },
                           { label: "Other", value: "Other" },
                         ]}

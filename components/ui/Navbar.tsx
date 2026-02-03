@@ -31,7 +31,7 @@ export function Navbar() {
 
   // Used by the mobile sheet
   const workLinks = [
-    { href: '/work/uniscan', label: 'UNIScan — OCR Scanner' },
+    { href: '/work/uniscan', label: 'OCRScan — OCR Scanner' },
     { href: '/work/iskra', label: 'Iskra Trading' },
     { href: '/work', label: 'All work' },
   ];

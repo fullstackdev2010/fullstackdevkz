@@ -35,7 +35,7 @@ const STACK: Group[] = [
     ],
   },
   {
-    title: "UNIScan — On-device Processing",
+    title: "OCRScan — On-device Processing",
     items: [
       { label: "OCR (on device)", notes: "@react-native-ml-kit/text-recognition; Tesseract native bridge" },
       { label: "Model Packs", notes: "Bundled language data; local execution" },
@@ -58,7 +58,7 @@ const STACK: Group[] = [
       { label: "On device", notes: "expo-file-system + AsyncStorage fallbacks" },
       { label: "Server files", notes: "Static product/manager images with graceful fallbacks" },
       { label: "Retention", notes: "User-controlled; ops exports for accounting/BI" },
-      { label: "Formats", notes: "Images, JSON, DOCX/PDF (UNIScan), encrypted archives" },
+      { label: "Formats", notes: "Images, JSON, DOCX/PDF (OCRScan), encrypted archives" },
     ],
   },
   {
