@@ -6,7 +6,7 @@ import CaseCard from "@/components/work/CaseCard";
 const cases = [
   {
     href: '/work/uniscan',
-    title: 'OCRScan — On-device OCR Scanner',
+    title: 'PDF Scanner & OCR Secure — On-device OCR Scanner',
     summary: 'High-speed scanning with on-device OCR, native modules, and encrypted results.',
     tags: ['Expo', 'OCR', 'Encryption'],
     thumb: '/demos/preview/uniscan.jpg',

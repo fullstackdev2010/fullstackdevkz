@@ -156,13 +156,13 @@ export default function CaseStudyTemplate({
         <Section title="">
           <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Overview</p><br></br>         
-            <p className="text-[var(--muted)]">OCRScan is a privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share. It ships with two OCR engines: Google ML Kit (unbundled, no Play Services) for Latin/Chinese/Devanagari/Japanese/Korean and Tesseract for Arabic/Cyrillic — both running on the device. A built-in encryption vault (AES-256-GCM) and optional biometric unlock keep clear files short-lived and encrypted by default.</p>
+            <p className="text-[var(--muted)]">PDF Scanner & OCR Secure is a privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share. It ships with two OCR engines: Google ML Kit (unbundled, no Play Services) for Latin/Chinese/Devanagari/Japanese/Korean and Tesseract for Arabic/Cyrillic — both running on the device. A built-in encryption vault (AES-256-GCM) and optional biometric unlock keep clear files short-lived and encrypted by default.</p>
             <br></br>
             <p className="text-[var(--muted)]">Core flows:</p>             
             <ul className="list-disc pl-5 text-[var(--muted)]">
               <li>Scan or import images/PDFs → auto-crop/enhance → OCR on-device → export as text/PDF/DOCX.</li>
               <li>Encrypt before sharing (.uenc envelope) or keep inside the app’s vault.</li>
-              <li>Bring files into OCRScan from other apps via Android’s Share sheet (custom native bridge).</li>
+              <li>Bring files into PDF Scanner & OCR Secure from other apps via Android’s Share sheet (custom native bridge).</li>
               <li>Automatic wipe of decrypted previews, session auto-lock, and screenshot/recording prevention while sensitive screens are open.</li>
             </ul>
           </DescriptionCard>

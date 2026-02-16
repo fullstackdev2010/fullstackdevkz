@@ -35,7 +35,7 @@ const STACK: Group[] = [
     ],
   },
   {
-    title: "OCRScan — On-device Processing",
+    title: "PDF Scanner & OCR Secure — On-device Processing",
     items: [
       { label: "OCR (on device)", notes: "@react-native-ml-kit/text-recognition; Tesseract native bridge" },
       { label: "Model Packs", notes: "Bundled language data; local execution" },
