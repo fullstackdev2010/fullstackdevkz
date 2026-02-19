@@ -3,24 +3,28 @@ import Link from "next/link";
 import Image from "next/image";
 import { GlassCard } from "@/components/ui/GlassCard";
 
+type Props = {
+  href: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  thumb: string;
+  externalHref?: string;
+  externalLabel?: string;
+};
+
 export default function CaseCard({
   href,
   title,
   summary,
   tags,
   thumb,
-}: {
-  href: string;
-  title: string;
-  summary: string;
-  tags?: string[];
-  thumb?: string;
-}) {
+  externalHref,
+  externalLabel,
+}: Props) {
   return (
-    <Link href={href} className="group block h-full focus:outline-none">
-      <GlassCard className="h-full overflow-hidden transition-transform hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-white/30">
-        {/* Media */}
-        <div className="mb-4 relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
+    <GlassCard className="group h-full overflow-hidden transition-transform hover:-translate-y-0.5      focus-within:ring-2 focus-within:ring-white/30">
+         <Link href={href} className="block mb-4 relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
           {thumb ? (
             <Image
               src={thumb}
@@ -37,10 +41,13 @@ export default function CaseCard({
               </div>
             </div>
           )}
-        </div>
-
+        </Link>
         {/* Text */}
-        <h3 className="text-lg font-medium">{title}</h3>
+        <h3 className="text-lg font-medium">
+          <Link href={href} className="hover:underline">
+            {title}
+          </Link>
+        </h3>
         <p className="mt-2 text-sm text-[var(--muted)]">{summary}</p>
 
         {/* Tags */}
@@ -58,7 +65,18 @@ export default function CaseCard({
         ) : null}
 
         <span className="sr-only">Open case: {title}</span>
+
+        {externalHref && (
+          <a
+            href={externalHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-1.5 text-xs hover:bg-white/20 transition"
+          >
+            📲 {externalLabel ?? "Open"}
+          </a>
+        )}
+
       </GlassCard>
-    </Link>
   );
 }

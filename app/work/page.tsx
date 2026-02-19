@@ -2,6 +2,8 @@
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
+import { UNISCAN_PLAY_URL } from "@/lib/constants";
+
 
 const cases = [
   {
@@ -10,6 +12,8 @@ const cases = [
     summary: 'High-speed scanning with on-device OCR, native modules, and encrypted results.',
     tags: ['Expo', 'OCR', 'Encryption'],
     thumb: '/demos/preview/uniscan.jpg',
+    externalHref: UNISCAN_PLAY_URL,
+    externalLabel: 'Google Play',
   },
   {
     href: '/work/iskra',
@@ -61,6 +65,17 @@ export default function Work() {
             <p className="mt-4 max-w-2xl text-[var(--muted)]">
               Mobile apps, secure backends, and delightful UI systems — all crafted with coding precision.
             </p>
+
+            {/* <div className="mt-6">
+              <a
+                href={UNISCAN_PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/15 border border-white/30 px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition"
+              >
+                📲 Download UniScan on Google Play
+              </a>
+            </div> */}
 
             {/* optional divider for structure (matches home’s feel) */}
             <div className="mt-8 h-px w-full bg-white/10" />
