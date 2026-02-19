@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Privacy Policy – OCRScan",
   description:
-    "Privacy policies for PDF Scanner & OCR Secure mobile apps. Data collection, processing, storage, security, and user rights.",
+    "Privacy policies for Docs Scan OCR Encrypt & Share mobile apps. Data collection, processing, storage, security, and user rights.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -38,7 +38,7 @@ export default async function Page() {
           <div className="px-6 py-8 md:px-10 md:py-12">
             <header>
               <h1 className="text-3xl md:text-4xl font-semibold text-white">
-                PDF Scanner & OCR Secure — Privacy Policy
+                Docs Scan OCR Encrypt & Share — Privacy Policy
               </h1>
               <p className="mt-2 text-sm text-[var(--muted)]">
                 Last updated: {updated}.
@@ -48,7 +48,7 @@ export default async function Page() {
             <div className="mt-10 space-y-12 text-base leading-relaxed text-[var(--muted)]">
               <Section id="processing-location" title="Where processing happens">
                 <p>
-                  PDF Scanner & OCR Secure is designed to keep your documents on your device. We do{" "}
+                  Docs Scan OCR Encrypt & Share is designed to keep your documents on your device. We do{" "}
                   <em>not</em> collect personal data on our servers.
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -102,7 +102,7 @@ export default async function Page() {
               </Section>
 
               <Section id="children" title="Children’s privacy">
-                <p>PDF Scanner & OCR Secure is a professional utility and not directed to children.</p>
+                <p>Docs Scan OCR Encrypt & Share is a professional utility and not directed to children.</p>
               </Section>
 
               <Section id="contact" title="Contact">

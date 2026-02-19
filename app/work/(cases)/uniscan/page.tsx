@@ -4,7 +4,7 @@ import CaseStudyTemplate2 from '@/components/work/CaseStudyTemplate2';
 export default function Page() {
   return (
     <CaseStudyTemplate2
-      title="PDF Scanner & OCR Secure — On‑device OCR Scanner"
+      title="Docs Scan OCR Encrypt & Share — On‑device OCR Scanner"
       tagline="High‑speed scanning with on‑device OCR, native modules, and end‑to‑end encrypted results for privacy‑sensitive workflows."
       palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
       heroImage="/demos/uniscan/01.jpg"
