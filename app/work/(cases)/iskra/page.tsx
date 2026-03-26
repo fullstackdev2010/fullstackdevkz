@@ -1,6 +1,12 @@
 // app/work/iskra/page.tsx
 import CaseStudyTemplate from '@/components/work/CaseStudyTemplate';
 
+export const metadata = {
+  title: "Iskra Trade — Mobile Catalog & Orders",
+  description:
+    "Iskra Trade — mobile sales app with a fast, clean backend.",
+};
+
 export default function Page() {
   return (     
     <CaseStudyTemplate

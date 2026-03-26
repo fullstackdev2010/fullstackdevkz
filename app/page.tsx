@@ -114,7 +114,7 @@ export default function Home() {
               <GlassCard>
                 <h3 className="text-xl font-medium">Being developed now</h3>
                 <p className="mt-2 text-sm text-[var(--muted)]">
-                  We have a few projects being developed now: Secure Messaging — E2EE with backend, Habit Tracker mobile-first and QR Code / Barcode Scanner.
+                  We currently have several projects in development: an expense tracker and schedule, flashcards, a habit tracker, and meditation. 
                 </p>
               </GlassCard>
             </Link>

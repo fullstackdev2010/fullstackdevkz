@@ -4,6 +4,7 @@ import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
+import { ISKRAUG_PLAY_URL } from "@/lib/constants";
 
 export type KPI = { label: string; value: string; note?: string };
 
@@ -77,8 +78,6 @@ function DescriptionCard({
   );
 }
 
-
-
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-14">
@@ -130,16 +129,25 @@ export default function CaseStudyTemplate({
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
               {/* NEW: subtle hero CTA for privacy */}
-              {privacyHref && (
-                <div className="mt-4">
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href={ISKRAUG_PLAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white/15 border border-white/30 px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition"
+                >
+                  📲 Download on Google Play
+                </Link>
+
+                {privacyHref && (
                   <Link
                     href={privacyHref}
                     className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 transition"
                   >
-                    <span>{privacyLabel}</span>
+                    {privacyLabel}
                   </Link>
-                </div>
-              )}
+                )}
+              </div>
             </div>
            <div className="flex justify-center min-w-0">
               <DeviceFrame

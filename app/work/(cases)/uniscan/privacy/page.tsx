@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function Section({
   id,
-  title,
+  title, 
   children,
 }: {
   id: string;

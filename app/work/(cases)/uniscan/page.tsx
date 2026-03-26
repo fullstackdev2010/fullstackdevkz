@@ -1,6 +1,12 @@
 // app/work/(cases)/uniscan/page.tsx
 import CaseStudyTemplate2 from '@/components/work/CaseStudyTemplate2';
 
+export const metadata = {
+  title: "Docs Scan OCR Encrypt & Share — On‑device OCR Scanner",
+  description:
+    "High‑speed scanning with on‑device OCR, native modules, and end‑to‑end encrypted results for privacy‑sensitive workflows.",
+};
+
 export default function Page() {
   return (
     <CaseStudyTemplate2

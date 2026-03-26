@@ -90,11 +90,11 @@ export function Section({ title, children }: { title: string; children: React.Re
   );
 }
 
-export default function CaseStudyTemplate({
+export default function CaseStudyTemplate2({
   title,
   tagline,
   palette,
-  heroImage = '/demos/uniscan/01.png',
+  heroImage = '/demos/uniscan/01.jpg',
   kpis = [],
   gallery = [],
   // NEW: privacy link (optional)
@@ -131,25 +131,26 @@ export default function CaseStudyTemplate({
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
               {/* NEW: subtle hero CTA for privacy */}
               <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href={UNISCAN_PLAY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/15 border border-white/30 px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition"
-              >
-                📲 Download on Google Play
-              </Link>
-
-              {privacyHref && (
                 <Link
-                  href={privacyHref}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 transition"
+                  href={UNISCAN_PLAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white/15 border border-white/30 px-5 py-2.5 text-sm font-medium hover:bg-white/25 transition"
                 >
-                  {privacyLabel}
+                  📲 Download on Google Play
                 </Link>
-              )}
+
+                {privacyHref && (
+                  <Link
+                    href={privacyHref}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 transition"
+                  >
+                    {privacyLabel}
+                  </Link>
+                )}
+              </div>
             </div>
-            </div>
+            
             <div className="flex justify-center min-w-0">
               <DeviceFrame
                 platform="android"

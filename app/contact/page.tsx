@@ -143,7 +143,7 @@ export default function Page() {
           {/* Mesh background confined to this section */}
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
-            backgroundSrc="/brand/services.webp"
+            backgroundSrc="/brand/contact.webp"
             viewBox="0 0 1600 900"
             photos={[]}
           />
