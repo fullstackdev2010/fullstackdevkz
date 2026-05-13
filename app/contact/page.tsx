@@ -19,7 +19,7 @@ type FormState = {
   website: string;
 };
 
-const EMAIL = "fsdkzdep2010@gmail.com";
+const EMAIL = "info@fullstackdev.kz";
 const ADDRESS = "Almaty, Kazakhstan";
 
 export default function Page() {
