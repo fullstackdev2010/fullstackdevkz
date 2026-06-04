@@ -8,11 +8,11 @@ import { RoutePaletteProvider } from '@/components/mesh/RoutePaletteProvider';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FDKZ — Mobile Precision Craft',
+    default: 'FDKZ - Mobile Precision Craft',
     template: '%s | Fullstack Dev KZ',
   },
   description:
-    'Expo + FastAPI + Next.js — mobile craftsmanship with true coding precision.',
+    'Expo + FastAPI + Next.js mobile craftsmanship with true coding precision.',
   metadataBase: new URL('https://www.fullstackdev.kz'),
 
   alternates: {

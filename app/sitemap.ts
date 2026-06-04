@@ -3,13 +3,25 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.fullstackdev.kz"; // no trailing slash
-
-  return [
-    { url: `${baseUrl}/`, lastModified: new Date() },
-    { url: `${baseUrl}/about`, lastModified: new Date() },
-    { url: `${baseUrl}/contact`, lastModified: new Date() },
-    { url: `${baseUrl}/services`, lastModified: new Date() },
-    { url: `${baseUrl}/work`, lastModified: new Date() },
-    { url: `${baseUrl}/stack`, lastModified: new Date() },
+  const routes = [
+    "/",
+    "/about",
+    "/contact",
+    "/services",
+    "/work",
+    "/stack",
+    "/work/uniscan",
+    "/work/uniscan/privacy",
+    "/work/iskra",
+    "/work/iskra/privacy",
+    "/work/todo",
+    "/work/todo/privacy",
+    "/work/expense",
+    "/work/expense/privacy",
   ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route === "/" ? "" : route}`,
+    lastModified: new Date(),
+  }));
 }

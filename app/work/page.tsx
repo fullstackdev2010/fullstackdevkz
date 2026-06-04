@@ -2,40 +2,52 @@
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
-import { UNISCAN_PLAY_URL, TODO_PLAY_URL, ISKRAUG_PLAY_URL } from "@/lib/constants";
+import {
+  EXPENSE_PLAY_URL,
+  ISKRAUG_PLAY_URL,
+  TODO_PLAY_URL,
+  UNISCAN_PLAY_URL,
+} from "@/lib/constants";
 
 const cases = [
   {
     href: "/work/uniscan",
-    title: "Docs Scan OCR Encrypt & Share — On-device OCR Scanner",
+    title: "Docs Scan OCR Encrypt & Share On-device OCR Scanner",
     summary:
       "High-speed scanning with on-device OCR, native modules, and encrypted results.",
-    tags: ["Expo", "OCR", "Encryption"],
+    tags: ["Expo", "OCR", "Encryption", "In-App Purchases"],
     thumb: "/demos/preview/uniscan.jpg",
     externalHref: UNISCAN_PLAY_URL,
     externalLabel: "Google Play",
   },
-
-  {
-    href: "/work/iskra",
-    title: "Iskra Trading — Mobile Catalog & Orders",
-    summary:
-      "Expo app + FastAPI backend with offline cart and ERP bridges.",
-    tags: ["Expo", "FastAPI", "SQLite/Postgres"],
-    thumb: "/demos/preview/iskra.jpg",
-    externalHref: ISKRAUG_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-
-  // ✅ TODO CASE — fixed
   {
     href: "/work/todo",
-    title: "Momentum TODO — Focus & Routine",
+    title: "Momentum TODO Focus & Routine",
     summary:
       "Build momentum. Tasks, routines, streaks, and streak tracking with offline storage.",
     tags: ["Expo", "Localization", "AsyncStorage", "In-App Purchases"],
     thumb: "/demos/preview/todo.png",
     externalHref: TODO_PLAY_URL,
+    externalLabel: "Google Play",
+  },
+  {
+    href: "/work/expense",
+    title: "ExpenseFlow Smart Tracker",
+    summary:
+      "A budget tracker for logging spending, reviewing categories, and spotting monthly trends.",
+    tags: ["Expo", "Finance", "Local-first", "In-App Purchases"],
+    thumb: "/demos/preview/expense.png",
+    externalHref: EXPENSE_PLAY_URL,
+    externalLabel: "Google Play",
+  },
+  {
+    href: "/work/iskra",
+    title: "Iskra Trading Mobile Catalog & Orders",
+    summary:
+      "Expo app + FastAPI backend with offline cart and ERP bridges.",
+    tags: ["Expo", "FastAPI", "SQLite/Postgres"],
+    thumb: "/demos/preview/iskra.jpg",
+    externalHref: ISKRAUG_PLAY_URL,
     externalLabel: "Google Play",
   },
 ];

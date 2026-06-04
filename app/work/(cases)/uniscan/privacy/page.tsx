@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy – OCRScan",
   description:
     "Privacy policies for Docs Scan OCR Encrypt & Share mobile apps. Data collection, processing, storage, security, and user rights.",
-  alternates: { canonical: "/privacy" },
+  alternates: { canonical: "/work/uniscan/privacy" },
 };
 
 function Section({

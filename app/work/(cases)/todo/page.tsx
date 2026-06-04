@@ -2,7 +2,7 @@
 import CaseStudyTemplate3 from '@/components/work/CaseStudyTemplate3';
 
 export const metadata = {
-  title: "Momentum TODO — Focus, Routines & Streaks",
+  title: "Momentum TODO Focus, Routines & Streaks",
   description:
     "Momentum TODO productivity app with routines, streaks, offline storage and multilingual UI.",
 };
@@ -10,7 +10,7 @@ export const metadata = {
 export default function Page() {
   return (
     <CaseStudyTemplate3
-      title="Momentum TODO — Focus, Routines & Streaks"
+      title="Momentum TODO Focus, Routines & Streaks"
       tagline="Minimal productivity app with routines, streak tracking, offline storage, and multilingual UI built with Expo."
       palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
       heroImage="/demos/todo/01.jpg"

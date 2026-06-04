@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Политика конфиденциальности – Iskra Trade",
   description:
     "Политика конфиденциальности для Iskra Trade. Сбор, обработка, хранение данных, безопасность и права пользователей. / Privacy policy for Iskra Trade.",
-  alternates: { canonical: "/privacy" },
+  alternates: { canonical: "/work/iskra/privacy" },
 };
 
 function Section({

@@ -59,18 +59,6 @@ function DescriptionCard({
 }) {
   return (
     <div className="relative overflow-hidden rounded-3xl border glass p-6 md:p-8">
-      {/* Full-bleed mesh background */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <MeshBackground
-          brightness={0.6}
-          opacity={0.95}
-          seed="Iskra Trade — Mobile Catalog & Orders"
-          palette={['#7AA2FF', '#8DF2D6', '#96ABFF']}
-          static
-        />
-      </div>
-
-      {/* Content above mesh */}
       <div className="relative">
         {children}
       </div>
