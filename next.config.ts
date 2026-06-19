@@ -13,6 +13,15 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  turbopack: {},
 };
 
-export default withMDX(nextConfig);
+const config = withMDX(nextConfig);
+
+if (config.experimental && "turbo" in config.experimental) {
+  const { turbo, ...experimental } = config.experimental;
+  void turbo;
+  config.experimental = experimental;
+}
+
+export default config;

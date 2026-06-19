@@ -4,6 +4,7 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
 import {
   EXPENSE_PLAY_URL,
+  HABIT_PLAY_URL,
   ISKRAUG_PLAY_URL,
   TODO_PLAY_URL,
   UNISCAN_PLAY_URL,
@@ -38,6 +39,16 @@ const cases = [
     tags: ["Expo", "Finance", "Local-first", "In-App Purchases"],
     thumb: "/demos/preview/expense.png",
     externalHref: EXPENSE_PLAY_URL,
+    externalLabel: "Google Play",
+  },
+  {
+    href: "/work/habit",
+    title: "HabitFlow Daily Habit Tracker",
+    summary:
+      "Build better routines with streaks, stats, heatmaps, and calm daily tracking.",
+    tags: ["Expo", "Habits", "Local-first", "In-App Purchases"],
+    thumb: "/demos/preview/habit.jpg",
+    externalHref: HABIT_PLAY_URL,
     externalLabel: "Google Play",
   },
   {

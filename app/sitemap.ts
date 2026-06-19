@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work/todo/privacy",
     "/work/expense",
     "/work/expense/privacy",
+    "/work/habit",
+    "/work/habit/privacy",
   ];
 
   return routes.map((route) => ({
