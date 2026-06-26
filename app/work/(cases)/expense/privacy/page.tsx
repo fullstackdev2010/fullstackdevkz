@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
   title: "Privacy Policy - ExpenseFlow",
   description:
-    "Privacy Policy for the ExpenseFlow Android app. Learn how expense data, settings, purchases, and device storage are handled.",
+    "Privacy Policy for the ExpenseFlow Android app. Learn how expense data, settings, purchases, notifications, device identifiers, and device storage are handled.",
   alternates: { canonical: "/work/expense/privacy" },
 };
 
@@ -27,7 +27,7 @@ function Section({
 }
 
 export default function Page() {
-  const updated = "June 4, 2026";
+  const updated = "June 26, 2026";
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
@@ -45,14 +45,15 @@ export default function Page() {
           <div className="mt-10 space-y-12 text-base leading-relaxed text-[var(--muted)]">
             <Section id="info" title="Information We Collect">
               <p>
-                Expense does not require account registration and does not collect
+                ExpenseFlow does not require account registration and does not collect
                 personal information such as your name, email address, or phone number.
               </p>
               <p>The app stores the following data locally on your device:</p>
               <ul className="list-disc space-y-2 pl-6">
-                <li>Expense titles, amounts, dates, and categories you create</li>
-                <li>Theme, language, and app settings</li>
+                <li>Expense titles, amounts, dates, notes, and categories you create</li>
+                <li>Budgets, currency, theme, language, and app settings</li>
                 <li>Purchase status if premium features are enabled</li>
+                <li>Notification preferences if reminders are enabled</li>
               </ul>
             </Section>
 
@@ -65,11 +66,24 @@ export default function Page() {
               <p>If you uninstall the app, locally stored data may be removed.</p>
             </Section>
 
+            <Section id="device-ids" title="Device or Other IDs">
+              <p>
+                ExpenseFlow may use app or device identifiers through trusted service
+                providers to enable purchases, restore premium access, deliver
+                notifications, prevent fraud, and maintain app functionality.
+              </p>
+              <p>
+                These identifiers may be processed by services such as Google Play
+                Billing, RevenueCat, and Expo notification services. ExpenseFlow does
+                not use device identifiers for advertising tracking.
+              </p>
+            </Section>
+
             <Section id="purchases" title="Purchases">
               <p>
-                ExpenseFlow may offer optional in-app purchases. Purchases are processed
-                through Google Play Billing and RevenueCat. The app does not store
-                or receive your payment card information.
+                ExpenseFlow may offer optional in-app purchases or subscriptions.
+                Purchases are processed through Google Play Billing and RevenueCat.
+                The app does not store or receive your payment card information.
               </p>
               <ul className="list-disc space-y-2 pl-6">
                 <li>
@@ -95,10 +109,18 @@ export default function Page() {
               </ul>
             </Section>
 
+            <Section id="notifications" title="Notifications">
+              <p>
+                If you enable reminders, ExpenseFlow may use notification services
+                to deliver local or push notifications. Notification settings and
+                tokens may be used only for app reminders and app functionality.
+              </p>
+            </Section>
+
             <Section id="internet" title="Internet Access">
               <p>
                 The app may access the internet for purchase validation, restoring
-                purchases, and loading store information.
+                purchases, loading store information, and notification functionality.
               </p>
               <p>ExpenseFlow does not send your expense entries to the developer.</p>
             </Section>
