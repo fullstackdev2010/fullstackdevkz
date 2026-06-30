@@ -6,6 +6,7 @@ import {
   EXPENSE_PLAY_URL,
   HABIT_PLAY_URL,
   ISKRAUG_PLAY_URL,
+  MEDITATION_PLAY_URL,
   TODO_PLAY_URL,
   UNISCAN_PLAY_URL,
 } from "@/lib/constants";
@@ -49,6 +50,16 @@ const cases = [
     tags: ["Expo", "Habits", "Local-first", "In-App Purchases"],
     thumb: "/demos/preview/habit.jpg",
     externalHref: HABIT_PLAY_URL,
+    externalLabel: "Google Play",
+  },
+  {
+    href: "/work/meditation",
+    title: "MeditationFlow: Calm Timer",
+    summary:
+      "Quiet meditation timer with mindful practices, reminders, stats, and journal.",
+    tags: ["Expo", "Meditation", "Local-first", "In-App Purchases"],
+    thumb: "/demos/preview/meditation.png",
+    externalHref: MEDITATION_PLAY_URL,
     externalLabel: "Google Play",
   },
   {
