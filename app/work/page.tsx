@@ -48,7 +48,7 @@ const cases = [
     summary:
       "Build better routines with streaks, stats, heatmaps, and calm daily tracking.",
     tags: ["Expo", "Habits", "Local-first", "In-App Purchases"],
-    thumb: "/demos/preview/habit.jpg",
+    thumb: "/demos/preview/habit.png",
     externalHref: HABIT_PLAY_URL,
     externalLabel: "Google Play",
   },

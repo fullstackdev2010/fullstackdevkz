@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/demos/preview/habit.jpg",
+        url: "/demos/preview/habit.png",
         width: 1080,
         height: 1920,
         alt: "HabitFlow Android app dashboard screenshot",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/demos/preview/habit.jpg"],
+    images: ["/demos/preview/habit.png"],
   },
 };
 
