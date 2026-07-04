@@ -23,6 +23,7 @@ export function Navbar() {
 
   const links = [
     { href: '/work', label: 'Work' },
+    { href: '/blog', label: 'Blog' },
     { href: '/services', label: 'Services' },
     { href: '/stack', label: 'Stack' },
     { href: '/about', label: 'About' },

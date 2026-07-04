@@ -4,6 +4,8 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
+import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import { appSeoContent } from "@/lib/appSeoContent";
 import { MEDITATION_PLAY_URL } from "@/lib/constants";
 
 const title = "MeditationFlow: Calm Timer";
@@ -72,6 +74,8 @@ function InfoCard({
 }
 
 export default function Page() {
+  const seo = appSeoContent.meditation;
+
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6">
@@ -199,6 +203,8 @@ export default function Page() {
             </ul>
           </InfoCard>
         </section>
+
+        <AppSeoLandingSections {...seo} />
 
         <div className="mt-16">
           <Link

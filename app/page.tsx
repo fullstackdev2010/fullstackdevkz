@@ -44,7 +44,7 @@ export default function Home() {
           />
           <div className="absolute inset-0">
             <MeshBackground 
-             brightness={0.9} 
+             brightness={0.85} 
              opacity={0.95} 
              palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
           </div>         

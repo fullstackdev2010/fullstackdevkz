@@ -4,6 +4,8 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
+import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import { appSeoContent } from "@/lib/appSeoContent";
 import { EXPENSE_PLAY_URL } from "@/lib/constants";
 
 const title = "ExpenseFlow Smart Tracker";
@@ -14,6 +16,14 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/work/expense" },
+  keywords: [
+    "ExpenseFlow",
+    "expense tracker",
+    "budget tracker",
+    "daily spending tracker",
+    "Android expense app",
+    "offline expense tracker",
+  ],
   openGraph: {
     title,
     description,
@@ -32,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/demos/preview/expense.jpg"],
+    images: ["/demos/preview/expense.png"],
   },
 };
 
@@ -64,6 +74,8 @@ function InfoCard({
 }
 
 export default function Page() {
+  const seo = appSeoContent.expense;
+
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6">
@@ -186,6 +198,8 @@ export default function Page() {
             </ul>
           </InfoCard>
         </section>
+
+        <AppSeoLandingSections {...seo} />
 
         <div className="mt-16">
           <Link

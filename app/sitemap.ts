@@ -1,5 +1,6 @@
 // app/sitemap.ts
 import { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.fullstackdev.kz"; // no trailing slash
@@ -9,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/services",
     "/work",
+    "/blog",
     "/stack",
     "/work/uniscan",
     "/work/uniscan/privacy",
@@ -24,7 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work/meditation/privacy",
   ];
 
-  return routes.map((route) => ({
+  const blogRoutes = blogPosts.map((post) => `/blog/${post.slug}`);
+
+  return [...routes, ...blogRoutes].map((route) => ({
     url: `${baseUrl}${route === "/" ? "" : route}`,
     lastModified: new Date(),
   }));
