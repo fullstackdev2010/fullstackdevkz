@@ -4,6 +4,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { HABIT_PLAY_URL } from "@/lib/constants";
@@ -78,8 +79,8 @@ export default function Page() {
 
   return (
     <main className="relative">
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <section className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
             backgroundSrc="/brand/main.webp"
@@ -96,9 +97,12 @@ export default function Page() {
             />
           </div>
 
-          <div className="relative z-10 grid min-w-0 items-center gap-10 md:grid-cols-2">
+          <div className="relative z-10 grid min-w-0 items-start gap-10 md:grid-cols-2">
             <div>
-              <h1 className="mt-3 text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
+              <div className="flex items-start gap-4">
+                <QualityBadge size="md" className="mt-1 hidden sm:block" />
+                <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
+              </div>
               <p className="mt-4 max-w-prose text-[var(--muted)]">{description}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -205,14 +209,14 @@ export default function Page() {
 
         <AppSeoLandingSections {...seo} />
 
-        <div className="mt-16">
+        <nav aria-label="Product navigation" className="mt-16 clear-both border-t border-white/10 pt-8">
           <Link
             href="/work"
-            className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm"
+            className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
           >
-            ← Back to Work
+            Back to Work
           </Link>
-        </div>
+        </nav>
       </div>
     </main>
   );

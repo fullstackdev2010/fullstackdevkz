@@ -2,6 +2,7 @@
 import MeshBackground from '@/components/mesh/MeshBackground';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { DeviceFrame } from '@/components/ui/DeviceFrame';
+import { QualityBadge } from "@/components/ui/QualityBadge";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
 import { TODO_PLAY_URL } from "@/lib/constants";
@@ -69,7 +70,7 @@ function DescriptionCard({
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-14">
-      <h2 className="text-2xl font-semibold">{title}</h2>
+      {title ? <h2 className="text-2xl font-semibold">{title}</h2> : null}
       <div className="mt-3 grid gap-3 md:grid-cols-2">
         {children}
       </div>
@@ -90,8 +91,8 @@ export default function CaseStudyTemplate3({
   }: CaseStudyTemplateProps) {
   return (
     <div className="relative">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16">
-        <div className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <div className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           {/* Mesh background confined to this section */}
             <MeshWithPhotoInsets
               className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
@@ -111,9 +112,12 @@ export default function CaseStudyTemplate3({
                 static               
               />
             </div>
-          <div className="relative z-10 grid min-w-0 gap-10 md:grid-cols-2 items-center">
+          <div className="relative z-10 grid min-w-0 items-start gap-10 md:grid-cols-2">
             <div>
-              <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
+              <div className="flex items-start gap-4">
+                <QualityBadge size="md" className="mt-1 hidden sm:block" />
+                <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
+              </div>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
               {/* NEW: subtle hero CTA for privacy */}
@@ -200,9 +204,11 @@ export default function CaseStudyTemplate3({
             <p className="text-[var(--muted)]">Smooth performance even on older devices. Fully offline functionality. 9 languages supported. Pro features via in-app purchase. Clean UI with consistent design.</p>
           </DescriptionCard>
         </Section>
-        <div className="mt-16">
-          <a href="/work" className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm">← Back to Work</a>
-        </div>
+        <nav aria-label="Case study navigation" className="mt-16 clear-both border-t border-white/10 pt-8">
+          <Link href="/work" className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">
+            Back to Work
+          </Link>
+        </nav>
       </div>
     </div>
   );

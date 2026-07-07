@@ -8,6 +8,7 @@ import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
 import ClientActiveNav from "@/components/ClientActiveNav";
+import { QualityBadge } from "@/components/ui/QualityBadge";
 
 function getIskraImages(): string[] {
   const dir = path.join(process.cwd(), "public", "demos", "iskra");
@@ -32,8 +33,8 @@ export default function Home() {
 
   return (
     <main className="relative isolate">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-10 md:py-18">
-        <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 md:p-16 border glass">
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-10">
+        <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 md:p-12 border glass">
           {/* Mesh background confined to this section */}
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
@@ -49,9 +50,12 @@ export default function Home() {
              opacity={0.95} 
              palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}/>
           </div>         
-          <div className="relative z-10 grid min-w-0 items-center gap-10 md:grid-cols-2">
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
+          <div className="relative z-10 grid min-w-0 items-start gap-10 md:grid-cols-2">
+            <div className="pt-1 md:pt-2">
+              <div className="flex items-start gap-4">
+                <QualityBadge size="lg" className="mt-1 hidden sm:block" />
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
+              </div>
               <p className="mt-5 max-w-prose text-lg text-[var(--muted)]">
                 Expo + FastAPI + Next.js — robust trading apps, secure messaging, crypto checkout, and elegant meshes that feel alive.
               </p>
