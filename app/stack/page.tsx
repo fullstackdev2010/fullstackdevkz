@@ -103,6 +103,7 @@ export const metadata = {
    title: "Technology Stack",
    description:
      "Our technology stack: Next.js, Expo, FastAPI, SQL databases, CI/CD, and modern cloud infrastructure for scalable applications.",
+   alternates: { canonical: "/stack" },
  };
 
 export default function Page() {

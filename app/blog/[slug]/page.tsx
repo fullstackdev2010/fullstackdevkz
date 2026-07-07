@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="text-sm text-[var(--muted)]">
               {post.category} - {post.date}
             </div>
-            <h1 className="mt-4 text-4xl font-semibold md:text-6xl">
+            <h1 className="mt-4 text-3xl font-semibold sm:text-4xl md:text-5xl">
               {post.title}
             </h1>
             <p className="mt-5 max-w-3xl text-lg text-[var(--muted)]">

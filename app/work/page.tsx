@@ -78,6 +78,7 @@ export const metadata = {
   title: "Work",
   description:
     "Selected projects and case studies from Fullstack Dev KZ showcasing modern fullstack engineering and product design.",
+  alternates: { canonical: "/work" },
 };
 
 export default function Work() {
@@ -105,7 +106,7 @@ export default function Work() {
 
           {/* Content */}
           <div className="relative z-10 min-w-0">
-            <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
               Selected work & case studies
             </h1>
 

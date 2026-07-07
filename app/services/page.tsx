@@ -29,6 +29,7 @@ const tiers = [
    title: "Services",
    description:
      "Fullstack development services including web apps, mobile apps, APIs, UI/UX, and scalable backend systems using Next.js, Expo, and FastAPI.",
+   alternates: { canonical: "/services" },
  };
 
 export default function Page() {

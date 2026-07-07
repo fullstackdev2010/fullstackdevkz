@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     'Expo + FastAPI + Next.js mobile craftsmanship with true coding precision.',
   metadataBase: new URL('https://www.fullstackdev.kz'),
 
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
+
   alternates: {
     canonical: '/',
   },

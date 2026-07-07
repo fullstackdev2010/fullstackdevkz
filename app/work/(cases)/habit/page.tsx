@@ -98,7 +98,7 @@ export default function Page() {
 
           <div className="relative z-10 grid min-w-0 items-center gap-10 md:grid-cols-2">
             <div>
-              <h1 className="mt-3 text-4xl font-semibold md:text-5xl">{title}</h1>
+              <h1 className="mt-3 text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
               <p className="mt-4 max-w-prose text-[var(--muted)]">{description}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">

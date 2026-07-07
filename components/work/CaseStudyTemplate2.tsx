@@ -114,7 +114,7 @@ export default function CaseStudyTemplate2({
             </div>
           <div className="relative z-10 grid min-w-0 gap-10 md:grid-cols-2 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-semibold">{title}</h1>
+              <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h1>
               <p className="mt-3 text-[var(--muted)] max-w-prose">{tagline}</p>
               {kpis.length > 0 && <KPIStrip kpis={kpis} />}
               {/* NEW: subtle hero CTA for privacy */}

@@ -33,7 +33,7 @@ export default function BlogPage() {
 
           <div className="relative z-10">
             <section className="max-w-3xl">
-              <h1 className="text-4xl font-semibold md:text-6xl">
+              <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">
                 App notes and guides
               </h1>
               <p className="mt-4 text-[var(--muted)]">

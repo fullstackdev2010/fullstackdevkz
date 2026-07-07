@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contact Fullstack Dev KZ to discuss your project, timeline, and budget. Based in Almaty, Kazakhstan.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactLayout({

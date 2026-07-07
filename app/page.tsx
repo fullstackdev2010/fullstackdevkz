@@ -24,6 +24,7 @@ export const metadata = {
    title: "Fullstack Development",
    description:
      "Fullstack Dev KZ builds modern web and mobile applications with Next.js, Expo, and FastAPI. Performance, security, and clean UX by default.",
+   alternates: { canonical: "/" },
  };
 
 export default function Home() {
@@ -50,7 +51,7 @@ export default function Home() {
           </div>         
           <div className="relative z-10 grid min-w-0 items-center gap-10 md:grid-cols-2">
             <div>
-              <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">Mobile craftsmanship with true coding precision.</h1>
               <p className="mt-5 max-w-prose text-lg text-[var(--muted)]">
                 Expo + FastAPI + Next.js — robust trading apps, secure messaging, crypto checkout, and elegant meshes that feel alive.
               </p>
@@ -112,9 +113,9 @@ export default function Home() {
               className="block rounded-2xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
               <GlassCard>
-                <h3 className="text-xl font-medium">Being developed now</h3>
+                <h3 className="text-xl font-medium">Published Android apps</h3>
                 <p className="mt-2 text-sm text-[var(--muted)]">
-                  We currently have several projects in development: an expense tracker and schedule, flashcards, a habit tracker, and meditation. 
+                  Explore practical apps for scanning, tasks, expenses, habits, meditation, and mobile trade workflows.
                 </p>
               </GlassCard>
             </Link>

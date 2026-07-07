@@ -7,6 +7,7 @@ export const metadata = {
    title: "About",
    description:
      "Learn about Fullstack Dev KZ: our engineering principles, development process, and technology stack focused on reliability, clarity, and performance.",
+   alternates: { canonical: "/about" },
  };
 
 export default function Page() {
