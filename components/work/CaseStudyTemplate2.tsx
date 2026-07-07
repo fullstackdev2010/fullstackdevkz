@@ -15,7 +15,7 @@ type CaseStudyTemplateProps = {
   palette?: string[];
   heroImage?: string;
   kpis?: KPI[];
-  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  gallery?: { src: string; alt?: string; platform?: 'android' }[];
   /**
    * Optional privacy link. If provided, a subtle CTA button will be shown
    * in the hero. Point this at /work/(cases)/iskra/privacy for Iskra.
@@ -38,7 +38,7 @@ export function KPIStrip({ kpis }: { kpis: KPI[] }) {
   );
 }
 
-export function DeviceGallery({ items }: { items: { src: string; alt?: string; platform?: 'ios'|'android' }[] }) {
+export function DeviceGallery({ items }: { items: { src: string; alt?: string; platform?: 'android' }[] }) {
   return (
     <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((it, i) => (
@@ -155,7 +155,7 @@ export default function CaseStudyTemplate2({
         <Section title="">
           <DescriptionCard seed={title} palette={palette}>
             <p className="text-2xl">Overview</p><br></br>         
-            <p className="text-[var(--muted)]">Docs Scan OCR Encrypt & Share is a privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share. It ships with two OCR engines: Google ML Kit (unbundled, no Play Services) for Latin/Chinese/Devanagari/Japanese/Korean and Tesseract for Arabic/Cyrillic — both running on the device. A built-in encryption vault (AES-256-GCM) and optional biometric unlock keep clear files short-lived and encrypted by default.</p>
+            <p className="text-[var(--muted)]">Docs Scan OCR Encrypt & Share is a privacy-first Android scanner (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign & encrypt files before you share. It ships with two OCR engines: Google ML Kit (unbundled, no Play Services) for Latin/Chinese/Devanagari/Japanese/Korean and Tesseract for Arabic/Cyrillic — both running on the device. A built-in encryption vault (AES-256-GCM) and optional biometric unlock keep clear files short-lived and encrypted by default.</p>
             <br></br>
             <p className="text-[var(--muted)]">Core flows:</p>             
             <ul className="list-disc pl-5 text-[var(--muted)]">

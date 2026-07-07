@@ -15,7 +15,7 @@ type CaseStudyTemplateProps = {
   palette?: string[];
   heroImage?: string;
   kpis?: KPI[];
-  gallery?: { src: string; alt?: string; platform?: 'ios'|'android' }[];
+  gallery?: { src: string; alt?: string; platform?: 'android' }[];
   /**
    * Optional privacy link. If provided, a subtle CTA button will be shown
    * in the hero. Point this at /work/(cases)/iskra/privacy for Iskra.
@@ -38,7 +38,7 @@ export function KPIStrip({ kpis }: { kpis: KPI[] }) {
   );
 }
 
-export function DeviceGallery({ items }: { items: { src: string; alt?: string; platform?: 'ios'|'android' }[] }) {
+export function DeviceGallery({ items }: { items: { src: string; alt?: string; platform?: 'android' }[] }) {
   return (
     <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((it, i) => (

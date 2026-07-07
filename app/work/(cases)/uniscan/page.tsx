@@ -31,7 +31,7 @@ export default function Page() {
         kpis={[
           { label: "Scans / min", value: "45-60", note: "mid-range Android" },
           { label: "Latency (p50)", value: "<= 350 ms" },
-          { label: "Coverage", value: "iOS / Android", note: "A/B device tests" },
+          { label: "Coverage", value: "Android", note: "Android device tests" },
         ]}
         gallery={[
           { src: "/demos/uniscan/02.jpg", platform: "android", alt: "Docs Scan OCR home screen" },

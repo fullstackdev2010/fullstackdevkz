@@ -3,7 +3,7 @@ import Image from "next/image";
 import clsx from "clsx";
 
 type DeviceFrameProps = {
-  platform?: "android" | "ios";
+  platform?: "android";
   src: string;
   width?: number;
   height?: number;
@@ -24,7 +24,7 @@ export function DeviceFrame({
   // Simple bezel styling to match typical mock frames
   const bezel = clsx(
     "relative overflow-hidden rounded-[2.25rem] border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.4)]",
-    platform === "ios" ? "p-5" : "p-4",
+    "p-4",
     className
   );
 

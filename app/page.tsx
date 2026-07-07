@@ -85,7 +85,7 @@ export default function Home() {
               <GlassCard>
                 <h3 className="text-xl font-medium">Document scanning with OCR &amp; encryption</h3>
                 <p className="mt-2 text-sm text-[var(--muted)]">
-                  A privacy-first mobile scanner for Android and iOS (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign &amp; encrypt files before you share.
+                  A privacy-first Android scanner (Expo + React Native) that captures documents, cleans them up, recognizes text fully offline, and lets you sign &amp; encrypt files before you share.
                 </p>
               </GlassCard>
             </Link>

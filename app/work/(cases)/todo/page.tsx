@@ -29,7 +29,7 @@ export default function Page() {
         privacyHref="/work/todo/privacy"
         privacyLabel="Privacy & Data Handling"
         kpis={[
-          { label: "Platforms", value: "Android / iOS", note: "Expo native build" },
+          { label: "Platform", value: "Android", note: "Expo native build" },
           { label: "Storage", value: "Local only", note: "AsyncStorage" },
           { label: "Languages", value: "10+", note: "i18n + RTL support" },
         ]}

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import DeviceFrame from "@/components/ui/DeviceFrame";
 
 type DeviceSlideshowProps = {
-  platform?: "android" | "ios";
+  platform?: "android";
   width?: number;
   height?: number;
   intervalMs?: number;

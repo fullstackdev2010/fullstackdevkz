@@ -174,7 +174,7 @@ export default function Page() {
               <Section id="security" title="Security">
 
                 <p>
-                  The App uses standard platform security features provided by Android and iOS.
+                  The App uses standard platform security features provided by Android.
                 </p>
 
               </Section>
