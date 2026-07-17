@@ -137,7 +137,7 @@ export default function Page() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-2.5 text-sm font-medium transition hover:bg-white/25"
                 >
-                  Download on Google Play
+                  📲 Download on Google Play
                 </Link>
                 <Link
                   href="/work/todo/privacy"

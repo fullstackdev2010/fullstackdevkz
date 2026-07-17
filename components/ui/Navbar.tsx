@@ -26,6 +26,7 @@ export function Navbar() {
     { href: '/blog', label: 'Blog' },
     { href: '/services', label: 'Services' },
     { href: '/stack', label: 'Stack' },
+    { href: '/partners', label: 'Partners' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];

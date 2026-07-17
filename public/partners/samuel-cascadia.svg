@@ -1,0 +1,20 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" rx="64" fill="#07101C"/>
+  <path d="M0 0H900V1100H0V0Z" fill="url(#bg)"/>
+  <path d="M0 944C138 874 287 846 446 874C592 900 731 966 900 928V1100H0V944Z" fill="#0B2A56" opacity="0.92"/>
+  <path d="M62 988C211 914 335 900 462 924C589 948 693 997 838 968" stroke="#20D3F2" stroke-width="16" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="450" cy="382" r="196" fill="#0A1E3D" stroke="#2F75FF" stroke-width="10"/>
+  <circle cx="450" cy="330" r="84" fill="#A7F3D0"/>
+  <path d="M278 558C304 459 371 410 450 410C529 410 596 459 622 558C580 610 521 638 450 638C379 638 320 610 278 558Z" fill="#E7F6FF"/>
+  <rect x="96" y="704" width="708" height="246" rx="44" fill="#07101C" opacity="0.68"/>
+  <text x="450" y="782" text-anchor="middle" fill="#F8FBFF" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">Samuel</text>
+  <text x="450" y="852" text-anchor="middle" fill="#F8FBFF" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="800">Cascadia</text>
+  <text x="450" y="925" text-anchor="middle" fill="#7EE7D3" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">UK partner</text>
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(682 192) rotate(134.16) scale(690 620)">
+      <stop stop-color="#165DFF"/>
+      <stop offset="0.42" stop-color="#102D65"/>
+      <stop offset="1" stop-color="#07101C"/>
+    </radialGradient>
+  </defs>
+</svg>
