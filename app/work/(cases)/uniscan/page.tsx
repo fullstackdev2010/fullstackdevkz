@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { UNISCAN_PLAY_URL } from "@/lib/constants";
 
@@ -56,6 +57,21 @@ const gallery = [
   { src: "/demos/uniscan/02.jpg", alt: "Docs Scan OCR home screen" },
   { src: "/demos/uniscan/03.jpg", alt: "Docs Scan OCR document preview" },
   { src: "/demos/uniscan/04.jpg", alt: "Docs Scan OCR recognition result" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "Docs Scan OCR in action",
+    description: "A direct walkthrough of scanning, on-device OCR, encrypted export, and local vault workflows.",
+    youtubeId: "W2Ahaen9DqQ",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains Docs Scan OCR",
+    description: "A lighter explainer for visitors who need to remember why private OCR matters.",
+    youtubeId: "kv6HicYA35Q",
+  },
 ];
 
 function InfoCard({
@@ -159,6 +175,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">

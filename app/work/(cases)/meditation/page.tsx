@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { MEDITATION_PLAY_URL } from "@/lib/constants";
 
@@ -57,6 +58,21 @@ const gallery = [
   { src: "/demos/meditation/02.jpg", alt: "MeditationFlow library screen with mindful practice cards" },
   { src: "/demos/meditation/03.jpg", alt: "MeditationFlow timer screen for a five minute grounding practice" },
   { src: "/demos/meditation/04.jpg", alt: "MeditationFlow settings screen with theme, reminders, language, and timer defaults" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "MeditationFlow in action",
+    description: "A calm walkthrough of the timer, practice library, reminders, stats, and journal flow.",
+    youtubeId: "",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains MeditationFlow",
+    description: "A warmer, lighter explainer for visitors who remember stories better than feature lists.",
+    youtubeId: "",
+  },
 ];
 
 function InfoCard({
@@ -160,6 +176,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">

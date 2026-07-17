@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { EXPENSE_PLAY_URL } from "@/lib/constants";
 
@@ -57,6 +58,21 @@ const gallery = [
   { src: "/demos/expense/02.jpg", alt: "ExpenseFlow app settings with theme and language choices" },
   { src: "/demos/expense/03.jpg", alt: "ExpenseFlow app monthly category statistics" },
   { src: "/demos/expense/04.jpg", alt: "ExpenseFlow app expenses list with filters" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "ExpenseFlow in action",
+    description: "A direct product walkthrough for people who want to see the daily expense flow before installing.",
+    youtubeId: "t2KF45UyO7w",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains ExpenseFlow",
+    description: "A lighter explainer that makes the app easier to remember after the first visit.",
+    youtubeId: "BU0CaILKvu4",
+  },
 ];
 
 function InfoCard({
@@ -160,6 +176,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">

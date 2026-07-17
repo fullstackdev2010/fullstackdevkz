@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { TODO_PLAY_URL } from "@/lib/constants";
 
@@ -56,6 +57,21 @@ const gallery = [
   { src: "/demos/todo/02.jpg", alt: "Momentum TODO home dashboard" },
   { src: "/demos/todo/03.jpg", alt: "Momentum TODO task preview" },
   { src: "/demos/todo/04.jpg", alt: "Momentum TODO routine result screen" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "Momentum TODO in action",
+    description: "A simple walkthrough of tasks, routines, streaks, offline storage, and daily planning.",
+    youtubeId: "MD_XGNEk2dE",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains Momentum TODO",
+    description: "A lighter explainer that makes the routine and streak idea easier to remember.",
+    youtubeId: "",
+  },
 ];
 
 function InfoCard({
@@ -159,6 +175,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">

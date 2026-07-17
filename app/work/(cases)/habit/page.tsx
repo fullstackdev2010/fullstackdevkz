@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { HABIT_PLAY_URL } from "@/lib/constants";
 
@@ -57,6 +58,21 @@ const gallery = [
   { src: "/demos/habit/02.jpg", alt: "HabitFlow habits screen with active daily habits and completion progress" },
   { src: "/demos/habit/03.jpg", alt: "HabitFlow statistics screen with calendar heatmap and streak data" },
   { src: "/demos/habit/04.jpg", alt: "HabitFlow analytics screen with habit insights and recommendations" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "HabitFlow in action",
+    description: "A clear product walkthrough for users who want to understand habit tracking, streaks, and heatmaps.",
+    youtubeId: "sj4Upp7QZf0",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains HabitFlow",
+    description: "A memorable lighter version that shows why small daily check-ins matter.",
+    youtubeId: "YggGTCsBkLo",
+  },
 ];
 
 function InfoCard({
@@ -160,6 +176,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">

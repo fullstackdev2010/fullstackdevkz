@@ -6,6 +6,7 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
+import ProductVideos from "@/components/work/ProductVideos";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { ISKRAUG_PLAY_URL } from "@/lib/constants";
 
@@ -55,6 +56,21 @@ const gallery = [
   { src: "/demos/iskra/02.jpg", alt: "Iskra Trade home screen" },
   { src: "/demos/iskra/03.jpg", alt: "Iskra Trade product catalog" },
   { src: "/demos/iskra/07.jpg", alt: "Iskra Trade product detail screen" },
+];
+
+const videos = [
+  {
+    label: "Official walkthrough",
+    title: "Iskra Trade in action",
+    description: "A direct walkthrough of the mobile catalog, cart, and order workflow for sales teams.",
+    youtubeId: "",
+  },
+  {
+    label: "Playful explainer",
+    title: "The alien explains Iskra Trade",
+    description: "A lighter explanation of how mobile ordering helps field teams move faster.",
+    youtubeId: "",
+  },
 ];
 
 function InfoCard({
@@ -158,6 +174,8 @@ export default function Page() {
             </GlassCard>
           ))}
         </section>
+
+        <ProductVideos videos={videos} />
 
         <section className="mt-14 grid gap-3 md:grid-cols-2">
           <InfoCard title="Overview">
