@@ -65,13 +65,13 @@ const videos = [
     label: "Official walkthrough",
     title: "MeditationFlow in action",
     description: "A calm walkthrough of the timer, practice library, reminders, stats, and journal flow.",
-    youtubeId: "",
+    youtubeId: "AldYxOOZV9E",
   },
   {
     label: "Playful explainer",
     title: "The alien explains MeditationFlow",
     description: "A warmer, lighter explainer for visitors who remember stories better than feature lists.",
-    youtubeId: "",
+    youtubeId: "ysrQyEEHqQE",
   },
 ];
 
