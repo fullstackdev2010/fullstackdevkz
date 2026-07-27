@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/partners",
     "/partners/samuel-cascadia",
     "/work/pubplay",
+    "/work/pubplay/privacy",
+    "/work/pubplay/delete",
     "/work/uniscan",
     "/work/uniscan/privacy",
     "/work/iskra",

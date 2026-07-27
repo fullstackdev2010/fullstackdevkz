@@ -296,6 +296,12 @@ export default function Page() {
                   Download pub owner guide
                 </a>
                 <Link
+                  href="/work/pubplay/privacy"
+                  className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
                   href="/partners/samuel-cascadia"
                   className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
@@ -563,12 +569,26 @@ export default function Page() {
         </section>
 
         <nav aria-label="Product navigation" className="mt-16 border-t border-white/10 pt-8">
-          <Link
-            href="/work"
-            className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
-          >
-            Back to Work
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/work"
+              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            >
+              Back to Work
+            </Link>
+            <Link
+              href="/work/pubplay/privacy"
+              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/work/pubplay/delete"
+              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            >
+              Delete account and data
+            </Link>
+          </div>
         </nav>
       </div>
     </main>

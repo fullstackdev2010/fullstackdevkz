@@ -95,7 +95,10 @@ export async function POST(req: Request) {
     }
 
     // Compose subject + text
-    const subject = `Contact: ${body.name} – ${body.projectType || "Project"}`;
+    const isPubPlayDeletion = body.source === "pubplay-account-deletion";
+    const subject = isPubPlayDeletion
+      ? `PubPlay deletion request: ${body.company || body.email}`
+      : `Contact: ${body.name} - ${body.projectType || "Project"}`;
     const lines = [
       `Name: ${body.name}`,
       `Email: ${body.email}`,
@@ -121,7 +124,7 @@ export async function POST(req: Request) {
         pre { white-space:pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
       </style>
       <div class="card">
-        <h2 style="margin:0 0 10px 0;">New contact request</h2>
+        <h2 style="margin:0 0 10px 0;">${isPubPlayDeletion ? "PubPlay account and data deletion request" : "New contact request"}</h2>
         <div class="row"><strong>Name:</strong> ${escapeHtml(body.name)}</div>
         <div class="row"><strong>Email:</strong> ${escapeHtml(body.email)}</div>
         ${body.company ? `<div class="row"><strong>Company:</strong> ${escapeHtml(body.company)}</div>` : ""}
