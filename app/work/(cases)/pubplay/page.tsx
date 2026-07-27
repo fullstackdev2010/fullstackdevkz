@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/demos/preview/pubplay.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "PubPlay host dashboard running a pub games night on an Android tablet",
+        width: 1672,
+        height: 941,
+        alt: "PubPlay host tablet, player phone, and live TV leaderboard in a pub",
       },
     ],
   },
@@ -257,7 +257,7 @@ export default function Page() {
             />
           </div>
 
-          <div className="relative z-10 grid min-w-0 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative z-10 grid min-w-0 items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <div className="flex items-start gap-4">
                 <QualityBadge size="md" className="mt-1 hidden sm:block" />
@@ -324,10 +324,10 @@ export default function Page() {
 
             <div className="overflow-hidden rounded-2xl border border-white/15 bg-black/30 shadow-2xl">
               <Image
-                src="/demos/pubplay/02.jpg"
-                alt="PubPlay venue setup and live games-night dashboard on an Android tablet"
-                width={1920}
-                height={1080}
+                src="/demos/pubplay/general-features.png"
+                alt="PubPlay host tablet, QR player join page, and live TV leaderboard working together in a pub"
+                width={1448}
+                height={1086}
                 className="h-auto w-full"
                 priority
               />
