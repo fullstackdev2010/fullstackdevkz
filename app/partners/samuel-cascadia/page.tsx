@@ -166,8 +166,14 @@ export default function Page() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact?partner=samuel-cascadia&product=pub-games-night-system"
+                  href="/work/pubplay"
                   className="inline-flex rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+                >
+                  Explore the full product
+                </Link>
+                <Link
+                  href="/contact?partner=samuel-cascadia&product=pub-games-night-system"
+                  className="inline-flex rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
                   Book a campaign demo
                 </Link>

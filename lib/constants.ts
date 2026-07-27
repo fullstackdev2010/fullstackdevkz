@@ -18,3 +18,6 @@ export const HABIT_PLAY_URL =
 
 export const MEDITATION_PLAY_URL =
    "https://play.google.com/store/apps/details?id=com.fullstackdevkz.meditation";
+
+export const PUBPLAY_PLAY_URL =
+   "https://play.google.com/store/apps/details?id=com.fullstackdevkz.pubplaytablet";
