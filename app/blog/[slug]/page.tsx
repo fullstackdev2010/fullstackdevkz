@@ -5,6 +5,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { blogPosts, getBlogPost } from "@/lib/blogPosts";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -100,14 +101,16 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href={post.appHref}
-                className="rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
               >
                 View {post.appName}
+                <ArrowRight size={16} aria-hidden />
               </Link>
               <Link
                 href="/blog"
-                className="rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
               >
+                <ArrowLeft size={16} aria-hidden />
                 All blog posts
               </Link>
             </div>
@@ -139,9 +142,10 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
           <Link
             href={post.appHref}
-            className="mt-5 inline-flex rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
           >
             Open {post.appName}
+            <ArrowRight size={16} aria-hidden />
           </Link>
         </GlassCard>
       </article>

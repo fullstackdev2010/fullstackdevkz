@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft, Trash2 } from "lucide-react";
 
 export const dynamic = "force-static";
 
@@ -245,8 +246,9 @@ export default function Page() {
               </p>
               <Link
                 href="/work/pubplay/delete"
-                className="inline-flex rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
+                <Trash2 size={16} aria-hidden />
                 Request account and data deletion
               </Link>
             </Section>
@@ -315,14 +317,16 @@ export default function Page() {
           >
             <Link
               href="/work/pubplay"
-              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
+              <ArrowLeft size={16} aria-hidden />
               Back to PubPlay
             </Link>
             <Link
               href="/work/pubplay/delete"
-              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
+              <Trash2 size={16} aria-hidden />
               Delete account and data
             </Link>
           </nav>

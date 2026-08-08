@@ -5,6 +5,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
+import { ArrowDown, ArrowRight, Handshake } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Partners",
@@ -74,14 +75,16 @@ export default function Page() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="#campaigns"
-                  className="inline-flex rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
                 >
                   View partner pages
+                  <ArrowDown size={17} aria-hidden />
                 </Link>
                 <Link
                   href="/contact?topic=partner"
-                  className="inline-flex rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
                 >
+                  <Handshake size={17} aria-hidden />
                   Discuss partnership
                 </Link>
               </div>
@@ -140,8 +143,9 @@ export default function Page() {
                       <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
                         {campaign.description}
                       </p>
-                      <div className="mt-5 inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition group-hover:bg-white/10">
+                      <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition group-hover:bg-white/10">
                         Open campaign page
+                        <ArrowRight size={16} aria-hidden />
                       </div>
                     </div>
                   </div>

@@ -3,6 +3,7 @@ import { GlassCard } from '@/components/ui/GlassCard';
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const tiers = [
   {
@@ -84,7 +85,7 @@ export default function Page() {
                     {/* CTA row (not a nested link) */}
                     <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition-colors group-hover:bg-white/10">
                       <span>Start</span>
-                      <span aria-hidden>→</span>
+                      <ArrowRight size={16} aria-hidden />
                     </div>
                   </GlassCard>
                 </Link>

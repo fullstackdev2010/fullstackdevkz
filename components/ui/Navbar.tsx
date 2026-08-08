@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { Menu, MessageSquare, X } from 'lucide-react';
 
 export function Navbar() {
   const dir = useScrollDirection();
@@ -67,17 +68,21 @@ export function Navbar() {
             </li>
           ))}
           <li>
-            <Button as={Link} href="/contact" variant="glow" size="sm">Start a project</Button>
+            <Button as={Link} href="/contact" variant="glow" size="sm" className="gap-2">
+              <MessageSquare size={15} aria-hidden />
+              Start a project
+            </Button>
           </li>
         </ul>
 
         {/* Mobile toggle */}
         <button
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
           onClick={() => setOpen(s => !s)}
           className="md:hidden rounded-lg border border-white/20 px-3 py-1.5"
         >
-          ☰
+          {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
         </button>
       </nav>
 
@@ -99,7 +104,10 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-2">
-              <Button as={Link} href="/contact" variant="glow" size="md" className="w-full justify-center">Start a project</Button>
+              <Button as={Link} href="/contact" variant="glow" size="md" className="w-full justify-center gap-2">
+                <MessageSquare size={17} aria-hidden />
+                Start a project
+              </Button>
             </div>
           </div>
         </div>

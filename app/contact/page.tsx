@@ -2,6 +2,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
+import { LoaderCircle, Send } from "lucide-react";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -300,8 +301,13 @@ export default function Page() {
                     <button
                       type="submit"
                       disabled={submitting || disabled}
-                      className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 disabled:opacity-50"
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 disabled:opacity-50"
                     >
+                      {submitting ? (
+                        <LoaderCircle className="animate-spin" size={16} aria-hidden />
+                      ) : (
+                        <Send size={16} aria-hidden />
+                      )}
                       {submitting ? "Sending…" : "Send request"}
                     </button>
 

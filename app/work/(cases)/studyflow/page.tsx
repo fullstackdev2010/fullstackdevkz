@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft, ExternalLink, ShieldCheck } from "lucide-react";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
@@ -149,14 +150,16 @@ export default function Page() {
                   href={FLASHCARDS_PLAY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-xl border border-white/30 bg-white/15 px-5 py-2.5 text-sm font-medium transition hover:bg-white/25"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-2.5 text-sm font-medium transition hover:bg-white/25"
                 >
+                  <ExternalLink size={17} aria-hidden />
                   Download on Google Play
                 </Link>
                 <Link
                   href="/work/studyflow/privacy"
-                  className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/5"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/5"
                 >
+                  <ShieldCheck size={16} aria-hidden />
                   Privacy &amp; Data Handling
                 </Link>
               </div>
@@ -245,8 +248,9 @@ export default function Page() {
         >
           <Link
             href="/work"
-            className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
           >
+            <ArrowLeft size={16} aria-hidden />
             Back to Work
           </Link>
         </nav>

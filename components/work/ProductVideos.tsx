@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Play, Youtube } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 export type ProductVideo = {
@@ -89,8 +90,8 @@ export default function ProductVideos({ videos }: { videos: ProductVideo[] }) {
                     />
                     <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/20" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/20 text-sm font-semibold shadow-2xl backdrop-blur">
-                        Play
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/30 bg-white/20 shadow-2xl backdrop-blur">
+                        <Play className="ml-1" size={28} fill="currentColor" aria-hidden />
                       </div>
                     </div>
                   </button>
@@ -109,16 +110,18 @@ export default function ProductVideos({ videos }: { videos: ProductVideo[] }) {
                         [video.youtubeId]: true,
                       }))
                     }
-                    className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
                   >
+                    <Play size={16} aria-hidden />
                     Play here
                   </button>
                   <a
                     href={watchUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
                   >
+                    <Youtube size={16} aria-hidden />
                     Watch on YouTube
                   </a>
                 </div>

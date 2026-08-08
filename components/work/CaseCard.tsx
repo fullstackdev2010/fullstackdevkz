@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { ExternalLink } from "lucide-react";
 
 type Props = {
   href: string;
@@ -73,7 +74,8 @@ export default function CaseCard({
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-1.5 text-xs hover:bg-white/20 transition"
           >
-            📲 {externalLabel ?? "Open"}
+            <ExternalLink size={14} aria-hidden />
+            {externalLabel ?? "Open"}
           </a>
         )}
 

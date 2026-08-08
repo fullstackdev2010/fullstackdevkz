@@ -5,6 +5,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
+import { ArrowDown, ArrowRight, CalendarCheck, ListChecks } from "lucide-react";
 
 const title = "Pub Games Night System";
 const description =
@@ -167,26 +168,30 @@ export default function Page() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/work/pubplay"
-                  className="inline-flex rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
                 >
                   Explore the full product
+                  <ArrowRight size={17} aria-hidden />
                 </Link>
                 <Link
                   href="/contact?partner=samuel-cascadia&product=pub-games-night-system"
-                  className="inline-flex rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
+                  <CalendarCheck size={17} aria-hidden />
                   Book a campaign demo
                 </Link>
                 <a
                   href="#how-it-works"
-                  className="inline-flex rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
                 >
                   See how it works
+                  <ArrowDown size={17} aria-hidden />
                 </a>
                 <a
                   href="#launch-plan"
-                  className="inline-flex rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10"
                 >
+                  <ListChecks size={17} aria-hidden />
                   First night plan
                 </a>
               </div>
@@ -360,8 +365,9 @@ export default function Page() {
             </div>
             <Link
               href="/contact?partner=samuel-cascadia&product=pub-games-night-system"
-              className="inline-flex rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
             >
+              <CalendarCheck size={17} aria-hidden />
               Book a campaign demo
             </Link>
           </div>

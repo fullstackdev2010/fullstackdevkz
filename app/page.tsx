@@ -9,6 +9,7 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import Link from "next/link";
 import ClientActiveNav from "@/components/ClientActiveNav";
 import { QualityBadge } from "@/components/ui/QualityBadge";
+import { ArrowRight, MessageSquare } from "lucide-react";
 
 function getIskraImages(): string[] {
   const dir = path.join(process.cwd(), "public", "demos", "iskra");
@@ -60,8 +61,14 @@ export default function Home() {
                 Expo + FastAPI + Next.js — robust trading apps, secure messaging, crypto checkout, and elegant meshes that feel alive.
               </p>
               <div className="mt-8 flex gap-4">
-                <a className="glow-outline inline-flex items-center rounded-xl bg-white/10 px-5 py-3 text-sm" href="/work">See our builds</a>
-                <a className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm" href="/contact">Start a project</a>
+                <a className="glow-outline inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 text-sm" href="/work">
+                  See our builds
+                  <ArrowRight size={17} aria-hidden />
+                </a>
+                <a className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm" href="/contact">
+                  <MessageSquare size={17} aria-hidden />
+                  Start a project
+                </a>
               </div>
             </div>
             <div className="flex justify-center min-w-0">

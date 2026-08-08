@@ -4,6 +4,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import DeleteRequestForm from "./DeleteRequestForm";
+import { ArrowLeft, ExternalLink, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Delete PubPlay Account and Data",
@@ -86,9 +87,10 @@ export default function Page() {
                     href="https://play.google.com/store/account/subscriptions"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                    className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
                   >
                     Manage Google Play subscriptions
+                    <ExternalLink size={16} aria-hidden />
                   </a>
                 </GlassCard>
               </aside>
@@ -100,14 +102,16 @@ export default function Page() {
             >
               <Link
                 href="/work/pubplay/privacy"
-                className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
               >
+                <ShieldCheck size={16} aria-hidden />
                 Privacy Policy
               </Link>
               <Link
                 href="/work/pubplay"
-                className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
               >
+                <ArrowLeft size={16} aria-hidden />
                 Back to PubPlay
               </Link>
             </nav>

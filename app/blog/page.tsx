@@ -4,6 +4,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { blogPosts } from "@/lib/blogPosts";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -71,15 +72,17 @@ export default function BlogPage() {
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+                      className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
                     >
+                      <BookOpen size={16} aria-hidden />
                       Read note
                     </Link>
                     <Link
                       href={post.appHref}
-                      className="rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+                      className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
                     >
                       View app
+                      <ArrowRight size={16} aria-hidden />
                     </Link>
                   </div>
                 </GlassCard>

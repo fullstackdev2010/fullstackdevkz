@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
+import { LoaderCircle, Mail, Trash2 } from "lucide-react";
 
 type RequestType = "owner-account" | "player-data";
 
@@ -316,11 +317,17 @@ export default function DeleteRequestForm() {
         <button
           type="submit"
           disabled={submitting || disabled}
-          className="inline-flex min-h-11 items-center rounded-xl border border-white/30 bg-white/15 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/25 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/25 disabled:cursor-not-allowed disabled:opacity-50"
         >
+          {submitting ? (
+            <LoaderCircle className="animate-spin" size={16} aria-hidden />
+          ) : (
+            <Trash2 size={16} aria-hidden />
+          )}
           {submitting ? "Sending request..." : "Request deletion"}
         </button>
-        <a href={mailtoHref} className="text-sm underline">
+        <a href={mailtoHref} className="inline-flex items-center gap-2 text-sm underline">
+          <Mail size={16} aria-hidden />
           Send by email instead
         </a>
       </div>

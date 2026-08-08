@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowLeft,
   CalendarDays,
   Download,
   ExternalLink,
+  Megaphone,
   QrCode,
+  ShieldCheck,
   Tablet,
+  Trash2,
   Trophy,
   Tv,
   Users,
@@ -297,14 +301,16 @@ export default function Page() {
                 </a>
                 <Link
                   href="/work/pubplay/privacy"
-                  className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
+                  <ShieldCheck size={17} aria-hidden />
                   Privacy Policy
                 </Link>
                 <Link
                   href="/partners/samuel-cascadia"
-                  className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
+                  <Megaphone size={17} aria-hidden />
                   UK campaign
                 </Link>
               </div>
@@ -560,8 +566,9 @@ export default function Page() {
               </a>
               <Link
                 href="/partners/samuel-cascadia"
-                className="inline-flex items-center rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
               >
+                <Megaphone size={17} aria-hidden />
                 UK campaign
               </Link>
             </div>
@@ -572,20 +579,23 @@ export default function Page() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/work"
-              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
+              <ArrowLeft size={16} aria-hidden />
               Back to Work
             </Link>
             <Link
               href="/work/pubplay/privacy"
-              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
+              <ShieldCheck size={16} aria-hidden />
               Privacy Policy
             </Link>
             <Link
               href="/work/pubplay/delete"
-              className="inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
+              <Trash2 size={16} aria-hidden />
               Delete account and data
             </Link>
           </div>
