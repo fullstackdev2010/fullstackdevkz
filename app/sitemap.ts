@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work/pubplay",
     "/work/pubplay/privacy",
     "/work/pubplay/delete",
+    "/work/studyflow",
+    "/work/studyflow/privacy",
     "/work/uniscan",
     "/work/uniscan/privacy",
     "/work/iskra",

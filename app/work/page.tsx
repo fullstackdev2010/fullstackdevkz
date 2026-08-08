@@ -4,6 +4,7 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
 import {
   EXPENSE_PLAY_URL,
+  FLASHCARDS_PLAY_URL,
   HABIT_PLAY_URL,
   ISKRAUG_PLAY_URL,
   MEDITATION_PLAY_URL,
@@ -13,6 +14,16 @@ import {
 } from "@/lib/constants";
 
 const cases = [
+  {
+    href: "/work/studyflow",
+    title: "StudyFlow Flashcards",
+    summary:
+      "Build focused decks, review due cards with spaced repetition, and understand recall over time.",
+    tags: ["Expo", "Flashcards", "Local-first", "Lifetime Pro"],
+    thumb: "/demos/preview/studyflow.png",
+    externalHref: FLASHCARDS_PLAY_URL,
+    externalLabel: "Google Play",
+  },
   {
     href: "/work/pubplay",
     title: "PubPlay: Pub Games Night System",

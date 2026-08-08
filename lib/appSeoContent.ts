@@ -1,5 +1,10 @@
 export const relatedDailyApps = [
   {
+    href: "/work/studyflow",
+    title: "StudyFlow",
+    description: "Local-first flashcards with spaced review and recall stats.",
+  },
+  {
     href: "/work/habit",
     title: "HabitFlow",
     description: "Daily habit tracking with streaks, stats, and heatmaps.",
@@ -17,6 +22,60 @@ export const relatedDailyApps = [
 ];
 
 export const appSeoContent = {
+  study: {
+    appName: "StudyFlow Flashcards",
+    appCategory: "EducationalApplication",
+    description:
+      "A focused Android flashcard app with local-first decks, spaced repetition, due-card review, recall statistics, and optional study reminders.",
+    searchIntents: [
+      "flashcard app Android",
+      "spaced repetition flashcards",
+      "offline flashcard app",
+      "study cards with reminders",
+      "flashcard recall tracker",
+    ],
+    audience: [
+      "Students preparing for exams in short daily sessions.",
+      "Language learners building vocabulary decks.",
+      "People memorizing formulas, definitions, facts, or professional terms.",
+      "Android users who prefer local study data without an account.",
+    ],
+    useCases: [
+      "Create focused decks for subjects, courses, languages, or certifications.",
+      "Review only the cards that are due instead of rereading an entire deck.",
+      "Rate recall as Again, Hard, Good, or Easy to shape the next review.",
+      "Check review rhythm, recall rate, mature cards, and difficult cards.",
+    ],
+    benefits: [
+      "Spaced review keeps sessions short and purposeful.",
+      "Local-first storage keeps decks and review history on the device.",
+      "Clear due counts make the next study action obvious.",
+      "Ten interface languages and multiple themes support comfortable daily use.",
+    ],
+    faqs: [
+      {
+        question: "How does StudyFlow schedule flashcards?",
+        answer:
+          "After revealing an answer, you rate it Again, Hard, Good, or Easy. StudyFlow uses that response and the card's review history to choose when it becomes due again.",
+      },
+      {
+        question: "Can StudyFlow be used offline?",
+        answer:
+          "Yes. Decks, cards, preferences, and review history are stored locally on the Android device. Internet access is only needed for purchase-related services.",
+      },
+      {
+        question: "Does StudyFlow require an account?",
+        answer:
+          "No. You can create decks and study without registering an account or sending your flashcard content to the developer.",
+      },
+      {
+        question: "What does Lifetime Pro unlock?",
+        answer:
+          "Lifetime Pro unlocks unlimited decks and cards, advanced recall and difficulty statistics, daily study reminders, and future Pro study tools through one purchase.",
+      },
+    ],
+    relatedApps: [relatedDailyApps[1], relatedDailyApps[2], relatedDailyApps[3]],
+  },
   expense: {
     appName: "ExpenseFlow Smart Tracker",
     appCategory: "FinanceApplication",

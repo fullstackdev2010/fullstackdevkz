@@ -16,6 +16,88 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "introducing-studyflow-spaced-repetition-flashcards",
+    title: "Introducing StudyFlow: focused flashcards and spaced review",
+    description:
+      "A launch note for StudyFlow, a local-first Android flashcard app with focused decks, spaced repetition, recall statistics, and study reminders.",
+    date: "2026-08-08",
+    appHref: "/work/studyflow",
+    appName: "StudyFlow Flashcards",
+    category: "Learning",
+    keywords: [
+      "flashcard app Android",
+      "spaced repetition flashcards",
+      "offline flashcard app",
+      "flashcard recall tracker",
+    ],
+    intro:
+      "StudyFlow was created for learners who want short, purposeful review sessions without accounts, crowded course libraries, or an oversized study system.",
+    sections: [
+      {
+        title: "Why this app exists",
+        body: [
+          "Rereading an entire deck wastes attention on material that is already familiar. StudyFlow keeps the next action smaller by showing what is due and bringing difficult cards back sooner.",
+          "After revealing an answer, the learner rates recall as Again, Hard, Good, or Easy. That response shapes the card's next review interval and keeps daily sessions focused.",
+        ],
+      },
+      {
+        title: "Who it is for",
+        body: [
+          "StudyFlow is useful for students, language learners, certification candidates, and anyone memorizing formulas, definitions, vocabulary, or professional terminology.",
+          "Decks, cards, preferences, and review history stay on the Android device, so users can study without creating an account or sending their card content to the developer.",
+        ],
+      },
+      {
+        title: "What StudyFlow includes",
+        body: [
+          "The app combines deck and card management with due-card review, practice mode, mastered-card tracking, recall rate, review rhythm, and difficulty insights.",
+          "Lifetime Pro adds unlimited decks and cards, advanced statistics, optional daily reminders, and future Pro study tools through a one-time purchase.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "introducing-pubplay-pub-games-night-system",
+    title: "Introducing PubPlay: a games-night system for pubs",
+    description:
+      "A launch note for PubPlay, an Android tablet and web system for running darts, pool, bingo, tournaments, fixtures, scores, and live leaderboards.",
+    date: "2026-08-08",
+    appHref: "/work/pubplay",
+    appName: "PubPlay: Pub Games Night System",
+    category: "Hospitality",
+    keywords: [
+      "pub games night system",
+      "darts tournament app",
+      "pub leaderboard software",
+      "QR player registration",
+    ],
+    intro:
+      "PubPlay helps venues turn casual games into organised weekly events that are easier for staff to run and more engaging for customers to follow.",
+    sections: [
+      {
+        title: "Why this system exists",
+        body: [
+          "Games nights can bring people back during quieter parts of the week, but paper sign-up sheets, improvised fixtures, and manually updated scoreboards create work for staff and confusion for players.",
+          "PubPlay connects the host tablet, customer phones, and the pub TV so registrations, fixtures, scores, and leaderboards stay aligned during the event.",
+        ],
+      },
+      {
+        title: "How a games night works",
+        body: [
+          "Staff use the Android tablet to configure the venue, create an event, display its QR code, manage players and fixtures, enter results, and follow the live standings.",
+          "Customers scan the code and join through a mobile web page without installing an app. A separate TV display can show event information and leaderboard updates to the room.",
+        ],
+      },
+      {
+        title: "Why it helps the pub",
+        body: [
+          "The value is a more professional event with less repeated administration: clearer sign-up, visible progress, live results, and an archive for recurring competitions.",
+          "The larger goal is simple: help pubs turn darts, pool, bingo, table football, and other casual games into repeat weekly events that support atmosphere, footfall, and customer retention.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "introducing-expenseflow-simple-expense-tracker",
     title: "Introducing ExpenseFlow: a simple Android expense tracker",
     description:

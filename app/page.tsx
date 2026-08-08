@@ -119,7 +119,7 @@ export default function Home() {
               <GlassCard>
                 <h3 className="text-xl font-medium">Published Android apps</h3>
                 <p className="mt-2 text-sm text-[var(--muted)]">
-                  Explore practical apps for scanning, tasks, expenses, habits, meditation, and mobile trade workflows.
+                  Explore practical apps for flashcard study, scanning, tasks, expenses, habits, meditation, and mobile trade workflows.
                 </p>
               </GlassCard>
             </Link>
