@@ -25,7 +25,6 @@ export function Footer() {
           <div className="font-medium text-[var(--fg)]">Get in touch</div>
           <ul className="mt-2 space-y-1">
             <li><Link href="/contact">Contact form</Link></li>
-            <li><a href="mailto:info@fullstackdev.kz">info@fullstackdev.kz</a></li>
           </ul>
           {/* Socials */}
           <div className="mt-4 flex items-center gap-2">

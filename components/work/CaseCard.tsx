@@ -25,16 +25,27 @@ export default function CaseCard({
 }: Props) {
   return (
     <GlassCard className="group h-full overflow-hidden transition-transform hover:-translate-y-0.5      focus-within:ring-2 focus-within:ring-white/30">
-         <Link href={href} className="block mb-4 relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
+         <Link href={href} className="relative mb-4 block aspect-[2/1] w-full overflow-hidden rounded-xl border border-white/10 bg-black/15">
           {thumb ? (
-            <Image
-              src={thumb}
-              alt={`${title} preview`}
-              fill
-              sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-[1.04]"
-              priority={false}
-            />
+            <>
+              <Image
+                src={thumb}
+                alt=""
+                fill
+                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                className="scale-110 object-cover opacity-70 blur-lg"
+                aria-hidden
+              />
+              <div className="absolute inset-0 bg-black/10" aria-hidden />
+              <Image
+                src={thumb}
+                alt={`${title} preview`}
+                fill
+                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                className="object-contain transition-transform duration-300 motion-safe:group-hover:scale-[1.01]"
+                priority={false}
+              />
+            </>
           ) : (
             <div className="absolute inset-0 grid place-items-center text-sm text-white/60">
               <div className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5">

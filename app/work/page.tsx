@@ -15,6 +15,16 @@ import {
 
 const cases = [
   {
+    href: "/work/come-together",
+    title: "Come Together: Local Clubs Platform",
+    summary:
+      "Publish local events, manage guests and waitlists, and turn first-time visitors into returning club members.",
+    tags: ["Next.js", "Android", "FastAPI", "Local Events"],
+    thumb: "/demos/preview/come-together.png",
+    externalHref: "https://hellolocalclubs.com",
+    externalLabel: "Live platform",
+  },
+  {
     href: "/work/studyflow",
     title: "StudyFlow Flashcards",
     summary:
