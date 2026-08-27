@@ -19,7 +19,7 @@ import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
-import { PUBPLAY_PLAY_URL } from "@/lib/constants";
+import { PUBPLAY_PLAY_URL, PUBPLAY_SITE_URL } from "@/lib/constants";
 
 const title = "PubPlay: Pub Games Night System";
 const description =
@@ -196,8 +196,9 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Android",
       description,
-      url: "https://www.fullstackdev.kz/work/pubplay",
+      url: PUBPLAY_SITE_URL,
       downloadUrl: PUBPLAY_PLAY_URL,
+      sameAs: ["https://www.fullstackdev.kz/work/pubplay"],
       featureList: [
         "QR player registration",
         "Round-robin and knockout fixtures",
@@ -283,10 +284,19 @@ export default function Page() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href={PUBPLAY_PLAY_URL}
+                  href={PUBPLAY_SITE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+                >
+                  <ExternalLink size={17} aria-hidden />
+                  Visit PubPlay website
+                </a>
+                <a
+                  href={PUBPLAY_PLAY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
                   <ExternalLink size={17} aria-hidden />
                   View on Google Play
@@ -550,16 +560,25 @@ export default function Page() {
                 Turn it into the event customers expect next week.
               </h2>
               <p className="mt-3 max-w-2xl text-[var(--muted)]">
-                Install PubPlay on the host tablet, or speak with Samuel Cascadia
-                about the UK pub campaign and first-night rollout.
+                Explore demos, pricing, guides, and support on the PubPlay website,
+                install the host app, or speak with Samuel Cascadia about a UK rollout.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
               <a
-                href={PUBPLAY_PLAY_URL}
+                href={PUBPLAY_SITE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+              >
+                <ExternalLink size={17} aria-hidden />
+                PubPlay website
+              </a>
+              <a
+                href={PUBPLAY_PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
               >
                 <ExternalLink size={17} aria-hidden />
                 Google Play

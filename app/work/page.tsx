@@ -8,7 +8,7 @@ import {
   HABIT_PLAY_URL,
   ISKRAUG_PLAY_URL,
   MEDITATION_PLAY_URL,
-  PUBPLAY_PLAY_URL,
+  PUBPLAY_SITE_URL,
   TODO_PLAY_URL,
   UNISCAN_PLAY_URL,
 } from "@/lib/constants";
@@ -41,8 +41,8 @@ const cases = [
       "Run pub tournaments from an Android tablet while players join by QR and follow live fixtures and leaderboards.",
     tags: ["Android", "QR Join", "Live Events", "FastAPI"],
     thumb: "/demos/preview/pubplay.jpg",
-    externalHref: PUBPLAY_PLAY_URL,
-    externalLabel: "Google Play",
+    externalHref: PUBPLAY_SITE_URL,
+    externalLabel: "Product website",
   },
   {
     href: "/work/uniscan",
