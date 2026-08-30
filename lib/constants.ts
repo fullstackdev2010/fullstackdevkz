@@ -23,3 +23,8 @@ export const PUBPLAY_PLAY_URL =
    "https://play.google.com/store/apps/details?id=com.fullstackdevkz.pubplaytablet";
 
 export const PUBPLAY_SITE_URL = "https://pubplayhost.com/";
+
+export const TRADESMATE_PLAY_URL =
+   "https://play.google.com/store/apps/details?id=com.fullstackdevkz.tradesmate";
+
+export const TRADESMATE_SITE_URL = "https://gettradesmate.com/";

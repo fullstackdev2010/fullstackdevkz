@@ -16,6 +16,47 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "introducing-tradesmate-business-admin-for-tradespeople",
+    title: "Introducing TradesMate: business admin without the office",
+    description:
+      "A launch note for TradesMate, an Android business app that keeps jobs, customers, quotes, invoices, payments, expenses, and team activity together.",
+    date: "2026-08-30",
+    appHref: "/work/tradesmate",
+    appName: "TradesMate",
+    category: "Trade business software",
+    keywords: [
+      "tradesperson job management app",
+      "quotes and invoices Android app",
+      "small trade business software",
+      "job scheduling app for trades",
+    ],
+    intro:
+      "TradesMate was built for independent tradespeople and small teams who need practical business administration in the same place they already manage the working day: their phone.",
+    sections: [
+      {
+        title: "Why this product exists",
+        body: [
+          "A job rarely ends when the physical work is finished. Customer details, appointments, quotes, invoices, costs, overdue balances, and follow-up all create another layer of work that is easy to scatter across messages, paper, and spreadsheets.",
+          "TradesMate connects those records around the job, giving the business owner a clearer view of what is scheduled, what has been billed, what has been paid, and what still needs attention.",
+        ],
+      },
+      {
+        title: "A workflow shaped around real trade work",
+        body: [
+          "Users can keep a customer directory, schedule jobs, contact customers by phone, email, or WhatsApp, prepare quotes and invoices, record expenses and payments, and review revenue, outstanding balances, and profit by currency.",
+          "Quotes, invoices, and expenses can remain connected to the customer and job that produced them, reducing duplicate entry and making each piece of administration easier to find later.",
+        ],
+      },
+      {
+        title: "Built as a connected service",
+        body: [
+          "The Android client uses secure account access and a live FastAPI service so business records remain available across sessions. Optional notifications support job reminders, while subscription management unlocks advanced business features.",
+          "The dedicated TradesMate website explains the product for working tradespeople; this case study records the product design, Android delivery, backend, and operational thinking behind it.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "introducing-studyflow-spaced-repetition-flashcards",
     title: "Introducing StudyFlow: focused flashcards and spaced review",
     description:

@@ -9,11 +9,22 @@ import {
   ISKRAUG_PLAY_URL,
   MEDITATION_PLAY_URL,
   PUBPLAY_SITE_URL,
+  TRADESMATE_SITE_URL,
   TODO_PLAY_URL,
   UNISCAN_PLAY_URL,
 } from "@/lib/constants";
 
 const cases = [
+  {
+    href: "/work/tradesmate",
+    title: "TradesMate: Jobs, Quotes & Invoices",
+    summary:
+      "Run jobs, customers, quotes, invoices, payments, expenses, and business performance from one Android app.",
+    tags: ["Android", "FastAPI", "Trade Business", "SaaS"],
+    thumb: "/demos/preview/tradesmate.png",
+    externalHref: TRADESMATE_SITE_URL,
+    externalLabel: "Product website",
+  },
   {
     href: "/work/come-together",
     title: "Come Together: Local Clubs Platform",
