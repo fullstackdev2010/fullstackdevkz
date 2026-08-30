@@ -118,7 +118,7 @@ export default function Page() {
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]" backgroundSrc="/brand/work.webp" viewBox="0 0 1600 900" photos={[]} />
-          <div className="absolute inset-0"><MeshBackground brightness={0.76} opacity={0.93} seed="tradesmate-business" palette={["#087F5B", "#F5C451", "#8DF2D6"]} static /></div>
+          <div className="absolute inset-0"><MeshBackground brightness={0.76} opacity={0.93} seed="tradesmate-business" palette={["#7AA2FF", "#8DF2D6", "#FFB3EC"]} static /></div>
           <div className="relative z-10">
             <div className="max-w-4xl">
               <div className="flex items-start gap-4"><QualityBadge size="md" className="mt-1 hidden sm:block" /><div><div className="text-sm font-medium text-[var(--accent)]">Business administration · Android + FastAPI</div><h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">{title}</h1></div></div>
