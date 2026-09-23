@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Play, Youtube } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 
@@ -82,11 +83,12 @@ export default function ProductVideos({ videos }: { videos: ProductVideo[] }) {
                     }
                     aria-label={`Play ${video.title}`}
                   >
-                    <img
+                    <Image
                       src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
                       alt=""
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                      loading="lazy"
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/20" />
                     <div className="absolute inset-0 flex items-center justify-center">

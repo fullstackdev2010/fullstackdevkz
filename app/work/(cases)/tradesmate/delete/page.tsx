@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Delete TradesMate Account and Data",
   description: "Request deletion of a TradesMate business account and its associated customer, job, document, payment, expense, and team data.",
   alternates: { canonical: "/work/tradesmate/delete" },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

@@ -159,9 +159,10 @@ export default function Page() {
           {/* Foreground content INSIDE glass */}
           <div className="relative z-10 pointer-events-auto">
             <header className="max-w-3xl">
-              <h1 className="text-4xl font-semibold">Contact</h1>
+              <h1 className="text-4xl font-semibold">Discuss your software project</h1>
               <p className="mt-3 text-[var(--muted)]">
-                Tell us a bit about your project and how to reach you. We’ll reply by email.
+                Tell us what you need to build, improve, or connect. Include the users,
+                main workflow, current systems, and target timeline where possible.
               </p>
             </header>
 
@@ -241,7 +242,9 @@ export default function Page() {
                         onChange={(v) => setForm((f) => ({ ...f, projectType: v }))}
                         placeholder="Select…"
                         options={[
-                          { label: "Mobile App (Expo)", value: "Mobile App (Expo)" },
+                          { label: "Mobile App (React Native / Expo)", value: "Mobile App (React Native / Expo)" },
+                          { label: "SaaS / Business Software", value: "SaaS / Business Software" },
+                          { label: "MVP Development", value: "MVP Development" },
                           { label: "Backend API (FastAPI)", value: "Backend API (FastAPI)" },
                           { label: "On-device OCR / OCRScan", value: "On-device OCR / OCRScan" },
                           { label: "Web / Next.js", value: "Web / Next.js" },

@@ -6,13 +6,14 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { ArrowDown, ArrowRight, Handshake } from "lucide-react";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Partners",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Software Product Partners",
   description:
-    "Partner campaigns and regional product promotion pages for Fullstack Dev KZ products and systems.",
-  alternates: { canonical: "/partners" },
-};
+    "Partner-led campaigns and regional product promotion for software products and platforms built by Fullstack Dev KZ.",
+  path: "/partners",
+});
 
 const partnerCampaigns = [
   {

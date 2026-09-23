@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     "Request deletion of a PubPlay Host venue-owner account and associated data, or request deletion of player participation data.",
   alternates: { canonical: "/work/pubplay/delete" },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

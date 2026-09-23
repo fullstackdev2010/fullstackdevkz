@@ -7,7 +7,6 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { ArrowDown, ArrowRight, CalendarCheck, ListChecks } from "lucide-react";
 
-const title = "Pub Games Night System";
 const description =
   "A digital games-night system for pubs: staff run darts, pool, bingo, and tournaments from a tablet while customers join by QR code.";
 

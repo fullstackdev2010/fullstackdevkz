@@ -2,6 +2,7 @@
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { buildPageMetadata } from "@/lib/site";
 
 type Item = { label: string; notes?: string };
 type Group = { title: string; items: Item[] };
@@ -99,12 +100,12 @@ function StackGroup({ title, items }: Group) {
   );
 }
 
-export const metadata = {
-   title: "Technology Stack",
-   description:
-     "Our technology stack: Next.js, Expo, FastAPI, SQL databases, CI/CD, and modern cloud infrastructure for scalable applications.",
-   alternates: { canonical: "/stack" },
- };
+export const metadata = buildPageMetadata({
+  title: "Mobile, Web & Backend Technology Stack",
+  description:
+    "The production stack used by Fullstack Dev KZ for React Native mobile apps, Next.js web applications, FastAPI backends, SQL data, security, and releases.",
+  path: "/stack",
+});
 
 export default function Page() {
   return (

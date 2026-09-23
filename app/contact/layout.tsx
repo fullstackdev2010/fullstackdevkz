@@ -1,12 +1,13 @@
 // app/contact/layout.tsx
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Discuss a Software Development Project",
   description:
-    "Contact Fullstack Dev KZ to discuss your project, timeline, and budget. Based in Almaty, Kazakhstan.",
-  alternates: { canonical: "/contact" },
-};
+    "Contact Fullstack Dev KZ about a mobile app, web application, SaaS product, backend API, MVP, or existing software product.",
+  path: "/contact",
+});
 
 export default function ContactLayout({
   children,

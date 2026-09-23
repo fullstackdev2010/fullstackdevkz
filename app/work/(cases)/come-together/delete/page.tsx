@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     "Request deletion of a Come Together organizer or guest account and its associated clubs, events, bookings, and attendance data.",
   alternates: { canonical: "/work/come-together/delete" },
+  robots: { index: false, follow: true },
 };
 
 export default function Page() {

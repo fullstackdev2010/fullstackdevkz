@@ -6,25 +6,26 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
         <div>
           <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
-          <ul className="mt-2 space-y-1">
-            <li>Mobile craftsmanship with true coding precision.</li>
-            <li>Expo • FastAPI • Next.js.</li>
-          </ul>
+          <p className="mt-2 max-w-sm text-sm">
+            Custom mobile apps, web applications, SaaS platforms, backend systems,
+            and business software built for businesses and founders.
+          </p>
         </div>
         <div>
           <div className="font-medium text-[var(--fg)]">Navigation</div>
           <ul className="mt-2 space-y-1">
-            <li><Link href="/work">Work</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
-            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/services">Software development services</Link></li>
+            <li><Link href="/work">Work &amp; products</Link></li>
+            <li><Link href="/blog">Software development insights</Link></li>
             <li><Link href="/stack">Stack</Link></li>
             <li><Link href="/partners">Partners</Link></li>
+            <li><Link href="/about">About</Link></li>
           </ul>
         </div>
         <div>
           <div className="font-medium text-[var(--fg)]">Get in touch</div>
           <ul className="mt-2 space-y-1">
-            <li><Link href="/contact">Contact form</Link></li>
+            <li><Link href="/contact">Discuss a software project</Link></li>
           </ul>
           {/* Socials */}
           <div className="mt-4 flex items-center gap-2">

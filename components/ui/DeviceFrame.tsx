@@ -30,7 +30,7 @@ export function DeviceFrame({
 
   // Inner safe area where the screen content lives
   return (
-    <div className={bezel} style={{ width, height }}>
+    <div className={bezel} style={{ width, height }} data-platform={platform}>
       {/* Screen background for contrast */}
       <div className="absolute inset-0 bg-black/60" />
 

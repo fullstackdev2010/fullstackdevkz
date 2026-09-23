@@ -5,13 +5,14 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { blogPosts } from "@/lib/blogPosts";
 import { ArrowRight, BookOpen } from "lucide-react";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Blog",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Software Development Insights",
   description:
-    "Launch notes and practical guides for simple Android apps from Fullstack Dev KZ.",
-  alternates: { canonical: "/blog" },
-};
+    "Product launch notes and practical insights about mobile apps, SaaS platforms, business software, and software product development.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (
@@ -35,11 +36,11 @@ export default function BlogPage() {
           <div className="relative z-10">
             <section className="max-w-3xl">
               <h1 className="text-3xl font-semibold sm:text-4xl md:text-5xl">
-                App notes and guides
+                Software development insights
               </h1>
               <p className="mt-4 text-[var(--muted)]">
-                Launch notes, product thinking, and practical guides behind the
-                simple Android apps in the Fullstack Dev KZ ecosystem.
+                Launch notes, product decisions, and practical lessons behind the
+                mobile apps, web platforms, and business software built by Fullstack Dev KZ.
               </p>
             </section>
 
@@ -88,6 +89,12 @@ export default function BlogPage() {
                 </GlassCard>
               ))}
             </section>
+            <div className="mt-10 border-t border-white/10 pt-8">
+              <Link href="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">
+                Explore software development services
+                <ArrowRight size={16} aria-hidden />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

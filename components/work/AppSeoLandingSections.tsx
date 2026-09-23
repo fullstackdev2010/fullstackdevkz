@@ -152,6 +152,28 @@ export default function AppSeoLandingSections({
           ))}
         </div>
       </GlassCard>
+
+      <GlassCard>
+        <h2 className="text-2xl font-semibold">Need a custom application?</h2>
+        <p className="mt-3 max-w-3xl text-[var(--muted)]">
+          Fullstack Dev KZ builds custom mobile apps, web applications, backend APIs,
+          SaaS products, and business software using the same production-focused approach.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link
+            href="/services"
+            className="rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+          >
+            Explore software development services
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+          >
+            Discuss your application
+          </Link>
+        </div>
+      </GlassCard>
     </section>
   );
 }

@@ -72,7 +72,7 @@ export default function Page() {
             <Section id="notifications" title="Notifications">
               <p>
                 HabitFlow may use optional local notifications to help you return to
-                today's habits. Notifications are scheduled on your device and can be
+                today&apos;s habits. Notifications are scheduled on your device and can be
                 disabled through the app or system settings.
               </p>
             </Section>

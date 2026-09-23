@@ -23,9 +23,9 @@ export function Navbar() {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   const links = [
-    { href: '/work', label: 'Work' },
-    { href: '/blog', label: 'Blog' },
     { href: '/services', label: 'Services' },
+    { href: '/work', label: 'Work & Products' },
+    { href: '/blog', label: 'Insights' },
     { href: '/stack', label: 'Stack' },
     { href: '/partners', label: 'Partners' },
     { href: '/about', label: 'About' },
@@ -34,9 +34,11 @@ export function Navbar() {
 
   // Used by the mobile sheet
   const workLinks = [
+    { href: '/work/tradesmate', label: 'TradesMate business software' },
+    { href: '/work/come-together', label: 'Come Together SaaS platform' },
+    { href: '/work/pubplay', label: 'PubPlay games-night system' },
     { href: '/work/uniscan', label: 'Docs Scan OCR Encrypt & Share — OCR Scanner' },
-    { href: '/work/iskra', label: 'Iskra Trading' },
-    { href: '/work', label: 'All work' },
+    { href: '/work', label: 'All work and products' },
   ];
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
@@ -50,13 +52,13 @@ export function Navbar() {
       ].join(' ')}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <Link href="/" className="font-semibold tracking-wide">Fullstack Dev KZ</Link>
+        <Link href="/" className="font-semibold tracking-wide" aria-label="Fullstack Dev KZ home">Fullstack Dev KZ</Link>
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-5 text-sm relative">
           <li className="relative">
             <Link href="/work" className={isActive('/work') ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>
-              Work
+              Work &amp; Products
             </Link>
           </li>
 

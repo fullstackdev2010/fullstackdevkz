@@ -2,13 +2,16 @@
 import { GlassCard } from '@/components/ui/GlassCard';
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata = {
-   title: "About",
-   description:
-     "Learn about Fullstack Dev KZ: our engineering principles, development process, and technology stack focused on reliability, clarity, and performance.",
-   alternates: { canonical: "/about" },
- };
+export const metadata = buildPageMetadata({
+  title: "About Our Software Engineering Approach",
+  description:
+    "Learn how Fullstack Dev KZ plans, builds, and ships reliable mobile apps, web applications, backend APIs, and business software.",
+  path: "/about",
+});
 
 export default function Page() {
   return (
@@ -33,10 +36,12 @@ export default function Page() {
 
           {/* Foreground content INSIDE glass */}
           <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl font-semibold">About</h1>
+            <h1 className="text-4xl md:text-5xl font-semibold">Engineering software that is ready to be used</h1>
             <p className="mt-4 max-w-2xl text-[var(--muted)]">
-              Reliable engineering, clear UX, performance and privacy by default. Built on Expo, Next.js, FastAPI,
-              and a practical mesh aesthetic.
+              Fullstack Dev KZ is a software development company focused on clear
+              product decisions, reliable engineering, practical UX, performance,
+              and privacy. The portfolio includes shipped Android apps, web platforms,
+              FastAPI backends, and connected business systems.
             </p>
 
             {/* divider */}
@@ -49,12 +54,20 @@ export default function Page() {
                 { h: 'Stack', b: ['Expo/React Native', 'Next.js/Vercel', 'FastAPI/SQL', 'CI/CD/Monitoring'] },
               ].map((s) => (
                 <GlassCard key={s.h}>
-                  <h3 className="text-lg font-medium">{s.h}</h3>
+                  <h2 className="text-lg font-medium">{s.h}</h2>
                   <ul className="mt-3 list-disc pl-5 space-y-1 text-sm text-[var(--muted)]">
                     {s.b.map((x) => <li key={x}>{x}</li>)}
                   </ul>
                 </GlassCard>
               ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">
+                View shipped software <ArrowRight size={16} aria-hidden />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-4 py-2 text-sm transition hover:bg-white/25">
+                Discuss a project <ArrowRight size={16} aria-hidden />
+              </Link>
             </div>
           </div>
         </div>

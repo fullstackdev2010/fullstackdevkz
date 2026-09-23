@@ -6,6 +6,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { blogPosts, getBlogPost } from "@/lib/blogPosts";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { buildPageMetadata } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -22,21 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   return {
-    title: post.title,
-    description: post.description,
-    alternates: { canonical: `/blog/${post.slug}` },
-    keywords: post.keywords,
-    openGraph: {
+    ...buildPageMetadata({
       title: post.title,
       description: post.description,
+      path: `/blog/${post.slug}`,
       type: "article",
-      url: `/blog/${post.slug}`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-    },
+    }),
+    keywords: post.keywords,
   };
 }
 
@@ -135,18 +128,27 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <GlassCard className="mx-auto mt-12 max-w-4xl">
-          <h2 className="text-2xl font-semibold">Explore the app</h2>
+          <h2 className="text-2xl font-semibold">Explore the product and development approach</h2>
           <p className="mt-3 text-[var(--muted)]">
             The full app landing page includes screenshots, use cases, privacy
             details, FAQs, and a Google Play link.
           </p>
-          <Link
-            href={post.appHref}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
-          >
-            Open {post.appName}
-            <ArrowRight size={16} aria-hidden />
-          </Link>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href={post.appHref}
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+            >
+              Open {post.appName}
+              <ArrowRight size={16} aria-hidden />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            >
+              View software development services
+              <ArrowRight size={16} aria-hidden />
+            </Link>
+          </div>
         </GlassCard>
       </article>
     </main>

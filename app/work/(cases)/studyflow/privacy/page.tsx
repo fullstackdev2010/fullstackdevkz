@@ -47,7 +47,7 @@ export default function Page() {
               <p>
                 StudyFlow is provided by Fullstack Dev KZ. The app does not require
                 account registration and is designed to keep personal study content
-                on the user's Android device.
+                on the user&apos;s Android device.
               </p>
             </Section>
 
@@ -115,7 +115,7 @@ export default function Page() {
 
             <Section id="deletion" title="Data Deletion">
               <p>
-                Use "Delete all flashcard data" in StudyFlow Settings to remove decks,
+                Use &quot;Delete all flashcard data&quot; in StudyFlow Settings to remove decks,
                 cards, review history, reminders, preferences, and local reviewer access
                 from the device. Uninstalling the app may also remove locally stored data.
               </p>

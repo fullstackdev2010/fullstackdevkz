@@ -1,5 +1,6 @@
 // app/robots.ts
 import { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,9 +8,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: "/api/", // prevent indexing of API routes like /api/og
+        disallow: ["/api/"],
       },
     ],
-    sitemap: "https://www.fullstackdev.kz/sitemap.xml",
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

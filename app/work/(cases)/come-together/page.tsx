@@ -442,6 +442,13 @@ export default function Page() {
               Back to Work
             </Link>
             <Link
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            >
+              SaaS development services
+              <ArrowRight size={16} aria-hidden />
+            </Link>
+            <Link
               href="/work/come-together/privacy"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >

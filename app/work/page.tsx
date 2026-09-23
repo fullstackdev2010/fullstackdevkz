@@ -2,6 +2,9 @@
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
+import Link from "next/link";
+import { ArrowRight, MessageSquare } from "lucide-react";
+import { buildPageMetadata } from "@/lib/site";
 import {
   EXPENSE_PLAY_URL,
   FLASHCARDS_PLAY_URL,
@@ -117,12 +120,15 @@ const cases = [
   },
 ];
 
-export const metadata = {
-  title: "Work",
+const platformCases = cases.slice(0, 3);
+const applicationCases = cases.slice(3);
+
+export const metadata = buildPageMetadata({
+  title: "Mobile, Web & SaaS Projects",
   description:
-    "Selected projects and case studies from Fullstack Dev KZ showcasing modern fullstack engineering and product design.",
-  alternates: { canonical: "/work" },
-};
+    "Explore production mobile apps, SaaS platforms, web systems, and business software built and shipped by Fullstack Dev KZ.",
+  path: "/work",
+});
 
 export default function Work() {
   return (
@@ -150,21 +156,62 @@ export default function Work() {
           {/* Content */}
           <div className="relative z-10 min-w-0">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-              Selected work & case studies
+              Products, platforms &amp; shipped applications
             </h1>
 
-            <p className="mt-4 max-w-2xl text-[var(--muted)]">
-              Mobile apps, secure backends, and delightful UI systems —
-              all crafted with coding precision.
+            <p className="mt-4 max-w-3xl text-[var(--muted)]">
+              Production software built across Android, web, SaaS, and backend APIs.
+              These products show how Fullstack Dev KZ handles complete workflows,
+              connected systems, release delivery, and practical interface design.
             </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+              >
+                Explore development services
+                <ArrowRight size={16} aria-hidden />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-4 py-2 text-sm transition hover:bg-white/25"
+              >
+                <MessageSquare size={16} aria-hidden />
+                Discuss a similar project
+              </Link>
+            </div>
 
             <div className="mt-8 h-px w-full bg-white/10" />
 
             <section className="mt-8 md:mt-10">
-              <h2 className="sr-only">Case studies</h2>
+              <div className="max-w-3xl">
+                <div className="text-sm font-medium text-[var(--accent)]">Connected systems</div>
+                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Products &amp; platforms</h2>
+                <p className="mt-3 text-[var(--muted)]">
+                  Commercial software with mobile, web, backend, and operational parts
+                  designed to work together as one product.
+                </p>
+              </div>
 
-              <div className="grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {cases.map((c) => (
+              <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {platformCases.map((c) => (
+                  <CaseCard key={c.href} {...c} />
+                ))}
+              </div>
+            </section>
+
+            <section className="mt-14">
+              <div className="max-w-3xl">
+                <div className="text-sm font-medium text-[var(--accent)]">Google Play releases</div>
+                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Shipped Android applications</h2>
+                <p className="mt-3 text-[var(--muted)]">
+                  Focused applications spanning study, document scanning, productivity,
+                  finance, habits, meditation, and mobile sales workflows.
+                </p>
+              </div>
+              <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {applicationCases.map((c) => (
                   <CaseCard key={c.href} {...c} />
                 ))}
               </div>
