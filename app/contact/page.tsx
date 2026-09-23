@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { LoaderCircle, Send } from "lucide-react";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
@@ -22,6 +22,15 @@ type FormState = {
 
 const EMAIL = "info@fullstackdev.kz";
 const ADDRESS = "Almaty, Kazakhstan";
+const INTENT_PROJECT_TYPES: Record<string, string> = {
+  "mobile-app-development": "Mobile App Development",
+  "react-native-development": "React Native Development",
+  "web-app-development": "Web Application Development",
+  "saas-development": "SaaS Development",
+  "mvp-development": "MVP Development",
+  "backend-api-development": "Backend & API Development",
+  "custom-business-software": "Custom Business Software",
+};
 
 export default function Page() {
   const [form, setForm] = useState<FormState>({
@@ -36,6 +45,12 @@ export default function Page() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<null | { ok: boolean; msg: string }>(null);
+
+  useEffect(() => {
+    const intent = new URLSearchParams(window.location.search).get("intent");
+    const projectType = intent ? INTENT_PROJECT_TYPES[intent] : undefined;
+    if (projectType) setForm((current) => ({ ...current, projectType }));
+  }, []);
 
   const disabled = useMemo(() => {
     if (!form.name.trim()) return true;
@@ -242,12 +257,14 @@ export default function Page() {
                         onChange={(v) => setForm((f) => ({ ...f, projectType: v }))}
                         placeholder="Select…"
                         options={[
-                          { label: "Mobile App (React Native / Expo)", value: "Mobile App (React Native / Expo)" },
-                          { label: "SaaS / Business Software", value: "SaaS / Business Software" },
+                          "Mobile App Development",
+                          "React Native Development",
+                          "Web Application Development",
+                          "SaaS Development",
                           { label: "MVP Development", value: "MVP Development" },
-                          { label: "Backend API (FastAPI)", value: "Backend API (FastAPI)" },
+                          "Backend & API Development",
+                          "Custom Business Software",
                           { label: "On-device OCR / OCRScan", value: "On-device OCR / OCRScan" },
-                          { label: "Web / Next.js", value: "Web / Next.js" },
                           { label: "Other", value: "Other" },
                         ]}
                       />

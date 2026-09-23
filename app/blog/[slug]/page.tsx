@@ -12,6 +12,13 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const serviceByProduct: Record<string, { href: string; label: string }> = {
+  "/work/tradesmate": { href: "/services/custom-business-software", label: "Custom business software development" },
+  "/work/pubplay": { href: "/services/saas-development", label: "SaaS development services" },
+  "/work/studyflow": { href: "/services/mobile-app-development", label: "Mobile app development services" },
+  "/work/uniscan": { href: "/services/react-native-development", label: "React Native development services" },
+};
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -38,6 +45,11 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getBlogPost(slug);
 
   if (!post) notFound();
+
+  const relatedService = serviceByProduct[post.appHref] ?? {
+    href: "/services/mobile-app-development",
+    label: "Mobile app development services",
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -142,10 +154,10 @@ export default async function BlogPostPage({ params }: Props) {
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link
-              href="/services"
+              href={relatedService.href}
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
             >
-              View software development services
+              {relatedService.label}
               <ArrowRight size={16} aria-hidden />
             </Link>
           </div>

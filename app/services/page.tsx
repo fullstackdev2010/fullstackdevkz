@@ -16,42 +16,49 @@ import { buildPageMetadata } from "@/lib/site";
 
 const services = [
   {
+    href: "/services/mobile-app-development",
     title: "Mobile App Development",
     description:
       "Custom mobile applications shaped around a real workflow, from user journeys and interface design to backend integration, testing, and store-ready delivery.",
     icon: Smartphone,
   },
   {
+    href: "/services/react-native-development",
     title: "React Native Development",
     description:
       "Cross-platform Android and iOS development with Expo and React Native, including native integrations, notifications, subscriptions, offline behavior, and ongoing feature work.",
     icon: CodeXml,
   },
   {
+    href: "/services/web-app-development",
     title: "Web Application Development",
     description:
       "Responsive web applications, portals, dashboards, and customer systems built with Next.js and connected to production APIs and databases.",
     icon: Braces,
   },
   {
+    href: "/services/saas-development",
     title: "SaaS Development",
     description:
       "Subscription products with account flows, role-based access, billing-ready architecture, administration tools, and connected mobile or web experiences.",
     icon: Layers3,
   },
   {
+    href: "/services/mvp-development",
     title: "MVP Development",
     description:
       "A focused route from product scope and prototype to a testable production release, with architecture that can support the next stage instead of trapping it.",
     icon: Rocket,
   },
   {
+    href: "/services/backend-api-development",
     title: "Backend & API Development",
     description:
       "FastAPI services, SQL data models, authentication, integrations, background processes, and secure APIs for mobile and web products.",
     icon: Blocks,
   },
   {
+    href: "/services/custom-business-software",
     title: "Custom Business Software",
     description:
       "Operational software for jobs, customers, documents, payments, events, reporting, and other workflows that generic tools do not fit well.",
@@ -154,6 +161,13 @@ export default function Page() {
                   <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
                     {service.description}
                   </p>
+                  <Link
+                    href={service.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                  >
+                    Explore {service.title.toLowerCase()}
+                    <ArrowRight size={15} aria-hidden />
+                  </Link>
                 </GlassCard>
               );
             })}

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 type RelatedApp = {
@@ -161,15 +162,17 @@ export default function AppSeoLandingSections({
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
-            href="/services"
-            className="rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+            href="/services/mobile-app-development"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
           >
-            Explore software development services
+            Explore mobile app development
+            <ArrowRight size={15} aria-hidden />
           </Link>
           <Link
-            href="/contact"
-            className="rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
+            href="/contact?intent=mobile-app-development"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
           >
+            <MessageSquare size={15} aria-hidden />
             Discuss your application
           </Link>
         </div>

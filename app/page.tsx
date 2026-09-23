@@ -44,24 +44,28 @@ export const metadata = {
 
 const services = [
   {
+    href: "/services/mobile-app-development",
     title: "Mobile app development",
     description:
       "Production-ready React Native applications for Android and iOS, with practical UX, secure data flows, store-ready builds, and maintainable code.",
     icon: Smartphone,
   },
   {
+    href: "/services/web-app-development",
     title: "Web application development",
     description:
       "Modern portals, dashboards, customer applications, and operational systems built for fast, reliable use across devices.",
     icon: MonitorSmartphone,
   },
   {
+    href: "/services/saas-development",
     title: "SaaS & business software",
     description:
       "Subscription platforms, internal tools, workflow software, APIs, and integrations that connect day-to-day business operations.",
     icon: Blocks,
   },
   {
+    href: "/services/mvp-development",
     title: "MVP & product development",
     description:
       "Focused product delivery from scope and prototype through backend implementation, testing, deployment, and production release.",
@@ -184,16 +188,27 @@ export default function Home() {
                     <h3 className="mt-4 text-xl font-semibold">{service.title}</h3>
                     <p className="mt-2 text-sm text-[var(--muted)]">{service.description}</p>
                     <Link
-                      href="/services"
+                      href={service.href}
                       className="mt-5 inline-flex items-center gap-2 text-sm font-medium hover:underline"
                     >
-                      Explore software development services
+                      Explore {service.title}
                       <ArrowRight size={15} aria-hidden />
                     </Link>
                   </GlassCard>
                 </RevealOnScroll>
               );
             })}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+            <Link href="/services/react-native-development" className="inline-flex items-center gap-2 hover:underline">
+              React Native development <ArrowRight size={14} aria-hidden />
+            </Link>
+            <Link href="/services/backend-api-development" className="inline-flex items-center gap-2 hover:underline">
+              Backend &amp; API development <ArrowRight size={14} aria-hidden />
+            </Link>
+            <Link href="/services/custom-business-software" className="inline-flex items-center gap-2 hover:underline">
+              Custom business software <ArrowRight size={14} aria-hidden />
+            </Link>
           </div>
         </section>
 

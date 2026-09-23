@@ -27,6 +27,16 @@ const PRODUCT_ROUTES = [
   "/work/meditation",
 ] as const;
 
+const SERVICE_ROUTES = [
+  "/services/mobile-app-development",
+  "/services/react-native-development",
+  "/services/web-app-development",
+  "/services/saas-development",
+  "/services/mvp-development",
+  "/services/backend-api-development",
+  "/services/custom-business-software",
+] as const;
+
 const POLICY_ROUTES = [
   "/work/tradesmate/privacy",
   "/work/come-together/privacy",
@@ -43,6 +53,7 @@ const POLICY_ROUTES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     ...CORE_ROUTES,
+    ...SERVICE_ROUTES,
     ...PRODUCT_ROUTES,
     ...POLICY_ROUTES,
   ].map((path) => ({
