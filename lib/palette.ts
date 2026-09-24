@@ -6,6 +6,7 @@ export function getRoutePalette(pathname: string): Palette {
     '/work': ['var(--brand-2)','var(--brand-1)','var(--brand-5)'],
     '/services': ['var(--brand-3)','var(--brand-1)','var(--brand-2)'],
     '/solutions': ['var(--brand-5)','var(--brand-2)','var(--brand-1)'],
+    '/industries': ['var(--brand-2)','var(--brand-5)','var(--brand-3)'],
     '/about': ['var(--brand-4)','var(--brand-1)','var(--brand-3)'],
     '/stack': ['var(--brand-1)','var(--brand-5)','var(--brand-3)'],
     '/contact': ['var(--brand-2)','var(--brand-3)','var(--brand-1)'],

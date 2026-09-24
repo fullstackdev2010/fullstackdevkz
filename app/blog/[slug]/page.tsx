@@ -19,6 +19,11 @@ const serviceByProduct: Record<string, { href: string; label: string }> = {
   "/work/uniscan": { href: "/services/react-native-development", label: "React Native development services" },
 };
 
+const industryByProduct: Record<string, { href: string; label: string }> = {
+  "/work/tradesmate": { href: "/industries/trades-service-businesses", label: "Trades and service business workflows" },
+  "/work/pubplay": { href: "/industries/pubs-entertainment-venues", label: "Pub and venue platform workflows" },
+};
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -50,6 +55,7 @@ export default async function BlogPostPage({ params }: Props) {
     href: "/services/mobile-app-development",
     label: "Mobile app development services",
   };
+  const relatedIndustry = industryByProduct[post.appHref];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -160,6 +166,12 @@ export default async function BlogPostPage({ params }: Props) {
               {relatedService.label}
               <ArrowRight size={16} aria-hidden />
             </Link>
+            {relatedIndustry && (
+              <Link href={relatedIndustry.href} className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">
+                {relatedIndustry.label}
+                <ArrowRight size={16} aria-hidden />
+              </Link>
+            )}
           </div>
         </GlassCard>
       </article>

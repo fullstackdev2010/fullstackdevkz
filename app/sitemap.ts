@@ -6,6 +6,7 @@ const CORE_ROUTES = [
   "/",
   "/services",
   "/solutions",
+  "/industries",
   "/work",
   "/blog",
   "/about",
@@ -48,6 +49,12 @@ const SOLUTION_ROUTES = [
   "/solutions/custom-software-cost",
 ] as const;
 
+const INDUSTRY_ROUTES = [
+  "/industries/trades-service-businesses",
+  "/industries/pubs-entertainment-venues",
+  "/industries/clubs-member-organizations",
+] as const;
+
 const POLICY_ROUTES = [
   "/work/tradesmate/privacy",
   "/work/come-together/privacy",
@@ -66,6 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...CORE_ROUTES,
     ...SERVICE_ROUTES,
     ...SOLUTION_ROUTES,
+    ...INDUSTRY_ROUTES,
     ...PRODUCT_ROUTES,
     ...POLICY_ROUTES,
   ].map((path) => ({

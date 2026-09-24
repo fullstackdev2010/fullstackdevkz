@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,6 +15,7 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import ClientActiveNav from "@/components/ClientActiveNav";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { buildPageMetadata } from "@/lib/site";
+import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
 
 export const metadata = {
   ...buildPageMetadata({
@@ -85,6 +85,34 @@ const examples = [
   },
 ];
 
+const tradesMateSlides = [
+  {
+    src: "/demos/tradesmate/tradesmate-dashboard.jpg",
+    alt: "TradesMate dashboard showing revenue, outstanding payments, profit, and scheduled jobs",
+    label: "Dashboard and next jobs",
+  },
+  {
+    src: "/demos/tradesmate/tradesmate-jobs.jpg",
+    alt: "TradesMate jobs screen showing scheduled and completed trade work",
+    label: "Job scheduling",
+  },
+  {
+    src: "/demos/tradesmate/tradesmate-customers.jpg",
+    alt: "TradesMate customer records with phone, email, and WhatsApp actions",
+    label: "Customer management",
+  },
+  {
+    src: "/demos/tradesmate/tradesmate-finance.jpg",
+    alt: "TradesMate finance screen with quotes, invoices, costs, and overdue documents",
+    label: "Finance and documents",
+  },
+  {
+    src: "/demos/tradesmate/tradesmate-quote.jpg",
+    alt: "TradesMate quote screen with line items, tax, PDF preview, and sharing",
+    label: "Quotes and customer sharing",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative isolate">
@@ -146,26 +174,24 @@ export default function Home() {
 
             <div className="min-w-0">
               <div className="mb-3 text-sm font-medium text-[var(--accent)]">Primary product evidence · TradesMate</div>
-              <div className="relative mx-auto h-[500px] w-full max-w-[540px] sm:h-[590px]" aria-label="TradesMate mobile business workflow screens">
-                <figure className="absolute left-0 top-0 z-30 w-[49%] overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
-                  <Image src="/demos/tradesmate/tradesmate-dashboard.jpg" alt="TradesMate business dashboard showing revenue, outstanding payments and scheduled jobs" width={1080} height={1920} sizes="(max-width: 767px) 48vw, 270px" className="h-auto w-full" priority />
-                </figure>
-                <figure className="absolute right-[21%] top-[7%] z-20 w-[34%] rotate-2 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
-                  <Image src="/demos/tradesmate/tradesmate-jobs.jpg" alt="TradesMate job scheduling screen showing upcoming trade jobs" width={1080} height={1920} sizes="(max-width: 767px) 34vw, 190px" className="h-auto w-full" />
-                </figure>
-                <figure className="absolute right-0 top-[18%] z-10 w-[34%] -rotate-1 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
-                  <Image src="/demos/tradesmate/tradesmate-finance.jpg" alt="TradesMate finance screen showing quotes, invoices and expenses" width={1080} height={1920} sizes="(max-width: 767px) 34vw, 190px" className="h-auto w-full" />
-                </figure>
-                <figure className="absolute bottom-0 right-[8%] z-40 w-[29%] rotate-1 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
-                  <Image src="/demos/tradesmate/tradesmate-customers.jpg" alt="TradesMate customer management screen with customer contact actions" width={1080} height={1920} sizes="(max-width: 767px) 29vw, 160px" className="h-auto w-full" />
-                </figure>
-              </div>
+              <DeviceSlideshow
+                platform="android"
+                width={320}
+                height={640}
+                intervalMs={5000}
+                innerScale={0.965}
+                slides={tradesMateSlides}
+                productName="TradesMate"
+                perspective
+                priority
+              />
               <div className="mt-5">
                 <h2 className="text-xl font-semibold">TradesMate — business management software for trades</h2>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">Customers, jobs, scheduling, quotes, invoices, expenses, and payments form one connected mobile business workflow.</p>
                 <div className="mt-4 flex flex-wrap gap-3 text-sm">
                   <Link href="/work/tradesmate" className="inline-flex items-center gap-2 font-medium hover:underline">Explore TradesMate<ArrowRight size={15} aria-hidden /></Link>
                   <Link href="/solutions/build-an-app-for-my-business" className="inline-flex items-center gap-2 font-medium hover:underline">Build a business app<ArrowRight size={15} aria-hidden /></Link>
+                  <Link href="/industries" className="inline-flex items-center gap-2 font-medium hover:underline">Explore industries<ArrowRight size={15} aria-hidden /></Link>
                 </div>
               </div>
             </div>

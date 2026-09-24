@@ -1,101 +1,171 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import DeviceFrame from "@/components/ui/DeviceFrame";
+
+type DeviceSlide = {
+  src: string;
+  alt: string;
+  label: string;
+};
 
 type DeviceSlideshowProps = {
   platform?: "android";
   width?: number;
   height?: number;
   intervalMs?: number;
-  images?: string[]; // when provided, we trust the list and do NOT probe
-  scale?: number;     // outer visual scale (bezel + content)
-  innerScale?: number; // NEW: inner image-only scale to avoid clipping
+  images?: string[];
+  slides?: DeviceSlide[];
+  scale?: number;
+  innerScale?: number;
+  priority?: boolean;
+  perspective?: boolean;
+  productName?: string;
 };
 
-const DEFAULT_CANDIDATES = [
-  "01.jpg",
-  "02.jpg",
-  "03.jpg",
-  "04.jpg",
-  "05.jpg",
-  "06.jpg",
-  "07.jpg",
-  "08.jpg",
-  // numeric fallbacks 1..12
-  ...Array.from({ length: 12 }, (_, i) => `${i + 1}.jpg`),
-];
+const DEFAULT_SLIDES: DeviceSlide[] = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"].map(
+  (name, index) => ({
+    src: `/demos/uniscan/${name}`,
+    alt: `Application screen ${index + 1}`,
+    label: `Screen ${index + 1}`,
+  }),
+);
 
-function preload(src: string): Promise<string | null> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(src);
-    img.onerror = () => resolve(null);
-    img.src = src;
-  });
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return reduced;
 }
 
 export default function DeviceSlideshow({
   platform = "android",
-  width = 360,
-  height = 720,
-  intervalMs = 2000,
+  width = 320,
+  height = 640,
+  intervalMs = 5000,
   images,
-  scale = 0.92,
-  innerScale = 0.9,
+  slides,
+  scale = 0.95,
+  innerScale = 0.96,
+  priority = false,
+  perspective = false,
+  productName = "Product",
 }: DeviceSlideshowProps) {
-  const base = "/demos/uniscan/";
-  const candidates = useMemo(() => {
-    if (images && images.length) {
-      return images.map((n) => (n.startsWith("/") ? n : base + n));
+  const items = useMemo<DeviceSlide[]>(() => {
+    if (slides?.length) return slides;
+    if (images?.length) {
+      return images.map((src, index) => ({
+        src,
+        alt: `Application screen ${index + 1}`,
+        label: `Screen ${index + 1}`,
+      }));
     }
-    const list = DEFAULT_CANDIDATES.map((n) => base + n);
-    return Array.from(new Set(list)); // de-dup preserve order
-  }, [images]);
+    return DEFAULT_SLIDES;
+  }, [images, slides]);
 
-  const [slides, setSlides] = useState<string[]>([]);
-  const [idx, setIdx] = useState(0);
-  const timerRef = useRef<number | null>(null);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reducedMotion = useReducedMotion();
+  const active = items[index] ?? items[0];
+
+  const select = useCallback(
+    (next: number) => setIndex((next + items.length) % items.length),
+    [items.length],
+  );
 
   useEffect(() => {
-    let mounted = true;
-    if (images && images.length) {
-      setSlides(candidates);
-      return () => { mounted = false; };
-    }
-    Promise.all(candidates.map(preload)).then((loaded) => {
-      if (!mounted) return;
-      const ok = loaded.filter((s): s is string => !!s);
-      setSlides(ok.length ? ok : [base + "01.jpg"]);
-    });
-    return () => { mounted = false; };
-  }, [candidates, images]);
+    if (items.length < 2 || paused || reducedMotion) return;
+    const timer = window.setInterval(
+      () => setIndex((current) => (current + 1) % items.length),
+      Math.max(4000, intervalMs),
+    );
+    return () => window.clearInterval(timer);
+  }, [intervalMs, items.length, paused, reducedMotion]);
 
   useEffect(() => {
-    if (!slides.length) return;
-    if (timerRef.current) window.clearInterval(timerRef.current);
-    timerRef.current = window.setInterval(() => {
-      setIdx((i) => (i + 1) % slides.length);
-    }, Math.max(1200, intervalMs));
-    return () => { if (timerRef.current) window.clearInterval(timerRef.current); };
-  }, [slides, intervalMs]);
+    const next = items[(index + 1) % items.length];
+    if (!next || next.src === active.src) return;
+    const image = new window.Image();
+    image.src = next.src;
+  }, [active.src, index, items]);
 
-  const src = slides[idx] ?? (base + "01.jpg");
-
-  // Outer scale (bezel + content)
-  const s = Math.max(0.75, Math.min(1.0, scale));
+  const visualScale = Math.max(0.76, Math.min(1, scale));
 
   return (
     <div
-      className="origin-center"
-      style={{ transform: `scale(${s})`, transformOrigin: "center center" }}
+      className="mx-auto w-full max-w-[390px]"
+      aria-roledescription="carousel"
+      aria-label={`${productName} screens in a 3D phone`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+      }}
     >
-      <DeviceFrame
-        platform={platform}
-        src={src}
-        width={width}
-        height={height}
-        contentScale={innerScale} // key: scale the inner picture only
-      />
+      <div className={perspective ? "phone-showcase-perspective" : undefined}>
+        <div
+          className={perspective ? "phone-showcase-device" : "origin-center"}
+          style={{ transform: perspective ? undefined : `scale(${visualScale})` }}
+        >
+          <div className="phone-showcase-glow" aria-hidden />
+          <DeviceFrame
+            key={active.src}
+            platform={platform}
+            src={active.src}
+            alt={active.alt}
+            width={width}
+            height={height}
+            contentScale={innerScale}
+            priority={priority && index === 0}
+            className="phone-showcase-frame max-w-full"
+          />
+        </div>
+      </div>
+
+      {items.length > 1 && (
+        <div className="mt-4 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            aria-label={`Show previous ${productName} screen`}
+            onClick={() => select(index - 1)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          >
+            <ChevronLeft size={18} aria-hidden />
+          </button>
+          <div className="flex items-center gap-2" aria-label={`${active.label}, slide ${index + 1} of ${items.length}`}>
+            {items.map((item, itemIndex) => (
+              <button
+                type="button"
+                key={item.src}
+                aria-label={`Show ${item.label}`}
+                aria-current={itemIndex === index ? "true" : undefined}
+                onClick={() => select(itemIndex)}
+                className={`h-2.5 w-2.5 rounded-full border border-white/30 transition ${itemIndex === index ? "bg-white" : "bg-white/15 hover:bg-white/40"}`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            aria-label={`Show next ${productName} screen`}
+            onClick={() => select(index + 1)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          >
+            <ChevronRight size={18} aria-hidden />
+          </button>
+        </div>
+      )}
+      <p className="mt-2 text-center text-xs text-[var(--muted)]" aria-live="polite">
+        {active.label}
+      </p>
     </div>
   );
 }

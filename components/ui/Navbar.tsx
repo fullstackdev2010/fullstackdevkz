@@ -25,6 +25,7 @@ export function Navbar() {
   const links = [
     { href: '/services', label: 'Services' },
     { href: '/solutions', label: 'Solutions' },
+    { href: '/industries', label: 'Industries' },
     { href: '/work', label: 'Work & Products' },
     { href: '/blog', label: 'Insights' },
     { href: '/stack', label: 'Stack' },
@@ -56,7 +57,7 @@ export function Navbar() {
         <Link href="/" className="font-semibold tracking-wide" aria-label="Fullstack Dev KZ home">Fullstack Dev KZ</Link>
 
         {/* Desktop nav */}
-        <ul className="relative hidden items-center gap-4 text-sm lg:flex">
+        <ul className="relative hidden items-center gap-3 text-sm lg:flex">
           {links.map(l => (
             <li key={l.href}>
               <Link href={l.href} className={isActive(l.href) ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>

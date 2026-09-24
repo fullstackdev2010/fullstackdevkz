@@ -618,6 +618,10 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="mt-10 border-t border-white/15 pt-5" aria-labelledby="pubplay-industry">
+          <div className="max-w-3xl"><div className="text-sm font-medium text-[var(--accent)]">Industry workflow context</div><h2 id="pubplay-industry" className="mt-2 text-xl font-semibold">Digital platforms for pubs and entertainment venues</h2><p className="mt-2 text-sm leading-6 text-[var(--muted)]">Explore the wider engineering pattern behind venue control, player web access, live event state, and public displays.</p><Link href="/industries/pubs-entertainment-venues" className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:underline">Explore the venue platform guide<ArrowRight size={15} aria-hidden /></Link></div>
+        </section>
+
         <nav aria-label="Product navigation" className="mt-16 border-t border-white/10 pt-8">
           <div className="flex flex-wrap gap-3">
             <Link

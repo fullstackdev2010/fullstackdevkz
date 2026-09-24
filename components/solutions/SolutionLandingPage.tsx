@@ -10,9 +10,11 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import type { SolutionPageData } from "@/lib/solutionPages";
 import { SITE_URL } from "@/lib/site";
+import { solutionIndustryLinks } from "@/lib/industryPages";
 
 export default function SolutionLandingPage({ solution }: { solution: SolutionPageData }) {
   const route = `/solutions/${solution.slug}`;
+  const industries = solutionIndustryLinks[solution.slug] ?? [];
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -195,6 +197,17 @@ export default function SolutionLandingPage({ solution }: { solution: SolutionPa
             )}
           </div>
         </section>
+
+        {industries.length > 0 && (
+          <section className="mt-14 border-y border-white/15 py-8" aria-labelledby="solution-industries">
+            <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+              <div><div className="text-sm font-medium text-[var(--accent)]">Concrete workflow examples</div><h2 id="solution-industries" className="mt-2 text-2xl font-semibold md:text-3xl">See the decision in an industry context</h2></div>
+              <div className="space-y-4">
+                {industries.map((item) => <Link key={item.href} href={item.href} className="group block border-b border-white/15 pb-4"><span className="flex items-center justify-between gap-4 font-semibold">{item.title}<ArrowRight size={16} className="shrink-0 transition-transform group-hover:translate-x-1" aria-hidden /></span><span className="mt-1 block text-sm leading-6 text-[var(--muted)]">{item.description}</span></Link>)}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
