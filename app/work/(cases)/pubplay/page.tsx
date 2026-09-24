@@ -567,6 +567,15 @@ export default function Page() {
           contactIntent="saas-development"
         />
 
+        <section className="mt-10 border-t border-white/15 pt-5" aria-labelledby="pubplay-solution">
+          <div className="max-w-3xl">
+            <div className="text-sm font-medium text-[var(--accent)]">Planning a connected mobile experience?</div>
+            <h2 id="pubplay-solution" className="mt-2 text-xl font-semibold">Add a mobile app to an existing web platform</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">PubPlay shows why mobile, web, display, account, and backend responsibilities need clear boundaries when several interfaces share one live workflow.</p>
+            <Link href="/solutions/mobile-app-for-existing-web-platform" className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:underline">Explore the mobile companion decision guide<ArrowRight size={15} aria-hidden /></Link>
+          </div>
+        </section>
+
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
             <div>

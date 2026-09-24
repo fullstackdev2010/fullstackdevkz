@@ -15,6 +15,7 @@ export function Footer() {
           <div className="font-medium text-[var(--fg)]">Navigation</div>
           <ul className="mt-2 space-y-1">
             <li><Link href="/services">Software development services</Link></li>
+            <li><Link href="/solutions">Software solutions and decision guides</Link></li>
             <li><Link href="/work">Work &amp; products</Link></li>
             <li><Link href="/blog">Software development insights</Link></li>
             <li><Link href="/stack">Stack</Link></li>

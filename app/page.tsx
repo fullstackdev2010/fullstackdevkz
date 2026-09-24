@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -12,25 +11,11 @@ import {
 } from "lucide-react";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import { GlassCard } from "@/components/ui/GlassCard";
-import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
 import { RevealOnScroll } from "@/components/motion/RevealOnScroll";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import ClientActiveNav from "@/components/ClientActiveNav";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { buildPageMetadata } from "@/lib/site";
-
-function getIskraImages(): string[] {
-  const dir = path.join(process.cwd(), "public", "demos", "iskra");
-  try {
-    return fs
-      .readdirSync(dir)
-      .filter((file) => /\.(jpe?g)$/i.test(file))
-      .sort()
-      .map((file) => `/demos/iskra/${file}`);
-  } catch {
-    return ["/demos/iskra/01.jpg"];
-  }
-}
 
 export const metadata = {
   ...buildPageMetadata({
@@ -101,8 +86,6 @@ const examples = [
 ];
 
 export default function Home() {
-  const images = getIskraImages();
-
   return (
     <main className="relative isolate">
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-10">
@@ -161,16 +144,30 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex min-w-0 justify-center">
-              <DeviceSlideshow
-                platform="android"
-                width={320}
-                height={640}
-                intervalMs={2000}
-                scale={0.95}
-                innerScale={0.95}
-                images={images}
-              />
+            <div className="min-w-0">
+              <div className="mb-3 text-sm font-medium text-[var(--accent)]">Primary product evidence · TradesMate</div>
+              <div className="relative mx-auto h-[500px] w-full max-w-[540px] sm:h-[590px]" aria-label="TradesMate mobile business workflow screens">
+                <figure className="absolute left-0 top-0 z-30 w-[49%] overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
+                  <Image src="/demos/tradesmate/tradesmate-dashboard.jpg" alt="TradesMate business dashboard showing revenue, outstanding payments and scheduled jobs" width={1080} height={1920} sizes="(max-width: 767px) 48vw, 270px" className="h-auto w-full" priority />
+                </figure>
+                <figure className="absolute right-[21%] top-[7%] z-20 w-[34%] rotate-2 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
+                  <Image src="/demos/tradesmate/tradesmate-jobs.jpg" alt="TradesMate job scheduling screen showing upcoming trade jobs" width={1080} height={1920} sizes="(max-width: 767px) 34vw, 190px" className="h-auto w-full" />
+                </figure>
+                <figure className="absolute right-0 top-[18%] z-10 w-[34%] -rotate-1 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
+                  <Image src="/demos/tradesmate/tradesmate-finance.jpg" alt="TradesMate finance screen showing quotes, invoices and expenses" width={1080} height={1920} sizes="(max-width: 767px) 34vw, 190px" className="h-auto w-full" />
+                </figure>
+                <figure className="absolute bottom-0 right-[8%] z-40 w-[29%] rotate-1 overflow-hidden rounded-2xl border border-white/20 bg-black/25 shadow-2xl">
+                  <Image src="/demos/tradesmate/tradesmate-customers.jpg" alt="TradesMate customer management screen with customer contact actions" width={1080} height={1920} sizes="(max-width: 767px) 29vw, 160px" className="h-auto w-full" />
+                </figure>
+              </div>
+              <div className="mt-5">
+                <h2 className="text-xl font-semibold">TradesMate — business management software for trades</h2>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">Customers, jobs, scheduling, quotes, invoices, expenses, and payments form one connected mobile business workflow.</p>
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  <Link href="/work/tradesmate" className="inline-flex items-center gap-2 font-medium hover:underline">Explore TradesMate<ArrowRight size={15} aria-hidden /></Link>
+                  <Link href="/solutions/build-an-app-for-my-business" className="inline-flex items-center gap-2 font-medium hover:underline">Build a business app<ArrowRight size={15} aria-hidden /></Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -259,6 +256,17 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="mt-16 border-y border-white/15 py-9" aria-labelledby="software-solutions">
+          <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <div className="text-sm font-medium text-[var(--accent)]">Start from your situation</div>
+              <h2 id="software-solutions" className="mt-2 text-2xl font-semibold md:text-3xl">Not sure what type of software you need?</h2>
+              <p className="mt-3 max-w-3xl leading-7 text-[var(--muted)]">Explore practical guidance for business apps, spreadsheet-heavy workflows, mobile companions, MVP scope, modernization, backend integration, and software cost.</p>
+            </div>
+            <Link href="/solutions" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10">Explore software solutions<ArrowRight size={17} aria-hidden /></Link>
           </div>
         </section>
 

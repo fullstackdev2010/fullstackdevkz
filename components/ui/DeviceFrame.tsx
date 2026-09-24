@@ -10,6 +10,7 @@ type DeviceFrameProps = {
   alt?: string;
   className?: string;
   contentScale?: number; // NEW: scales the inner picture without scaling the bezel
+  priority?: boolean;
 };
 
 export function DeviceFrame({
@@ -20,6 +21,7 @@ export function DeviceFrame({
   alt = "Demo",
   className,
   contentScale = 1,
+  priority = false,
 }: DeviceFrameProps) {
   // Simple bezel styling to match typical mock frames
   const bezel = clsx(
@@ -45,7 +47,7 @@ export function DeviceFrame({
           width={width}
           height={height}
           className="h-full w-full object-contain"
-          priority
+          priority={priority}
         />
       </div>
 

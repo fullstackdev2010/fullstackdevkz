@@ -5,6 +5,7 @@ import { SITE_URL } from "@/lib/site";
 const CORE_ROUTES = [
   "/",
   "/services",
+  "/solutions",
   "/work",
   "/blog",
   "/about",
@@ -37,6 +38,16 @@ const SERVICE_ROUTES = [
   "/services/custom-business-software",
 ] as const;
 
+const SOLUTION_ROUTES = [
+  "/solutions/build-an-app-for-my-business",
+  "/solutions/replace-spreadsheets-with-custom-software",
+  "/solutions/mobile-app-for-existing-web-platform",
+  "/solutions/build-an-mvp",
+  "/solutions/modernize-existing-software",
+  "/solutions/connect-mobile-app-to-existing-backend",
+  "/solutions/custom-software-cost",
+] as const;
+
 const POLICY_ROUTES = [
   "/work/tradesmate/privacy",
   "/work/come-together/privacy",
@@ -54,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     ...CORE_ROUTES,
     ...SERVICE_ROUTES,
+    ...SOLUTION_ROUTES,
     ...PRODUCT_ROUTES,
     ...POLICY_ROUTES,
   ].map((path) => ({

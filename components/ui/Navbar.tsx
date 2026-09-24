@@ -24,6 +24,7 @@ export function Navbar() {
 
   const links = [
     { href: '/services', label: 'Services' },
+    { href: '/solutions', label: 'Solutions' },
     { href: '/work', label: 'Work & Products' },
     { href: '/blog', label: 'Insights' },
     { href: '/stack', label: 'Stack' },
@@ -55,14 +56,8 @@ export function Navbar() {
         <Link href="/" className="font-semibold tracking-wide" aria-label="Fullstack Dev KZ home">Fullstack Dev KZ</Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-5 text-sm relative">
-          <li className="relative">
-            <Link href="/work" className={isActive('/work') ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>
-              Work &amp; Products
-            </Link>
-          </li>
-
-          {links.filter(x => x.href !== '/work').map(l => (
+        <ul className="relative hidden items-center gap-4 text-sm lg:flex">
+          {links.map(l => (
             <li key={l.href}>
               <Link href={l.href} className={isActive(l.href) ? 'opacity-100 underline underline-offset-4' : 'hover:opacity-90'}>
                 {l.label}
@@ -82,7 +77,7 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen(s => !s)}
-          className="md:hidden rounded-lg border border-white/20 px-3 py-1.5"
+          className="rounded-lg border border-white/20 px-3 py-1.5 lg:hidden"
         >
           {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
         </button>
@@ -90,7 +85,7 @@ export function Navbar() {
 
       {/* Mobile sheet */}
       {open && (
-        <div className="md:hidden border-t border-white/10 bg-[color:var(--surface)]/80 backdrop-blur-md">
+        <div className="border-t border-white/10 bg-[color:var(--surface)]/80 backdrop-blur-md lg:hidden">
           <div className="mx-auto max-w-7xl px-6 py-4 space-y-2">
             <details>
               <summary className="cursor-pointer py-1">Work</summary>
