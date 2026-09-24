@@ -8,15 +8,17 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import ProductVideos from "@/components/work/ProductVideos";
+import ProductBreadcrumbs from "@/components/work/ProductBreadcrumbs";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { FLASHCARDS_PLAY_URL } from "@/lib/constants";
 
 const title = "StudyFlow Flashcards";
 const description =
-  "Study smarter with focused decks, spaced repetition, recall stats, and calm daily review.";
+  "StudyFlow is a local-first Android flashcard app with spaced repetition, due-card review, recall statistics, reminders, and focused study decks.";
+const metadataTitle = "StudyFlow — Spaced Repetition Flashcards";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/studyflow" },
   keywords: [
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     "Android study app",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/studyflow",
     type: "article",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/studyflow.png"],
   },
@@ -108,6 +110,7 @@ export default function Page() {
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="studyflow" productName="StudyFlow Flashcards" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"

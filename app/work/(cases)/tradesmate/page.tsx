@@ -21,13 +21,17 @@ import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { TRADESMATE_PLAY_URL, TRADESMATE_SITE_URL } from "@/lib/constants";
+import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
+import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
+import { SITE_URL } from "@/lib/site";
 
 const title = "TradesMate: Jobs, Quotes & Invoices";
 const description =
-  "Android business management for tradespeople: schedule jobs, manage customers, create quotes and invoices, record costs and payments, and understand profit.";
+  "TradesMate helps tradespeople manage customers, scheduled jobs, quotes, invoices, payments, expenses, and business performance from Android.";
+const metadataTitle = "TradesMate — Trade Business Management App";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/tradesmate" },
   keywords: [
@@ -39,7 +43,7 @@ export const metadata: Metadata = {
     "small business expense tracker",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/tradesmate",
     type: "article",
@@ -52,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/tradesmate.png"],
   },
@@ -96,7 +100,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Android",
       description,
-      url: "https://www.fullstackdev.kz/work/tradesmate",
+      url: `${SITE_URL}/work/tradesmate`,
       sameAs: [TRADESMATE_SITE_URL, TRADESMATE_PLAY_URL],
       featureList: ["Job scheduling", "Customer management", "Quotes and invoices", "Payment tracking", "Expense capture", "Multi-currency business reporting"],
     },
@@ -104,6 +108,7 @@ const jsonLd = {
       "@type": "FAQPage",
       mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
     },
+    productBreadcrumbJsonLd("tradesmate", "TradesMate"),
   ],
 };
 
@@ -116,6 +121,7 @@ export default function Page() {
     <main className="relative">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="tradesmate" productName="TradesMate" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]" backgroundSrc="/brand/work.webp" viewBox="0 0 1600 900" photos={[]} />
           <div className="absolute inset-0"><MeshBackground brightness={0.76} opacity={0.93} seed="tradesmate-business" palette={["#7AA2FF", "#8DF2D6", "#FFB3EC"]} static /></div>
@@ -144,7 +150,9 @@ export default function Page() {
 
         <section className="mt-14"><SectionHeading eyebrow="Common questions" heading="What TradesMate is designed to handle" text="The product stays focused on the commercial workflow around practical service work." /><div className="grid gap-4 md:grid-cols-2">{faqs.map((faq) => <GlassCard key={faq.question} className="h-full"><h3 className="text-lg font-semibold">{faq.question}</h3><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{faq.answer}</p></GlassCard>)}</div></section>
 
-        <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10"><div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center"><div><div className="text-sm font-medium text-[var(--accent)]">Your jobs. Your customers. Sorted.</div><h2 className="mt-2 text-2xl font-semibold md:text-3xl">Spend less time rebuilding the paperwork around every job.</h2><p className="mt-3 max-w-2xl text-[var(--muted)]">Explore the dedicated TradesMate website, get the Android app, or discuss a connected business platform with Fullstack Dev KZ.</p></div><div className="flex flex-wrap gap-3 md:justify-end"><a href={TRADESMATE_SITE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"><ExternalLink size={17} aria-hidden />Open TradesMate</a><Link href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10">Discuss a business app<ArrowRight size={17} aria-hidden /></Link></div></div></section>
+        <ProductDevelopmentBridge eyebrow="What TradesMate demonstrates" title="Building connected software for real business operations" description="TradesMate shows how customer records, jobs, scheduling, quotes, invoices, costs, payments, subscriptions, and reporting can become one mobile workflow backed by secure application services." services={[{ href: "/services/custom-business-software", label: "Custom Business Software" }, { href: "/services/mobile-app-development", label: "Mobile App Development" }, { href: "/services/backend-api-development", label: "Backend & API Development" }]} contactIntent="custom-business-software" />
+
+        <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10"><div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center"><div><div className="text-sm font-medium text-[var(--accent)]">Interested in TradesMate?</div><h2 className="mt-2 text-2xl font-semibold md:text-3xl">Take the product path to pricing, support, and Google Play.</h2><p className="mt-3 max-w-2xl text-[var(--muted)]">The dedicated TradesMate website is the product-sales destination. This Fullstack Dev KZ page documents the connected product and engineering behind it.</p></div><div className="flex flex-wrap gap-3 md:justify-end"><a href={TRADESMATE_SITE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"><ExternalLink size={17} aria-hidden />Visit TradesMate</a><a href={TRADESMATE_PLAY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"><Smartphone size={17} aria-hidden />Google Play</a></div></div></section>
 
         <nav aria-label="Product navigation" className="mt-16 border-t border-white/10 pt-8"><div className="flex flex-wrap gap-3"><Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><ArrowLeft size={16} aria-hidden />Back to Work</Link><Link href="/services/custom-business-software" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">Business software development<ArrowRight size={16} aria-hidden /></Link><Link href="/work/tradesmate/privacy" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><ShieldCheck size={16} aria-hidden />Privacy Policy</Link><Link href="/work/tradesmate/delete" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><Trash2 size={16} aria-hidden />Delete account and data</Link></div></nav>
       </div>

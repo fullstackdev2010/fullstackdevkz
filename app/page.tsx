@@ -78,16 +78,25 @@ const examples = [
     href: "/work/tradesmate",
     title: "TradesMate business management application",
     description: "Jobs, customers, quotes, invoices, payments, and expenses in one Android product backed by FastAPI.",
+    linkLabel: "Explore TradesMate",
   },
   {
     href: "/work/come-together",
     title: "Come Together SaaS platform",
     description: "A web and Android system for local clubs, event organisers, bookings, attendance, and community activity.",
+    linkLabel: "Explore Come Together",
   },
   {
     href: "/work/pubplay",
     title: "PubPlay mobile and web platform",
     description: "An Android host app, QR player experience, live fixtures, and TV leaderboards for recurring pub events.",
+    linkLabel: "Explore PubPlay",
+  },
+  {
+    href: "/work/studyflow",
+    title: "StudyFlow local-first mobile application",
+    description: "Spaced repetition, review scheduling, recall statistics, reminders, and purchases in a focused Android product.",
+    linkLabel: "Explore StudyFlow",
   },
 ];
 
@@ -243,7 +252,7 @@ export default function Home() {
                     <h3 className="text-xl font-semibold">{example.title}</h3>
                     <p className="mt-2 text-sm text-[var(--muted)]">{example.description}</p>
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
-                      View the project
+                      {example.linkLabel}
                       <ArrowRight size={15} aria-hidden />
                     </span>
                   </GlassCard>

@@ -21,13 +21,17 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { PUBPLAY_PLAY_URL, PUBPLAY_SITE_URL } from "@/lib/constants";
+import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
+import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
+import { SITE_URL } from "@/lib/site";
 
 const title = "PubPlay: Pub Games Night System";
 const description =
   "Run darts, pool, bingo, quizzes, and pub tournaments from an Android tablet while players join by QR code and follow live fixtures and leaderboards.";
+const metadataTitle = "PubPlay — Pub Games Night Platform";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/pubplay" },
   keywords: [
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     "Android tablet pub app",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/pubplay",
     type: "article",
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/pubplay.jpg"],
   },
@@ -197,9 +201,9 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Android",
       description,
-      url: PUBPLAY_SITE_URL,
+      url: `${SITE_URL}/work/pubplay`,
       downloadUrl: PUBPLAY_PLAY_URL,
-      sameAs: ["https://www.fullstackdev.kz/work/pubplay"],
+      sameAs: [PUBPLAY_SITE_URL],
       featureList: [
         "QR player registration",
         "Round-robin and knockout fixtures",
@@ -216,6 +220,7 @@ const jsonLd = {
         acceptedAnswer: { "@type": "Answer", text: faq.answer },
       })),
     },
+    productBreadcrumbJsonLd("pubplay", "PubPlay"),
   ],
 };
 
@@ -246,6 +251,7 @@ export default function Page() {
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="pubplay" productName="PubPlay" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
@@ -552,6 +558,14 @@ export default function Page() {
             ))}
           </div>
         </section>
+
+        <ProductDevelopmentBridge
+          eyebrow="What PubPlay demonstrates"
+          title="Need a SaaS platform with a mobile host and live web experience?"
+          description="PubPlay demonstrates a synchronized product spanning an authenticated Android host, QR-based player web app, public TV display, tournament rules, live event state, subscriptions, and a shared backend."
+          services={[{ href: "/services/saas-development", label: "SaaS Development" }, { href: "/services/web-app-development", label: "Web Application Development" }, { href: "/services/mobile-app-development", label: "Mobile App Development" }]}
+          contactIntent="saas-development"
+        />
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center">

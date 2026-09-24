@@ -1,7 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
+import ProductDevelopmentBridge, { type ServiceLink } from "@/components/work/ProductDevelopmentBridge";
+import { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
+import { SITE_URL } from "@/lib/site";
 
 type RelatedApp = {
   href: string;
@@ -15,6 +18,7 @@ type FAQ = {
 };
 
 type Props = {
+  slug: string;
   appName: string;
   appCategory: string;
   description: string;
@@ -24,19 +28,27 @@ type Props = {
   benefits: readonly string[];
   faqs: readonly FAQ[];
   relatedApps: readonly RelatedApp[];
+  demonstrates: string;
+  serviceLinks: readonly ServiceLink[];
+  contactIntent: string;
+  articleHref?: string;
   children?: ReactNode;
 };
 
 export default function AppSeoLandingSections({
+  slug,
   appName,
   appCategory,
   description,
-  searchIntents,
   audience,
   useCases,
   benefits,
   faqs,
   relatedApps,
+  demonstrates,
+  serviceLinks,
+  contactIntent,
+  articleHref,
   children,
 }: Props) {
   const jsonLd = {
@@ -48,12 +60,9 @@ export default function AppSeoLandingSections({
         applicationCategory: appCategory,
         operatingSystem: "Android",
         description,
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-        },
+        url: `${SITE_URL}/work/${slug}`,
       },
+      productBreadcrumbJsonLd(slug, appName),
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((faq) => ({
@@ -75,7 +84,7 @@ export default function AppSeoLandingSections({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="grid gap-3 md:grid-cols-2">
+      <div>
         <GlassCard>
           <h2 className="text-2xl font-semibold">Best for</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-[var(--muted)]">
@@ -83,24 +92,6 @@ export default function AppSeoLandingSections({
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </GlassCard>
-
-        <GlassCard>
-          <h2 className="text-2xl font-semibold">Search intent</h2>
-          <p className="mt-4 text-[var(--muted)]">
-            This page is built around the real phrases people use when they
-            need this kind of Android app.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {searchIntents.map((intent) => (
-              <span
-                key={intent}
-                className="rounded-md border border-white/15 bg-white/[0.03] px-2 py-1 text-xs"
-              >
-                {intent}
-              </span>
-            ))}
-          </div>
         </GlassCard>
       </div>
 
@@ -154,29 +145,19 @@ export default function AppSeoLandingSections({
         </div>
       </GlassCard>
 
-      <GlassCard>
-        <h2 className="text-2xl font-semibold">Need a custom application?</h2>
-        <p className="mt-3 max-w-3xl text-[var(--muted)]">
-          Fullstack Dev KZ builds custom mobile apps, web applications, backend APIs,
-          SaaS products, and business software using the same production-focused approach.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link
-            href="/services/mobile-app-development"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
-          >
-            Explore mobile app development
-            <ArrowRight size={15} aria-hidden />
-          </Link>
-          <Link
-            href="/contact?intent=mobile-app-development"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20"
-          >
-            <MessageSquare size={15} aria-hidden />
-            Discuss your application
-          </Link>
-        </div>
-      </GlassCard>
+      {articleHref ? (
+        <Link href={articleHref} className="inline-flex items-center gap-2 text-sm font-medium hover:underline">
+          Read the product introduction <ArrowRight size={15} aria-hidden />
+        </Link>
+      ) : null}
+
+      <ProductDevelopmentBridge
+        eyebrow="What this product demonstrates"
+        title={`Building an application with challenges similar to ${appName}?`}
+        description={demonstrates}
+        services={[...serviceLinks]}
+        contactIntent={contactIntent}
+      />
     </section>
   );
 }

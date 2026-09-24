@@ -8,15 +8,17 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import ProductVideos from "@/components/work/ProductVideos";
+import ProductBreadcrumbs from "@/components/work/ProductBreadcrumbs";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { TODO_PLAY_URL } from "@/lib/constants";
 
 const title = "Momentum TODO Focus, Routines & Streaks";
 const description =
-  "Momentum TODO productivity app with routines, streaks, offline storage, and multilingual UI.";
+  "Momentum TODO is an Android productivity app for daily tasks, repeated routines, streak tracking, offline storage, and multilingual planning.";
+const metadataTitle = "Momentum TODO — Tasks, Routines & Streaks";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/todo" },
   keywords: [
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     "offline todo app",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/todo",
     type: "article",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/todo.png"],
   },
@@ -96,6 +98,7 @@ export default function Page() {
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="todo" productName="Momentum TODO" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"

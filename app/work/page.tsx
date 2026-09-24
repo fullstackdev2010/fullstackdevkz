@@ -5,123 +5,10 @@ import CaseCard from "@/components/work/CaseCard";
 import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { buildPageMetadata } from "@/lib/site";
-import {
-  EXPENSE_PLAY_URL,
-  FLASHCARDS_PLAY_URL,
-  HABIT_PLAY_URL,
-  ISKRAUG_PLAY_URL,
-  MEDITATION_PLAY_URL,
-  PUBPLAY_SITE_URL,
-  TRADESMATE_SITE_URL,
-  TODO_PLAY_URL,
-  UNISCAN_PLAY_URL,
-} from "@/lib/constants";
+import { workProducts } from "@/lib/workProducts";
 
-const cases = [
-  {
-    href: "/work/tradesmate",
-    title: "TradesMate: Jobs, Quotes & Invoices",
-    summary:
-      "Run jobs, customers, quotes, invoices, payments, expenses, and business performance from one Android app.",
-    tags: ["Android", "FastAPI", "Trade Business", "SaaS"],
-    thumb: "/demos/preview/tradesmate.png",
-    externalHref: TRADESMATE_SITE_URL,
-    externalLabel: "Product website",
-  },
-  {
-    href: "/work/come-together",
-    title: "Come Together: Local Clubs Platform",
-    summary:
-      "Publish local events, manage guests and waitlists, and turn first-time visitors into returning club members.",
-    tags: ["Next.js", "Android", "FastAPI", "Local Events"],
-    thumb: "/demos/preview/come-together.png",
-    externalHref: "https://hellolocalclubs.com",
-    externalLabel: "Live platform",
-  },
-  {
-    href: "/work/studyflow",
-    title: "StudyFlow Flashcards",
-    summary:
-      "Build focused decks, review due cards with spaced repetition, and understand recall over time.",
-    tags: ["Expo", "Flashcards", "Local-first", "Lifetime Pro"],
-    thumb: "/demos/preview/studyflow.png",
-    externalHref: FLASHCARDS_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/pubplay",
-    title: "PubPlay: Pub Games Night System",
-    summary:
-      "Run pub tournaments from an Android tablet while players join by QR and follow live fixtures and leaderboards.",
-    tags: ["Android", "QR Join", "Live Events", "FastAPI"],
-    thumb: "/demos/preview/pubplay.jpg",
-    externalHref: PUBPLAY_SITE_URL,
-    externalLabel: "Product website",
-  },
-  {
-    href: "/work/uniscan",
-    title: "Docs Scan OCR Encrypt & Share On-device OCR Scanner",
-    summary:
-      "High-speed scanning with on-device OCR, native modules, and encrypted results.",
-    tags: ["Expo", "OCR", "Encryption", "In-App Purchases"],
-    thumb: "/demos/preview/uniscan.jpg",
-    externalHref: UNISCAN_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/todo",
-    title: "Momentum TODO Focus & Routine",
-    summary:
-      "Build momentum. Tasks, routines, streaks, and streak tracking with offline storage.",
-    tags: ["Expo", "Localization", "AsyncStorage", "In-App Purchases"],
-    thumb: "/demos/preview/todo.png",
-    externalHref: TODO_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/expense",
-    title: "ExpenseFlow Smart Tracker",
-    summary:
-      "A budget tracker for logging spending, reviewing categories, and spotting monthly trends.",
-    tags: ["Expo", "Finance", "Local-first", "In-App Purchases"],
-    thumb: "/demos/preview/expense.png",
-    externalHref: EXPENSE_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/habit",
-    title: "HabitFlow Daily Habit Tracker",
-    summary:
-      "Build better routines with streaks, stats, heatmaps, and calm daily tracking.",
-    tags: ["Expo", "Habits", "Local-first", "In-App Purchases"],
-    thumb: "/demos/preview/habit.png",
-    externalHref: HABIT_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/meditation",
-    title: "MeditationFlow: Calm Timer",
-    summary:
-      "Quiet meditation timer with mindful practices, reminders, stats, and journal.",
-    tags: ["Expo", "Meditation", "Local-first", "In-App Purchases"],
-    thumb: "/demos/preview/meditation.png",
-    externalHref: MEDITATION_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-  {
-    href: "/work/iskra",
-    title: "Iskra Trading Mobile Catalog & Orders",
-    summary:
-      "Expo app + FastAPI backend with offline cart and ERP bridges.",
-    tags: ["Expo", "FastAPI", "SQLite/Postgres"],
-    thumb: "/demos/preview/iskra.jpg",
-    externalHref: ISKRAUG_PLAY_URL,
-    externalLabel: "Google Play",
-  },
-];
-
-const platformCases = cases.slice(0, 3);
-const applicationCases = cases.slice(3);
+const platformCases = workProducts.filter((product) => product.priority === "platform");
+const applicationCases = workProducts.filter((product) => product.priority === "application");
 
 export const metadata = buildPageMetadata({
   title: "Mobile, Web & SaaS Projects",
@@ -195,8 +82,8 @@ export default function Work() {
               </div>
 
               <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {platformCases.map((c) => (
-                  <CaseCard key={c.href} {...c} />
+                {platformCases.map((product) => (
+                  <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
               </div>
             </section>
@@ -211,8 +98,8 @@ export default function Work() {
                 </p>
               </div>
               <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {applicationCases.map((c) => (
-                  <CaseCard key={c.href} {...c} />
+                {applicationCases.map((product) => (
+                  <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
               </div>
             </section>

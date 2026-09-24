@@ -8,15 +8,17 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import ProductVideos from "@/components/work/ProductVideos";
+import ProductBreadcrumbs from "@/components/work/ProductBreadcrumbs";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { UNISCAN_PLAY_URL } from "@/lib/constants";
 
 const title = "Docs Scan OCR Encrypt & Share";
 const description =
-  "Privacy-first Android document scanning with on-device OCR, encrypted exports, and local vault workflows.";
+  "Docs Scan OCR is a privacy-first Android scanner with on-device recognition, encrypted exports, local vault storage, and secure document workflows.";
+const metadataTitle = "Docs Scan OCR — Private On-Device Scanner";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/uniscan" },
   keywords: [
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     "Android OCR app",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/uniscan",
     type: "article",
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/uniscan.jpg"],
   },
@@ -96,6 +98,7 @@ export default function Page() {
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="uniscan" productName="Docs Scan OCR" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"

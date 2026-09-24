@@ -20,14 +20,18 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
+import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
+import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
+import { SITE_URL } from "@/lib/site";
 
 const title = "Come Together: Local Clubs Platform";
 const description =
   "A connected web and Android platform for local club organizers to publish events, manage bookings and waitlists, track attendance, and encourage repeat visits.";
+const metadataTitle = "Come Together — Local Club Management Platform";
 const liveUrl = "https://hellolocalclubs.com";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/come-together" },
   keywords: [
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     "local community platform",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/come-together",
     type: "article",
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/come-together.png"],
   },
@@ -160,7 +164,8 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, Android",
       description,
-      url: "https://www.fullstackdev.kz/work/come-together",
+      url: `${SITE_URL}/work/come-together`,
+      sameAs: [liveUrl],
       featureList: [
         "Public club and event pages",
         "Event booking and ordered waitlists",
@@ -178,6 +183,7 @@ const jsonLd = {
         acceptedAnswer: { "@type": "Answer", text: faq.answer },
       })),
     },
+    productBreadcrumbJsonLd("come-together", "Come Together"),
   ],
 };
 
@@ -197,6 +203,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="come-together" productName="Come Together" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
@@ -399,6 +406,14 @@ export default function Page() {
           </div>
         </section>
 
+        <ProductDevelopmentBridge
+          eyebrow="What Come Together demonstrates"
+          title="Building a platform around organizers, guests, and recurring events"
+          description="Come Together demonstrates public discovery, organizer administration, capacity-aware booking, ordered waitlists, attendance, notifications, media handling, localization, and a connected Android companion on one SaaS backend."
+          services={[{ href: "/services/saas-development", label: "SaaS Development" }, { href: "/services/web-app-development", label: "Web Application Development" }, { href: "/services/mobile-app-development", label: "Mobile App Development" }, { href: "/services/backend-api-development", label: "Backend & API Development" }]}
+          contactIntent="saas-development"
+        />
+
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
             <div>
@@ -422,7 +437,7 @@ export default function Page() {
                 Open platform
               </a>
               <Link
-                href="/contact"
+                href="/contact?intent=saas-development"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-medium transition hover:bg-white/10"
               >
                 Start a conversation

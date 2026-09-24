@@ -8,15 +8,17 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import ProductVideos from "@/components/work/ProductVideos";
+import ProductBreadcrumbs from "@/components/work/ProductBreadcrumbs";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { EXPENSE_PLAY_URL } from "@/lib/constants";
 
 const title = "ExpenseFlow Smart Tracker";
 const description =
-  "ExpenseFlow is a budget tracker for logging expenses, reviewing monthly spending, category stats, and simple spending insights.";
+  "ExpenseFlow is a local-first Android expense tracker for quick daily entries, monthly budgets, spending categories, and simple financial review.";
+const metadataTitle = "ExpenseFlow — Simple Android Expense Tracker";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/expense" },
   keywords: [
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     "offline expense tracker",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/expense",
     type: "article",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/expense.png"],
   },
@@ -97,6 +99,7 @@ export default function Page() {
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="expense" productName="ExpenseFlow" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"

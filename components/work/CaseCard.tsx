@@ -8,8 +8,13 @@ type Props = {
   href: string;
   title: string;
   summary: string;
+  classification: string;
+  platform: string;
+  strongestCapability: string;
   tags: string[];
   thumb: string;
+  serviceHref: string;
+  serviceLabel: string;
   externalHref?: string;
   externalLabel?: string;
 };
@@ -18,8 +23,13 @@ export default function CaseCard({
   href,
   title,
   summary,
+  classification,
+  platform,
+  strongestCapability,
   tags,
   thumb,
+  serviceHref,
+  serviceLabel,
   externalHref,
   externalLabel,
 }: Props) {
@@ -55,12 +65,17 @@ export default function CaseCard({
           )}
         </Link>
         {/* Text */}
-        <h3 className="text-lg font-medium">
+        <div className="text-xs font-medium text-[var(--accent)]">{classification}</div>
+        <h3 className="mt-2 text-lg font-medium">
           <Link href={href} className="hover:underline">
             {title}
           </Link>
         </h3>
         <p className="mt-2 text-sm text-[var(--muted)]">{summary}</p>
+        <dl className="mt-4 grid gap-2 border-t border-white/10 pt-4 text-xs">
+          <div><dt className="text-[var(--muted)]">Platform</dt><dd className="mt-0.5 font-medium">{platform}</dd></div>
+          <div><dt className="text-[var(--muted)]">Demonstrates</dt><dd className="mt-0.5 font-medium">{strongestCapability}</dd></div>
+        </dl>
 
         {/* Tags */}
         {tags?.length ? (
@@ -78,17 +93,25 @@ export default function CaseCard({
 
         <span className="sr-only">Open case: {title}</span>
 
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Link
+            href={serviceHref}
+            className="inline-flex items-center rounded-lg border border-white/15 px-3 py-1.5 text-xs transition hover:bg-white/10"
+          >
+            {serviceLabel}
+          </Link>
         {externalHref && (
           <a
             href={externalHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-1.5 text-xs hover:bg-white/20 transition"
+            className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-3 py-1.5 text-xs hover:bg-white/20 transition"
           >
             <ExternalLink size={14} aria-hidden />
             {externalLabel ?? "Open"}
           </a>
         )}
+        </div>
 
       </GlassCard>
   );

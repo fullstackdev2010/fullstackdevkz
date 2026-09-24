@@ -23,10 +23,18 @@ export const relatedDailyApps = [
 
 export const appSeoContent = {
   study: {
+    slug: "studyflow",
     appName: "StudyFlow Flashcards",
     appCategory: "EducationalApplication",
     description:
       "A focused Android flashcard app with local-first decks, spaced repetition, due-card review, recall statistics, and optional study reminders.",
+    demonstrates: "StudyFlow shows how structured local data, review scheduling, reminders, statistics, purchases, and a calm consumer interface can be combined in a maintainable mobile product.",
+    serviceLinks: [
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+      { href: "/services/react-native-development", label: "React Native Development" },
+    ],
+    contactIntent: "mobile-app-development",
+    articleHref: "/blog/introducing-studyflow-spaced-repetition-flashcards",
     searchIntents: [
       "flashcard app Android",
       "spaced repetition flashcards",
@@ -77,10 +85,18 @@ export const appSeoContent = {
     relatedApps: [relatedDailyApps[1], relatedDailyApps[2], relatedDailyApps[3]],
   },
   expense: {
+    slug: "expense",
     appName: "ExpenseFlow Smart Tracker",
     appCategory: "FinanceApplication",
     description:
       "A simple Android expense tracker for daily spending, monthly budgets, category insights, and local-first personal finance.",
+    demonstrates: "ExpenseFlow demonstrates compact financial data entry, category modelling, monthly aggregation, local persistence, and clear reporting for a frequently repeated mobile workflow.",
+    serviceLinks: [
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+      { href: "/services/react-native-development", label: "React Native Development" },
+    ],
+    contactIntent: "mobile-app-development",
+    articleHref: "/blog/introducing-expenseflow-simple-expense-tracker",
     searchIntents: [
       "simple expense tracker Android",
       "daily spending tracker app",
@@ -131,10 +147,18 @@ export const appSeoContent = {
     relatedApps: relatedDailyApps,
   },
   habit: {
+    slug: "habit",
     appName: "HabitFlow Daily Habit Tracker",
     appCategory: "LifestyleApplication",
     description:
       "A calm Android habit tracker for daily routines, streaks, heatmaps, reminders, and consistency stats.",
+    demonstrates: "HabitFlow demonstrates recurring state, streak calculations, calendar visualization, reminders, and a mobile experience designed for quick daily interaction.",
+    serviceLinks: [
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+      { href: "/services/react-native-development", label: "React Native Development" },
+    ],
+    contactIntent: "mobile-app-development",
+    articleHref: "/blog/introducing-habitflow-calm-daily-habit-tracker",
     searchIntents: [
       "simple habit tracker Android",
       "daily routine tracker",
@@ -185,10 +209,18 @@ export const appSeoContent = {
     relatedApps: relatedDailyApps,
   },
   meditation: {
+    slug: "meditation",
     appName: "MeditationFlow: Calm Timer",
     appCategory: "HealthApplication",
     description:
       "A minimal Android meditation timer with mindful practices, breathing patterns, reminders, stats, and private journal notes.",
+    demonstrates: "MeditationFlow combines timer lifecycle behavior, breathing-state guidance, reminders, session history, statistics, themes, and private reflection in a focused consumer application.",
+    serviceLinks: [
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+      { href: "/services/react-native-development", label: "React Native Development" },
+    ],
+    contactIntent: "mobile-app-development",
+    articleHref: "/blog/introducing-meditationflow-calm-timer",
     searchIntents: [
       "meditation timer Android",
       "simple mindfulness app",
@@ -239,10 +271,18 @@ export const appSeoContent = {
     relatedApps: relatedDailyApps,
   },
   todo: {
+    slug: "todo",
     appName: "Momentum TODO Focus, Routines & Streaks",
     appCategory: "ProductivityApplication",
     description:
       "A minimal Android productivity app for tasks, routines, streak tracking, offline storage, and multilingual daily planning.",
+    demonstrates: "Momentum TODO demonstrates task and recurrence modelling, offline-first state, streaks, statistics, localization, and an interface kept deliberately small for daily use.",
+    serviceLinks: [
+      { href: "/services/react-native-development", label: "React Native Development" },
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+    ],
+    contactIntent: "react-native-development",
+    articleHref: "/blog/introducing-momentum-todo-routines-and-streaks",
     searchIntents: [
       "simple todo app Android",
       "routine planner app",
@@ -293,10 +333,18 @@ export const appSeoContent = {
     relatedApps: relatedDailyApps,
   },
   uniscan: {
+    slug: "uniscan",
     appName: "Docs Scan OCR Encrypt & Share",
     appCategory: "BusinessApplication",
     description:
       "A privacy-first Android OCR scanner with on-device recognition, encrypted exports, local vault storage, and secure document workflows.",
+    demonstrates: "Docs Scan OCR demonstrates React Native integration with native OCR engines, camera and file workflows, cryptography, biometric access, protected storage, and privacy-sensitive mobile UX.",
+    serviceLinks: [
+      { href: "/services/react-native-development", label: "React Native Development" },
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+    ],
+    contactIntent: "react-native-development",
+    articleHref: "/blog/introducing-docs-scan-private-ocr-scanner",
     searchIntents: [
       "offline OCR scanner Android",
       "private document scanner",
@@ -359,10 +407,17 @@ export const appSeoContent = {
     ],
   },
   iskra: {
+    slug: "iskra",
     appName: "Iskra Trade Mobile Catalog & Orders",
     appCategory: "BusinessApplication",
     description:
       "A mobile sales catalog and ordering app for field teams, dealers, price lists, carts, order history, and FastAPI backend workflows.",
+    demonstrates: "Iskra demonstrates a mobile catalogue connected to authenticated APIs, validated order data, offline cart behavior, business exports, and field-friendly ordering journeys.",
+    serviceLinks: [
+      { href: "/services/backend-api-development", label: "Backend & API Development" },
+      { href: "/services/mobile-app-development", label: "Mobile App Development" },
+    ],
+    contactIntent: "backend-api-development",
     searchIntents: [
       "mobile catalog app",
       "sales ordering app",

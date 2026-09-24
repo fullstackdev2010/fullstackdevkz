@@ -8,15 +8,17 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import AppSeoLandingSections from "@/components/work/AppSeoLandingSections";
 import ProductVideos from "@/components/work/ProductVideos";
+import ProductBreadcrumbs from "@/components/work/ProductBreadcrumbs";
 import { appSeoContent } from "@/lib/appSeoContent";
 import { HABIT_PLAY_URL } from "@/lib/constants";
 
 const title = "HabitFlow Daily Habit Tracker";
 const description =
-  "Build better routines with streaks, stats, heatmaps, and calm daily tracking.";
+  "HabitFlow is a calm Android habit tracker with daily check-ins, streaks, heatmaps, reminders, and practical consistency statistics.";
+const metadataTitle = "HabitFlow — Daily Habit & Streak Tracker";
 
 export const metadata: Metadata = {
-  title,
+  title: metadataTitle,
   description,
   alternates: { canonical: "/work/habit" },
   keywords: [
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     "Android habit app",
   ],
   openGraph: {
-    title,
+    title: metadataTitle,
     description,
     url: "/work/habit",
     type: "article",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: metadataTitle,
     description,
     images: ["/demos/preview/habit.png"],
   },
@@ -97,6 +99,7 @@ export default function Page() {
   return (
     <main className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-12">
+        <ProductBreadcrumbs slug="habit" productName="HabitFlow" />
         <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <MeshWithPhotoInsets
             className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
