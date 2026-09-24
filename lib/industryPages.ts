@@ -51,7 +51,7 @@ export const industryPages: IndustryPageData[] = [
     description: "Explore custom software for trades and service businesses, connecting customers, job scheduling, quotes, invoices, costs, payments, and mobile work.",
     eyebrow: "Connected operational software",
     h1: "Software for Trades & Service Businesses",
-    intro: "Service businesses often begin with a practical collection of tools: a calendar for appointments, contacts on a phone, quote documents, invoice software, and a spreadsheet that tries to explain what has been paid. Custom software becomes useful when those records need to behave as one workflow instead of several disconnected copies. Fullstack Dev KZ has built this kind of operational product in TradesMate, while also helping teams decide when a tailored system is the better path.",
+    intro: "Service businesses often begin with a practical collection of tools: a calendar for appointments, contacts on a phone, quote documents, invoice software, and a spreadsheet that tries to explain what has been paid. Custom software becomes useful when those records need to behave as one workflow instead of several disconnected copies. FullStack Dev KZ has built this kind of operational product in TradesMate, while also helping teams decide when a tailored system is the better path.",
     fit: [
       "Independent tradespeople coordinating customers, work, and documents",
       "Small service teams that need shared operational visibility",
@@ -159,7 +159,7 @@ export const industryPages: IndustryPageData[] = [
     description: "Explore pub entertainment software spanning venue control, QR player web access, fixtures, scoring, live leaderboards, TV displays, and shared backend services.",
     eyebrow: "Multi-screen venue products",
     h1: "Digital Platforms for Pubs & Entertainment Venues",
-    intro: "Venue entertainment software has to work in a live room, not only in a product demo. Staff need a dependable control surface, customers need a low-friction way to join, and the shared display needs to keep the event understandable. PubPlay is Fullstack Dev KZ's evidence for this kind of synchronized platform: an Android host, QR-based player web experience, public TV display, tournament state, subscriptions, and a shared backend working as one product.",
+    intro: "Venue entertainment software has to work in a live room, not only in a product demo. Staff need a dependable control surface, customers need a low-friction way to join, and the shared display needs to keep the event understandable. PubPlay is FullStack Dev KZ's evidence for this kind of synchronized platform: an Android host, QR-based player web experience, public TV display, tournament state, subscriptions, and a shared backend working as one product.",
     fit: [
       "Pubs running recurring darts, pool, bingo, quiz, or custom games nights",
       "Entertainment venues coordinating customers across several screens",
@@ -251,7 +251,7 @@ export const industryPages: IndustryPageData[] = [
     description: "Explore software for clubs and member organizations, including public event discovery, bookings, capacity, waitlists, attendance, organizer tools, and mobile companions.",
     eyebrow: "Two-sided community platforms",
     h1: "Software for Clubs & Member Organizations",
-    intro: "A club platform serves at least two perspectives. Members need to understand what the organization offers, find an event, and manage participation. Organizers need to publish accurate information, control capacity, review bookings, handle waitlists, and know who attended. Come Together is Fullstack Dev KZ's real product evidence for this architecture: public web discovery and booking, organizer administration, notifications, and an Android companion connected through one service.",
+    intro: "A club platform serves at least two perspectives. Members need to understand what the organization offers, find an event, and manage participation. Organizers need to publish accurate information, control capacity, review bookings, handle waitlists, and know who attended. Come Together is FullStack Dev KZ's real product evidence for this architecture: public web discovery and booking, organizer administration, notifications, and an Android companion connected through one service.",
     fit: [
       "Independent clubs and recurring community event organizers",
       "Member organizations replacing fragmented booking administration",

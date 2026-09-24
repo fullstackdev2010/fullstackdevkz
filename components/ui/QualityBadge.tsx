@@ -18,7 +18,7 @@ export function QualityBadge({ className, size = "md" }: QualityBadgeProps) {
   return (
     <Image
       src="/brand/fullstackdevkz-badge.png"
-      alt="Fullstack Dev KZ mobile craftsmanship quality sign"
+      alt="FullStack Dev KZ mobile craftsmanship quality sign"
       width={px}
       height={px}
       className={clsx(

@@ -54,7 +54,7 @@ export function Navbar() {
       ].join(' ')}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <Link href="/" className="font-semibold tracking-wide" aria-label="Fullstack Dev KZ home">Fullstack Dev KZ</Link>
+        <Link href="/" className="font-semibold tracking-wide" aria-label="FullStack Dev KZ home">FullStack Dev KZ</Link>
 
         {/* Desktop nav */}
         <ul className="relative hidden items-center gap-3 text-sm lg:flex">
@@ -66,9 +66,9 @@ export function Navbar() {
             </li>
           ))}
           <li>
-            <Button as={Link} href="/contact" variant="glow" size="sm" className="gap-2">
+            <Button as={Link} href="/contact" variant="glow" size="sm" className="gap-2" data-cta="discuss-project">
               <MessageSquare size={15} aria-hidden />
-              Start a project
+              Discuss Your Project
             </Button>
           </li>
         </ul>
@@ -102,9 +102,9 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-2">
-              <Button as={Link} href="/contact" variant="glow" size="md" className="w-full justify-center gap-2">
+              <Button as={Link} href="/contact" variant="glow" size="md" className="w-full justify-center gap-2" data-cta="discuss-project">
                 <MessageSquare size={17} aria-hidden />
-                Start a project
+                Discuss Your Project
               </Button>
             </div>
           </div>

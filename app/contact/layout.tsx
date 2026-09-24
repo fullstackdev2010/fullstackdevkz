@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Discuss a Software Development Project",
+  title: "Tell Us About Your Software Project",
   description:
-    "Contact Fullstack Dev KZ about a mobile app, web application, SaaS product, backend API, MVP, or existing software product.",
+    "Contact FullStack Dev KZ about a mobile app, web application, SaaS product, backend API, MVP, or existing software product.",
   path: "/contact",
 });
 

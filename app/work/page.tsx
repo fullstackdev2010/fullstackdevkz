@@ -13,7 +13,7 @@ const applicationCases = workProducts.filter((product) => product.priority === "
 export const metadata = buildPageMetadata({
   title: "Mobile, Web & SaaS Projects",
   description:
-    "Explore production mobile apps, SaaS platforms, web systems, and business software built and shipped by Fullstack Dev KZ.",
+    "Explore production mobile apps, SaaS platforms, web systems, and business software built and shipped by FullStack Dev KZ.",
   path: "/work",
 });
 
@@ -48,7 +48,7 @@ export default function Work() {
 
             <p className="mt-4 max-w-3xl text-[var(--muted)]">
               Production software built across Android, web, SaaS, and backend APIs.
-              These products show how Fullstack Dev KZ handles complete workflows,
+              These products show how FullStack Dev KZ handles complete workflows,
               connected systems, release delivery, and practical interface design.
             </p>
 
@@ -62,10 +62,11 @@ export default function Work() {
               </Link>
               <Link
                 href="/contact"
+                data-cta="discuss-project"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-4 py-2 text-sm transition hover:bg-white/25"
               >
                 <MessageSquare size={16} aria-hidden />
-                Discuss a similar project
+                Discuss Your Project
               </Link>
             </div>
 
@@ -101,6 +102,19 @@ export default function Work() {
                 {applicationCases.map((product) => (
                   <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
+              </div>
+            </section>
+
+            <section className="mt-14 border-t border-white/15 pt-9">
+              <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                <div>
+                  <div className="text-sm font-medium text-[var(--accent)]">From evidence to your workflow</div>
+                  <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Need something similar?</h2>
+                  <p className="mt-3 max-w-3xl leading-7 text-[var(--muted)]">Bring the users, workflow, current systems, and release goal. The first conversation can establish whether the right next step is discovery, a focused build, or work on an existing product.</p>
+                </div>
+                <Link href="/contact" data-cta="discuss-project" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25">
+                  <MessageSquare size={17} aria-hidden />Discuss Your Project
+                </Link>
               </div>
             </section>
 

@@ -39,7 +39,7 @@ export default function ClientActiveNav() {
       findMatches(header).forEach((a) => {
         // ⛔️ Skip the site brand/home link in the header
         const text = (a.textContent || "").trim();
-        if (text === "Fullstack Dev KZ") return;
+        if (text === "FullStack Dev KZ") return;
 
         a.setAttribute("aria-current", "page");
         a.classList.add("underline", "underline-offset-8", "decoration-2");

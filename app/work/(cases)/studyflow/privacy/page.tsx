@@ -45,7 +45,7 @@ export default function Page() {
           <div className="mt-10 space-y-12 text-base leading-relaxed text-[var(--muted)]">
             <Section id="overview" title="Overview">
               <p>
-                StudyFlow is provided by Fullstack Dev KZ. The app does not require
+                StudyFlow is provided by FullStack Dev KZ. The app does not require
                 account registration and is designed to keep personal study content
                 on the user&apos;s Android device.
               </p>
@@ -156,7 +156,7 @@ export default function Page() {
                 </a>
                 .
               </p>
-              <p>Fullstack Dev KZ, Almaty, Kazakhstan.</p>
+              <p>FullStack Dev KZ, Almaty, Kazakhstan.</p>
             </Section>
 
             <nav className="border-t border-white/10 pt-8" aria-label="StudyFlow privacy navigation">

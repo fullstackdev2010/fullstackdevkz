@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="text-sm text-[var(--muted)]">{post.cluster ?? post.category} · {post.date}</div>
             <h1 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">{post.title}</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">{post.description}</p>
-            <p className="mt-5 text-sm text-[var(--muted)]">Published by Fullstack Dev KZ</p>
+            <p className="mt-5 text-sm text-[var(--muted)]">Published by FullStack Dev KZ</p>
             <div className="mt-7 flex flex-wrap gap-3">{primaryLink && <Link href={primaryLink.href} className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20">{primaryLink.label}<ArrowRight size={16} aria-hidden /></Link>}<Link href="/blog" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><ArrowLeft size={16} aria-hidden />All guides and notes</Link></div>
           </div>
         </header>

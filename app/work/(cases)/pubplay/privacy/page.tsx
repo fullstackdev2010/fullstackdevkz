@@ -48,7 +48,7 @@ export default function Page() {
               Last updated: {updated}
             </p>
             <p className="mt-6 leading-relaxed text-[var(--muted)]">
-              This Privacy Policy explains how Fullstack Dev KZ handles information
+              This Privacy Policy explains how FullStack Dev KZ handles information
               when pubs use PubPlay Host, the PubPlay player join website, the live TV
               display, and related games-night services. PubPlay Host is also presented
               as PubPlay: Pub Games Night System.
@@ -79,7 +79,7 @@ export default function Page() {
           <div className="mt-12 space-y-12 text-base leading-relaxed">
             <Section id="controller" title="Developer and Privacy Contact">
               <p>
-                PubPlay is operated by Fullstack Dev KZ, Almaty, Kazakhstan. For
+                PubPlay is operated by FullStack Dev KZ, Almaty, Kazakhstan. For
                 privacy questions, contact{" "}
                 <a className="underline" href={`mailto:${EMAIL}`}>
                   {EMAIL}

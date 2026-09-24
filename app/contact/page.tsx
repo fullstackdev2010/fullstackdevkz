@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { LoaderCircle, Send } from "lucide-react";
 import MeshBackground from "@/components/mesh/MeshBackground";
 import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
@@ -13,6 +13,7 @@ type FormState = {
   email: string;
   company: string;
   projectType: string;
+  existingSystem: string;
   budget: string;
   timeline: string;
   message: string;
@@ -38,6 +39,7 @@ export default function Page() {
     email: "",
     company: "",
     projectType: "",
+    existingSystem: "",
     budget: "",
     timeline: "",
     message: "",
@@ -45,6 +47,7 @@ export default function Page() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<null | { ok: boolean; msg: string }>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const intent = new URLSearchParams(window.location.search).get("intent");
@@ -52,18 +55,11 @@ export default function Page() {
     if (projectType) setForm((current) => ({ ...current, projectType }));
   }, []);
 
-  const disabled = useMemo(() => {
-    if (!form.name.trim()) return true;
-    if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) return true;
-    if (!form.message.trim()) return true;
-    if (form.website.trim()) return true; // honeypot
-    return false;
-  }, [form]);
-
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setForm((f) => ({ ...f, [name]: value }));
+      setErrors((current) => ({ ...current, [name]: "" }));
     },
     []
   );
@@ -75,6 +71,7 @@ export default function Page() {
       `Email: ${form.email}`,
       form.company ? `Company: ${form.company}` : null,
       form.projectType ? `Project Type: ${form.projectType}` : null,
+      form.existingSystem ? `Existing Product/System: ${form.existingSystem}` : null,
       form.budget ? `Budget: ${form.budget}` : null,
       form.timeline ? `Timeline: ${form.timeline}` : null,
       "",
@@ -90,7 +87,12 @@ export default function Page() {
   const onSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      if (disabled) return;
+      const nextErrors: Record<string, string> = {};
+      if (!form.name.trim()) nextErrors.name = "Please enter your name.";
+      if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) nextErrors.email = "Please enter a valid email address.";
+      if (!form.message.trim()) nextErrors.message = "Please describe the project or workflow.";
+      setErrors(nextErrors);
+      if (Object.keys(nextErrors).length > 0 || form.website.trim()) return;
       setSubmitting(true);
       setResult(null);
 
@@ -113,37 +115,34 @@ export default function Page() {
         });
 
         if (res.ok) {
-          setResult({ ok: true, msg: "Thanks! We received your request." });
+          setResult({ ok: true, msg: "Your inquiry was sent. You do not need to submit it again." });
           setForm({
             name: "",
             email: "",
             company: "",
             projectType: "",
+            existingSystem: "",
             budget: "",
             timeline: "",
             message: "",
             website: "",
           });
         } else {
-          // Fallback to mailto
-          window.location.href = buildMailtoHref();
           setResult({
-            ok: true,
-            msg: "Opening your mail client… If it didn’t open, email us directly.",
+            ok: false,
+            msg: "We could not send the inquiry. Your details are still here; try again or use the email link.",
           });
         }
       } catch {
-        // Network/route missing → mailto fallback
-        window.location.href = buildMailtoHref();
         setResult({
-          ok: true,
-          msg: "Opening your mail client… If it didn’t open, email us directly.",
+          ok: false,
+          msg: "We could not reach the email service. Your details are still here; try again or use the email link.",
         });
       } finally {
         setSubmitting(false);
       }
     },
-    [buildMailtoHref, disabled, form]
+    [form]
   );
 
   // Higher-contrast inputs for dark UI
@@ -174,7 +173,7 @@ export default function Page() {
           {/* Foreground content INSIDE glass */}
           <div className="relative z-10 pointer-events-auto">
             <header className="max-w-3xl">
-              <h1 className="text-4xl font-semibold">Discuss your software project</h1>
+              <h1 className="text-4xl font-semibold">Tell Us About Your Software Project</h1>
               <p className="mt-3 text-[var(--muted)]">
                 Tell us what you need to build, improve, or connect. Include the users,
                 main workflow, current systems, and target timeline where possible.
@@ -184,7 +183,7 @@ export default function Page() {
             <div className="mt-10 grid gap-4 md:grid-cols-5">
               {/* Form */}
               <GlassCard className="md:col-span-3">
-                <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4">
+                <form onSubmit={onSubmit} className="grid grid-cols-1 gap-4" data-conversion="project-inquiry" noValidate>
                   {/* Honeypot (hidden) */}
                   <input
                     type="text"
@@ -210,7 +209,10 @@ export default function Page() {
                         required
                         className={inputBase}
                         placeholder="Your name"
+                        aria-invalid={Boolean(errors.name)}
+                        aria-describedby={errors.name ? "name-error" : undefined}
                       />
+                      {errors.name && <p id="name-error" className="mt-1 text-sm text-red-300">{errors.name}</p>}
                     </div>
 
                     <div>
@@ -226,8 +228,32 @@ export default function Page() {
                         required
                         className={inputBase}
                         placeholder="you@example.com"
+                        aria-invalid={Boolean(errors.email)}
+                        aria-describedby={errors.email ? "email-error" : undefined}
                       />
+                      {errors.email && <p id="email-error" className="mt-1 text-sm text-red-300">{errors.email}</p>}
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="existingSystem" className="block text-sm text-[var(--muted)]">
+                      Existing product or system
+                    </label>
+                    <Select
+                      id="existingSystem"
+                      name="existingSystem"
+                      value={form.existingSystem}
+                      onChange={(v) => setForm((f) => ({ ...f, existingSystem: v }))}
+                      placeholder="Select if relevant…"
+                      options={[
+                        "Idea or new product",
+                        "Existing web application",
+                        "Existing mobile application",
+                        "Existing backend or API",
+                        "Existing business workflow",
+                        "Other",
+                      ]}
+                    />
                   </div>
 
                   <div>
@@ -303,7 +329,7 @@ export default function Page() {
 
                   <div>
                     <label htmlFor="message" className="block text-sm text-[var(--muted)]">
-                      Message *
+                      Project description *
                     </label>
                     <textarea
                       id="message"
@@ -313,14 +339,18 @@ export default function Page() {
                       required
                       rows={6}
                       className={inputBase}
-                      placeholder="Tell us what you’re building…"
+                      placeholder="Describe the users, workflow, current systems, integrations, and the result you need."
+                      aria-invalid={Boolean(errors.message)}
+                      aria-describedby={errors.message ? "message-error" : undefined}
                     />
+                    {errors.message && <p id="message-error" className="mt-1 text-sm text-red-300">{errors.message}</p>}
                   </div>
 
                   <div className="flex items-center justify-between gap-3 pt-2">
                     <button
                       type="submit"
-                      disabled={submitting || disabled}
+                      disabled={submitting}
+                      data-cta="submit-project-inquiry"
                       className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/5 disabled:opacity-50"
                     >
                       {submitting ? (
@@ -340,6 +370,11 @@ export default function Page() {
                       </p>
                     )}
                   </div>
+                  {result && !result.ok && (
+                    <a href={buildMailtoHref()} className="text-sm font-medium underline">
+                      Open this inquiry in your email app
+                    </a>
+                  )}
                 </form>
               </GlassCard>
 
@@ -355,7 +390,7 @@ export default function Page() {
                   </p>
                   <p>Address: {ADDRESS}</p>
                   <p className="text-sm">
-                    Prefer email? Send details about your project, scope, and timeline. You’ll hear back soon.
+                    Prefer email? Send the users, workflow, current systems, integrations, and target release context. We use these details only to understand and respond to the inquiry.
                   </p>
                 </div>
               </GlassCard>

@@ -57,7 +57,7 @@ export default function Page() {
                 <GlassCard>
                   <h2 className="text-xl font-semibold">What happens next</h2>
                   <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-[var(--muted)]">
-                    <li>We receive your request through the Fullstack Dev KZ contact service.</li>
+                    <li>We receive your request through the FullStack Dev KZ contact service.</li>
                     <li>We may reply to verify ownership of the account.</li>
                     <li>Verified requests are normally completed within 30 days.</li>
                     <li>We confirm when deletion or anonymization is complete.</li>

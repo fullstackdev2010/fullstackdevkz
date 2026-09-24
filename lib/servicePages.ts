@@ -43,7 +43,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Custom mobile application development",
     h1: "Custom mobile app development for iOS and Android",
     intro:
-      "Fullstack Dev KZ designs and builds production mobile applications for businesses, founders, and software teams. We connect the visible app experience to the less visible work that makes it dependable: authentication, application data, APIs, notifications, subscriptions, offline behavior, administration, and release preparation.",
+      "FullStack Dev KZ designs and builds production mobile applications for businesses, founders, and software teams. We connect the visible app experience to the less visible work that makes it dependable: authentication, application data, APIs, notifications, subscriptions, offline behavior, administration, and release preparation.",
     idealFor: [
       "Businesses creating a customer-facing or staff mobile application",
       "Founders turning a product concept into a working mobile release",
@@ -113,7 +113,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Cross-platform mobile engineering",
     h1: "React Native app development",
     intro:
-      "React Native can give one product team a shared foundation for Android and iOS without treating the two platforms as identical. Fullstack Dev KZ uses React Native and Expo to build maintainable mobile products, integrate device capabilities, connect production APIs, and prepare releases while preserving platform-specific decisions where they matter.",
+      "React Native can give one product team a shared foundation for Android and iOS without treating the two platforms as identical. FullStack Dev KZ uses React Native and Expo to build maintainable mobile products, integrate device capabilities, connect production APIs, and prepare releases while preserving platform-specific decisions where they matter.",
     idealFor: [
       "Teams planning one product for both Android and iOS",
       "Businesses that want shared product logic without a generic web wrapper",
@@ -182,7 +182,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Functional web software",
     h1: "Custom web application development",
     intro:
-      "Fullstack Dev KZ builds web software that people sign into and use to complete real work: customer portals, operational dashboards, administration systems, booking and membership products, SaaS frontends, and data-driven workflows. This is application development rather than a basic brochure website.",
+      "FullStack Dev KZ builds web software that people sign into and use to complete real work: customer portals, operational dashboards, administration systems, booking and membership products, SaaS frontends, and data-driven workflows. This is application development rather than a basic brochure website.",
     idealFor: [
       "Businesses moving an important workflow out of spreadsheets and email",
       "Software products needing a responsive customer or administration interface",
@@ -251,7 +251,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Subscription and multi-user products",
     h1: "Custom SaaS platform development",
     intro:
-      "Fullstack Dev KZ builds connected software products that combine customer-facing web applications, mobile companions, accounts, roles, backend APIs, business data, administration, notifications, and subscription-aware architecture. The goal is a usable production platform with room for informed product growth, not a collection of disconnected features.",
+      "FullStack Dev KZ builds connected software products that combine customer-facing web applications, mobile companions, accounts, roles, backend APIs, business data, administration, notifications, and subscription-aware architecture. The goal is a usable production platform with room for informed product growth, not a collection of disconnected features.",
     idealFor: [
       "Founders validating a subscription software proposition",
       "Businesses turning an internal workflow into a customer product",
@@ -321,7 +321,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "First usable product releases",
     h1: "MVP development for startups and new products",
     intro:
-      "An MVP should be the smallest coherent product that lets real users experience the core value proposition. It is not a cheap unfinished application. Fullstack Dev KZ helps founders and businesses define the essential journey, choose a credible technical foundation, build the first production release, and leave nonessential assumptions for later evidence.",
+      "An MVP should be the smallest coherent product that lets real users experience the core value proposition. It is not a cheap unfinished application. FullStack Dev KZ helps founders and businesses define the essential journey, choose a credible technical foundation, build the first production release, and leave nonessential assumptions for later evidence.",
     idealFor: [
       "Founders with a product idea but an unclear first release",
       "Businesses testing a new customer or operational software model",
@@ -394,7 +394,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Application services and system integration",
     h1: "Backend and API development",
     intro:
-      "A backend gives mobile and web products a reliable place for accounts, application data, permissions, business rules, notifications, administration, and integrations. Fullstack Dev KZ builds FastAPI and SQL services as part of complete products or as focused backend work for an existing application.",
+      "A backend gives mobile and web products a reliable place for accounts, application data, permissions, business rules, notifications, administration, and integrations. FullStack Dev KZ builds FastAPI and SQL services as part of complete products or as focused backend work for an existing application.",
     idealFor: [
       "Mobile products that need accounts, shared data, or administration",
       "Web and SaaS applications requiring secure business logic",
@@ -464,7 +464,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Software shaped around operations",
     h1: "Custom business software development",
     intro:
-      "When an important workflow is spread across spreadsheets, messages, generic tools, and repeated manual entry, custom software can create one clearer operational record. Fullstack Dev KZ builds mobile and web business applications around the way teams schedule work, manage customers, create documents, track activity, and connect existing systems.",
+      "When an important workflow is spread across spreadsheets, messages, generic tools, and repeated manual entry, custom software can create one clearer operational record. FullStack Dev KZ builds mobile and web business applications around the way teams schedule work, manage customers, create documents, track activity, and connect existing systems.",
     idealFor: [
       "Businesses with a valuable workflow that generic tools fit poorly",
       "Teams repeating data entry between spreadsheets and disconnected systems",

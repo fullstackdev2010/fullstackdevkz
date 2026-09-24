@@ -87,7 +87,7 @@ const engagementOptions = [
 export const metadata = buildPageMetadata({
   title: "Software Development Services",
   description:
-    "Custom mobile app, React Native, web application, SaaS, MVP, backend API, and business software development from Fullstack Dev KZ.",
+    "Custom mobile app, React Native, web application, SaaS, MVP, backend API, and business software development from FullStack Dev KZ.",
   path: "/services",
 });
 
@@ -118,7 +118,7 @@ export default function Page() {
               Build a mobile app, web product, SaaS platform, or business system
             </h1>
             <p className="mt-5 max-w-3xl text-lg text-[var(--muted)]">
-              Fullstack Dev KZ plans, designs, and engineers production software for
+              FullStack Dev KZ plans, designs, and engineers production software for
               businesses, founders, and software teams. Projects can cover one focused
               application or a connected mobile, web, backend, and API platform.
             </p>

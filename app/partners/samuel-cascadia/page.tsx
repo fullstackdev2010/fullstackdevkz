@@ -359,7 +359,7 @@ export default function Page() {
               </h2>
               <p className="mt-3 max-w-2xl text-[var(--muted)]">
                 Start with one night, one tablet, and one QR code. Samuel can introduce
-                the campaign, and Fullstack Dev KZ can shape the technical rollout.
+                the campaign, and FullStack Dev KZ can shape the technical rollout.
               </p>
             </div>
             <Link

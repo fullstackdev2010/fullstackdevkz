@@ -13,6 +13,7 @@ import { SITE_URL } from "@/lib/site";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { solutionGuideLinks } from "@/lib/guideLinks";
 import { solutionIndustryLinks } from "@/lib/industryPages";
+import ScopePreparation from "@/components/conversion/ScopePreparation";
 
 export default function SolutionLandingPage({ solution }: { solution: SolutionPageData }) {
   const route = `/solutions/${solution.slug}`;
@@ -151,7 +152,7 @@ export default function SolutionLandingPage({ solution }: { solution: SolutionPa
           <div className="max-w-3xl">
             <div className="text-sm font-medium text-[var(--accent)]">Real product evidence</div>
             <h2 id="solution-work" className="mt-2 text-2xl font-semibold md:text-3xl">Relevant software we&apos;ve built</h2>
-            <p className="mt-3 leading-7 text-[var(--muted)]">These products demonstrate related workflows and architecture. Each link stays inside the Fullstack Dev KZ case-study path.</p>
+            <p className="mt-3 leading-7 text-[var(--muted)]">These products demonstrate related workflows and architecture. Each link stays inside the FullStack Dev KZ case-study path.</p>
           </div>
           <div className="mt-7 grid gap-5 md:grid-cols-3">
             {solution.work.map((item) => (
@@ -211,6 +212,8 @@ export default function SolutionLandingPage({ solution }: { solution: SolutionPa
           </section>
         )}
 
+        <ScopePreparation title="Useful information to bring to the first conversation" />
+
         <RelatedGuides links={solutionGuideLinks[solution.slug] ?? []} />
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
@@ -220,9 +223,14 @@ export default function SolutionLandingPage({ solution }: { solution: SolutionPa
               <h2 className="mt-2 text-2xl font-semibold md:text-3xl">{solution.ctaTitle}</h2>
               <p className="mt-3 max-w-3xl leading-7 text-[var(--muted)]">{solution.ctaText}</p>
             </div>
-            <Link href={`/contact?intent=${solution.contactIntent}`} className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25">
-              <MessageSquare size={17} aria-hidden />{solution.ctaLabel}
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href={`/contact?intent=${solution.contactIntent}`} data-cta="discuss-project" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25">
+                <MessageSquare size={17} aria-hidden />Discuss Your Project
+              </Link>
+              <Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10">
+                View Our Work <ArrowRight size={17} aria-hidden />
+              </Link>
+            </div>
           </div>
         </section>
       </div>

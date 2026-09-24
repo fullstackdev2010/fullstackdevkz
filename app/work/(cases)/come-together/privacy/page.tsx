@@ -36,7 +36,7 @@ export default function Page() {
             </h1>
             <p className="mt-2 text-sm text-[var(--muted)]">Last updated: August 27, 2026</p>
             <p className="mt-6 leading-relaxed text-[var(--muted)]">
-              This Privacy Policy explains how Fullstack Dev KZ handles information when
+              This Privacy Policy explains how FullStack Dev KZ handles information when
               people use the Come Together Android app and the connected Come Together
               local clubs service at HelloLocalClubs.com. The Android app is primarily an
               organizer companion for managing clubs, events, guests, and attendance.
@@ -62,7 +62,7 @@ export default function Page() {
           <div className="mt-12 space-y-12 text-base leading-relaxed">
             <Section id="controller" title="Developer and Privacy Contact">
               <p>
-                Come Together is operated by Fullstack Dev KZ, Almaty, Kazakhstan.
+                Come Together is operated by FullStack Dev KZ, Almaty, Kazakhstan.
                 Privacy questions may be sent to{" "}
                 <a className="underline" href={`mailto:${EMAIL}`}>{EMAIL}</a>.
               </p>

@@ -30,8 +30,8 @@ export default function ProductDevelopmentBridge({
               {service.label}<ArrowRight size={15} aria-hidden />
             </Link>
           ))}
-          <Link href={`/contact?intent=${contactIntent}`} className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20">
-            <MessageSquare size={15} aria-hidden />Discuss similar software
+          <Link href={`/contact?intent=${contactIntent}`} data-cta="discuss-project" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm transition hover:bg-white/20">
+            <MessageSquare size={15} aria-hidden />Need Something Similar?
           </Link>
         </div>
       </div>

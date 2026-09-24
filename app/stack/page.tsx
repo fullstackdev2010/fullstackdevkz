@@ -103,7 +103,7 @@ function StackGroup({ title, items }: Group) {
 export const metadata = buildPageMetadata({
   title: "Mobile, Web & Backend Technology Stack",
   description:
-    "The production stack used by Fullstack Dev KZ for React Native mobile apps, Next.js web applications, FastAPI backends, SQL data, security, and releases.",
+    "The production stack used by FullStack Dev KZ for React Native mobile apps, Next.js web applications, FastAPI backends, SQL data, security, and releases.",
   path: "/stack",
 });
 

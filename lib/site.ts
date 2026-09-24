@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "Fullstack Dev KZ";
+export const SITE_NAME = "FullStack Dev KZ";
 export const SITE_URL = "https://www.fullstackdev.kz";
 export const SITE_DESCRIPTION =
-  "Fullstack Dev KZ designs and builds custom mobile apps, web applications, SaaS platforms, backend systems, and business software.";
+  "FullStack Dev KZ designs and builds custom mobile apps, web applications, SaaS platforms, backend systems, and business software.";
 export const DEFAULT_OG_IMAGE = "/brand/fullstackdevkz-badge.png";
 
 type PageMetadataOptions = {

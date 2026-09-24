@@ -14,6 +14,7 @@ import { serviceIndustryLinks } from "@/lib/industryPages";
 import { SITE_URL } from "@/lib/site";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { serviceGuideLinks } from "@/lib/guideLinks";
+import ScopePreparation from "@/components/conversion/ScopePreparation";
 
 export default function ServiceLandingPage({ service }: { service: ServicePageData }) {
   const route = `/services/${service.slug}`;
@@ -260,6 +261,8 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
           </div>
         </section>
 
+        <ScopePreparation />
+
         <RelatedGuides links={serviceGuideLinks[service.slug] ?? []} />
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
@@ -269,13 +272,19 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
               <h2 className="mt-2 text-2xl font-semibold md:text-3xl">{service.ctaTitle}</h2>
               <p className="mt-3 max-w-3xl leading-7 text-[var(--muted)]">{service.ctaText}</p>
             </div>
-            <Link
-              href={`/contact?intent=${service.contactIntent}`}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
-            >
-              <MessageSquare size={17} aria-hidden />
-              {service.ctaLabel}
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href={`/contact?intent=${service.contactIntent}`}
+                data-cta="discuss-project"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+              >
+                <MessageSquare size={17} aria-hidden />
+                Discuss Your Project
+              </Link>
+              <Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10">
+                View Our Work <ArrowRight size={17} aria-hidden />
+              </Link>
+            </div>
           </div>
         </section>
       </div>

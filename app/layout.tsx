@@ -9,8 +9,8 @@ import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL, companyJsonLd 
 
 export const metadata: Metadata = {
   title: {
-    default: 'Custom Mobile & Web App Development | Fullstack Dev KZ',
-    template: '%s | Fullstack Dev KZ',
+    default: 'Custom Mobile & Web App Development | FullStack Dev KZ',
+    template: '%s | FullStack Dev KZ',
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: DEFAULT_OG_IMAGE,
         width: 360,
         height: 360,
-        alt: 'Fullstack Dev KZ custom software development',
+        alt: 'FullStack Dev KZ custom software development',
       },
     ],
     locale: 'en_US',

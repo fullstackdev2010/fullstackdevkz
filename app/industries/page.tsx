@@ -47,7 +47,7 @@ const structuredData = {
       "@id": `${SITE_URL}/industries#webpage`,
       url: `${SITE_URL}/industries`,
       name: "Custom Software for Real Business Workflows",
-      description: "Software development experience for operational workflows supported by real Fullstack Dev KZ products.",
+      description: "Software development experience for operational workflows supported by real FullStack Dev KZ products.",
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: { "@id": `${SITE_URL}/#organization` },
     },
@@ -77,7 +77,7 @@ export default function Page() {
           <div className="relative z-10 max-w-4xl">
             <div className="text-sm font-medium text-[var(--accent)]">Evidence-backed industry experience</div>
             <h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">Software for Businesses, Venues &amp; Member Organizations</h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">Fullstack Dev KZ builds around real operational workflows rather than generic industry templates. These three areas are supported by working products that connect mobile, web, backend, administration, documents, bookings, events, and live interfaces in different ways.</p>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">FullStack Dev KZ builds around real operational workflows rather than generic industry templates. These three areas are supported by working products that connect mobile, web, backend, administration, documents, bookings, events, and live interfaces in different ways.</p>
             <div className="mt-8 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"><MessageSquare size={17} aria-hidden />Discuss an operational workflow</Link><Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm transition hover:bg-white/10">View all product evidence<ArrowRight size={17} aria-hidden /></Link></div>
           </div>
         </section>

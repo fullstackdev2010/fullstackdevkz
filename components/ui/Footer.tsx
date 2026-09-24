@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="relative z-30 mt-24 border-t border-white/10 bg-[color:var(--surface)]/60 supports-[backdrop-filter]:backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-10 grid gap-6 md:grid-cols-3 text-sm text-[var(--muted)]">
         <div>
-          <div className="font-medium text-[var(--fg)]">Fullstack Dev KZ</div>
+          <div className="font-medium text-[var(--fg)]">FullStack Dev KZ</div>
           <p className="mt-2 max-w-sm text-sm">
             Custom mobile apps, web applications, SaaS platforms, backend systems,
             and business software built for businesses and founders.
@@ -27,7 +27,7 @@ export function Footer() {
         <div>
           <div className="font-medium text-[var(--fg)]">Get in touch</div>
           <ul className="mt-2 space-y-1">
-            <li><Link href="/contact">Discuss a software project</Link></li>
+            <li><Link href="/contact" data-cta="discuss-project">Discuss Your Project</Link></li>
           </ul>
           {/* Socials */}
           <div className="mt-4 flex items-center gap-2">
@@ -83,7 +83,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-[var(--muted)]">
-        © {new Date().getFullYear()} Fullstack Dev KZ. All rights reserved.
+        © {new Date().getFullYear()} FullStack Dev KZ. All rights reserved.
       </div>
     </footer>
   );

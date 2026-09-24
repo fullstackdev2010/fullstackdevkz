@@ -38,7 +38,7 @@ export default function Page() {
           <div className="relative z-10">
             <header className="max-w-3xl">
               <p className="text-sm font-medium text-[var(--accent)]">
-                PubPlay Host by Fullstack Dev KZ
+                PubPlay Host by FullStack Dev KZ
               </p>
               <h1 className="mt-2 text-3xl font-semibold leading-tight sm:text-4xl">
                 Delete your PubPlay account and associated data

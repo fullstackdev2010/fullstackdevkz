@@ -308,7 +308,7 @@ export default function DeleteRequestForm() {
         />
         <span className="text-sm leading-6 text-[var(--muted)]">
           I confirm that I own this account or am authorized to request deletion
-          of the identified data. I understand that Fullstack Dev KZ may contact me
+          of the identified data. I understand that FullStack Dev KZ may contact me
           to verify the request. *
         </span>
       </label>

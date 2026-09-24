@@ -10,6 +10,7 @@ type Body = {
   email: string;
   company?: string;
   projectType?: string;
+  existingSystem?: string;
   budget?: string;
   timeline?: string;
   message: string;
@@ -104,6 +105,7 @@ export async function POST(req: Request) {
       `Email: ${body.email}`,
       body.company ? `Company: ${body.company}` : null,
       body.projectType ? `Project Type: ${body.projectType}` : null,
+      body.existingSystem ? `Existing Product/System: ${body.existingSystem}` : null,
       body.budget ? `Budget: ${body.budget}` : null,
       body.timeline ? `Timeline: ${body.timeline}` : null,
       `IP: ${ip}`,
@@ -129,6 +131,7 @@ export async function POST(req: Request) {
         <div class="row"><strong>Email:</strong> ${escapeHtml(body.email)}</div>
         ${body.company ? `<div class="row"><strong>Company:</strong> ${escapeHtml(body.company)}</div>` : ""}
         ${body.projectType ? `<div class="row"><strong>Project:</strong> ${escapeHtml(body.projectType)}</div>` : ""}
+        ${body.existingSystem ? `<div class="row"><strong>Existing product/system:</strong> ${escapeHtml(body.existingSystem)}</div>` : ""}
         ${body.budget ? `<div class="row"><strong>Budget:</strong> ${escapeHtml(body.budget)}</div>` : ""}
         ${body.timeline ? `<div class="row"><strong>Timeline:</strong> ${escapeHtml(body.timeline)}</div>` : ""}
         <div class="row muted">IP: ${escapeHtml(ip)}</div>

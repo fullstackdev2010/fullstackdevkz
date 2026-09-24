@@ -16,15 +16,17 @@ import ClientActiveNav from "@/components/ClientActiveNav";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import { buildPageMetadata } from "@/lib/site";
 import DeviceSlideshow from "@/components/ui/DeviceSlideshow";
+import ProjectProcess from "@/components/conversion/ProjectProcess";
+import { workProducts } from "@/lib/workProducts";
 
 export const metadata = {
   ...buildPageMetadata({
     title: "Custom Mobile & Web App Development",
     description:
-      "Fullstack Dev KZ builds production-ready mobile apps, web applications, SaaS platforms, MVPs, and custom business software for companies and founders.",
+      "FullStack Dev KZ builds production-ready mobile apps, web applications, SaaS platforms, MVPs, and custom business software for companies and founders.",
     path: "/",
   }),
-  title: { absolute: "Custom Mobile & Web App Development | Fullstack Dev KZ" },
+  title: { absolute: "Custom Mobile & Web App Development | FullStack Dev KZ" },
 };
 
 const services = [
@@ -58,31 +60,14 @@ const services = [
   },
 ];
 
-const examples = [
-  {
-    href: "/work/tradesmate",
-    title: "TradesMate business management application",
-    description: "Jobs, customers, quotes, invoices, payments, and expenses in one Android product backed by FastAPI.",
-    linkLabel: "Explore TradesMate",
-  },
-  {
-    href: "/work/come-together",
-    title: "Come Together SaaS platform",
-    description: "A web and Android system for local clubs, event organisers, bookings, attendance, and community activity.",
-    linkLabel: "Explore Come Together",
-  },
-  {
-    href: "/work/pubplay",
-    title: "PubPlay mobile and web platform",
-    description: "An Android host app, QR player experience, live fixtures, and TV leaderboards for recurring pub events.",
-    linkLabel: "Explore PubPlay",
-  },
-  {
-    href: "/work/studyflow",
-    title: "StudyFlow local-first mobile application",
-    description: "Spaced repetition, review scheduling, recall statistics, reminders, and purchases in a focused Android product.",
-    linkLabel: "Explore StudyFlow",
-  },
+const platformExamples = workProducts.filter((product) => product.priority === "platform");
+const focusedApplications = workProducts.filter((product) => product.priority === "application");
+
+const proofAreas = [
+  "Mobile Apps",
+  "Web Platforms",
+  "Backend & APIs",
+  "SaaS & Business Software",
 ];
 
 const tradesMateSlides = [
@@ -153,15 +138,17 @@ export default function Home() {
                 <Link
                   className="glow-outline inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 text-sm"
                   href="/contact"
+                  data-cta="discuss-project"
                 >
                   <MessageSquare size={17} aria-hidden />
-                  Discuss your project
+                  Discuss Your Project
                 </Link>
                 <Link
                   className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm"
                   href="/work"
+                  data-cta="view-work"
                 >
-                  View products &amp; work
+                  View Our Work
                   <ArrowRight size={17} aria-hidden />
                 </Link>
               </div>
@@ -197,6 +184,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="mt-8 border-y border-white/15 py-5" aria-label="Software development capabilities">
+          <ul className="grid gap-3 text-sm font-medium sm:grid-cols-2 lg:grid-cols-4">
+            {proofAreas.map((area) => (
+              <li key={area} className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" aria-hidden />
+                {area}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="mt-16" aria-labelledby="development-services">
@@ -270,13 +268,13 @@ export default function Home() {
             </div>
 
             <div className="grid gap-4">
-              {examples.map((example) => (
-                <Link key={example.href} href={example.href} className="group block rounded-2xl">
+              {platformExamples.map((example) => (
+                <Link key={example.slug} href={`/work/${example.slug}`} className="group block rounded-2xl">
                   <GlassCard className="transition-transform duration-200 group-hover:-translate-y-1 group-hover:shadow-2xl">
                     <h3 className="text-xl font-semibold">{example.title}</h3>
-                    <p className="mt-2 text-sm text-[var(--muted)]">{example.description}</p>
+                    <p className="mt-2 text-sm text-[var(--muted)]">{example.summary}</p>
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
-                      {example.linkLabel}
+                      Explore {example.title.split(":")[0]}
                       <ArrowRight size={15} aria-hidden />
                     </span>
                   </GlassCard>
@@ -284,7 +282,22 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <div className="mt-8 border-t border-white/15 pt-6">
+            <h3 className="text-lg font-semibold">Focused mobile applications</h3>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+              Smaller products demonstrate focused UX, local-first state, native integrations, billing, notifications, and store delivery without presenting every application as a multi-surface platform.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              {focusedApplications.map((product) => (
+                <Link key={product.slug} href={`/work/${product.slug}`} className="inline-flex items-center gap-2 font-medium hover:underline">
+                  {product.title.split(":")[0]} <ArrowRight size={14} aria-hidden />
+                </Link>
+              ))}
+            </div>
+          </div>
         </section>
+
+        <ProjectProcess />
 
         <section className="mt-16 border-y border-white/15 py-9" aria-labelledby="software-solutions">
           <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
@@ -302,7 +315,7 @@ export default function Home() {
             <div>
               <div className="text-sm font-medium text-[var(--accent)]">Start with the problem</div>
               <h2 className="mt-2 text-2xl font-semibold md:text-3xl">
-                Need a new application or a stronger existing product?
+                Have a software project in mind?
               </h2>
               <p className="mt-3 max-w-2xl text-[var(--muted)]">
                 Share the users, workflow, integrations, and release goal. We can
@@ -313,9 +326,10 @@ export default function Home() {
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"
+              data-cta="discuss-project"
             >
               <MessageSquare size={17} aria-hidden />
-              Start a project discussion
+              Discuss Your Project
             </Link>
           </div>
         </section>

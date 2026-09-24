@@ -227,7 +227,7 @@ export default function DeleteRequestForm() {
           className="mt-1 accent-emerald-400"
         />
         <span className="text-sm leading-6 text-[var(--muted)]">
-          I confirm that I own this account and understand that Fullstack Dev KZ may
+          I confirm that I own this account and understand that FullStack Dev KZ may
           contact me to verify the request before deletion. *
         </span>
       </label>

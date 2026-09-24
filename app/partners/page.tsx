@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/site";
 export const metadata: Metadata = buildPageMetadata({
   title: "Software Product Partners",
   description:
-    "Partner-led campaigns and regional product promotion for software products and platforms built by Fullstack Dev KZ.",
+    "Partner-led campaigns and regional product promotion for software products and platforms built by FullStack Dev KZ.",
   path: "/partners",
 });
 
@@ -70,7 +70,7 @@ export default function Page() {
               </div>
               <p className="mt-5 max-w-2xl text-lg text-[var(--muted)]">
                 This hub collects partner-led campaign pages for products and systems
-                built by Fullstack Dev KZ. Each page is shaped for a specific market,
+                built by FullStack Dev KZ. Each page is shaped for a specific market,
                 audience, and offer.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">

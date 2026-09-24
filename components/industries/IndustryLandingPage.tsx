@@ -197,7 +197,7 @@ export default function IndustryLandingPage({ industry }: { industry: IndustryPa
         <section className="mt-16 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div><div className="text-sm font-medium text-[var(--accent)]">Bring the workflow, not a feature wishlist</div><h2 className="mt-2 text-2xl font-semibold md:text-3xl">{industry.ctaTitle}</h2><p className="mt-3 max-w-3xl leading-7 text-[var(--muted)]">{industry.ctaText}</p></div>
-            <Link href={`/contact?intent=${industry.contactIntent}`} className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"><MessageSquare size={17} aria-hidden />{industry.ctaLabel}</Link>
+            <Link href={`/contact?intent=${industry.contactIntent}`} data-cta="discuss-project" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25"><MessageSquare size={17} aria-hidden />Discuss Your Project</Link>
           </div>
         </section>
       </div>
