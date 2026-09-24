@@ -8,6 +8,7 @@ type DeviceSlide = {
   src: string;
   alt: string;
   label: string;
+  contentScale?: number;
 };
 
 type DeviceSlideshowProps = {
@@ -124,7 +125,7 @@ export default function DeviceSlideshow({
             alt={active.alt}
             width={width}
             height={height}
-            contentScale={innerScale}
+            contentScale={active.contentScale ?? innerScale}
             priority={priority && index === 0}
             className="phone-showcase-frame max-w-full"
           />

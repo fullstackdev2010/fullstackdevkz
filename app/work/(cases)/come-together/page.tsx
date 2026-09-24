@@ -23,6 +23,8 @@ import { QualityBadge } from "@/components/ui/QualityBadge";
 import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
 import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
 import { SITE_URL } from "@/lib/site";
+import RelatedGuides from "@/components/blog/RelatedGuides";
+import { productGuideLinks } from "@/lib/guideLinks";
 
 const title = "Come Together: Local Clubs Platform";
 const description =
@@ -459,6 +461,8 @@ export default function Page() {
         <section className="mt-10 border-t border-white/15 pt-5" aria-labelledby="come-together-industry">
           <div className="max-w-3xl"><div className="text-sm font-medium text-[var(--accent)]">Industry workflow context</div><h2 id="come-together-industry" className="mt-2 text-xl font-semibold">Software for clubs and member organizations</h2><p className="mt-2 text-sm leading-6 text-[var(--muted)]">See how public discovery, booking, capacity, waitlists, attendance, organizer tools, and mobile access form a connected platform.</p><Link href="/industries/clubs-member-organizations" className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:underline">Explore the club platform guide<ArrowRight size={15} aria-hidden /></Link></div>
         </section>
+
+        <RelatedGuides links={productGuideLinks["come-together"]} className="mt-12" />
 
         <nav aria-label="Product navigation" className="mt-16 border-t border-white/10 pt-8">
           <div className="flex flex-wrap gap-3">

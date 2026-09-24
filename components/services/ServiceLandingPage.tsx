@@ -12,6 +12,8 @@ import type { ServicePageData } from "@/lib/servicePages";
 import { serviceSolutionLinks } from "@/lib/solutionPages";
 import { serviceIndustryLinks } from "@/lib/industryPages";
 import { SITE_URL } from "@/lib/site";
+import RelatedGuides from "@/components/blog/RelatedGuides";
+import { serviceGuideLinks } from "@/lib/guideLinks";
 
 export default function ServiceLandingPage({ service }: { service: ServicePageData }) {
   const route = `/services/${service.slug}`;
@@ -257,6 +259,8 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
             </div>
           </div>
         </section>
+
+        <RelatedGuides links={serviceGuideLinks[service.slug] ?? []} />
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">

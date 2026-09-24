@@ -24,6 +24,8 @@ import { TRADESMATE_PLAY_URL, TRADESMATE_SITE_URL } from "@/lib/constants";
 import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
 import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
 import { SITE_URL } from "@/lib/site";
+import RelatedGuides from "@/components/blog/RelatedGuides";
+import { productGuideLinks } from "@/lib/guideLinks";
 
 const title = "TradesMate: Jobs, Quotes & Invoices";
 const description =
@@ -176,6 +178,8 @@ export default function Page() {
         <section className="mt-10 border-t border-white/15 pt-5" aria-labelledby="tradesmate-industry">
           <div className="max-w-3xl"><div className="text-sm font-medium text-[var(--accent)]">Industry workflow context</div><h2 id="tradesmate-industry" className="mt-2 text-xl font-semibold">Software for trades and service businesses</h2><p className="mt-2 text-sm leading-6 text-[var(--muted)]">See how customer, job, schedule, document, payment, and mobile workflows fit together beyond the TradesMate product itself.</p><Link href="/industries/trades-service-businesses" className="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:underline">Explore the trades workflow guide<ArrowRight size={15} aria-hidden /></Link></div>
         </section>
+
+        <RelatedGuides links={productGuideLinks.tradesmate} className="mt-12" />
 
         <nav aria-label="Product navigation" className="mt-16 border-t border-white/10 pt-8"><div className="flex flex-wrap gap-3"><Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><ArrowLeft size={16} aria-hidden />Back to Work</Link><Link href="/services/custom-business-software" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">Business software development<ArrowRight size={16} aria-hidden /></Link><Link href="/blog/introducing-tradesmate-business-admin-for-tradespeople" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10">TradesMate product story<ArrowRight size={16} aria-hidden /></Link><Link href="/work/tradesmate/privacy" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><ShieldCheck size={16} aria-hidden />Privacy Policy</Link><Link href="/work/tradesmate/delete" className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"><Trash2 size={16} aria-hidden />Delete account and data</Link></div></nav>
       </div>

@@ -10,6 +10,8 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import { GlassCard } from "@/components/ui/GlassCard";
 import type { SolutionPageData } from "@/lib/solutionPages";
 import { SITE_URL } from "@/lib/site";
+import RelatedGuides from "@/components/blog/RelatedGuides";
+import { solutionGuideLinks } from "@/lib/guideLinks";
 import { solutionIndustryLinks } from "@/lib/industryPages";
 
 export default function SolutionLandingPage({ solution }: { solution: SolutionPageData }) {
@@ -208,6 +210,8 @@ export default function SolutionLandingPage({ solution }: { solution: SolutionPa
             </div>
           </section>
         )}
+
+        <RelatedGuides links={solutionGuideLinks[solution.slug] ?? []} />
 
         <section className="mt-14 rounded-3xl border glass p-6 sm:p-8 md:p-10">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">

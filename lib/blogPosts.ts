@@ -1,20 +1,9 @@
-export type BlogPost = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  appHref: string;
-  appName: string;
-  category: string;
-  keywords: string[];
-  intro: string;
-  sections: {
-    title: string;
-    body: string[];
-  }[];
-};
+import { guidePosts } from "@/lib/guidePosts";
+import type { BlogPost } from "@/lib/blogTypes";
 
-export const blogPosts: BlogPost[] = [
+export type { BlogPost } from "@/lib/blogTypes";
+
+const productPosts: BlogPost[] = [
   {
     slug: "introducing-tradesmate-business-admin-for-tradespeople",
     title: "Introducing TradesMate: business admin without the office",
@@ -344,6 +333,8 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+export const blogPosts: BlogPost[] = [...guidePosts, ...productPosts];
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
