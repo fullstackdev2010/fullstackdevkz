@@ -47,12 +47,9 @@ export default function Work() {
     <main className="relative isolate">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-10 md:py-18">
-        {/* Rounded glass container with mesh */}
-        <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 md:p-16 border glass">
-
-          {/* Mesh background */}
+        <section className="relative overflow-hidden rounded-3xl border glass p-6 sm:p-10 md:p-12">
           <MeshWithPhotoInsets
-            className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
+            className="pointer-events-none absolute inset-0 z-0 h-full min-h-[620px]"
             backgroundSrc="/brand/work.webp"
             viewBox="0 0 1600 900"
             photos={[]}
@@ -66,9 +63,9 @@ export default function Work() {
             />
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 min-w-0">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+          <div className="relative z-10 max-w-4xl">
+            <div className="text-sm font-medium text-[var(--accent)]">Work &amp; products</div>
+            <h1 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
               Software products developed by FullStack Dev KZ
             </h1>
 
@@ -95,10 +92,10 @@ export default function Work() {
                 Discuss Your Project
               </Link>
             </div>
+          </div>
+        </section>
 
-            <div className="mt-8 h-px w-full bg-white/10" />
-
-            <section className="mt-8 md:mt-10">
+        <section className="mt-16">
               <div className="max-w-3xl">
                 <div className="text-sm font-medium text-[var(--accent)]">Connected systems</div>
                 <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Production products &amp; platforms</h2>
@@ -113,9 +110,9 @@ export default function Work() {
                   <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
               </div>
-            </section>
+        </section>
 
-            <section className="mt-14">
+        <section className="mt-14">
               <div className="max-w-3xl">
                 <div className="text-sm font-medium text-[var(--accent)]">Google Play releases</div>
                 <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Shipped Android applications</h2>
@@ -129,9 +126,9 @@ export default function Work() {
                   <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
               </div>
-            </section>
+        </section>
 
-            <section className="mt-14 border-t border-white/15 pt-9">
+        <section className="mt-14 border-t border-white/15 pt-9">
               <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <div className="text-sm font-medium text-[var(--accent)]">From evidence to your workflow</div>
@@ -142,10 +139,7 @@ export default function Work() {
                   <MessageSquare size={17} aria-hidden />Discuss Your Project
                 </Link>
               </div>
-            </section>
-
-          </div>
-        </div>
+        </section>
       </div>
     </main>
   );
