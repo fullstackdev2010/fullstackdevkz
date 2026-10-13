@@ -17,6 +17,9 @@ type Props = {
   serviceLabel: string;
   externalHref?: string;
   externalLabel?: string;
+  audience?: string;
+  businessProblem?: string;
+  engineeringRole?: string;
 };
 
 export default function CaseCard({
@@ -32,6 +35,9 @@ export default function CaseCard({
   serviceLabel,
   externalHref,
   externalLabel,
+  audience,
+  businessProblem,
+  engineeringRole,
 }: Props) {
   return (
     <GlassCard className="group h-full overflow-hidden transition-transform hover:-translate-y-0.5      focus-within:ring-2 focus-within:ring-white/30">
@@ -75,6 +81,9 @@ export default function CaseCard({
         <dl className="mt-4 grid gap-2 border-t border-white/10 pt-4 text-xs">
           <div><dt className="text-[var(--muted)]">Platform</dt><dd className="mt-0.5 font-medium">{platform}</dd></div>
           <div><dt className="text-[var(--muted)]">Demonstrates</dt><dd className="mt-0.5 font-medium">{strongestCapability}</dd></div>
+          {audience ? <div><dt className="text-[var(--muted)]">Built for</dt><dd className="mt-0.5 font-medium">{audience}</dd></div> : null}
+          {businessProblem ? <div><dt className="text-[var(--muted)]">Business problem</dt><dd className="mt-0.5 font-medium">{businessProblem}</dd></div> : null}
+          {engineeringRole ? <div><dt className="text-[var(--muted)]">Development role</dt><dd className="mt-0.5 font-medium">{engineeringRole}</dd></div> : null}
         </dl>
 
         {/* Tags */}

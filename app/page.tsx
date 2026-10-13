@@ -248,10 +248,10 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)]">
                 <Braces size={18} aria-hidden />
-                Shipped software
+                Products developed by FullStack Dev KZ
               </div>
               <h2 id="shipped-software" className="mt-2 text-2xl font-semibold md:text-3xl">
-                Real products demonstrate the full delivery path
+                Production software demonstrates the full delivery path
               </h2>
               <p className="mt-3 text-[var(--muted)]">
                 Our work includes production Android applications, connected web

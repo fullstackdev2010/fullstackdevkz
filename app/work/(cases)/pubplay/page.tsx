@@ -23,14 +23,14 @@ import { QualityBadge } from "@/components/ui/QualityBadge";
 import { PUBPLAY_PLAY_URL, PUBPLAY_SITE_URL } from "@/lib/constants";
 import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
 import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
-import { SITE_URL } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_URL } from "@/lib/site";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { productGuideLinks } from "@/lib/guideLinks";
 
 const title = "PubPlay: Pub Games Night System";
 const description =
-  "Run darts, pool, bingo, quizzes, and pub tournaments from an Android tablet while players join by QR code and follow live fixtures and leaderboards.";
-const metadataTitle = "PubPlay — Pub Games Night Platform";
+  "PubPlay is a pub games-night platform developed by FullStack Dev KZ, connecting an Android host, QR player web app, fixtures, scoring, leaderboards, and TV display.";
+const metadataTitle = "PubPlay Software Development Case Study";
 
 export const metadata: Metadata = {
   title: metadataTitle,
@@ -204,8 +204,10 @@ const jsonLd = {
       operatingSystem: "Android",
       description,
       url: `${SITE_URL}/work/pubplay`,
+      "@id": `${SITE_URL}/work/pubplay#software`,
       downloadUrl: PUBPLAY_PLAY_URL,
       sameAs: [PUBPLAY_SITE_URL],
+      creator: { "@id": ORGANIZATION_ID },
       featureList: [
         "QR player registration",
         "Round-robin and knockout fixtures",
@@ -363,6 +365,13 @@ export default function Page() {
                 priority
               />
             </div>
+          </div>
+        </section>
+
+        <section className="mt-10 border-y border-white/15 py-7" aria-labelledby="pubplay-development-role">
+          <div className="grid gap-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+            <div><div className="text-sm font-medium text-[var(--accent)]">Developer relationship</div><h2 id="pubplay-development-role" className="mt-2 text-2xl font-semibold">Engineered by FullStack Dev KZ</h2></div>
+            <p className="leading-7 text-[var(--muted)]">FullStack Dev KZ developed the authenticated Android host, QR-based player web application, public TV display, tournament and trivia logic, live event data, subscriptions, and shared backend services.</p>
           </div>
         </section>
 

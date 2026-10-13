@@ -23,14 +23,14 @@ import { QualityBadge } from "@/components/ui/QualityBadge";
 import { TRADESMATE_PLAY_URL, TRADESMATE_SITE_URL } from "@/lib/constants";
 import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
 import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
-import { SITE_URL } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_URL } from "@/lib/site";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { productGuideLinks } from "@/lib/guideLinks";
 
 const title = "TradesMate: Jobs, Quotes & Invoices";
 const description =
-  "TradesMate helps tradespeople manage customers, scheduled jobs, quotes, invoices, payments, expenses, and business performance from Android.";
-const metadataTitle = "TradesMate — Trade Business Management App";
+  "TradesMate is Android business software developed by FullStack Dev KZ for managing customers, jobs, quotes, invoices, payments, expenses, and business performance.";
+const metadataTitle = "TradesMate Software Development Case Study";
 
 export const metadata: Metadata = {
   title: metadataTitle,
@@ -105,7 +105,9 @@ const jsonLd = {
       operatingSystem: "Android",
       description,
       url: `${SITE_URL}/work/tradesmate`,
+      "@id": `${SITE_URL}/work/tradesmate#software`,
       sameAs: [TRADESMATE_SITE_URL, TRADESMATE_PLAY_URL],
+      creator: { "@id": ORGANIZATION_ID },
       featureList: ["Job scheduling", "Customer management", "Quotes and invoices", "Payment tracking", "Expense capture", "Multi-currency business reporting"],
     },
     {
@@ -141,6 +143,13 @@ export default function Page() {
             <div className="mt-9 overflow-hidden rounded-2xl border border-white/15 bg-black/20 shadow-2xl">
               <Image src="/demos/tradesmate/feature-graphic-en.png" alt="TradesMate - jobs, quotes, and invoices sorted" width={1024} height={500} className="h-auto w-full" priority />
             </div>
+          </div>
+        </section>
+
+        <section className="mt-10 border-y border-white/15 py-7" aria-labelledby="tradesmate-development-role">
+          <div className="grid gap-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+            <div><div className="text-sm font-medium text-[var(--accent)]">Developer relationship</div><h2 id="tradesmate-development-role" className="mt-2 text-2xl font-semibold">Developed by FullStack Dev KZ</h2></div>
+            <p className="leading-7 text-[var(--muted)]">FullStack Dev KZ developed the TradesMate Android application, FastAPI backend, business data model, authentication and team access, subscription integration, reminders, document workflows, and dedicated product website.</p>
           </div>
         </section>
 

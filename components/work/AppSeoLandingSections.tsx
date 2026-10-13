@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import ProductDevelopmentBridge, { type ServiceLink } from "@/components/work/ProductDevelopmentBridge";
 import { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
-import { SITE_URL } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_URL } from "@/lib/site";
 
 type RelatedApp = {
   href: string;
@@ -61,6 +61,7 @@ export default function AppSeoLandingSections({
         operatingSystem: "Android",
         description,
         url: `${SITE_URL}/work/${slug}`,
+        creator: { "@id": ORGANIZATION_ID },
       },
       productBreadcrumbJsonLd(slug, appName),
       {

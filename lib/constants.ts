@@ -28,3 +28,7 @@ export const TRADESMATE_PLAY_URL =
    "https://play.google.com/store/apps/details?id=com.fullstackdevkz.tradesmate";
 
 export const TRADESMATE_SITE_URL = "https://gettradesmate.com/";
+
+export const WORKFLOWRIGHT_SITE_URL = "https://workflowright.com/";
+
+export const HELLOLOCALCLUBS_SITE_URL = "https://hellolocalclubs.com/";

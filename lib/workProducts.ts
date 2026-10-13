@@ -2,10 +2,12 @@ import {
   EXPENSE_PLAY_URL,
   FLASHCARDS_PLAY_URL,
   HABIT_PLAY_URL,
+  HELLOLOCALCLUBS_SITE_URL,
   ISKRAUG_PLAY_URL,
   MEDITATION_PLAY_URL,
   PUBPLAY_SITE_URL,
   TRADESMATE_SITE_URL,
+  WORKFLOWRIGHT_SITE_URL,
   TODO_PLAY_URL,
   UNISCAN_PLAY_URL,
 } from "@/lib/constants";
@@ -24,6 +26,9 @@ export type WorkProduct = {
   externalHref?: string;
   externalLabel?: string;
   priority: "platform" | "application";
+  audience?: string;
+  businessProblem?: string;
+  engineeringRole?: string;
 };
 
 export const workProducts: WorkProduct[] = [
@@ -41,6 +46,9 @@ export const workProducts: WorkProduct[] = [
     externalHref: TRADESMATE_SITE_URL,
     externalLabel: "Visit TradesMate",
     priority: "platform",
+    audience: "Independent tradespeople and small service teams",
+    businessProblem: "Customer, job, document, payment, and cost records are easily split across separate tools.",
+    engineeringRole: "FullStack Dev KZ developed the Android product, supporting API, data model, subscriptions, notifications, and product website.",
   },
   {
     slug: "come-together",
@@ -53,9 +61,12 @@ export const workProducts: WorkProduct[] = [
     thumb: "/demos/preview/come-together.png",
     serviceHref: "/services/saas-development",
     serviceLabel: "SaaS Development",
-    externalHref: "https://hellolocalclubs.com",
+    externalHref: HELLOLOCALCLUBS_SITE_URL,
     externalLabel: "Visit live platform",
     priority: "platform",
+    audience: "Club organizers and people looking for local gatherings",
+    businessProblem: "Event discovery, booking, capacity, attendance, and repeat participation need one connected operating record.",
+    engineeringRole: "FullStack Dev KZ developed the public web platform, organizer dashboard, Android companion, backend, and notification workflows.",
   },
   {
     slug: "pubplay",
@@ -71,6 +82,27 @@ export const workProducts: WorkProduct[] = [
     externalHref: PUBPLAY_SITE_URL,
     externalLabel: "Visit PubPlay",
     priority: "platform",
+    audience: "Pubs and entertainment venues running recurring games nights",
+    businessProblem: "Player registration, fixtures, scoring, displays, and results become difficult to coordinate across a busy venue.",
+    engineeringRole: "FullStack Dev KZ developed the Android host, browser player and TV surfaces, tournament logic, subscriptions, and shared backend.",
+  },
+  {
+    slug: "workflowright",
+    title: "WorkflowRight: Business Process Platform",
+    summary: "A multi-tenant web platform that gives teams one place for applications, records, approvals, and the tasks that move work forward.",
+    classification: "Commercial product · Workflow platform",
+    platform: "Web application",
+    strongestCapability: "Tenant-separated operational workflows",
+    tags: ["Web", "Multi-tenant", "Workflow"],
+    thumb: "",
+    serviceHref: "/services/custom-business-software",
+    serviceLabel: "Custom Business Software",
+    externalHref: WORKFLOWRIGHT_SITE_URL,
+    externalLabel: "Visit WorkflowRight",
+    priority: "platform",
+    audience: "Teams managing repeatable applications, records, approvals, and tasks",
+    businessProblem: "Operational work loses clarity when records, decisions, and next actions are spread across disconnected tools.",
+    engineeringRole: "FullStack Dev KZ developed WorkflowRight as a tenant-separated business workflow product and operates its public product and application surfaces.",
   },
   {
     slug: "studyflow",

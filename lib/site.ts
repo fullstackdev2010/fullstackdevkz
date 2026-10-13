@@ -3,8 +3,11 @@ import type { Metadata } from "next";
 export const SITE_NAME = "FullStack Dev KZ";
 export const SITE_URL = "https://www.fullstackdev.kz";
 export const SITE_DESCRIPTION =
-  "FullStack Dev KZ designs and builds custom mobile apps, web applications, SaaS platforms, backend systems, and business software.";
+  "FullStack Dev KZ is a software development company that builds custom mobile apps, web applications, SaaS platforms, backend systems, and production business software.";
 export const DEFAULT_OG_IMAGE = "/brand/fullstackdevkz-badge.png";
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+
+export const organizationReference = { "@id": ORGANIZATION_ID } as const;
 
 type PageMetadataOptions = {
   title: string;
@@ -53,7 +56,7 @@ export const companyJsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
+      "@id": ORGANIZATION_ID,
       name: SITE_NAME,
       url: SITE_URL,
       logo: `${SITE_URL}/brand/fullstackdevkz-badge.png`,
@@ -65,7 +68,7 @@ export const companyJsonLd = {
       url: SITE_URL,
       name: SITE_NAME,
       description: SITE_DESCRIPTION,
-      publisher: { "@id": `${SITE_URL}/#organization` },
+      publisher: organizationReference,
       inLanguage: "en",
     },
   ],

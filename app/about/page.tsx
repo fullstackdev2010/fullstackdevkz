@@ -36,6 +36,11 @@ const evidence = [
     title: "Come Together",
     body: "A web and Android platform for club discovery, event booking, capacity, waitlists, attendance, and organizer workflows.",
   },
+  {
+    href: "/work/workflowright",
+    title: "WorkflowRight",
+    body: "A tenant-separated web platform connecting applications, records, approvals, and tasks in one operational workspace.",
+  },
 ];
 
 export default function Page() {
@@ -53,7 +58,7 @@ export default function Page() {
               Software development backed by real products
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--muted)]">
-              We plan, design, build, and release mobile apps, web applications, backend APIs, SaaS platforms, and custom business software. The approach starts with the real workflow and stays grounded in production responsibilities such as data, permissions, errors, deployment, privacy, and ongoing ownership.
+              FullStack Dev KZ is a software development company that plans, designs, builds, and releases mobile apps, web applications, backend APIs, SaaS platforms, and custom business software. Our portfolio includes production products developed and operated around real commercial and operational workflows.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/contact" data-cta="discuss-project" className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/15 px-5 py-3 text-sm font-medium transition hover:bg-white/25">
@@ -90,7 +95,7 @@ export default function Page() {
             <h2 id="see-software" className="mt-2 text-2xl font-semibold md:text-3xl">See the software</h2>
             <p className="mt-3 leading-7 text-[var(--muted)]">These larger products show connected mobile, web, backend, commercial, and operational decisions. Their case studies use real product screens and documented workflows.</p>
           </div>
-          <div className="mt-7 grid gap-5 md:grid-cols-3">
+          <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {evidence.map((item) => (
               <Link key={item.href} href={item.href} className="group block rounded-2xl">
                 <GlassCard className="h-full transition-transform duration-200 group-hover:-translate-y-1">

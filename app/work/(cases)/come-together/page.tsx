@@ -22,15 +22,16 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { QualityBadge } from "@/components/ui/QualityBadge";
 import ProductBreadcrumbs, { productBreadcrumbJsonLd } from "@/components/work/ProductBreadcrumbs";
 import ProductDevelopmentBridge from "@/components/work/ProductDevelopmentBridge";
-import { SITE_URL } from "@/lib/site";
+import { HELLOLOCALCLUBS_SITE_URL } from "@/lib/constants";
+import { ORGANIZATION_ID, SITE_URL } from "@/lib/site";
 import RelatedGuides from "@/components/blog/RelatedGuides";
 import { productGuideLinks } from "@/lib/guideLinks";
 
 const title = "Come Together: Local Clubs Platform";
 const description =
-  "A connected web and Android platform for local club organizers to publish events, manage bookings and waitlists, track attendance, and encourage repeat visits.";
-const metadataTitle = "Come Together — Local Club Management Platform";
-const liveUrl = "https://hellolocalclubs.com";
+  "HelloLocalClubs, presented in this portfolio as Come Together, is a web and Android club platform developed by FullStack Dev KZ for events, bookings, waitlists, and attendance.";
+const metadataTitle = "HelloLocalClubs Software Development Case Study";
+const liveUrl = HELLOLOCALCLUBS_SITE_URL;
 
 export const metadata: Metadata = {
   title: metadataTitle,
@@ -167,7 +168,9 @@ const jsonLd = {
       operatingSystem: "Web, Android",
       description,
       url: `${SITE_URL}/work/come-together`,
+      "@id": `${SITE_URL}/work/come-together#software`,
       sameAs: [liveUrl],
+      creator: { "@id": ORGANIZATION_ID },
       featureList: [
         "Public club and event pages",
         "Event booking and ordered waitlists",
@@ -271,6 +274,13 @@ export default function Page() {
                 priority
               />
             </div>
+          </div>
+        </section>
+
+        <section className="mt-10 border-y border-white/15 py-7" aria-labelledby="come-together-development-role">
+          <div className="grid gap-5 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+            <div><div className="text-sm font-medium text-[var(--accent)]">Developer relationship</div><h2 id="come-together-development-role" className="mt-2 text-2xl font-semibold">Developed by FullStack Dev KZ</h2></div>
+            <p className="leading-7 text-[var(--muted)]">FullStack Dev KZ developed the HelloLocalClubs public web experience, organizer dashboard, Android companion, booking and waitlist rules, attendance and retention workflows, media handling, notifications, and shared backend.</p>
           </div>
         </section>
 

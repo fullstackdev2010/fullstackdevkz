@@ -224,7 +224,7 @@ export const servicePages: ServicePageData[] = [
     work: [
       { href: "/work/come-together", title: "Come Together", description: "A club platform combining public discovery, organiser workflows, bookings, waitlists, and companion mobile access." },
       { href: "/work/pubplay", title: "PubPlay", description: "A mobile web join experience and live display connected to an Android host application." },
-      { href: "/work/tradesmate", title: "TradesMate", description: "A connected business product with mobile workflows and supporting backend services." },
+      { href: "/work/workflowright", title: "WorkflowRight", description: "A tenant-separated web platform connecting applications, records, approvals, and operational tasks." },
     ],
     related: [
       { slug: "saas-development", title: "SaaS Development", description: "Multi-user and subscription-oriented web products." },
@@ -294,7 +294,7 @@ export const servicePages: ServicePageData[] = [
     work: [
       { href: "/work/come-together", title: "Come Together", description: "A multi-user clubs platform with organisers, guests, events, bookings, waitlists, and Android access." },
       { href: "/work/pubplay", title: "PubPlay", description: "A venue subscription product connecting a host tablet, player web journey, live display, and backend." },
-      { href: "/work/tradesmate", title: "TradesMate", description: "An account-based business application with operational records, subscriptions, and backend services." },
+      { href: "/work/workflowright", title: "WorkflowRight", description: "A multi-tenant workflow product that keeps each organisation's applications, people, and data separate." },
     ],
     related: [
       { slug: "mvp-development", title: "MVP Development", description: "Define the first commercially useful SaaS release." },
@@ -507,7 +507,7 @@ export const servicePages: ServicePageData[] = [
     work: [
       { href: "/work/tradesmate", title: "TradesMate", description: "Customer, job, quote, invoice, payment, expense, and team records connected in a mobile business workflow." },
       { href: "/work/iskra", title: "Iskra Trading", description: "A mobile catalogue and ordering application linked to account, product, and backend business data." },
-      { href: "/work/pubplay", title: "PubPlay", description: "A venue workflow connecting event setup, player registration, fixtures, scores, subscriptions, and displays." },
+      { href: "/work/workflowright", title: "WorkflowRight", description: "Applications, records, approvals, and tasks brought into one tenant-separated operational workflow." },
     ],
     related: [
       { slug: "web-app-development", title: "Web Application Development", description: "Portals, dashboards, and staff systems." },

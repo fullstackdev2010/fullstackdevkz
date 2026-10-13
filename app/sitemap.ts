@@ -20,6 +20,7 @@ const PRODUCT_ROUTES = [
   "/work/tradesmate",
   "/work/come-together",
   "/work/pubplay",
+  "/work/workflowright",
   "/work/studyflow",
   "/work/uniscan",
   "/work/iskra",

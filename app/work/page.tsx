@@ -4,22 +4,48 @@ import MeshWithPhotoInsets from "@/components/visuals/MeshWithPhotoInsets";
 import CaseCard from "@/components/work/CaseCard";
 import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
-import { buildPageMetadata } from "@/lib/site";
+import { ORGANIZATION_ID, SITE_URL, buildPageMetadata } from "@/lib/site";
 import { workProducts } from "@/lib/workProducts";
 
 const platformCases = workProducts.filter((product) => product.priority === "platform");
 const applicationCases = workProducts.filter((product) => product.priority === "application");
 
 export const metadata = buildPageMetadata({
-  title: "Mobile, Web & SaaS Projects",
+  title: "Software Products & Development Case Studies",
   description:
-    "Explore production mobile apps, SaaS platforms, web systems, and business software built and shipped by FullStack Dev KZ.",
+    "Explore production software products developed by FullStack Dev KZ, including mobile apps, SaaS platforms, web systems, and custom business software.",
   path: "/work",
 });
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/work#collection`,
+      name: "Software products developed by FullStack Dev KZ",
+      url: `${SITE_URL}/work`,
+      description: "Production software products and development case studies from FullStack Dev KZ.",
+      about: { "@id": ORGANIZATION_ID },
+      mainEntity: { "@id": `${SITE_URL}/work#products` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${SITE_URL}/work#products`,
+      itemListElement: platformCases.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: product.title,
+        url: `${SITE_URL}/work/${product.slug}`,
+      })),
+    },
+  ],
+};
 
 export default function Work() {
   return (
     <main className="relative isolate">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-10 md:py-18">
         {/* Rounded glass container with mesh */}
         <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 md:p-16 border glass">
@@ -43,13 +69,13 @@ export default function Work() {
           {/* Content */}
           <div className="relative z-10 min-w-0">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
-              Products, platforms &amp; shipped applications
+              Software products developed by FullStack Dev KZ
             </h1>
 
             <p className="mt-4 max-w-3xl text-[var(--muted)]">
-              Production software built across Android, web, SaaS, and backend APIs.
-              These products show how FullStack Dev KZ handles complete workflows,
-              connected systems, release delivery, and practical interface design.
+              Production software built across Android, web, SaaS, workflow platforms,
+              and backend APIs. Each case connects a real business problem to the users,
+              product surfaces, engineering work, and operational decisions behind it.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -75,14 +101,14 @@ export default function Work() {
             <section className="mt-8 md:mt-10">
               <div className="max-w-3xl">
                 <div className="text-sm font-medium text-[var(--accent)]">Connected systems</div>
-                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Products &amp; platforms</h2>
+                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Production products &amp; platforms</h2>
                 <p className="mt-3 text-[var(--muted)]">
                   Commercial software with mobile, web, backend, and operational parts
                   designed to work together as one product.
                 </p>
               </div>
 
-              <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2">
                 {platformCases.map((product) => (
                   <CaseCard key={product.slug} {...product} href={`/work/${product.slug}`} />
                 ))}
