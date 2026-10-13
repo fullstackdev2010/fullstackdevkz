@@ -88,7 +88,7 @@ export default function Page() {
             {industries.map((industry) => (
               <Link key={industry.href} href={industry.href} className="group block rounded-2xl">
                 <GlassCard className="h-full overflow-hidden p-0 transition-transform duration-200 group-hover:-translate-y-1">
-                  <div className="relative aspect-[16/9] border-b border-white/10 bg-black/20"><Image src={industry.image} alt={industry.alt} fill sizes="(max-width: 1024px) 100vw, 400px" className="object-cover" /></div>
+                  <div className="relative aspect-[1024/500] border-b border-white/10 bg-black/20"><Image src={industry.image} alt={industry.alt} fill sizes="(max-width: 1024px) 100vw, 400px" className="object-contain" /></div>
                   <div className="p-6"><div className="text-sm font-medium text-[var(--accent)]">Evidence: {industry.evidence}</div><h2 className="mt-2 text-xl font-semibold">{industry.title}</h2><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{industry.description}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-medium">Explore the industry workflow<ArrowRight size={15} aria-hidden /></span></div>
                 </GlassCard>
               </Link>

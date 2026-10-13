@@ -27,6 +27,13 @@ const STACK: Group[] = [
     ],
   },
   {
+    title: "Development & Deployment Marketplace",
+    items: [
+      { label: "Vercel Marketplace", notes: "Main marketplace for development services, deployment integrations, and managed production tooling" },
+      { label: "Vercel", notes: "Next.js previews, production deployments, domains, and server functions" },
+    ],
+  },
+  {
     title: "Iskra — Domain Features",
     items: [
       { label: "Catalog", notes: "Hierarchical (Electro / HandTools / Parts) + instant search" },

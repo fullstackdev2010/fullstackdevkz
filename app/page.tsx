@@ -95,7 +95,6 @@ const tradesMateSlides = [
     src: "/demos/tradesmate/tradesmate-quote.jpg",
     alt: "TradesMate quote screen with line items, tax, PDF preview, and sharing",
     label: "Quotes and customer sharing",
-    contentScale: 0.88,
   },
 ];
 
