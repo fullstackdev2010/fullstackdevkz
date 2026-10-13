@@ -118,11 +118,9 @@ export default function Page() {
   return (
     <main className="relative isolate">
       <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
-        {/* Rounded glass container with mesh (same layout as home/work/services) */}
-        <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16 border glass">
-          {/* Mesh background confined to this section */}
+        <header className="relative overflow-hidden rounded-3xl border glass p-8 md:p-12 lg:p-16">
           <MeshWithPhotoInsets
-            className="pointer-events-none absolute inset-0 z-0 h-full min-h-[800px]"
+            className="pointer-events-none absolute inset-0 z-0 h-full min-h-[520px]"
             backgroundSrc="/brand/stack.webp"
             viewBox="0 0 1600 900"
             photos={[]}
@@ -134,25 +132,26 @@ export default function Page() {
               palette={['#7AA2FF', '#8DF2D6', '#FFB3EC']}
             />
           </div>
-          {/* Foreground content INSIDE glass */}
           <div className="relative z-10">
-            <header className="max-w-3xl">
-              <h1 className="text-4xl font-semibold">Our Stack</h1>
+            <div className="max-w-3xl">
+              <div className="text-sm font-medium text-[var(--accent)]">Technology and delivery</div>
+              <h1 className="mt-3 text-4xl font-semibold">Our Stack</h1>
               <p className="mt-3 text-[var(--muted)]">
                 A pragmatic toolkit: fast mobile with Expo, a tight FastAPI backend, and on-device OCR for
                 privacy-sensitive flows. Typed end-to-end and tuned for reliability.
               </p>
-            </header>
-            {/* divider */}
-            <div className="mt-8 h-px w-full bg-white/10" />
-            {/* groups grid */}
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {STACK.map((g) => (
-                <StackGroup key={g.title} title={g.title} items={g.items} />
-              ))}
             </div>
           </div>
-        </div>
+        </header>
+
+        <section className="mt-12" aria-labelledby="stack-groups">
+          <h2 id="stack-groups" className="sr-only">Technology stack details</h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {STACK.map((g) => (
+              <StackGroup key={g.title} title={g.title} items={g.items} />
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );
