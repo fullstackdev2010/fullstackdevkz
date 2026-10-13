@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Menu, MessageSquare, X } from 'lucide-react';
+import { Menu, MessageSquare, Search, X } from 'lucide-react';
 
 export function Navbar() {
   const dir = useScrollDirection();
@@ -39,6 +39,7 @@ export function Navbar() {
     { href: '/work/tradesmate', label: 'TradesMate business software' },
     { href: '/work/come-together', label: 'Come Together SaaS platform' },
     { href: '/work/pubplay', label: 'PubPlay games-night system' },
+    { href: '/work/workflowright', label: 'WorkflowRight business process platform' },
     { href: '/work/uniscan', label: 'Docs Scan OCR Encrypt & Share — OCR Scanner' },
     { href: '/work', label: 'All work and products' },
   ];
@@ -66,6 +67,16 @@ export function Navbar() {
             </li>
           ))}
           <li>
+            <Link
+              href="/search"
+              aria-label="Search"
+              title="Search"
+              className={`grid h-9 w-9 place-items-center rounded-lg border border-white/15 transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${isActive('/search') ? 'bg-white/10' : ''}`}
+            >
+              <Search size={17} aria-hidden />
+            </Link>
+          </li>
+          <li>
             <Button as={Link} href="/contact" variant="glow" size="sm" className="gap-2" data-cta="discuss-project">
               <MessageSquare size={15} aria-hidden />
               Discuss Your Project
@@ -88,6 +99,9 @@ export function Navbar() {
       {open && (
         <div className="border-t border-white/10 bg-[color:var(--surface)]/80 backdrop-blur-md lg:hidden">
           <div className="mx-auto max-w-7xl px-6 py-4 space-y-2">
+            <Link href="/search" className={'flex min-h-11 items-center gap-2 ' + (isActive('/search') ? 'opacity-100 underline underline-offset-4' : 'opacity-90')}>
+              <Search size={18} aria-hidden />Search
+            </Link>
             <details>
               <summary className="cursor-pointer py-1">Work</summary>
               <div className="mt-2 pl-3 space-y-1">

@@ -94,7 +94,7 @@ export const workProducts: WorkProduct[] = [
     platform: "Web application",
     strongestCapability: "Tenant-separated operational workflows",
     tags: ["Web", "Multi-tenant", "Workflow"],
-    thumb: "",
+    thumb: "/demos/preview/workflowright.png",
     serviceHref: "/services/custom-business-software",
     serviceLabel: "Custom Business Software",
     externalHref: WORKFLOWRIGHT_SITE_URL,
