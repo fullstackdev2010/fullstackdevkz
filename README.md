@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact email
+
+The contact and account-deletion forms send through Resend. Configure these
+server-side environment variables in every deployed environment:
+
+```text
+RESEND_API_KEY=re_...
+CONTACT_FROM=FullStack Dev KZ <info@fullstackdev.kz>
+CONTACT_TO=fullstackdev2010@gmail.com
+```
+
+`fullstackdev.kz` must be verified as a sending domain in Resend. Keep the
+Resend API key server-only; never expose it through a `NEXT_PUBLIC_` variable.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

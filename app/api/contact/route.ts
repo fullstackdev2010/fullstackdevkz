@@ -79,12 +79,18 @@ export async function POST(req: Request) {
 
     // Read env at runtime (after build)
     const CONTACT_TO = process.env.CONTACT_TO;
-    const CONTACT_FROM = process.env.CONTACT_FROM || "onboarding@resend.dev";
+    const CONTACT_FROM = process.env.CONTACT_FROM;
     const resend = getResend();
 
     if (!CONTACT_TO) {
       return jsonNoIndex(
         { ok: false, error: "CONTACT_TO env is missing on the server." },
+        500
+      );
+    }
+    if (!CONTACT_FROM) {
+      return jsonNoIndex(
+        { ok: false, error: "CONTACT_FROM env is missing on the server." },
         500
       );
     }
